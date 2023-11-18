@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2? family= Bebas+Neue & display=swap');
+
+@font-face {
+    font-family: minhaFonte ;
+    src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
+}
+
+#box-menu{
+    background-color: red;
+}
+
+.container-main{
+    background: linear-gradient(180deg, #000 21.87%, rgba(0, 0, 0, 0.94) 38.42%, rgba(0, 0, 0, 0.56) 100%), url('../../../assets/tecnocomp-estrelado.jpeg'), lightgray -283px -148.75px / 134.172% 160.539% no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr;
+    height: 70%;
+    color: aliceblue;
+}
+.container-primeiro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-primeiro button {
+    width: 46%;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+.container-primeiro button:nth-child(1) {
+    border-radius: 0.49963rem;
+    background: none;
+    color: #DFBF08;
+    font-family: minhaFonte ;
+    border: 1px solid #DFBF08;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 500;
+    background: linear-gradient(to right, #DFBF0B 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
+
+}
+
+.container-primeiro button:nth-child(2) {
+    border-radius: 0.49963rem;
+    background: #DFBF0B;
+    font-family: minhaFonte ;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.container-primeiro button:hover {
+    background-position: left bottom;
+    color: black;
+}
+
+.container-primeiro{
+    width: 100%;
+}
+
+.container-segundo{
+    width: 84%;
+}
+
+.container-segundo p{
+    text-align: center;
+    font-family: minhaFonte;
+    font-size: 11px;
+}
+
+.container-segundo iframe {
+    width: 100%;
+    height: 20rem;
+    border: 4px solid #DCCB35;
+    border-radius: 0.625rem;
+}
+
+
+
+@media (max-width: 425px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .container-segundo {
+        width: 100%;
+        color: aliceblue;
+    }
+
+    iframe {
+        width: 80%;
+        height: 100%;
+    }
+}

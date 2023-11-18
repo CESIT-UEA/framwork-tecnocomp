@@ -1,0 +1,39 @@
+<section>
+  <div class="img">
+    <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
+    <div class="menu-teste">
+      <button
+        id="button"
+        mat-button
+        (click)="menuClick()"
+        (click)="toggleSidebar()"
+      >
+        <mat-icon id="icon">{{ menuHeader }}</mat-icon>
+      </button>
+      <!-- <button id="button" mat-button [matMenuTriggerFor]="afterMenu">
+        <mat-icon id="icon">{{ menuHeader }}</mat-icon>
+      </button>
+      <mat-menu #afterMenu="matMenu" xPosition="after">
+        <button class="box-menu" mat-menu-item>Item 1</button>
+        <button class="box-menu" mat-menu-item>Item 2</button>
+      </mat-menu> -->
+      <aside class="sidebar" [ngClass]="{ open: isOpen }">
+        <h2 class="titulo-topico">Tópicos</h2>
+        <ul>
+          <li *ngFor="let nomeUnidades of unidades"><a routerLink="{{nomeUnidades}}">{{nomeUnidades}}</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="position">
+    <div class="text">
+      <p>
+        APRENDIZAGEM EM INFORMÁTICA: <br />
+        <span class="text-unidade">Abordagem Pedagógica</span>
+      </p>
+    </div>
+  </div>
+</section>
