@@ -1,15 +1,10 @@
 @import url('https://fonts.googleapis.com/css2? family= Bebas+Neue & display=swap');
 
-@font-face {
-    font-family: minhaFonte ;
-    src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
-}
-
-#box-menu{
+#box-menu {
     background-color: red;
 }
 
-.container-main{
+.container-main {
     background: linear-gradient(180deg, #000 21.87%, rgba(0, 0, 0, 0.94) 38.42%, rgba(0, 0, 0, 0.56) 100%), url('../../../assets/tecnocomp-estrelado.jpeg'), lightgray -283px -148.75px / 134.172% 160.539% no-repeat;
     background-size: cover;
     height: 100%;
@@ -24,6 +19,7 @@
     height: 70%;
     color: aliceblue;
 }
+
 .container-primeiro {
     display: flex;
     flex-direction: column;
@@ -44,7 +40,6 @@
     border-radius: 0.49963rem;
     background: none;
     color: #DFBF08;
-    font-family: minhaFonte ;
     border: 1px solid #DFBF08;
     font-size: 0.8rem;
     font-style: normal;
@@ -59,7 +54,7 @@
 .container-primeiro button:nth-child(2) {
     border-radius: 0.49963rem;
     background: #DFBF0B;
-    font-family: minhaFonte ;
+    font-family: minhaFonte;
     font-size: 20px;
     font-weight: 600;
     font-style: normal;
@@ -70,15 +65,15 @@
     color: black;
 }
 
-.container-primeiro{
+.container-primeiro {
     width: 100%;
 }
 
-.container-segundo{
+.container-segundo {
     width: 84%;
 }
 
-.container-segundo p{
+.container-segundo p {
     text-align: center;
     font-family: minhaFonte;
     font-size: 11px;
