@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2? family= Bebas+Neue & display=swap');
+@font-face {
+    font-family: minhaFonte;
+    src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
+}
 
 #box-menu {
     background-color: red;
@@ -40,6 +43,7 @@
     border-radius: 0.49963rem;
     background: none;
     color: #DFBF08;
+    font-family: minhaFonte;
     border: 1px solid #DFBF08;
     font-size: 0.8rem;
     font-style: normal;
