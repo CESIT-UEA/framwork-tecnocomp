@@ -8,11 +8,10 @@
 }
 
 .container-main {
-    background: linear-gradient(180deg, #000 21.87%, rgba(0, 0, 0, 0.94) 38.42%, rgba(0, 0, 0, 0.56) 100%), url('../../../assets/tecnocomp-estrelado.jpeg'), lightgray -283px -148.75px / 134.172% 160.539% no-repeat;
+    background: url('../../../assets/fundo-alternativo.png'), lightgray -283px -148.75px / 134.172% 160.539% no-repeat;
     background-size: cover;
     height: 100%;
     width: 100%;
-    z-index: 100;
 }
 
 .container {

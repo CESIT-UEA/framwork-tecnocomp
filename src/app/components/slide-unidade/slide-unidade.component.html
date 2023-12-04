@@ -1,0 +1,23 @@
+<div class="video-container">
+  <iframe
+    [src]="videos[currentVideoIndex] | safe"
+    title="Video Aula"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen
+  ></iframe>
+
+  <div class="navigation-button">
+    <ul>
+      <li
+        *ngFor="let video of videos; index as i"
+        [ngClass]="{'active': i === currentVideoIndex,
+                    'teste' : i !== currentVideoIndex
+        }"
+        (click)="selectVideo(i)"
+      >
+        {{ i + 1 }}
+      </li>
+    </ul>
+  </div>
+</div>

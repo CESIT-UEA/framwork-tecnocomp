@@ -1,17 +1,14 @@
-import { Component,Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServiceAppService } from 'src/app/service-app.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-header-unidade',
+  templateUrl: './header-unidade.component.html',
+  styleUrls: ['./header-unidade.component.css']
 })
-export class HeaderComponent {
+export class HeaderUnidadeComponent {
   constructor(private appService:ServiceAppService){}
-
-  unidades: string[] = ['Teorias da Aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
-
-  unidadesLinks: string[] = ['teorias-da-aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
+  listaDeUnidades: string[] = ['Behaviorismo', 'Construtivismo', 'Socioconstrutivismo', 'Construcionismo'];
 
   isOpen = false;
 

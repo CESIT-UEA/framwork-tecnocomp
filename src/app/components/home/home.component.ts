@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { ServiceAppService } from 'src/app/service-app.service';
 
 @Component({
@@ -8,7 +8,6 @@ import { ServiceAppService } from 'src/app/service-app.service';
 })
 export class HomeComponent{
   constructor(private appService:ServiceAppService){}
-
   estilosMenu() {
     return {
         container_menu_ativo: this.appService.menu == "menu" ? true : false,

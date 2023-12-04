@@ -1,0 +1,20 @@
+<section>
+    <div class="img">
+      <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
+      <div class="menu-teste">
+        <button
+          id="button"
+          mat-button
+          (click)="menuClick()"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon id="icon">{{ menuHeader }}</mat-icon>
+        </button>
+        <aside class="sidebar" [ngClass]="{ open: isOpen }">
+          <h2 class="titulo-topico">Tópicos</h2>
+          <app-list-menu [unidades]="listaDeUnidades"></app-list-menu>
+        </aside>
+      </div>
+    </div>
+  </section>
+  

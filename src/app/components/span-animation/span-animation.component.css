@@ -1,0 +1,31 @@
+button {
+  border: 1px solid #F8D40E;
+  border-radius: 15px;
+  padding: 0px 7px;
+  background-color: black;
+  color: #999;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 1rem;
+}
+
+button:hover{
+  background-color: #5E561B;
+  color: #CDCDCD;
+}
+
+button:hover > mat-icon{
+  color: #BCAD36;
+}
+
+button span{
+  position: relative;
+  top: -5px;
+}
+mat-icon{
+  font-size: 20px;
+  color: #8D8228;
+  margin: 0 4px 0 0;
+}

@@ -1,0 +1,30 @@
+.container{
+  height: 500px;
+  background-color: black;
+  border: 1px solid #F8D40E;
+}
+
+.container-titulo{
+  display: flex;
+  justify-content: space-between;
+  background-color: #F8D40E;
+}
+
+.container-titulo h1,mat-icon{
+  color: #000;
+}
+
+.container ul{
+  margin: 0 0 0 3rem;
+  line-height: 30px;
+  color: #fff;
+}
+
+.container ul li a{
+  text-decoration: none;
+  color: #F8D40E;
+}
+
+.container ul li a:hover{
+  text-decoration: underline;
+}

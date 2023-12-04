@@ -12,9 +12,7 @@
       </button>
       <aside class="sidebar" [ngClass]="{ open: isOpen }">
         <h2 class="titulo-topico">Tópicos</h2>
-        <ul>
-          <li *ngFor="let nomeUnidades of unidades"><a routerLink="{{nomeUnidades}}">{{nomeUnidades}}</a></li>
-        </ul>
+        <app-list-menu [unidades]="unidades" [unidadesLinks]="unidadesLinks"></app-list-menu>
       </aside>
     </div>
   </div>

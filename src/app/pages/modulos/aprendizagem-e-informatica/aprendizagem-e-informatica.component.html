@@ -1,0 +1,67 @@
+<div class="container-main">
+  <app-header-unidade></app-header-unidade>
+  <div class="position-link-title">
+    <a routerLink="/home">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="31"
+        height="31"
+        viewBox="0 0 31 31"
+        fill="none"
+      >
+        <path
+          d="M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z"
+          stroke="#D8C731"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M11.3611 27.6113V15.1113H18.8611V27.6113"
+          stroke="#D8C731"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+    <span style="position: relative; left: 38%;">TEORIAS DA APRENDIZAGEM</span>
+  </div>
+
+  <section class="section-texto">
+    <!-- Transformar em componente no final -->
+    <h1>Behaviorismo</h1>
+    <ul>
+      <li>
+        <app-span-animation
+          nome_button="Links Externos"
+          nome_icon="description"
+        ></app-span-animation>
+      </li>
+      <li>
+        <app-span-animation
+          nome_button="Referencias Bibliográficas"
+          nome_icon="bookoutlined"
+        ></app-span-animation>
+      </li>
+      <li>
+        <app-span-animation
+          nome_button="Links Externos"
+          nome_icon="link"
+        ></app-span-animation>
+      </li>
+    </ul>
+  </section>
+
+  <app-slide-unidade
+    [videos]="arrayVideos"
+    style="text-align: center"
+  ></app-slide-unidade>
+  <div class="position">
+    <section class="buttons-final">
+      <button>EBOOK TOPICO</button>
+      <button>AVALIAÇÃO FORMATIVA</button>
+      <button>Proximo</button>
+    </section>
+  </div>
+</div>
