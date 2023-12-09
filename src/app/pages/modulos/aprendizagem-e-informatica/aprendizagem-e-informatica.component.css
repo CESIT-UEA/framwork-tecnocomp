@@ -31,13 +31,13 @@ span {
   line-height: 100%;
 }
 
-hr {
+.container-main hr {
   width: 70%;
-  /* text-align: center; */
   margin: 10px auto;
+  margin-top: 20px;
   margin-bottom: 15px;
-  height: 2.5px;
-  background: #C6AA0B;
+  height: 5.5px;
+  background-color: #C6AA0B;
 }
 
 .buttons-final {
@@ -48,9 +48,9 @@ hr {
 }
 
 .buttons-final button {
-  width: 207px;
+  width: 100%;
   margin-bottom: 2rem;
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid #D8C731;
   background-color: black;
   color: #D8C731;

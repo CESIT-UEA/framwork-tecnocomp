@@ -1,9 +1,10 @@
 <div class="video-container">
   <iframe
+    loading="lazy"
     [src]="videos[currentVideoIndex] | safe"
     title="Video Aula"
     frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen
   ></iframe>
 
@@ -11,8 +12,9 @@
     <ul>
       <li
         *ngFor="let video of videos; index as i"
-        [ngClass]="{'active': i === currentVideoIndex,
-                    'teste' : i !== currentVideoIndex
+        [ngClass]="{
+          active: i === currentVideoIndex,
+          teste: i !== currentVideoIndex
         }"
         (click)="selectVideo(i)"
       >
