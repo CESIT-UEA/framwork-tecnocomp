@@ -22,10 +22,45 @@
   font-weight: 600;
   line-height: normal;
 }
-.teste{
+
+.teste {
   color: #D8C731;
 }
+
 .active {
   color: black;
   background: #D8C731;
+}
+
+.loading {
+  position: fixed;
+  left: 14%;
+  width: 70%;
+  background-color: rgba(171, 163, 163, 0.75);
+  box-shadow: 3px -1px 24px 0px rgba(131, 123, 123, 0.75);
+  -webkit-box-shadow: 3px -1px 24px 0px rgba(131, 123, 123, 0.75);
+  -moz-box-shadow: 3px -1px 24px 0px rgba(131, 123, 123, 0.75);
+  height: 500px;
+}
+
+.spinner {
+  position: relative;
+  top: 40%;
+  margin: 0 auto;
+  border: 16px solid #cbbaba;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

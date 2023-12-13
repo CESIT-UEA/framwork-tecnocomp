@@ -1,15 +1,26 @@
 <div class="container-main">
-    <app-header></app-header>
-    <div  class="container" [ngClass]="estilosMenu()">
-        <section class="container-primeiro">
-            <button>DOWNLOAD E-BOOK UNIDADE</button>
-            <button>INICIAR</button>
-        </section>
-        <section class="container-segundo">
-            <p>ASSISTA O VÍDEO DA APRESENTAÇAO DA DISCIPLINA</p>
-            <div class="container-video">
-                <iframe loading="lazy" src="https://www.youtube.com/embed/3D2Xg4t8pdg?si=7MIMoO6rqMVGPZIG" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
-        </section>
-    </div>
+  <app-header></app-header>
+  <div class="container" [ngClass]="estilosMenu()">
+    <section class="container-segundo">
+      <p>ASSISTA O VÍDEO DA APRESENTAÇAO DA DISCIPLINA</p>
+      <div class="container-video">
+        <iframe
+          loading="lazy"
+          src="https://www.youtube.com/embed/3D2Xg4t8pdg?si=7MIMoO6rqMVGPZIG"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+    <section class="container-primeiro">
+      <img src="../../../assets/mundo.png" alt="Imagem de um mundo">
+      <div class="buttons">
+        <button>DOWNLOAD E-BOOK UNIDADE</button>
+        <br>
+        <button>INICIAR</button>
+      </div>
+    </section>
+  </div>
 </div>

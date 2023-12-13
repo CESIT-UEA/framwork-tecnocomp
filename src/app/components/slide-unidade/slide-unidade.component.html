@@ -1,4 +1,7 @@
 <div class="video-container">
+  <div class="loading" *ngIf="isLoading">
+    <div class="spinner"></div>
+  </div>
   <iframe
     loading="lazy"
     [src]="videos[currentVideoIndex] | safe"

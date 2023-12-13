@@ -20,6 +20,7 @@ import { SafePipe } from './safe.pipe';
 import { SpanAnimationComponent } from './components/span-animation/span-animation.component';
 import { SpanAnimationTextoComponent } from './components/span-animation-texto/span-animation-texto.component';
 import { SlideUnidadeComponent } from './components/slide-unidade/slide-unidade.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SlideUnidadeComponent } from './components/slide-unidade/slide-unidade.
     MatListModule,
     MatTabsModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

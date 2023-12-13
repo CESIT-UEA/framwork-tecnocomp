@@ -10,9 +10,17 @@ export class SlideUnidadeComponent {
   currentVideoIndex: number = 0;
 
   selectVideo(index: number) {
+    this.startLoading();
     this.currentVideoIndex = index;
   }
 
+  isLoading = false;
 
+  startLoading() {
+    this.isLoading = true;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+  }
 
 }
