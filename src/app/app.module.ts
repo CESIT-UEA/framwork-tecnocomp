@@ -21,6 +21,7 @@ import { SpanAnimationComponent } from './components/span-animation/span-animati
 import { SpanAnimationTextoComponent } from './components/span-animation-texto/span-animation-texto.component';
 import { SlideUnidadeComponent } from './components/slide-unidade/slide-unidade.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTabsModule,
     MatDialogModule,
     CommonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

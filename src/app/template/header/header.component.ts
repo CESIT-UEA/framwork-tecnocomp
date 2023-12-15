@@ -8,6 +8,8 @@ import { ServiceAppService } from 'src/app/service-app.service';
 })
 export class HeaderComponent {
   constructor(private appService:ServiceAppService){}
+  events: string[] = [];
+  opened!: boolean;
 
   unidades: string[] = ['Teorias da Aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
 
@@ -18,7 +20,7 @@ export class HeaderComponent {
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
-  
+
   menuClick(){
     if (this.appService.menu == null) {
       this.appService.menu = "close";
@@ -35,5 +37,5 @@ export class HeaderComponent {
 
   menuHeader = this.appService.menu == null ? "menu" : this.appService.menu
 
-  
+
 }

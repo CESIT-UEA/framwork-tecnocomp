@@ -3,14 +3,15 @@ ul{
 }
 
 ul li{
-    border: 1px solid #DFBF0B;
-    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
     padding: 15px;
     margin: 10px 0 0 0;
+
 }
 
 ul li:hover{
-    background-color: #DFBF0B;
+    background-color: #6C36BC;
 }
 
 ul li a{
