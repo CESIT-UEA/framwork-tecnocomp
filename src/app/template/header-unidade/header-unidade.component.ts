@@ -10,27 +10,24 @@ export class HeaderUnidadeComponent {
   constructor(private appService:ServiceAppService){}
   listaDeUnidades: string[] = ['Behaviorismo', 'Construtivismo', 'Socioconstrutivismo', 'Construcionismo'];
 
+  listaDeUnidadesLinks: string[] = ['/teorias-da-aprendizagem', 'construtivismo', 'socioconstrutivismo', 'construcionismo'];
+
   isOpen = false;
 
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
-  
+
   menuClick(){
-    if (this.appService.menu == null) {
-      this.appService.menu = "close";
-      this.menuHeader = "close";
-    }else if(this.appService.menu == "menu"){
-      this.appService.menu = "close";
+    if(this.menuHeader == "menu"){
       this.menuHeader = "close";
     }else{
-      this.appService.menu = "menu"
-      this.menuHeader = "menu";
+      this.menuHeader = "menu"
     }
 
   }
 
-  menuHeader = this.appService.menu == null ? "menu" : this.appService.menu
+  menuHeader = "menu"
 
-  
+
 }

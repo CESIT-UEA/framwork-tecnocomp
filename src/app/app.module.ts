@@ -22,6 +22,10 @@ import { SpanAnimationTextoComponent } from './components/span-animation-texto/s
 import { SlideUnidadeComponent } from './components/slide-unidade/slide-unidade.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { BehaviorismoComponent } from './pages/modulos/components/behaviorismo/behaviorismo.component';
+import { ConstrutivismoComponent } from './pages/modulos/components/construtivismo/construtivismo.component';
+import { SocioconstrutivismoComponent } from './pages/modulos/components/socioconstrutivismo/socioconstrutivismo.component';
+import { ConstrucionismoComponent } from './pages/modulos/components/construcionismo/construcionismo.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     SpanAnimationComponent,
     SpanAnimationTextoComponent,
     SlideUnidadeComponent,
+    BehaviorismoComponent,
+    ConstrutivismoComponent,
+    SocioconstrutivismoComponent,
+    ConstrucionismoComponent,
   ],
   imports: [
     BrowserModule,

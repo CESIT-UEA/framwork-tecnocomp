@@ -13,7 +13,7 @@ export class HeaderComponent {
 
   unidades: string[] = ['Teorias da Aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
 
-  unidadesLinks: string[] = ['teorias-da-aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
+  unidadesLinks: string[] = ['/teorias-da-aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
 
   isOpen = false;
 
@@ -22,20 +22,15 @@ export class HeaderComponent {
   }
 
   menuClick(){
-    if (this.appService.menu == null) {
-      this.appService.menu = "close";
-      this.menuHeader = "close";
-    }else if(this.appService.menu == "menu"){
-      this.appService.menu = "close";
+    if(this.menuHeader == "menu"){
       this.menuHeader = "close";
     }else{
-      this.appService.menu = "menu"
-      this.menuHeader = "menu";
+      this.menuHeader = "menu"
     }
 
   }
 
-  menuHeader = this.appService.menu == null ? "menu" : this.appService.menu
+  menuHeader = "menu"
 
 
 }
