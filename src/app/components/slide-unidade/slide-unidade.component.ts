@@ -8,6 +8,7 @@ import { Component,Input } from '@angular/core';
 export class SlideUnidadeComponent {
   @Input({required:true}) videos!: string[];
   currentVideoIndex: number = 0;
+  Is_loading_animation = false
 
   selectVideo(index: number) {
     this.startLoading();

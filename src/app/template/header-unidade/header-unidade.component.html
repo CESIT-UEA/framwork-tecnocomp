@@ -1,20 +1,38 @@
 <section>
-    <div class="img">
-      <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
-      <div class="menu-teste">
-        <button
-          id="button"
-          mat-button
-          (click)="menuClick()"
-          (click)="toggleSidebar()"
+  <div class="img">
+    <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
+    <div class="menu-teste">
+      <a routerLink="/home">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="31"
+          height="31"
+          viewBox="0 0 31 31"
+          fill="none"
         >
-          <mat-icon id="icon">{{ menuHeader }}</mat-icon>
-        </button>
-        <aside class="sidebar" [ngClass]="{ open: isOpen }">
-          <h2 class="titulo-topico">Tópicos</h2>
-          <app-list-menu [unidades]="listaDeUnidades"></app-list-menu>
-        </aside>
-      </div>
+          <path
+            d="M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M11.3611 27.6113V15.1113H18.8611V27.6113"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </a>
+      <mat-icon (click)="menuClick()" (click)="toggleSidebar()" id="icon">{{
+        menuHeader
+      }}</mat-icon>
+      <aside class="sidebar" [ngClass]="{ open: isOpen }">
+        <h2 class="titulo-topico">Tópicos</h2>
+        <app-list-menu [unidades]="listaDeUnidades"></app-list-menu>
+      </aside>
     </div>
-  </section>
-  
+  </div>
+</section>

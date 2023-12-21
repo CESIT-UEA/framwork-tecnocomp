@@ -8,6 +8,9 @@ const routes: Routes = [
   {
     path:'teorias-da-aprendizagem',
     component:AprendizagemEInformaticaComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      ],
   }
 ];
 

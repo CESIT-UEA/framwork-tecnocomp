@@ -1,17 +1,17 @@
 .container{
   height: 500px;
   background-color: black;
-  border: 1px solid #F8D40E;
+  border: 1px solid #3C2859;
 }
 
 .container-titulo{
   display: flex;
   justify-content: space-between;
-  background-color: #F8D40E;
+  background-color: #905cde;
 }
 
 .container-titulo h1,mat-icon{
-  color: #000;
+  color: #FFF;
 }
 
 .container ul{
@@ -22,7 +22,8 @@
 
 .container ul li a{
   text-decoration: none;
-  color: #F8D40E;
+  color: #905cde;
+  ;
 }
 
 .container ul li a:hover{

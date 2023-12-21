@@ -3,6 +3,11 @@
     src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
 }
 
+a svg{
+  position: relative;
+  right: 4%;
+}
+
 .menu-teste {
     position: relative;
     left: 80%;
@@ -24,11 +29,16 @@
     transform: translateX(-70%); /* 70% fica igual do ultimo video q mandei pro marcos */
 }
 
-.titulo-topico{
-    padding: 1rem;
-    color: black;
-    background-color: #DFBF0B;
-    border-radius: 10px;
+.titulo-topico {
+  padding: 1rem;
+  color: black;
+  background-color: #9665DF;
+  border-radius: 20px 0px 0px 0px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 30px */
 }
 
 .teste {
@@ -37,18 +47,14 @@
 }
 
 #button {
-    color: #DFBF0B;
+    color: #FFF;
 }
 
 #icon {
     font-size: 2rem;
     height: 2rem;
     width: 2rem;
-}
-
-.text {
-    color: #FAF8E6;
-    margin-left: 3rem;
+    color: #FFF;
 }
 
 .text p {
@@ -65,13 +71,15 @@
 .img {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    justify-content: center;
     align-items: center;
+    padding: 5px;
+    height: 65px;
 }
 
 .img img {
     max-height: 80px;
     margin-left: 1rem;
+    height: 40px;
 }
 
 

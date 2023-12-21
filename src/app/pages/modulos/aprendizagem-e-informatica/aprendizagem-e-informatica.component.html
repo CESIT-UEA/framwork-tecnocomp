@@ -1,178 +1,170 @@
 <div class="container-main">
   <app-header-unidade></app-header-unidade>
-  <div class="position-link-title">
-    <a routerLink="/home">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="31"
-        height="31"
-        viewBox="0 0 31 31"
-        fill="none"
-      >
-        <path
-          d="M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z"
-          stroke="#D8C731"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-        <path
-          d="M11.3611 27.6113V15.1113H18.8611V27.6113"
-          stroke="#D8C731"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-    </a>
-    <span style="position: relative; left: 40%">TEORIAS DA APRENDIZAGEM</span>
-  </div>
+  <div class="container-main-conteudo">
+    <div class="div-slide">
+      <ul>
+        <li>Behaviorismo</li>
+      </ul>
+      <hr />
+      <div class="container-video">
+        <app-slide-unidade
+          [videos]="arrayVideos"
+          style="text-align: center"
+        ></app-slide-unidade>
+      </div>
+    </div>
 
-  <section class="section-texto">
-    <!-- Transformar em componente no final -->
-    <h1>Behaviorismo</h1>
-    <ul>
-      <li>
+    <div class="botoes">
+      <section class="section-texto center-2">
         <app-span-animation
           nome_button="Texto de apoio"
           nome_icon="description"
         ></app-span-animation>
-      </li>
-      <li>
+
         <app-span-animation
           nome_button="Referencias Bibliográficas"
           nome_icon="bookoutlined"
         ></app-span-animation>
-      </li>
-      <li>
+
         <app-span-animation
           nome_button="Links Externos"
           nome_icon="link"
         ></app-span-animation>
-      </li>
-    </ul>
-  </section>
+      </section>
 
-  <app-slide-unidade
-    [videos]="arrayVideos"
-    style="text-align: center"
-  ></app-slide-unidade>
+      <div class="position">
+        <section class="buttons-final">
+          <button class="primeiro-botao center-2">
+            <a
+              href="../../../../assets/E-book Teste.PDF"
+              download="E-book Teste.PDF"
+              >E-BOOK TÓPICO</a
+            >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+            >
+              <path
+                d="M15.75 11.25V14.25C15.75 14.6478 15.592 15.0294 15.3107 15.3107C15.0294 15.592 14.6478 15.75 14.25 15.75H3.75C3.35218 15.75 2.97064 15.592 2.68934 15.3107C2.40804 15.0294 2.25 14.6478 2.25 14.25V11.25"
+                stroke="#FFF"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M5.25 7.5L9 11.25L12.75 7.5"
+                stroke="#FFF"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M9 11.25V2.25"
+                stroke="#FFF"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
 
-  <hr />
-
-  <div class="position">
-    <section class="buttons-final">
-      <button>
-        <a href="../../../../assets/E-book Teste.PDF" download="E-book Teste.PDF">EBOOK TOPICO</a>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 18 18"
-          fill="none"
-        >
-          <path
-            d="M15.75 11.25V14.25C15.75 14.6478 15.592 15.0294 15.3107 15.3107C15.0294 15.592 14.6478 15.75 14.25 15.75H3.75C3.35218 15.75 2.97064 15.592 2.68934 15.3107C2.40804 15.0294 2.25 14.6478 2.25 14.25V11.25"
-            stroke="#D8C731"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M5.25 7.5L9 11.25L12.75 7.5"
-            stroke="#D8C731"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M9 11.25V2.25"
-            stroke="#D8C731"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-
-      <button>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="12"
-          height="15"
-          viewBox="0 0 12 15"
-          fill="none"
-        >
-          <path
-            d="M8.32643 2.2998H9.5475C9.87135 2.2998 10.1819 2.43677 10.4109 2.68057C10.6399 2.92436 10.7686 3.25502 10.7686 3.5998V12.6998C10.7686 13.0446 10.6399 13.3752 10.4109 13.619C10.1819 13.8628 9.87135 13.9998 9.5475 13.9998H2.22107C1.89722 13.9998 1.58664 13.8628 1.35764 13.619C1.12865 13.3752 1 13.0446 1 12.6998V3.5998C1 3.25502 1.12865 2.92436 1.35764 2.68057C1.58664 2.43677 1.89722 2.2998 2.22107 2.2998H3.44214"
-            stroke="#D8C731"
-            stroke-width="1.3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M7.71516 1H4.05194C3.71475 1 3.44141 1.29101 3.44141 1.65V2.95C3.44141 3.30899 3.71475 3.6 4.05194 3.6H7.71516C8.05235 3.6 8.32569 3.30899 8.32569 2.95V1.65C8.32569 1.29101 8.05235 1 7.71516 1Z"
-            stroke="#D8C731"
-            stroke-width="1.3"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M8.99439 8.94531H2.73242"
-            stroke="#D8C731"
-            stroke-width="1.08333"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M8.99439 11.6885H2.73242"
-            stroke="#D8C731"
-            stroke-width="1.08333"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M8.79909 6.2002H5.76576H2.73242"
-            stroke="#D8C731"
-            stroke-width="1.08333"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-        AVALIAÇÃO FORMATIVA
-      </button>
-      <button>
-        Proximo
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z"
-            stroke="#D8C731"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M12 16L16 12L12 8"
-            stroke="#D8C731"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M8 12H16"
-            stroke="#D8C731"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </button>
-    </section>
+          <button class="segundo-botao center-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="12"
+              height="15"
+              viewBox="0 0 12 15"
+              fill="none"
+            >
+              <path
+                d="M8.32643 2.2998H9.5475C9.87135 2.2998 10.1819 2.43677 10.4109 2.68057C10.6399 2.92436 10.7686 3.25502 10.7686 3.5998V12.6998C10.7686 13.0446 10.6399 13.3752 10.4109 13.619C10.1819 13.8628 9.87135 13.9998 9.5475 13.9998H2.22107C1.89722 13.9998 1.58664 13.8628 1.35764 13.619C1.12865 13.3752 1 13.0446 1 12.6998V3.5998C1 3.25502 1.12865 2.92436 1.35764 2.68057C1.58664 2.43677 1.89722 2.2998 2.22107 2.2998H3.44214"
+                stroke="#FFF"
+                stroke-width="1.3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M7.71516 1H4.05194C3.71475 1 3.44141 1.29101 3.44141 1.65V2.95C3.44141 3.30899 3.71475 3.6 4.05194 3.6H7.71516C8.05235 3.6 8.32569 3.30899 8.32569 2.95V1.65C8.32569 1.29101 8.05235 1 7.71516 1Z"
+                stroke="#FFF"
+                stroke-width="1.3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8.99439 8.94531H2.73242"
+                stroke="#FFF"
+                stroke-width="1.08333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8.99439 11.6885H2.73242"
+                stroke="#FFF"
+                stroke-width="1.08333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8.79909 6.2002H5.76576H2.73242"
+                stroke="#FFF"
+                stroke-width="1.08333"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            ATIVIDADE
+          </button>
+        </section>
+      </div>
+    </div>
   </div>
+  <hr class="hr-final" />
+  <a href="#" class="link-proximo"
+    >PROXÍMO
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="21"
+      height="21"
+      viewBox="0 0 21 21"
+      fill="none"
+    >
+      <g clip-path="url(#clip0_1323_663)">
+        <path
+          d="M10.5 1.75C5.66751 1.75 1.75 5.66751 1.75 10.5C1.75 15.3325 5.66751 19.25 10.5 19.25C15.3325 19.25 19.25 15.3325 19.25 10.5C19.25 5.66751 15.3325 1.75 10.5 1.75Z"
+          stroke="#442276"
+          stroke-width="1.81513"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M10.5 14L14 10.5L10.5 7"
+          stroke="#442276"
+          stroke-width="1.81513"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M7 10.5H14"
+          stroke="#442276"
+          stroke-width="1.81513"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_1323_663">
+          <rect
+            width="21"
+            height="21"
+            fill="white"
+            transform="matrix(-1 0 0 -1 21 21)"
+          />
+        </clipPath>
+      </defs>
+    </svg>
+  </a>
+  C:\Users\henri\PAIC\plataforma-front\app\src\app\pages\modulos
 </div>
