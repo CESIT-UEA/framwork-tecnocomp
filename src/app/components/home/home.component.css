@@ -84,7 +84,10 @@
   background-position: right bottom;
   transition: all 0.5s ease-out;
 }
-
+.container-primeiro .buttons .primeiro-botao a{
+  text-decoration: none;
+  color: #FFF;
+}
 .container-primeiro .buttons .segundo-botao {
   border-radius: 0.49963rem;
   background: #9665DF;
@@ -144,6 +147,10 @@
 
 @media (max-width:900px) {
   .container-primeiro img {
+    display: none;
+  }
+
+  .container-primeiro::before{
     display: none;
   }
 }

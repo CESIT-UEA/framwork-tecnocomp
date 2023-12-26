@@ -1,6 +1,6 @@
 <div class="container-main">
   <app-header></app-header>
-  <div class="container" [ngClass]="estilosMenu()">
+  <div class="container">
     <section class="container-segundo">
       <p>ASSISTA O VÍDEO DA APRESENTAÇAO DA DISCIPLINA</p>
       <div class="container-video">
@@ -15,7 +15,8 @@
     </section>
     <section class="container-primeiro">
       <div class="buttons">
-        <button class="primeiro-botao">DOWNLOAD E-BOOK UNIDADE</button>
+        <button class="primeiro-botao"><a href="../../../../assets/E-book Teste.PDF"
+          download="E-book Teste.PDF">DOWNLOAD E-BOOK UNIDADE</a></button>
         <br>
         <button class="segundo-botao" (click)="navigation()">INICIAR</button>
       </div>

@@ -9,11 +9,7 @@ import { ServiceAppService } from 'src/app/service-app.service';
 })
 export class HomeComponent{
   constructor(private appService:ServiceAppService,private router:Router){}
-  estilosMenu() {
-    return {
-        container_menu_ativo: this.appService.menu == "menu" ? true : false,
-    };
-}
+
   navigation(){
     this.router.navigate(['/teorias-da-aprendizagem']);
   }
