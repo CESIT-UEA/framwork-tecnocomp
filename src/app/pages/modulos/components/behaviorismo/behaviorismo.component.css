@@ -116,7 +116,39 @@
   margin-bottom: 10px;
 }
 
+.botoes .section-texto button{
+    width: 90%;
+    border-radius: 20px;
+    border: 1px solid #9665DF;
+    background-color: black;
+    color: #9A9A9A;
+    font-family: Arial;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 10px;
+    margin: 15px;
+  }
 
+/*Estilos do NG template da atividade*/
+.header-atividade{
+  display: flex;
+  height: 64px;
+  width: 100%;
+  background-color: #161616;
+  align-items: center;
+}
+
+.header-atividade .title{
+  margin-left: 10px;
+  color: aliceblue
+}
+
+.container-atividade{
+  width: 80%;
+  margin: 0 auto;
+}
 /* Media Queries */
 
 @media (max-width:800px) {

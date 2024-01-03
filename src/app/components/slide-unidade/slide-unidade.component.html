@@ -3,7 +3,6 @@
   *ngIf="isLoading == false; else loading"
 >
   <iframe
-    loading="lazy"
     [src]="videos[currentVideoIndex] | safe"
     title="Video Aula"
     frameborder="0"

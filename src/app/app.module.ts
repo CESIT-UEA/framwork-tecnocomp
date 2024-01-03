@@ -26,6 +26,8 @@ import { BehaviorismoComponent } from './pages/modulos/components/behaviorismo/b
 import { ConstrutivismoComponent } from './pages/modulos/components/construtivismo/construtivismo.component';
 import { SocioconstrutivismoComponent } from './pages/modulos/components/socioconstrutivismo/socioconstrutivismo.component';
 import { ConstrucionismoComponent } from './pages/modulos/components/construcionismo/construcionismo.component';
+import { AtividadeUnidadeComponent } from './components/atividade-unidade/atividade-unidade.component';
+import { HeaderAtividadeComponent } from './template/header-atividade/header-atividade.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { ConstrucionismoComponent } from './pages/modulos/components/construcion
     ConstrutivismoComponent,
     SocioconstrutivismoComponent,
     ConstrucionismoComponent,
+    AtividadeUnidadeComponent,
+    HeaderAtividadeComponent,
   ],
   imports: [
     BrowserModule,

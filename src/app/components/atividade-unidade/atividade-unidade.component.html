@@ -1,0 +1,19 @@
+<p>
+  {{ tituloPergunta }}
+</p>
+<div class="bloco-atividade">
+  <div class="alternativas" *ngFor="let item of alternativas">
+    <div class="letra">{{ item.nome }}</div>
+    <div class="pergunta">
+      {{ item.descricao }}
+    </div>
+    <img
+      src="assets/icons/olho.svg"
+      alt="Icone para verificar se a resposta é a certa"
+      width="30px"
+      height="30px"
+    />
+  </div>
+</div>
+
+<button>Enviar</button>
