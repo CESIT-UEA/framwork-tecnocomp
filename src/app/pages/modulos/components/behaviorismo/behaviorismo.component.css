@@ -1,8 +1,8 @@
+/* Estilos gerais */
 
 .hr-final {
   width: 93%;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 20px auto 0;
   background-color: #3C2859;
   height: 3px;
 }
@@ -14,29 +14,25 @@
 
 /* Estilos da primeira caixa */
 
-.container-main-conteudo .div-slide ul li:before {
-  content: '\2022';
-  margin: 0 10px;
-  color: #9665DF
-}
-
 .container-main-conteudo .div-slide ul li {
   text-align: center;
   color: #F0E5FF;
-  font-family: Lato;
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font: normal 700 30px/normal Lato;
+}
+
+.container-main-conteudo .div-slide ul li:before {
+  content: '\2022';
+  margin: 0 10px;
+  color: #9665DF;
 }
 
 .container-main-conteudo .div-slide hr {
   width: 80%;
   height: 3px;
   margin: auto;
+  margin-bottom: 10px;
   border-radius: 10px;
   background-color: #3C2859;
-  margin-bottom: 10px;
   border: none;
 }
 
@@ -55,7 +51,8 @@
   width: 100%;
 }
 
-.primeiro-botao {
+.primeiro-botao,
+.segundo-botao {
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
@@ -65,9 +62,12 @@
   width: 70%;
   height: 43px;
   border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.primeiro-botao {
   border: 2px solid var(--Terciaria, #FFF);
   background-color: transparent;
-  margin-bottom: 20px;
 }
 
 .primeiro-botao a,
@@ -75,45 +75,26 @@
   text-decoration: none;
   color: #FFF;
   text-align: center;
-  font-family: Arial;
-  font-size: 17px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font: normal 400 17px/normal Arial;
 }
 
 .segundo-botao {
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  justify-content: center;
-  column-gap: 10px;
-  min-width: 190px;
-  width: 70%;
-  height: 43px;
-  border-radius: 8px;
   border: none;
   background-color: #793CD4;
 }
-
 
 .link-proximo {
   display: inline-grid;
   grid-template-columns: auto auto;
   position: relative;
   left: 89%;
-  margin-top: 8px;
+  margin: 8px 0 10px;
   align-items: center;
   text-decoration: none;
   color: var(--24, #4F4F4F);
   text-align: center;
-  font-family: Arial;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font: normal 400 16px/normal Arial;
   column-gap: 10px;
-  margin-bottom: 10px;
 }
 
 .botoes .section-texto button{
@@ -122,16 +103,13 @@
     border: 1px solid #9665DF;
     background-color: black;
     color: #9A9A9A;
-    font-family: Arial;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font: normal 400 16px/normal Arial;
     padding: 10px;
     margin: 15px;
-  }
+}
 
 /*Estilos do NG template da atividade*/
+
 .header-atividade{
   display: flex;
   height: 64px;
@@ -142,13 +120,50 @@
 
 .header-atividade .title{
   margin-left: 10px;
-  color: aliceblue
+  color: aliceblue;
 }
 
 .container-atividade{
   width: 80%;
   margin: 0 auto;
 }
+
+/*Estilos do NG template da referencias*/
+.header-links{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+.header-links p{
+  font-size: 30px;
+  color: white;
+}
+
+.container-links hr{
+  margin: 0 auto;
+  width: 80%;
+  height: 2px;
+  outline: none;
+  background-color: #2D1E43;
+  border: none;
+}
+
+.container-links-text{
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+.container-links-text p{
+  color: whited;
+}
+.container-links-text a{
+  text-decoration: none;
+  display: block;
+  color: white;
+  margin: 20px 0;
+}
+
 /* Media Queries */
 
 @media (max-width:800px) {

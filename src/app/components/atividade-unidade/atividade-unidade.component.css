@@ -48,4 +48,6 @@ button {
   color: white;
   background-color: #9665DF;
   border-radius: 5px;
+  outline: none;
+  border: none;
 }
