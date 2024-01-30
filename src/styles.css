@@ -24,7 +24,13 @@ body {
 .center-2 {
   margin: 0 auto;
 }
-
+.mat-body p, .mat-body-2 p, .mat-typography .mat-body p, .mat-typography .mat-body-2 p, .mat-typography p {
+  margin: 0;
+}
+.mat-mdc-progress-bar.mat-warn {
+  --mdc-linear-progress-active-indicator-color: #44BA31;
+  --mdc-linear-progress-track-color: #818181;
+}
 /* @media (max-width: 425px) {
     html,
 body {

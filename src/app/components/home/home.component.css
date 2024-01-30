@@ -1,67 +1,77 @@
 @font-face {
-  font-family: minhaFonte;
+  font-family: customFont;
   src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
 }
 
-.container-primeiro::before {
-  z-index: 8;
-  content: '';
-  background: url('../../../assets/mundo.png'), no-repeat;
+.main-container {
+  background: url('../../../assets/fundo-alternativo.png'), lightgray -283px -148.75px / 134.172% 160.539%;
+  background-repeat: no-repeat;
   background-size: cover;
-  width: 150px;
-  height: 160px;
-  margin: 0 auto;
-  animation: rotateAnimation 7s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
 }
 
+.content-container-section {
+  margin-top: 40px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 60% 40%;
+  color: aliceblue;
+}
+
+
+.video-section p {
+  text-align: center;
+  font-family: customFont;
+  font-size: 14px;
+}
+
+.video-section .video-container {
+  width: 80%;
+  height: 450px;
+  border: 2.3px solid #5663ED;
+  border-radius: 0.625rem;
+  margin-left: 7%;
+}
+
+.video-section .video-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.button-section {
+  display: grid;
+  align-items: center;
+}
+
+.button-section::before {
+  z-index: 8;
+  content: '';
+  background: url('../../../assets/mundo.png') no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  top: -40px;
+  animation: rotateAnimation 7s linear infinite;
+}
 
 @keyframes rotateAnimation {
   0% {
     transform: scale(2.5) rotate(0deg);
   }
+
   100% {
     transform: scale(2.5) rotate(360deg);
   }
 }
 
-#box-menu {
-  background-color: red;
-}
-
-.container-main {
-  background: url('../../../assets/fundo-alternativo.png'), lightgray -283px -148.75px / 134.172% 160.539% no-repeat;
-  background-size: cover;
-  height: 100%;
-  width: 100%;
-}
-
-.container {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 60% 40%;
-  height: 70%;
-  color: aliceblue;
-}
-
-.container-primeiro {
-  display: grid;
-  align-items: center;
-}
-
-.container-primeiro img {
-  position: relative;
-  top: 3%;
-  left: 66%;
-  height: 400px;
-}
-
-.container-primeiro .buttons {
-  position: relative;
-  bottom: -20%;
+.button-section .button-group {
   text-align: center;
 }
 
-.container-primeiro .buttons button {
+.button-section .button-group button {
   width: 60%;
   height: 47.783px;
   border: none;
@@ -70,11 +80,11 @@
   margin-bottom: 28px;
 }
 
-.container-primeiro .buttons .primeiro-botao {
+.button-section .button-group .download-button {
   border-radius: 6.95px;
   background: none;
   color: #FFF;
-  font-family: minhaFonte;
+  font-family: customFont;
   border: 1.738px solid #FFF;
   font-size: 0.8rem;
   font-style: normal;
@@ -84,14 +94,24 @@
   background-position: right bottom;
   transition: all 0.5s ease-out;
 }
-.container-primeiro .buttons .primeiro-botao a{
+
+.button-section .button-group .download-button a {
   text-decoration: none;
   color: #FFF;
 }
-.container-primeiro .buttons .segundo-botao {
+
+.button-section .button-group .download-button:hover {
+  background-position: left bottom;
+  color: black;
+  font-weight: 400;
+  line-height: normal;
+  border: 1.738px solid #50288D;
+}
+
+.button-section .button-group .start-button {
   border-radius: 0.49963rem;
   background: #9665DF;
-  font-family: minhaFonte;
+  font-family: customFont;
   color: var(--Terciaria, #FFF);
   text-align: center;
   font-size: 18px;
@@ -100,74 +120,93 @@
   line-height: normal;
 }
 
-.container-primeiro .buttons .primeiro-botao:hover {
-  background-position: left bottom;
-  color: black;
+/* Estilos da Ficha tecnica */
+.content-container-ficha-tecnica-inicio {
+  height: 85vh;
+  width: 100%;
+  background-color: #5663ED;
+  display: flex;
+}
+
+.content-container-ficha-tecnica-inicio .images {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  margin: 0 auto;
+  background-color: radial-gradient(50% 50% at 50% 50%, rgba(161, 124, 216, 0.30) 0%, rgba(86, 0, 215, 0.11) 64.35%, rgba(121, 60, 212, 0.00) 100%);
+}
+
+.content-container-ficha-tecnica-inicio .sobre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 100px;
+}
+
+.content-container-ficha-tecnica-inicio .sobre h1 {
+  color: #FFF;
+  font-family: Arial;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.content-container-ficha-tecnica-inicio .sobre .sobre-conteudo p {
+  max-width: 600px;
+  width: 90%;
+  height: 170px;
+  color: #FFF;
+  font-family: Arial;
+  font-size: 22px;
+  font-style: normal;
   font-weight: 400;
   line-height: normal;
-  border: 1.738px solid #50288D;
-}
-
-.container-segundo {
-  margin-top: 20px;
-}
-
-.container-segundo p {
-  margin-left: 7%;
-  font-family: minhaFonte;
-  font-size: 14px;
-}
-
-.container-segundo iframe {
-  width: 80%;
-  height: 450px;
-  border: 2.3px solid #5663ED;
-  ;
-  border-radius: 0.625rem;
-  margin-left: 7%;
 }
 
 @media (max-width:1379px) {
-
-  /* Tamanho da tela do meu monitor */
-  .container-segundo iframe {
+  .video-section .video-container {
     height: 22rem;
   }
 }
 
 @media (max-width:1100px) {
-
-  /* Tamanho da tela do meu monitor */
-  .container-primeiro img {
+  .button-section img {
     top: 10%;
     left: 66%;
     height: 300px;
   }
+  .content-container-ficha-tecnica-inicio {
+    flex-direction: column;
+  }
 }
 
-@media (max-width:900px) {
-  .container-primeiro img {
+@media (max-width:1000px) {
+  .button-section img {
     display: none;
   }
 
-  .container-primeiro::before{
+  .button-section::before {
     display: none;
   }
+
 }
 
 @media (max-width: 899px) {
-  .container {
+  .content-container-section {
     display: grid;
     justify-content: center;
     grid-template-columns: 100%;
   }
 
-  .container-segundo {
+  .video-section {
     width: 100%;
     color: aliceblue;
   }
 
-  .container-primeiro .buttons {
+  .button-section .button-group {
     bottom: 0;
     text-align: center;
     margin-top: 10px;

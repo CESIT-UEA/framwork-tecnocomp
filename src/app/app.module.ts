@@ -28,6 +28,10 @@ import { SocioconstrutivismoComponent } from './pages/modulos/components/socioco
 import { ConstrucionismoComponent } from './pages/modulos/components/construcionismo/construcionismo.component';
 import { AtividadeUnidadeComponent } from './components/atividade-unidade/atividade-unidade.component';
 import { HeaderAtividadeComponent } from './template/header-atividade/header-atividade.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AtividadeUnidadeBancoComponent } from './component/atividade-unidade-banco/atividade-unidade-banco.component';
+import { MenuComBarraProgressoTesteComponent } from './component/menu-com-barra-progresso-teste/menu-com-barra-progresso-teste.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,6 +52,8 @@ import { HeaderAtividadeComponent } from './template/header-atividade/header-ati
     ConstrucionismoComponent,
     AtividadeUnidadeComponent,
     HeaderAtividadeComponent,
+    AtividadeUnidadeBancoComponent,
+    MenuComBarraProgressoTesteComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,9 @@ import { HeaderAtividadeComponent } from './template/header-atividade/header-ati
     MatDialogModule,
     CommonModule,
     MatProgressSpinnerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

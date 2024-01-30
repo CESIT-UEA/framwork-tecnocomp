@@ -8,10 +8,12 @@ import { ServiceAppService } from 'src/app/service-app.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent{
-  constructor(private appService:ServiceAppService,private router:Router){}
+
+  constructor(public appService:ServiceAppService,private router:Router){}
 
   navigation(){
     this.router.navigate(['/teorias-da-aprendizagem']);
   }
 
+  
 }

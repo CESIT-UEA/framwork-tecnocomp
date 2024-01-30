@@ -10,7 +10,7 @@ export class HeaderUnidadeComponent {
   constructor(private appService:ServiceAppService){}
   listaDeUnidades: string[] = ['Behaviorismo', 'Construtivismo', 'Socioconstrutivismo', 'Construcionismo'];
 
-  listaDeUnidadesLinks: string[] = ['/teorias-da-aprendizagem', 'construtivismo', 'socioconstrutivismo', 'construcionismo'];
+  listaDeUnidadesLinks: string[] = ['/teorias-da-aprendizagem', '/teorias-da-aprendizagem/construtivismo', '/teorias-da-aprendizagem/socioconstrutivismo', '/teorias-da-aprendizagem/construcionismo'];
 
   isOpen = false;
 

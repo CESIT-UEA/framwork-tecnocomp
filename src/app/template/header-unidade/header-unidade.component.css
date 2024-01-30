@@ -1,94 +1,90 @@
 @font-face {
-    font-family: minhaFonte;
-    src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
+  font-family: minhaFonte;
+  src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
 }
 
-a svg{
+section {
+  background-color: black;
+}
+
+a svg {
   position: relative;
   right: 4%;
 }
 
-.menu-teste {
-    position: relative;
-    left: 80%;
-}
-
 .sidebar {
-    transition: transform 20s ease-in-out;
-    transform: translateX(100%);
-    width: 350px;
-    background-color: black;
-    border-radius: 10px;
-    display: none;
-    color: #FAF8E6;
+  transition: transform 20s ease-in-out;
+  transform: translateX(100%);
+  width: 350px;
+  background-color: black;
+  border-radius: 10px;
+  display: none;
+  color: #FAF8E6;
 }
 
 .sidebar.open {
-    display: block;
-    position: fixed;
-    transform: translateX(-70%); /* 70% fica igual do ultimo video q mandei pro marcos */
+  display: block;
+  position: fixed;
+  transform: translate(-72%, 0);
 }
 
 .titulo-topico {
   padding: 1rem;
-  color: black;
+  color: #E0D1F5;
   background-color: #9665DF;
   border-radius: 20px 0px 0px 0px;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
-  /* 30px */
+  margin-bottom: 0;
 }
 
 .teste {
-    position: relative;
-    left: 200px;
+  position: relative;
+  left: 200px;
 }
 
 #button {
-    color: #FFF;
+  color: #FFF;
 }
 
 #icon {
-    font-size: 2rem;
-    height: 2rem;
-    width: 2rem;
-    color: #FFF;
+  font-size: 2rem;
+  height: 2rem;
+  width: 2rem;
+  color: #FFF;
 }
 
 .text p {
-    font-size: 2rem;
-    line-height: 3rem;
-    font-weight: 600;
-    font-family: minhaFonte;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 600;
+  font-family: minhaFonte;
 }
 
 .text-unidade {
-    color: #DFBF0B;
+  color: #DFBF0B;
 }
 
 .img {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 5px;
-    height: 65px;
+  display: flex;
+  align-items: center;
+  height: 65px;
+  justify-content: space-between;
 }
 
 .img img {
-    max-height: 80px;
-    margin-left: 1rem;
-    height: 40px;
+  max-height: 80px;
+  height: 40px;
 }
 
+.menu-teste {
+  width: 100px;
+}
 
 @media (max-width: 425px) {
-    .text {
-        margin-left: 0;
-    }
-
-    .menu-teste {
-        left: 60%;
-    }
+  .text {
+    margin-left: 0;
+  }
 }

@@ -1,0 +1,33 @@
+<div *ngIf="questaoAtual" class="container-atividade">
+  <h2>{{ questaoAtual.titulo }}</h2>
+  <div
+    class="container-resposta"
+    *ngFor="let alternativa of questaoAtual.alternativas; let i = index"
+    [class.correto]="respostaEnviada && i === questaoAtual.respostaCorreta"
+    [class.errado]="
+      respostaEnviada &&
+      i === respostaSelecionada &&
+      i !== questaoAtual.respostaCorreta
+    "
+  >
+    <div (click)="selecionarResposta(i);enviarResposta();alternativa.explicacaoVisivel = !alternativa.explicacaoVisivel;" class="container-resposta-conteudo">
+      <img class="container-resposta-conteudo-imagem-alternativa" [src]="getImagem(i)" alt="Letra {{ [i] }}"
+       />
+      <p>
+        {{ alternativa.descricao }}
+        <br>
+        <span *ngIf="respostaEnviada">
+          <span
+           [class.corretoVisivel]="respostaEnviada && i === questaoAtual.respostaCorreta"
+           [class.erradoVisivel]="respostaEnviada && i !== questaoAtual.respostaCorreta"
+           class="container-resposta-conteudo-resposta-enviada"
+            *ngIf="alternativa.explicacaoVisivel"
+          >{{ alternativa.explicacao }}</span>
+        </span>
+      </p>
+    </div>
+  </div>
+  <div class="botao">
+    <button (click)="proximaQuestao()" *ngIf="respostaEnviada">Refazer</button>
+  </div>
+</div>

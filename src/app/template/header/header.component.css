@@ -3,14 +3,28 @@
   src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
 }
 
+.button {
+  border: none;
+  background-color: transparent;
+  color:#FFF;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.button:hover{
+  border-bottom: 3px solid #9665DF;
+}
 .menu-teste {
-  position: relative;
-  left: 80%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
 }
 
 .sidebar {
   transition: transform 20s ease-in-out;
-  transform: translateX(100%);
+  transform: translate(-30%, 100%);
   width: 350px;
   background-color: black;
   border-radius: 10px;
@@ -21,13 +35,13 @@
 .sidebar.open {
   display: block;
   position: fixed;
-  transform: translateX(-70%);
+  transform: translate(0%, 60%);
   z-index: 999;
   /* 70% fica igual do ultimo video q mandei pro marcos */
 }
 
 .titulo-topico {
-  padding: 1rem;
+  padding: 16px;
   color: black;
   background-color: #9665DF;
   border-radius: 20px 0px 0px 0px;

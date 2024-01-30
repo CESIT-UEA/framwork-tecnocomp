@@ -1,73 +1,201 @@
-<div class="container-main-conteudo">
-  <div class="div-slide">
-    <ul>
-      <li>Construcionismo</li>
-    </ul>
-    <hr />
-    <div class="container-video">
-      <app-slide-unidade
-        [videos]="arrayVideos"
-        style="text-align: center"
-      ></app-slide-unidade>
+<div class="container-geral" [ngSwitch]="controllerSwitch">
+  <div *ngSwitchCase="'1'">
+    <div class="header-atividade">
+      <span class="title">01 Pontos para definir Construcionismo</span>
+      <img
+        (click)="atividadeClick()"
+        src="assets/icons/close.svg"
+        alt="Icone para ir para a atividade da unidade"
+        width="30px"
+        height="30px"
+      />
+    </div>
+    <div class="container-atividade">
+      <!--       <app-atividade-unidade
+        [tituloPergunta]="pergunta"
+        [alternativas]="arrayAlternativas"
+      >
+      </app-atividade-unidade> -->
+      <app-atividade-unidade-banco></app-atividade-unidade-banco>
     </div>
   </div>
 
-  <div class="botoes">
-    <section class="section-texto center-2">
-      <app-span-animation
-        nome_button="Texto de apoio"
-        nome_icon="description"
-      ></app-span-animation>
-
-      <app-span-animation
-        nome_button="Referencias Bibliográficas"
-        nome_icon="bookoutlined"
-      ></app-span-animation>
-
-      <app-span-animation
-        nome_button="Links Externos"
-        nome_icon="link"
-      ></app-span-animation>
-    </section>
-
-    <div class="position">
-      <section class="buttons-final">
-        <button class="primeiro-botao center-2">
-          <a
-            href="assets/E-book Teste.PDF"
-            download="E-book Teste.PDF"
-            >E-BOOK TÓPICO</a
-          >
-          <img
-          src="assets/icons/download.svg"
+  <div *ngSwitchCase="'2'">
+    <div class="header-atividade">
+      <img
+        (click)="linksClick()"
+        src="assets/icons/close.svg"
+        alt="Icone para ir para a atividade da unidade"
+        width="30px"
+        height="30px"
+      />
+    </div>
+    <div class="container-links">
+      <div class="header-links">
+        <img
+          src="assets/icons/saibaMais.svg"
           alt="Icone para download do ebook"
-          width="22px"
-          height="24px"
+          width="28px"
+          height="28px"
         />
-        </button>
+        <p>Saiba mais</p>
+      </div>
+      <hr />
+    </div>
 
-        <button class="segundo-botao center-2">
+    <div class="container-links-text">
+      <ul>
+        <li *ngFor="let item of arrayLinks">
+          <a target="_blank" href="{{ item }}">{{ item }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'3'">
+    <div class="header-atividade">
+      <div class="container-links center">
+        <div class="header-links">
           <img
-          src="assets/icons/atividade.svg"
+            src="assets/icons/referencias.svg"
+            alt="Icone para download do ebook"
+            width="28px"
+            height="26px"
+          />
+          <p class="container-links-p">
+            <span class="container-links-span">01</span> Referências
+            bibliográficas
+          </p>
+        </div>
+
+        <img
+          (click)="referenciasClick()"
+          src="assets/icons/close.svg"
           alt="Icone para ir para a atividade da unidade"
+          width="30px"
+          height="30px"
+        />
+      </div>
+    </div>
+    <div class="container-links-text">
+      <ul>
+        <li *ngFor="let item of arrayReferencias">
+          <p>{{ item }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'4'">
+    <app-slide></app-slide>
+    <div class="center">
+      <div class="voltarUnidade" (click)="textoApoioClick()">
+        <img
+          src="assets/icons/voltarUnidade.svg"
+          alt="Icone para download do ebook"
+          width="24px"
+          height="24px"
+        />
+        <span>VOLTAR A UNIDADE</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" *ngSwitchDefault>
+    <app-header-unidade></app-header-unidade>
+    <div class="container-main-conteudo">
+      <div class="div-slide">
+        <ul>
+          <li>Construcionismo</li>
+        </ul>
+        <hr />
+        <div class="container-video">
+          <app-slide-unidade
+            [videos]="arrayVideos"
+            style="text-align: center"
+          ></app-slide-unidade>
+        </div>
+      </div>
+
+      <div class="botoes">
+        <section class="section-texto center-2">
+          <!-- Todo: Fazer o NG template dos-->
+          <button
+            class="segundo segundo-botao center-2"
+            (click)="referenciasClick()"
+          >
+            <img
+              src="assets/icons/saibaMais.svg"
+              alt="Icone para download do ebook"
+              width="22px"
+              height="24px"
+            />
+            Saiba mais
+          </button>
+          <button
+            class="terceiro terceiro-botao center-2"
+            (click)="linksClick()"
+          >
+            <img
+              src="assets/icons/referencias.svg"
+              alt="Icone para download do ebook"
+              width="22px"
+              height="24px"
+            />
+            Referencias Bibliográficas
+          </button>
+          <button
+            class="primeiro segundo-botao center-2"
+            (click)="textoApoioClick()"
+          >
+            <img
+              src="assets/icons/texto-de-apoio.svg"
+              alt="Icone para download do ebook"
+              width="22px"
+              height="24px"
+            />
+            Texto de apoio
+          </button>
+        </section>
+
+        <div class="position">
+          <section class="buttons-final">
+            <button class="ebook-botao center-2">
+              <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"
+                >E-BOOK TÓPICO</a
+              >
+              <img
+                src="assets/icons/download.svg"
+                alt="Icone para download do ebook"
+                width="22px"
+                height="24px"
+              />
+            </button>
+
+            <button class="atividade-botao center-2" (click)="atividadeClick()">
+              <img
+                src="assets/icons/atividade.svg"
+                alt="Icone para ir para a atividade da unidade"
+                width="22px"
+                height="24px"
+              />
+              ATIVIDADE
+            </button>
+          </section>
+        </div>
+      </div>
+    </div>
+    <hr class="hr-final" />
+    <div class="container-main-conteudo-link-ul">
+      <a (click)="navigationVoltar()" class="link-voltar">
+        <img
+          src="assets/icons/previous.svg"
+          alt="Icone para ir para a unidade anterior"
           width="22px"
           height="24px"
         />
-          ATIVIDADE
-        </button>
-      </section>
+        ANTERIOR
+      </a>
     </div>
   </div>
 </div>
-<hr class="hr-final" />
-
-<a (click)="navigationVoltar()" class="link-voltar"
-  >
-  <img
-    src="assets/icons/previous.svg"
-    alt="Icone para ir para a unidade anterior"
-    width="22px"
-    height="24px"
-  />
-  ANTERIOR
-</a>

@@ -1,24 +1,61 @@
-<div class="container-main">
+<div class="main-container">
   <app-header></app-header>
-  <div class="container">
-    <section class="container-segundo">
-      <p>ASSISTA O VÍDEO DA APRESENTAÇAO DA DISCIPLINA</p>
-      <div class="container-video">
-        <iframe
-          src="https://www.youtube.com/embed/3D2Xg4t8pdg?si=7MIMoO6rqMVGPZIG"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+  <div
+    class="content-container-condition"
+    [ngSwitch]="appService.controllerSwitchHome"
+  >
+    <section class="content-container-ficha-tecnica" *ngSwitchCase="'1'">
+      <div class="content-container-ficha-tecnica-inicio">
+        <div class="images">
+          <img src="../../../assets/img/imagem-ficha-tecnica-1.png" alt="imagem ficha tecnica" style="margin-bottom: 100px;">
+          <img src="../../../assets/img/imagem-ficha-tecnica-2.png" alt="imagem ficha tecnica">
+          <img src="../../../assets/img/imagem-ficha-tecnica-3.png" alt="imagem ficha tecnica" style="margin-top: 100px;">
+        </div>
+
+        <div class="sobre">
+          <h1>Sobre</h1>
+          <div class="sobre-conteudo">
+            <p>
+              O Tecnocomp+ é sit amet consectetur. Erat quis luctus sed semper
+              volutpat congue turpis. Pellentesque nullam et nisi imperdiet.
+              Magna aenean ullamcorper risus nibh tincidunt egestas. Elit
+              egestas auctor dolor a a at pretium integer.
+            </p>
+            <p>
+              O Tecnocomp+ é sit amet consectetur. Erat quis luctus sed semper
+              volutpat congue turpis. Pellentesque nullam et nisi imperdiet.
+              Magna aenean ullamcorper risus nibh tincidunt egestas. Elit
+              egestas auctor dolor a a at pretium integer.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
-    <section class="container-primeiro">
-      <div class="buttons">
-        <button class="primeiro-botao"><a href="assets/E-book Teste.PDF"
-          download="E-book Teste.PDF">DOWNLOAD E-BOOK UNIDADE</a></button>
-        <br>
-        <button class="segundo-botao" (click)="navigation()">INICIAR</button>
+
+    <section class="content-container" *ngSwitchDefault>
+      <div class="content-container-section">
+        <section class="video-section">
+          <p>ASSISTA O VÍDEO DA APRESENTAÇAO DA DISCIPLINA</p>
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/3D2Xg4t8pdg?si=7MIMoO6rqMVGPZIG"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+        <section class="button-section">
+          <div class="button-group">
+            <button class="download-button">
+              <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"
+                >DOWNLOAD E-BOOK UNIDADE</a
+              >
+            </button>
+            <button class="start-button" (click)="navigation()">INICIAR</button>
+          </div>
+        </section>
       </div>
     </section>
   </div>

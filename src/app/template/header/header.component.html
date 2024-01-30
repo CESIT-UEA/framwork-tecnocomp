@@ -11,7 +11,7 @@
         <mat-icon id="icon">{{ menuHeader }}</mat-icon>
       </button>
       <aside class="sidebar" [ngClass]="{ open: isOpen }">
-        <h2 class="titulo-topico">Tópicos</h2>
+        <h2 class="titulo-topico center">Tópicos</h2>
         <app-list-menu [unidades]="unidades" [unidadesLinks]="unidadesLinks"></app-list-menu>
       </aside>
     </div>
@@ -19,7 +19,7 @@
 </section>
 
 <section>
-  <div class="position">
+  <div class="position" *ngIf="appService.controllerSwitchHome == 0">
     <div class="text">
       <p>
         APRENDIZAGEM E <br />

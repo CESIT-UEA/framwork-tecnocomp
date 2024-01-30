@@ -1,26 +1,16 @@
 p {
   color: #FFF;
   font-family: Arial;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
   line-height: normal;
+  font-size: 22px;
+  font-weight: 400;
   margin: 20px 0;
+  width: 85%;
 }
 
-.letra {
-  text-align: center;
-  color: #FFF;
-  font-family: Arial;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  border-radius: 8px 0px 0px 8px;
-  background: var(--1-13, #AB84E5);
-  height: 90px;
-  width: fit-content;
-  padding: 10px;
+.imgLetras{
+  max-height: 130px;
+  height: 90%;
 }
 
 .alternativas {
@@ -36,13 +26,16 @@ p {
   width: 90%;
   margin-left: 10px;
   color: white;
+  font-size: 22px;
 }
 
-img{
-  padding: 0 5px;
+.atividade-botao{
+  display: flex;
+  justify-content: end;
 }
 
-button {
+.atividade-botao button{
+  font-size: 20px;
   width: 91px;
   height: 35px;
   color: white;

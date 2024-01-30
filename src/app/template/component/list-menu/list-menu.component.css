@@ -1,3 +1,12 @@
+.barraProgresso{
+  margin: 0 auto;
+  width: 90%;
+}
+
+p{
+  text-align: center;
+}
+
 ul{
     list-style: none;
 }

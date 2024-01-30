@@ -1,45 +1,63 @@
-<div class="video-container">
-  <button (click)="prevVideo()" class="button-before">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="63"
-      height="64"
-      viewBox="63 64 0 0"
-      fill="none"
-    >
-      <path
-        d="M45.4544 55.0661L27.2726 36.7327L45.4544 18.3994"
-        stroke="#8D8228"
-        stroke-width="2.22785"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  </button>
+<header>
+  <img
+    class="header-img"
+    src="assets/img/logoSlide.png"
+    alt="Logo da TecnoComp+"
+  />
+</header>
+<main class="containerSwitch" [ngSwitch]="controllerSwitch">
+  <div class="container-primeiro" *ngSwitchDefault>
+    <div class="primeiro-container">
+      <p class="primeiro-container-p-1">Sobre o assunto</p>
+      <p class="primeiro-container-p-2">
+        Aprendizagem e Informática: {{nomeTopico}}
+      </p>
+      <p class="primeiro-container-p-3">Lorem ipsum dolor sit amet, con</p>
+    </div>
+    <div class="segundo-container">
+      <div class="img-segundo-container"></div>
+      <button class="iniciar-segundo-container" (click)="iniciarClick()">
+        INICIAR
+      </button>
+    </div>
+  </div>
 
-  <iframe
-    [src]="videos[currentVideoIndex] | safe"
-    title="Video Aula"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-  ></iframe>
+  <div *ngSwitchCase="'1'">
+    <div class="header-slide">
+      <div class="header-slide-numero">{{ currentVideoIndex + 1 }}</div>
+      <h1 class="header-slide-titulo">{{ slide[currentVideoIndex].titulo }}</h1>
+    </div>
+    <div class="slide-container-main">
+      <div class="slide-container">
+        <button class="slide-container-button" (click)="prevVideo()">
+          <img src="assets/img/retornar.png" />
+        </button>
 
-  <button (click)="nextVideo()" class="button-next">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="63"
-      height="64"
-      viewBox="0 0 63 64"
-      fill="none"
-    >
-      <path
-        d="M27.5454 18.9339L45.7272 37.2673L27.5454 55.6006"
-        stroke="#F3E88E"
-        stroke-width="2.22785"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-  </button>
-</div>
+        <section class="container-slide">
+          <section class="conteudo-slide">
+            <img
+              class="conteudo-slide-imagem"
+              src="#"
+              alt=""
+            />
+            <aside class="conteudo-slide-texto">
+              <p class="conteudo-slide-texto-p" *ngFor="let item of slide[currentVideoIndex].texto;">
+                {{item}}
+              </p>
+            </aside>
+          </section>
+        </section>
+
+        <button class="slide-container-button" (click)="nextVideo()">
+          <img src="assets/img/avancar.png" />
+        </button>
+      </div>
+    </div>
+    <div class="slide-container-contagem">
+      <span class="slide-container-contagem-conteudo">
+        {{ currentVideoIndex + 1 }}/{{slide.length}}
+      </span>
+    </div>
+  </div>
+</main>
+

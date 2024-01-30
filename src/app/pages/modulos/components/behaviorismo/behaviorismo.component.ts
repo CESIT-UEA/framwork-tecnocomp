@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 
 @Component({
   selector: 'app-behaviorismo',
@@ -7,6 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./behaviorismo.component.css']
 })
 export class BehaviorismoComponent {
+  constructor(public aprendizagemInformatica:AprendizagemEInformaticaService){
+
+  }
+  arrayReferenciasTeste = [
+    {
+      tituloLivro:'Behaviorismo Radical: Crítica e Metacrítica',
+      nome_autor:'Kester Carrara',
+      caminho_imagem:'Livro 1'
+    }
+  ]
   arrayReferencias:string[] = [
     'BOSI, Alfredo. Historia concisa da literatura brasileira. 38. ed. São Paulo: Cortes, 2002',
     'BOSI, Alfredo. Historia concisa da literatura brasileira. 38. ed. São Paulo: Cortes, 2002',
@@ -56,4 +67,54 @@ export class BehaviorismoComponent {
     this.controllerSwitch = this.controllerSwitch == 0 ? 3 : 0
   }
 
+  textoApoioClick(){
+    this.controllerSwitch = this.controllerSwitch == 0 ? 4 : 0
+  }
+
+  questions  = [{
+    question: 'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
+    answers: [
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
+    correctAnswer: 'Resposta B'
+  },
+  {
+    question: 'Segunda Questão',
+    answers: [
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
+    correctAnswer: 'Resposta C'
+  },
+  {
+    question: 'Terceira Questão',
+    answers: [
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
+    correctAnswer: 'Resposta C'
+  },
+  {
+    question: 'Quarta Questão',
+    answers: [
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
+    correctAnswer: 'Resposta D'
+  },
+  {
+    question: 'Quinta Questão',
+    answers: [
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
+      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
+    correctAnswer: 'Resposta A'
+  }
+  ]
 }

@@ -1,0 +1,24 @@
+<div class="container-topicos">
+  <div class="progresso center">
+    <p class="texto-progresso">Progresso</p>
+    <mat-progress-bar
+      class="barra-progresso"
+      mode="determinate"
+      color="warn"
+      [value]="aprendizagemInformatica.progress"
+    ></mat-progress-bar>
+    <p>{{ aprendizagemInformatica.progress }}%</p>
+  </div>
+  <div class="container-topico">
+    <div class="topico-container" *ngFor="let topic of aprendizagemInformatica.topics; index as i">
+      <input
+        type="checkbox"
+        [(ngModel)]="topic.completed"
+        (ngModelChange)="aprendizagemInformatica.updateProgress()"
+        (click)="aprendizagemInformatica.teste()"
+        [disabled]="topic.completed"
+      />
+      <label>{{ i + 1 }}. {{ topic.name }}</label>
+    </div>
+  </div>
+</div>
