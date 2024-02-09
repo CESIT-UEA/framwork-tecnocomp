@@ -1,0 +1,26 @@
+.video-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.video-section p {
+  text-align: center;
+  font-family: customFont;
+  font-size: 14px;
+}
+
+.video-section .video-container {
+  width: 80%;
+  height: 350px;
+  border: 2.3px solid #5663ED;
+  border-radius: 0.625rem;
+  margin-left: 7%;
+}
+
+.video-section .video-container iframe {
+  width: 100%;
+  height: 100%;
+}

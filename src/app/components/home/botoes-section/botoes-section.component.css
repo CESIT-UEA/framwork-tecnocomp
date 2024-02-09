@@ -1,0 +1,81 @@
+.button-section {
+  display: grid;
+  align-items: center;
+  height: 100%;
+}
+
+.button-section::before {
+  z-index: 8;
+  content: '';
+  background: url('../../../../assets/mundo.png') no-repeat;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  top: -40px;
+  animation: rotateAnimation 7s linear infinite;
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: scale(2.5) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(2.5) rotate(360deg);
+  }
+}
+
+.button-section .button-group {
+  text-align: center;
+}
+
+.button-section .button-group button {
+  width: 60%;
+  height: 47.783px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  margin-bottom: 28px;
+}
+
+.button-section .button-group .download-button {
+  border-radius: 6.95px;
+  background: none;
+  color: #FFF;
+  font-family: customFont;
+  border: 1.738px solid #FFF;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  background: linear-gradient(to right, #5E2FA5 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
+}
+
+.button-section .button-group .download-button a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+.button-section .button-group .download-button:hover {
+  background-position: left bottom;
+  color: black;
+  font-weight: 400;
+  line-height: normal;
+  border: 1.738px solid #50288D;
+}
+
+.button-section .button-group .start-button {
+  border-radius: 0.49963rem;
+  background: #9665DF;
+  font-family: customFont;
+  color: var(--Terciaria, #FFF);
+  text-align: center;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

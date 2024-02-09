@@ -9,6 +9,7 @@ import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatic
 })
 export class ConstrucionismoComponent {
   teste = 1
+  nome = "Construcionismo"
   constructor(private router: Router,public aprendizagemInformatica:AprendizagemEInformaticaService) { }
   arrayVideos: string[] = ['https://www.youtube.com/embed/poWicP3Ddd4?si=aTq8--T_HjYpkz53', 'https://www.youtube.com/embed/AfFTOTx0K4I?si=JLs1naJQolh1i-Xq'];
 

@@ -12,7 +12,7 @@ export class BehaviorismoComponent {
 
   }
   teste = 0
-  nome = "contutivismo"
+  nome = "Behaviorismo"
   arrayReferenciasTeste = [
     {
       tituloLivro:'Behaviorismo Radical: Crítica e Metacrítica',

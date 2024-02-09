@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Questao } from 'src/app/component/atividade-unidade-banco/questao.model';
 
 @Component({
   selector: 'app-atividade',
@@ -6,5 +7,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./atividade.component.css']
 })
 export class AtividadeComponent {
+  @Input() titulo_pergunta!:string
   @Output() atividadeClick = new EventEmitter<void>();
+  @Input() questoes:any
 }

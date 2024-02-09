@@ -58,6 +58,7 @@ export class SlideComponent {
       ]
     },
   ]
+
   currentVideoIndex: number = 0;
   teste = this.slide[this.currentVideoIndex].texto
 

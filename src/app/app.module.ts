@@ -37,6 +37,10 @@ import { SaibaMaisComponent } from './pages/modulos/components/saiba-mais/saiba-
 import { ReferenciasComponent } from './pages/modulos/components/referencias/referencias.component';
 import { AtividadeComponent } from './pages/modulos/components/atividade/atividade.component';
 import { GeralComponent } from './pages/modulos/components/geral/geral.component';
+import { VideoSectionComponent } from './components/home/video-section/video-section.component';
+import { SafeUrlPipePipe } from './components/safe-url-pipe.pipe';
+import { BotoesSectionComponent } from './components/home/botoes-section/botoes-section.component';
+import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tecnica.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +68,10 @@ import { GeralComponent } from './pages/modulos/components/geral/geral.component
     ReferenciasComponent,
     AtividadeComponent,
     GeralComponent,
+    VideoSectionComponent,
+    SafeUrlPipePipe,
+    BotoesSectionComponent,
+    FichaTecnicaComponent,
   ],
   imports: [
     BrowserModule,

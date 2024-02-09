@@ -1,7 +1,7 @@
 <div class="container-geral" [ngSwitch]="controllerSwitch">
 
   <div *ngSwitchCase="'1'">
-    <app-atividade (atividadeClick)="atividadeClick()"></app-atividade>
+    <app-atividade titulo_pergunta="Construtivismo" [questoes]="questoes" (atividadeClick)="atividadeClick()"></app-atividade>
   </div>
 
   <div *ngSwitchCase="'2'">
@@ -13,7 +13,7 @@
   </div>
 
   <div *ngSwitchCase="'4'">
-    <app-slide></app-slide>
+    <app-slide nomeTopico="Construtivismo" [slide]="slide"></app-slide>
     <div class="center">
       <div class="voltarUnidade" (click)="textoApoioClick()">
         <img
@@ -29,7 +29,7 @@
 
   <div class="container" *ngSwitchDefault>
     <app-geral
-    nome="Construtivismo"
+    [nome]="nome"
     [link]="teste"
     [videos]="arrayVideos"
     (referenciasClick)="referenciasClick()"

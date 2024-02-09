@@ -2,6 +2,13 @@
   font-family: customFont;
   src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
 }
+.content-container-condition {
+  height: 100%;
+}
+
+section.content-container-ficha-tecnica {
+  height: 100%;
+}
 
 .main-container {
   background: url('../../../assets/fundo-alternativo.png'), lightgray -283px -148.75px / 134.172% 160.539%;
@@ -19,274 +26,7 @@
   color: aliceblue;
 }
 
-
-.video-section p {
-  text-align: center;
-  font-family: customFont;
-  font-size: 14px;
-}
-
-.video-section .video-container {
-  width: 80%;
-  height: 450px;
-  border: 2.3px solid #5663ED;
-  border-radius: 0.625rem;
-  margin-left: 7%;
-}
-
-.video-section .video-container iframe {
-  width: 100%;
-  height: 100%;
-}
-
-.button-section {
-  display: grid;
-  align-items: center;
-}
-
-.button-section::before {
-  z-index: 8;
-  content: '';
-  background: url('../../../assets/mundo.png') no-repeat;
-  background-size: contain;
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  position: relative;
-  top: -40px;
-  animation: rotateAnimation 7s linear infinite;
-}
-
-@keyframes rotateAnimation {
-  0% {
-    transform: scale(2.5) rotate(0deg);
-  }
-
-  100% {
-    transform: scale(2.5) rotate(360deg);
-  }
-}
-
-.button-section .button-group {
-  text-align: center;
-}
-
-.button-section .button-group button {
-  width: 60%;
-  height: 47.783px;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-  margin-bottom: 28px;
-}
-
-.button-section .button-group .download-button {
-  border-radius: 6.95px;
-  background: none;
-  color: #FFF;
-  font-family: customFont;
-  border: 1.738px solid #FFF;
-  font-size: 0.8rem;
-  font-style: normal;
-  font-weight: 500;
-  background: linear-gradient(to right, #5E2FA5 50%, transparent 50%);
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all 0.5s ease-out;
-}
-
-.button-section .button-group .download-button a {
-  text-decoration: none;
-  color: #FFF;
-}
-
-.button-section .button-group .download-button:hover {
-  background-position: left bottom;
-  color: black;
-  font-weight: 400;
-  line-height: normal;
-  border: 1.738px solid #50288D;
-}
-
-.button-section .button-group .start-button {
-  border-radius: 0.49963rem;
-  background: #9665DF;
-  font-family: customFont;
-  color: var(--Terciaria, #FFF);
-  text-align: center;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-/* Estilos da Ficha tecnica */
-.content-container-condition {
-  height: 100%;
-}
-
-section.content-container-ficha-tecnica {
-  height: 100%;
-}
-
-.content-container-ficha-tecnica-inicio {
-  height: 80%;
-  width: 100%;
-  display: flex;
-  background-image: url('../../../assets/img/fundo-ficha.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  justify-content: center;
-}
-
-.content-container-ficha-tecnica-inicio .images {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  justify-content: center;
-  align-items: center;
-  padding: 0 40px;
-  margin: 0 auto;
-}
-
-.content-container-ficha-tecnica-inicio .sobre {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.content-container-ficha-tecnica-inicio .sobre h1 {
-  color: #FFF;
-  font-family: Arial;
-  font-size: 28px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.content-container-ficha-tecnica-inicio .sobre .sobre-conteudo p {
-  max-width: 600px;
-  width: 90%;
-  height: 170px;
-  color: #FFF;
-  font-family: Arial;
-  font-size: 22px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0 auto;
-}
-
-.content-container-ficha-tecnica-equipe {
-  height: 80%;
-  width: 100%;
-  background: linear-gradient(110deg, #7f57bd 30%, rgb(130 81 203) 60%);
-  display: flex;
-}
-
-.content-container-ficha-tecnica-equipe .content-container-ficha-tecnica-equipe-caixa {
-  width: 250px;
-  height: 100%;
-  background-image: url('../../../assets/img/nossa-equipe.jpeg');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.content-container-ficha-tecnica-equipe-container-membros {
-  width: 80%;
-  height: 100%;
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  overflow-x: scroll;
-  scrollbar-width: none;
-  user-select: none;
-}
-
-.content-container-ficha-tecnica-equipe-container-membros::-webkit-scrollbar {
-  display: none;
-}
-
-.content-container-ficha-tecnica-equipe-container-membros .content-container-ficha-tecnica-equipe-container-membros-card {
-  width: 100%;
-  padding-right: 150px;
-  padding-left: 20px;
-}
-
-.content-container-ficha-tecnica-equipe-container-membros .content-container-ficha-tecnica-equipe-container-membros-card h4 {
-  background-color: #31185654;
-  color: #E0DCE6;
-  padding: 10px 40px;
-  text-align: center;
-}
-
-.content-container-ficha-tecnica-equipe-container-membros-card-conteudo-imagem {
-  background-image: url('../../../assets/img/foto-design.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 230px;
-  width: 200px;
-}
-
-.content-container-ficha-tecnica-equipe-container-membros-card-conteudo p {
-  background-color: #000;
-  border-radius: 0 0 10px 10px;
-  text-align: center;
-  color: #fff;
-  padding: 10px 0;
-}
-
-.content-container-ficha-tecnica-unidade {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  row-gap: 30px;
-  background-color: #FFFFFF;
-}
-
-.content-container-ficha-tecnica-unidade .title-unidade {
-  font-size: 40px;
-  margin-top: 20px;
-  text-align: center;
-  font-weight: bold;
-  color: #281446;
-}
-
-.content-container-ficha-tecnica-unidade img {
-  border: 2px solid #A174E2;
-  border-radius: 20px;
-  outline: none;
-}
-
-.endereco {
-  text-align: center;
-  margin: 0 auto;
-  font-size: 18px;
-  line-height: 30px;
-  width: 300px;
-  background-color: #7A7A7A;
-  color: #ffffff;
-  padding: 10px 0;
-  border-radius: 10px;
-}
-
-.content-container-ficha-tecnica-footer {
-  height: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 /* Responsividade */
-@media (max-width:1379px) {
-  .video-section .video-container {
-    height: 22rem;
-  }
-}
 
 @media (max-width:1100px) {
   .button-section img {
@@ -312,7 +52,6 @@ section.content-container-ficha-tecnica {
   .button-section::before {
     display: none;
   }
-
 }
 
 @media (max-width: 899px) {
@@ -321,41 +60,4 @@ section.content-container-ficha-tecnica {
     justify-content: center;
     grid-template-columns: 100%;
   }
-
-  .video-section {
-    width: 100%;
-    color: aliceblue;
-  }
-
-  .button-section .button-group {
-    bottom: 0;
-    text-align: center;
-    margin-top: 10px;
-  }
-
 }
-
-@media(max-width:700px) {
-  .content-container-ficha-tecnica-unidade img {
-    width: 80%;
-    height: 40%;
-  }
-
-  footer img {
-    width: 100%;
-    padding: 20px;
-  }
-}
-
-@media(max-width:500px) {
-  .content-container-ficha-tecnica-inicio .sobre .sobre-conteudo p {
-    font-size: 18px;
-  }
-}
-
-  @media(max-width:410px) {
-    .content-container-ficha-tecnica-equipe .content-container-ficha-tecnica-equipe-caixa {
-      background-size: cover;
-    }
-  }
-

@@ -1,5 +1,5 @@
 <div class="header-atividade">
-  <span class="title">01 Pontos para definir Behaviorismo</span>
+  <span class="title">1. Pontos a se definir sobre {{titulo_pergunta}}</span>
   <img
     (click)="atividadeClick.emit()"
     src="assets/icons/close.svg"
@@ -9,5 +9,5 @@
   />
 </div>
 <div class="container-atividade">
-  <app-atividade-unidade-banco></app-atividade-unidade-banco>
+  <app-atividade-unidade-banco [questoes_banco]="questoes"></app-atividade-unidade-banco>
 </div>
