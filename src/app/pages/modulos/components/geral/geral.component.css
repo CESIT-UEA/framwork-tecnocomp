@@ -1,0 +1,242 @@
+.container {
+  background-color: #131313;
+}
+
+.hr-final {
+  width: 100%;
+  margin: 15px auto;
+  background-color: #5A3D86;
+  height: 3px;
+  border: none;
+}
+
+.container-main-conteudo {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.div-slide {
+  width: 70%;
+}
+
+.container-main-conteudo .div-slide ul li {
+  list-style: none;
+  text-align: center;
+  color: #F0E5FF;
+  padding: 15px 0 0 0;
+  font: normal 700 30px/normal Lato;
+}
+
+.container-main-conteudo .div-slide ul li:before {
+  content: '\2022';
+  margin: 0 10px;
+  color: #9665DF;
+}
+
+.container-main-conteudo .div-slide hr {
+  width: 80%;
+  height: 3px;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #3C2859;
+  border: none;
+}
+
+.botoes {
+  padding: 0 25px;
+  display: grid;
+  align-items: center;
+  border-radius: 15px;
+  background: rgba(28, 28, 28, 0.70);
+  width: -moz-fit-content;
+  height: 400px;
+}
+
+.primeiro {
+  grid-area: primeiro;
+}
+
+.segundo {
+  grid-area: segundo;
+}
+
+.terceiro {
+  grid-area: terceiro;
+}
+
+.section-texto {
+  width: 100%;
+  display: grid;
+  gap: 22px;
+  justify-content: center;
+  grid-template-areas:
+    "primeiro segundo"
+    "terceiro terceiro";
+}
+
+button.primeiro-botao,
+button.segundo-botao {
+  display: flex;
+  width: 90px;
+  height: 70px;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1.146px solid var(--Primaria, #9665DF);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(150, 101, 223, 0.50) 0%, rgba(150, 101, 223, 0.00) 100%);
+  color: var(--Terciaria, #FFF);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 8px;
+}
+
+button.terceiro-botao {
+  display: flex;
+  width: 202px;
+  height: 70px;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: 1.146px solid var(--Primaria, #9665DF);
+  background: radial-gradient(50% 50% at 50% 50%, rgba(150, 101, 223, 0.50) 0%, rgba(150, 101, 223, 0.00) 100%);
+  color: var(--Terciaria, #FFF);
+  text-align: center;
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.buttons-final {
+  display: flex;
+  flex-direction: column;
+}
+
+button.ebook-botao {
+  display: inline-flex;
+  padding: 9.868px 35.883px;
+  justify-content: center;
+  align-items: center;
+  gap: 12.559px;
+  background-color: transparent;
+  border-radius: 7.177px;
+  border: 1.794px solid var(--Terciaria, #FFF);
+  margin-bottom: 22px;
+}
+
+button.ebook-botao a {
+  color: #FFF;
+  text-align: center;
+  font-family: Arial;
+  font-size: 15.25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+button.atividade-botao {
+  display: inline-flex;
+  padding: 9.868px 56.516px;
+  justify-content: center;
+  align-items: center;
+  gap: 12.559px;
+  border: none;
+  border-radius: 7.177px;
+  background: var(--2, #793CD4);
+  color: #FFF;
+  text-align: center;
+  font-family: Arial;
+  font-size: 15.25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.primeiro-botao {
+  border: 2px solid var(--Terciaria, #FFF);
+  background-color: transparent;
+}
+
+.primeiro-botao a,
+.segundo-botao {
+  text-decoration: none;
+  color: #FFF;
+  text-align: center;
+  font: normal 400 17px/normal Arial;
+}
+
+.segundo-botao {
+  border: none;
+  background-color: #793CD4;
+}
+
+.container-main-conteudo-link {
+  width: 95%;
+  display: flex;
+  justify-content: right;
+  padding-bottom: 20px;
+}
+
+.container-main-conteudo-link-ul {
+  width: 95%;
+  padding: 0 0 0 50px;
+}
+
+.container-main-conteudo-links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.link-proximo {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  text-decoration: none;
+  color: #4F4F4F;
+  font: normal 400 16px normal Arial;
+  column-gap: 10px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.link-voltar {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  text-decoration: none;
+  color: #FFF;
+  font-family: Arial;
+  font-size: 16px;
+  line-height: normal;
+  column-gap: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width:800px) {
+  .container-main-conteudo {
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .div-slide {
+    width: 80%;
+  }
+}

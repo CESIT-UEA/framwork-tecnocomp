@@ -13,7 +13,8 @@ const routes: Routes = [
     path:'teorias-da-aprendizagem',
     component:AprendizagemEInformaticaComponent,
     children: [
-      { path: '', component: BehaviorismoComponent },
+      { path: '', redirectTo: 'behaviorismo', pathMatch: 'full' },
+      { path: 'behaviorismo', component: BehaviorismoComponent },
       { path: 'construtivismo', component: ConstrutivismoComponent },
       { path: 'socioconstrutivismo', component: SocioconstrutivismoComponent },
       { path: 'construcionismo', component: ConstrucionismoComponent },

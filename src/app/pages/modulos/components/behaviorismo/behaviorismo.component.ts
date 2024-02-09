@@ -11,6 +11,8 @@ export class BehaviorismoComponent {
   constructor(public aprendizagemInformatica:AprendizagemEInformaticaService){
 
   }
+  teste = 0
+  nome = "contutivismo"
   arrayReferenciasTeste = [
     {
       tituloLivro:'Behaviorismo Radical: Crítica e Metacrítica',

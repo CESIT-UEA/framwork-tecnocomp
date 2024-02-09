@@ -1,0 +1,23 @@
+.header-atividade {
+  display: grid;
+  height: 64px;
+  grid-template-columns: auto auto;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #161616;
+  align-items: center;
+}
+
+.header-atividade .title {
+  margin-left: 10px;
+  color: aliceblue;
+}
+
+.header-atividade img {
+  margin-left: 5px;
+}
+
+.container-atividade {
+  width: 80%;
+  margin: 0 auto;
+}

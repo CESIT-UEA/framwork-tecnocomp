@@ -72,4 +72,5 @@ export class ConstrutivismoComponent {
   navigationVoltar(){
     this.router.navigate(['teorias-da-aprendizagem']);
   }
+  teste = 1
 }

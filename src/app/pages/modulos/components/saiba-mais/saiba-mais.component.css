@@ -1,0 +1,51 @@
+.header-atividade {
+  display: grid;
+  height: 64px;
+  grid-template-columns: auto auto;
+  width: 100%;
+  justify-content: space-between;
+  background-color: #161616;
+  align-items: center;
+}
+
+.header-atividade img {
+  margin-left: 5px;
+}
+
+.header-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-links p {
+  font-size: 30px;
+  color: white;
+}
+
+.container-links {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 95% 5%;
+}
+
+.container-links-p {
+  color:  #B3B3B3;
+  font-family: Arial;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.container-links-text {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+.container-links-text a{
+  text-decoration: none;
+  color: white;
+  line-height: normal;
+}

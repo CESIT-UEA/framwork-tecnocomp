@@ -1,81 +1,15 @@
 <div class="container-geral" [ngSwitch]="controllerSwitch">
+
   <div *ngSwitchCase="'1'">
-    <div class="header-atividade">
-      <span class="title center">01 Pontos para definir Construtivismo</span>
-      <img
-        (click)="atividadeClick()"
-        src="assets/icons/close.svg"
-        alt="Icone para ir para a atividade da unidade"
-        width="30px"
-        height="30px"
-      />
-    </div>
-    <div class="container-atividade">
-      <app-atividade-unidade-banco></app-atividade-unidade-banco>
-    </div>
+    <app-atividade (atividadeClick)="atividadeClick()"></app-atividade>
   </div>
 
   <div *ngSwitchCase="'2'">
-    <div class="header-atividade">
-      <img
-        (click)="linksClick()"
-        src="assets/icons/close.svg"
-        alt="Icone para ir para a atividade da unidade"
-        width="30px"
-        height="30px"
-      />
-    </div>
-    <div class="container-links">
-      <div class="header-links">
-        <img
-          src="assets/icons/saibaMais.svg"
-          alt="Icone para download do ebook"
-          width="28px"
-          height="28px"
-        />
-        <p>Saiba mais</p>
-      </div>
-      <hr />
-    </div>
-
-    <div class="container-links-text">
-      <ul>
-        <li *ngFor="let item of arrayLinks">
-          <a target="_blank" href="{{ item }}">{{ item }}</a>
-        </li>
-      </ul>
-    </div>
+    <app-saiba-mais [links]="arrayLinks" (linksClick)="referenciasClick()"></app-saiba-mais>
   </div>
 
   <div *ngSwitchCase="'3'">
-    <div class="header-atividade">
-      <div class="container-links center">
-        <div class="header-links">
-          <img
-            src="assets/icons/referencias.svg"
-            alt="Icone para download do ebook"
-            width="28px"
-            height="26px"
-          />
-          <p class="container-links-p"><span class="container-links-span">01</span> Referências bibliográficas</p>
-        </div>
-
-        <img
-          (click)="referenciasClick()"
-          src="assets/icons/close.svg"
-          alt="Icone para ir para a atividade da unidade"
-          width="30px"
-          height="30px"
-        />
-      </div>
-    </div>
-    <div class="container-links-text">
-      <ul>
-        <li *ngFor="let item of arrayReferencias">
-          <p>{{ item }}</p>
-        </li>
-      </ul>
-    </div>
+    <app-referencias [referencias]="arrayReferencias" (referenciasClick)="referenciasClick()"></app-referencias>
   </div>
 
   <div *ngSwitchCase="'4'">
@@ -94,113 +28,16 @@
   </div>
 
   <div class="container" *ngSwitchDefault>
-    <app-header-unidade></app-header-unidade>
-    <div class="container-main-conteudo">
-      <div class="div-slide">
-        <ul>
-          <li>Construtivismo</li>
-        </ul>
-        <hr />
-        <div class="container-video">
-          <app-slide-unidade
-            [videos]="arrayVideos"
-            style="text-align: center"
-          ></app-slide-unidade>
-        </div>
-      </div>
-
-      <div class="botoes">
-        <section class="section-texto center-2">
-          <!-- Todo: Fazer o NG template dos-->
-          <button
-            class="segundo segundo-botao center-2"
-            (click)="referenciasClick()"
-          >
-            <img
-              src="assets/icons/saibaMais.svg"
-              alt="Icone para download do ebook"
-              width="22px"
-              height="24px"
-            />
-            Saiba mais
-          </button>
-          <button
-            class="terceiro terceiro-botao center-2"
-            (click)="linksClick()"
-          >
-            <img
-              src="assets/icons/referencias.svg"
-              alt="Icone para download do ebook"
-              width="22px"
-              height="24px"
-            />
-            Referencias Bibliográficas
-          </button>
-          <button
-            class="primeiro segundo-botao center-2"
-            (click)="textoApoioClick()"
-          >
-            <img
-              src="assets/icons/texto-de-apoio.svg"
-              alt="Icone para download do ebook"
-              width="22px"
-              height="24px"
-            />
-            Texto de apoio
-          </button>
-        </section>
-
-        <div class="position">
-          <section class="buttons-final">
-            <button class="ebook-botao center-2">
-              <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"
-                >E-BOOK TÓPICO</a
-              >
-              <img
-                src="assets/icons/download.svg"
-                alt="Icone para download do ebook"
-                width="22px"
-                height="24px"
-              />
-            </button>
-
-            <button class="atividade-botao center-2" (click)="atividadeClick()">
-              <img
-                src="assets/icons/atividade.svg"
-                alt="Icone para ir para a atividade da unidade"
-                width="22px"
-                height="24px"
-              />
-              ATIVIDADE
-            </button>
-          </section>
-        </div>
-      </div>
-    </div>
-    <hr class="hr-final" />
-    <div class="container-main-conteudo-links">
-      <div class="container-main-conteudo-links-voltar">
-        <a (click)="navigationVoltar()" class="link-voltar">
-          <img
-            src="assets/icons/previous.svg"
-            alt="Icone para ir para a unidade anterior"
-            width="22px"
-            height="24px"
-          />
-          ANTERIOR
-        </a>
-      </div>
-      <a (click)="navigation(); aprendizagemInformatica.updateProgress()" class="link-proximo"
-        >PROXÍMO
-        <img
-          src="assets/icons/next.svg"
-          alt="Icone para ir para a próxima unidade"
-          width="22px"
-          height="24px"
-        />
-      </a>
-    </div>
-  </div>
+    <app-geral
+    nome="Construtivismo"
+    [link]="teste"
+    [videos]="arrayVideos"
+    (referenciasClick)="referenciasClick()"
+    (linksClick)="linksClick()"
+    (textoApoioClick)="textoApoioClick()"
+    (atividadeClick)="atividadeClick()"
+    proximo="socioconstrutivismo"
+    voltar="behaviorismo"
+    >
+  </app-geral>
 </div>
-
-

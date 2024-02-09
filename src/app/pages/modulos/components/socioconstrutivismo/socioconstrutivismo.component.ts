@@ -9,7 +9,7 @@ import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatic
 })
 export class SocioconstrutivismoComponent {
   constructor(private router:Router,public aprendizagemInformatica:AprendizagemEInformaticaService){}
-
+  teste = 1
   arrayVideos:string[] = ['https://www.youtube.com/embed/5wMm5C5DjI8?si=txYG6E1KhMvhdGGe','https://www.youtube.com/embed/mhGJ4v__hqs?si=GZli-_qP3dXlFmfi'];
 
   arrayReferencias:string[] = [

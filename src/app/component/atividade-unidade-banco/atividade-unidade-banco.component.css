@@ -58,7 +58,8 @@
 }
 .botao {
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  padding: 20px 0;
 }
 
 .botao button {

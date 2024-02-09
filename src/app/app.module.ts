@@ -32,6 +32,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { AtividadeUnidadeBancoComponent } from './component/atividade-unidade-banco/atividade-unidade-banco.component';
 import { MenuComBarraProgressoTesteComponent } from './component/menu-com-barra-progresso-teste/menu-com-barra-progresso-teste.component';
 import { FormsModule } from '@angular/forms';
+import { FichaMembrosComponent } from './components/ficha-membros/ficha-membros.component';
+import { SaibaMaisComponent } from './pages/modulos/components/saiba-mais/saiba-mais.component';
+import { ReferenciasComponent } from './pages/modulos/components/referencias/referencias.component';
+import { AtividadeComponent } from './pages/modulos/components/atividade/atividade.component';
+import { GeralComponent } from './pages/modulos/components/geral/geral.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +59,11 @@ import { FormsModule } from '@angular/forms';
     HeaderAtividadeComponent,
     AtividadeUnidadeBancoComponent,
     MenuComBarraProgressoTesteComponent,
+    FichaMembrosComponent,
+    SaibaMaisComponent,
+    ReferenciasComponent,
+    AtividadeComponent,
+    GeralComponent,
   ],
   imports: [
     BrowserModule,

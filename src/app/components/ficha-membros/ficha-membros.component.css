@@ -1,0 +1,10 @@
+.content-container-ficha-tecnica-equipe-container-membros{
+  width: 100%;
+  height: 100%;
+}
+
+.content-container-ficha-tecnica-equipe-container-membros .card .cargo{
+  background-color: #31185654;
+  color: #E0DCE6;
+  padding: 10px;
+}
