@@ -70,7 +70,7 @@
 
 .text {
   color: #FAF8E6;
-  margin-left: 3rem;
+  text-align: center;
 }
 
 .text p {
@@ -97,6 +97,11 @@
   margin-left: 1rem;
   height: 40px;
 
+}
+
+.position{
+  width:62%;
+  padding: 30px 0;
 }
 
 @media (max-width: 425px) {

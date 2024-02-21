@@ -9,12 +9,13 @@
   content: '';
   background: url('../../../../assets/mundo.png') no-repeat;
   background-size: contain;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto;
   position: relative;
   top: -40px;
   animation: rotateAnimation 7s linear infinite;
+  margin-bottom: 90px;
 }
 
 @keyframes rotateAnimation {
