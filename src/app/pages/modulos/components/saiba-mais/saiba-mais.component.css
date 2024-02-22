@@ -1,9 +1,9 @@
 .header-atividade {
   display: grid;
   height: 64px;
-  grid-template-columns: auto auto;
+  grid-template-columns: 95% 5%;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #161616;
   align-items: center;
 }
@@ -21,14 +21,10 @@
 
 .header-links p {
   font-size: 30px;
-  color: white;
+  color: #B3B3B3;
 }
 
-.container-links {
-  display: grid;
-  align-items: center;
-  grid-template-columns: 95% 5%;
-}
+
 
 .container-links-p {
   color:  #B3B3B3;
@@ -40,12 +36,50 @@
 }
 
 .container-links-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   text-align: center;
   padding: 10px;
+  color:white
 }
 .container-links-text a{
   text-decoration: none;
   color: white;
   line-height: normal;
 }
+
+.container-links-text-caixa{
+  border: 1px solid #9665DF;
+  width: 60%;
+  height: 125px;
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+#container-links-text-frase{
+  text-align: left;
+  width: 70%;
+  padding: 10px;
+  color: #FBFBFB;
+}
+
+.container-links-text-caixa-descricao2{
+  padding: 10px 0 20px 0;
+}
+
+.container-links-text-caixa-descricao1{
+  padding-top: 10px;
+  color:#B3B3B3;
+}
+
+
+.container-links-text-caixa a{
+  display: inline-block;
+  background-color: #9665DF;
+  padding: 5px 10px;
+  margin-bottom: 6px;
+  border-radius: 5px;
+}
+
