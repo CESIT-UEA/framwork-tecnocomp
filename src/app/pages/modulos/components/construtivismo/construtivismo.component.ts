@@ -96,7 +96,7 @@ export class ConstrutivismoComponent {
     this.router.navigate(['teorias-da-aprendizagem']);
   }
 
-  teste = 1
+  teste = 0
   questoes: Questao[] = [
     {
       titulo:'O que é o Construtivismo?',

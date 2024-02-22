@@ -8,7 +8,7 @@ import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatic
   styleUrls: ['../behaviorismo/behaviorismo.component.css']
 })
 export class ConstrucionismoComponent {
-  teste = 1
+  teste = 2
   nome = "Construcionismo"
   constructor(private router: Router,public aprendizagemInformatica:AprendizagemEInformaticaService) { }
   arrayVideos: string[] = ['https://www.youtube.com/embed/poWicP3Ddd4?si=aTq8--T_HjYpkz53', 'https://www.youtube.com/embed/AfFTOTx0K4I?si=JLs1naJQolh1i-Xq'];

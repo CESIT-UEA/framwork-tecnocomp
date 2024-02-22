@@ -16,17 +16,11 @@ export class GeralComponent {
   @Output() linksClick = new EventEmitter<void>();
   @Output() textoApoioClick = new EventEmitter<void>();
   @Output() atividadeClick = new EventEmitter<void>();
-  @Input() link!:number;
+
+  @Input() link:number = 0;
   @Input() voltar!:string;
   @Input() proximo!:string;
 
-  isValid(){
-    if(this.link == 0){
-      return true
-    }else{
-      return false
-    }
-  }
   navigation(){
     this.router.navigate([this.proximo]);
   }

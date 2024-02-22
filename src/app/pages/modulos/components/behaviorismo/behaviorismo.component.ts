@@ -11,7 +11,7 @@ export class BehaviorismoComponent {
   constructor(public aprendizagemInformatica:AprendizagemEInformaticaService){
 
   }
-  teste = 0
+  teste = 1
   nome = "Behaviorismo"
   arrayReferenciasTeste = [
     {

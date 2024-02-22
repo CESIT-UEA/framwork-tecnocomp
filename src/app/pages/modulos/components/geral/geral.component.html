@@ -2,7 +2,7 @@
 <div class="container-main-conteudo">
   <div class="div-slide">
     <ul>
-      <li>{{nome}}</li>
+      <li>{{ nome }}</li>
     </ul>
     <hr />
     <div class="container-video">
@@ -56,6 +56,19 @@
 
     <div class="position">
       <section class="buttons-final">
+        <button
+          class="atividade-botao center-2"
+          (click)="atividadeClick.emit()"
+        >
+          <img
+            src="assets/icons/atividade.svg"
+            alt="Icone para ir para a atividade da unidade"
+            width="22px"
+            height="24px"
+          />
+          ATIVIDADE
+        </button>
+
         <button class="ebook-botao center-2">
           <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"
             >E-BOOK TÓPICO</a
@@ -67,41 +80,29 @@
             height="24px"
           />
         </button>
-
-        <button class="atividade-botao center-2" (click)="atividadeClick.emit()">
-          <img
-            src="assets/icons/atividade.svg"
-            alt="Icone para ir para a atividade da unidade"
-            width="22px"
-            height="24px"
-          />
-          ATIVIDADE
-        </button>
       </section>
     </div>
   </div>
 </div>
 
-<hr class="hr-final" />
+<div class="container-switch-links" [ngSwitch]="link">
+  <div *ngSwitchCase="'1'"  class="container-main-conteudo-link">
+    <a
+      [routerLink]="['../', this.proximo]"
+      class="link-proximo"
+      (click)="this.aprendizagemInformatica.updateProgress()"
+      >PROXÍMO
+      <img
+        src="assets/icons/next.svg"
+        alt="Icone para ir para a próxima unidade"
+        width="22px"
+        height="24px"
+      />
+    </a>
+  </div>
 
-<div class="container-main-conteudo-link" *ngIf="isValid() == true; else links">
-  <a
-  [routerLink]="['../',this.proximo]"
-    class="link-proximo"
-    (click)="this.aprendizagemInformatica.updateProgress()"
-    >PROXÍMO
-    <img
-      src="assets/icons/next.svg"
-      alt="Icone para ir para a próxima unidade"
-      width="22px"
-      height="24px"
-    />
-  </a>
-</div>
-
-<ng-template class="container-main-conteudo-links" #links>
-  <div class="container-main-conteudo-links-voltar">
-    <a [routerLink]="['../',this.voltar]"  class="link-voltar">
+  <div *ngSwitchCase="'2'"  class="container-main-conteudo-link-left">
+    <a [routerLink]="['../', this.voltar]" class="link-voltar">
       <img
         src="assets/icons/previous.svg"
         alt="Icone para ir para a unidade anterior"
@@ -111,14 +112,32 @@
       ANTERIOR
     </a>
   </div>
-  <a [routerLink]="['../',this.proximo]" (click)="aprendizagemInformatica.updateProgress()" class="link-proximo"
-    >PROXÍMO
-    <img
-      src="assets/icons/next.svg"
-      alt="Icone para ir para a próxima unidade"
-      width="22px"
-      height="24px"
-    />
-  </a>
-</ng-template>
+  <ng-template ngSwitchDefault class="container-main-conteudo-links" #links>
+    <div class="container-main-conteudo-links-voltar">
+      <a [routerLink]="['../', this.voltar]" class="link-voltar">
+        <img
+          src="assets/icons/previous.svg"
+          alt="Icone para ir para a unidade anterior"
+          width="22px"
+          height="24px"
+        />
+        ANTERIOR
+      </a>
+
+      <a
+        [routerLink]="['../', this.proximo]"
+        (click)="aprendizagemInformatica.updateProgress()"
+        class="link-proximo"
+        >PROXÍMO
+        <img
+          src="assets/icons/next.svg"
+          alt="Icone para ir para a próxima unidade"
+          width="22px"
+          height="24px"
+        />
+      </a>
+    </div>
+  </ng-template>
+</div>
+
 
