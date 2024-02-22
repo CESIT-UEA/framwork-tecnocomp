@@ -21,9 +21,13 @@ export class BehaviorismoComponent {
     }
   ]
   arrayReferencias:string[] = [
-    'BOSI, Alfredo. Historia concisa da literatura brasileira. 38. ed. São Paulo: Cortes, 2002',
-    'BOSI, Alfredo. Historia concisa da literatura brasileira. 38. ed. São Paulo: Cortes, 2002',
-    'BOSI, Alfredo. Historia concisa da literatura brasileira. 38. ed. São Paulo: Cortes, 2002',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
   ]
   arrayLinks:string[] = [
     'https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea','https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea',

@@ -7,21 +7,27 @@
         width="28px"
         height="26px"
       />
-      <p class="container-links-p"><span class="container-links-span">01</span> Referências bibliográficas</p>
+      <p class="container-links-p">
+        <span class="container-links-span">02</span> Referências bibliográficas
+      </p>
     </div>
 
     <img
       (click)="referenciasClick.emit()"
       src="assets/icons/close.svg"
-      alt="Icone para ir para a atividade da unidade"
+      alt="Icone para voltar a unidade"
       width="30px"
       height="30px"
     />
   </div>
 </div>
 <div class="container-links-text">
-  <ul>
+  <p class="container-links-text-p">
+    Aqui estão alguns lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat consdnuu
+  </p>
+  <ul class="container-links-text-lista" >
     <li *ngFor="let item of referencias">
+      <img src="../../../../../assets/img/referencias/referencias 1.png" alt="img da referencia do livro">
       <p>{{ item }}</p>
     </li>
   </ul>

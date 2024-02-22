@@ -1,11 +1,8 @@
 .header-atividade {
   display: grid;
   height: 64px;
-  grid-template-columns: auto auto;
   width: 100%;
-  justify-content: space-between;
-  background-color: #161616;
-  align-items: center;
+  background-color: #131313;
 }
 
 .header-atividade img {
@@ -39,8 +36,9 @@
   font-weight: 700;
   line-height: normal;
 }
+
 .container-links-p {
-  color:  #B3B3B3;
+  color: #B3B3B3;
   font-family: Arial;
   font-size: 24px;
   font-style: normal;
@@ -50,17 +48,51 @@
 
 .container-links-text {
   width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.container-links-text-p {
+  color: #FBFBFB;
+  font-size: 21px;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
+}
+.container-links-text-lista{
+  display: grid;
+  background-image: url('../../../../../assets/img/referencias/linha-fundo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  grid-template-columns: auto auto;
+  justify-content: center;
+  align-items: center;
+  row-gap: 33px;
+
 }
 
-.container-links-text p {
-  color: white;
+.container-links-text-lista li{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  list-style: none;
+  margin: 0 auto;
+  background-color: #242228;
+  padding: 15px 0px 15px 15px ;
+  border-radius: 10px;
+  margin-bottom: 20px;
 }
 
-.container-links-text a {
-  text-decoration: none;
-  display: block;
-  color: white;
-  margin: 20px 0;
+.container-links-text-lista li img{
+  border: 3px solid #9665DF;
+  border-radius: 15px;
+}
+.container-links-text-lista li p{
+  width: 90%;
+  font-size: 14px;
+  text-align: left;
+  margin: 0 auto;
+  color: #CCCCCC;
 }
