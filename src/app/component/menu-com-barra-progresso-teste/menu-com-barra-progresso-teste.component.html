@@ -13,7 +13,6 @@
     <div class="topico-container" *ngFor="let topic of aprendizagemInformatica.topics; index as i">
       <input
         type="checkbox"
-        [(ngModel)]="topic.completed"
         (ngModelChange)="aprendizagemInformatica.updateProgress()"
         (click)="aprendizagemInformatica.teste()"
         [disabled]="topic.completed"
