@@ -1,3 +1,7 @@
+@font-face {
+  font-family: minhaFonte;
+  src: url('../../../../assets/fonteProjeto.ttf');
+}
 .button-section {
   display: grid;
   align-items: center;
@@ -42,10 +46,15 @@
 }
 
 .button-section .button-group .download-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
   border-radius: 6.95px;
   background: none;
+  margin: 0 auto;
   color: #FFF;
-  font-family: customFont;
+  font-family: minhaFonte;
   border: 1.738px solid #FFF;
   font-size: 0.8rem;
   font-style: normal;
