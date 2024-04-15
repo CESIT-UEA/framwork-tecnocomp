@@ -26,28 +26,6 @@ export class SocioconstrutivismoComponent {
 
   pergunta: string = "Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?"
 
-  arrayAlternativas = [
-    {
-      nome: 'A',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:true
-    },
-    {
-      nome: 'B',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:false
-    },
-    {
-      nome: 'C',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:false
-    },
-    {
-      nome: 'D',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:false
-    },
-  ]
   controllerSwitch:number = 0
 
   atividadeClick(){
@@ -75,4 +53,43 @@ export class SocioconstrutivismoComponent {
     this.router.navigate(['teorias-da-aprendizagem/construtivismo']);
   }
 
+  minhaQuestao = {
+    titulo:
+      'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
+    alternativas: [
+      {
+        letra: 'a',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+      {
+        letra: 'b',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+      {
+        letra: 'c',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: true,
+      },
+      {
+        letra: 'd',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+    ],
+    respostaCorreta: 'c',
+  };
 }

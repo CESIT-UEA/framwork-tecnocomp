@@ -97,84 +97,44 @@ export class ConstrutivismoComponent {
   }
 
   teste = 0
-  questoes: Questao[] = [
-    {
-      titulo:'O que é o Construtivismo?',
-      alternativas:[
-        {
-          explicacaoVisivel:true,
-          descricao:'Testando 1 2 3',
-          explicacao:'Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-      ],
-      respostaCorreta:0
-    },
-    {
-      titulo:'Construtivismo n sei oq',
-      alternativas:[
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.',
-          explicacao:'Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-      ],
-      respostaCorreta:1
-    },
-    {
-      titulo:'Construtivismo algo',
-      alternativas:[
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.',
-          explicacao:'Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-        {
-          explicacaoVisivel:true,
-          descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.',
-          explicacao:'Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.'
-        },
-      ],
-      respostaCorreta:2
-    },
-  ];
+
+  minhaQuestao = {
+    titulo:
+      'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
+    alternativas: [
+      {
+        letra: 'a',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+      {
+        letra: 'b',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+      {
+        letra: 'c',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: true,
+      },
+      {
+        letra: 'd',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+    ],
+    respostaCorreta: 'c',
+  };
 }

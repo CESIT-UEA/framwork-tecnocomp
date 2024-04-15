@@ -41,6 +41,7 @@ import { VideoSectionComponent } from './components/home/video-section/video-sec
 import { SafeUrlPipePipe } from './components/safe-url-pipe.pipe';
 import { BotoesSectionComponent } from './components/home/botoes-section/botoes-section.component';
 import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tecnica.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tec
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatProgressBarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

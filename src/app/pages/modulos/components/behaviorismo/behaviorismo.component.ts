@@ -5,122 +5,99 @@ import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatic
 @Component({
   selector: 'app-behaviorismo',
   templateUrl: './behaviorismo.component.html',
-  styleUrls: ['./behaviorismo.component.css']
+  styleUrls: ['./behaviorismo.component.css'],
 })
 export class BehaviorismoComponent {
-  constructor(public aprendizagemInformatica:AprendizagemEInformaticaService){
-
-  }
-  teste = 1
-  nome = "Behaviorismo"
+  constructor(
+    public aprendizagemInformatica: AprendizagemEInformaticaService
+  ) {}
+  teste = 1;
+  nome = 'Behaviorismo';
   arrayReferenciasTeste = [
     {
-      tituloLivro:'Behaviorismo Radical: Crítica e Metacrítica',
-      nome_autor:'Kester Carrara',
-      caminho_imagem:'Livro 1'
-    }
-  ]
-  arrayReferencias:string[] = [
-    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
-    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
-    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
-
-    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
-    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
-    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
-  ]
-  arrayLinks:string[] = [
-    'https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea','https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea',
-    'https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea','https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea'
-  ]
-
-  arrayVideos:string[] = ['https://www.youtube.com/embed/c6kVJNkAeH4?si=78pwIHKZf_PDQuW_','https://www.youtube.com/embed/Vh8oOY0v9bg?si=_9t9bhiKjef2VgWK'];
-  pergunta: string = "Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?"
-
-  arrayAlternativas = [
-    {
-      nome: 'A',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:true
+      tituloLivro: 'Behaviorismo Radical: Crítica e Metacrítica',
+      nome_autor: 'Kester Carrara',
+      caminho_imagem: 'Livro 1',
     },
-    {
-      nome: 'B',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:false
-    },
-    {
-      nome: 'C',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:false
-    },
-    {
-      nome: 'D',
-      descricao:'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-      correto:false
-    },
-  ]
-  controllerSwitch:number = 0
+  ];
+  arrayReferencias: string[] = [
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
 
-  atividadeClick(){
-    this.controllerSwitch = this.controllerSwitch == 0 ? 1 : 0
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+    'CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7',
+  ];
+  arrayLinks: string[] = [
+    'https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea',
+    'https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea',
+    'https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea',
+    'https://br.search.yahoo.com/search?fr=mcafee&type=E210BR91199G0&p=saiba+mais+uea',
+  ];
+
+  arrayVideos: string[] = [
+    'https://www.youtube.com/embed/c6kVJNkAeH4?si=78pwIHKZf_PDQuW_',
+    'https://www.youtube.com/embed/Vh8oOY0v9bg?si=_9t9bhiKjef2VgWK',
+  ];
+  pergunta: string =
+    'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?';
+
+  controllerSwitch: number = 0;
+
+  atividadeClick() {
+    this.controllerSwitch = this.controllerSwitch == 0 ? 1 : 0;
   }
 
-  referenciasClick(){
-    this.controllerSwitch = this.controllerSwitch == 0 ? 2 : 0
+  referenciasClick() {
+    this.controllerSwitch = this.controllerSwitch == 0 ? 2 : 0;
   }
 
-  linksClick(){
-    this.controllerSwitch = this.controllerSwitch == 0 ? 3 : 0
+  linksClick() {
+    this.controllerSwitch = this.controllerSwitch == 0 ? 3 : 0;
   }
 
-  textoApoioClick(){
-    this.controllerSwitch = this.controllerSwitch == 0 ? 4 : 0
+  textoApoioClick() {
+    this.controllerSwitch = this.controllerSwitch == 0 ? 4 : 0;
   }
 
-  questions  = [{
-    question: 'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
-    answers: [
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
-    correctAnswer: 'Resposta B'
-  },
-  {
-    question: 'Segunda Questão',
-    answers: [
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
-    correctAnswer: 'Resposta C'
-  },
-  {
-    question: 'Terceira Questão',
-    answers: [
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
-    correctAnswer: 'Resposta C'
-  },
-  {
-    question: 'Quarta Questão',
-    answers: [
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
-    correctAnswer: 'Resposta D'
-  },
-  {
-    question: 'Quinta Questão',
-    answers: [
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A24',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A25',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A26',
-      'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.A27'],
-    correctAnswer: 'Resposta A'
-  }
-  ]
+  minhaQuestao = {
+    titulo:
+      'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
+    alternativas: [
+      {
+        letra: 'a',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+      {
+        letra: 'b',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+      {
+        letra: 'c',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: true,
+      },
+      {
+        letra: 'd',
+        descricao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        correta: false,
+      },
+    ],
+    respostaCorreta: 'c',
+  };
 }

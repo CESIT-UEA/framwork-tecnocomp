@@ -8,18 +8,18 @@ import { SocioconstrutivismoComponent } from './pages/modulos/components/socioco
 import { ConstrucionismoComponent } from './pages/modulos/components/construcionismo/construcionismo.component';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
+  {path:'teorias-da-aprendizagemHome',component:HomeComponent},
   {
     path:'teorias-da-aprendizagem',
     component:AprendizagemEInformaticaComponent,
     children: [
-      { path: '', redirectTo: 'behaviorismo', pathMatch: 'full' },
       { path: 'behaviorismo', component: BehaviorismoComponent },
       { path: 'construtivismo', component: ConstrutivismoComponent },
       { path: 'socioconstrutivismo', component: SocioconstrutivismoComponent },
       { path: 'construcionismo', component: ConstrucionismoComponent },
-      ],
-  }
+    ],
+  },
+  {path:'tecnologias-digitais-de-informação-e-comunicaçãoHome', component:HomeComponent}
 ];
 
 @NgModule({

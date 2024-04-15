@@ -1,7 +1,11 @@
 <div class="container-geral" [ngSwitch]="controllerSwitch">
 
   <div *ngSwitchCase="'1'">
-    <app-atividade titulo_pergunta="Construcionismo" (atividadeClick)="atividadeClick()"></app-atividade>
+    <app-atividade
+      (atividadeClick)="atividadeClick()"
+      [questao]="minhaQuestao"
+      [gradeIn]="false"
+    ></app-atividade>
   </div>
 
   <div *ngSwitchCase="'2'">

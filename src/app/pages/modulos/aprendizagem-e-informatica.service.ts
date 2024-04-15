@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AprendizagemEInformaticaService {
+  notaTotal = 0
   constructor(){
 
   }
