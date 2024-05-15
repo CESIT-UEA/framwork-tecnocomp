@@ -8,23 +8,22 @@
     height="30px"
   />
 </div>
-<div class="container-atividade">
+<div class="container-atividade" *ngIf="this.bloqueio == false">
   <div *ngIf="questaoAtual">
     <h3>Pontos a se definir sobre {{ questaoAtual.titulo }}</h3>
-    <div *ngFor="let alternativa of questaoAtual.alternativas">
-      <div class="alternativas" (click)="!respostaEnviada && responder(alternativa.letra)">
+    <div *ngFor="let alternativa of questaoAtual.alternativas; let i = index">
+      <div
+        class="alternativas"
+        [ngClass]="{'resposta-errada': resposta === alternativa.descricao && questaoAtual!.respostaCorreta != resposta}"
+        (click)="!respostaEnviada && responder(alternativa.descricao)"
+      >
         <img
-          [src]="caminhoImagem + alternativa.letra.toUpperCase() + '.png'"
+          [src]="caminhoImagem + i + '.png'"
           alt="Alternativa da questão"
         />
         <div class="container-alternativa">
           {{ alternativa.descricao }}
-          <div
-            class="respostaCerta"
-            *ngIf="
-              resposta === alternativa.letra 
-            "
-          >
+          <div class="respostaCerta" *ngIf="resposta === alternativa.descricao">
             Explicação: {{ getExplicacao(resposta) }}
           </div>
         </div>
@@ -32,4 +31,9 @@
     </div>
   </div>
   <button (click)="refazer()">Refazer</button>
+</div>
+<div class="container-atividade" *ngIf="this.bloqueio == true">
+  <p style="color: aliceblue; text-align: center">
+    Questão enviada com sucesso
+  </p>
 </div>

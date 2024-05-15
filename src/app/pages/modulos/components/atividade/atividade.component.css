@@ -56,3 +56,7 @@ button{
   border: 1px solid #3e3c3c;
   border-radius: 20px;
 }
+
+.resposta-errada {
+  border: 2px solid red;
+}

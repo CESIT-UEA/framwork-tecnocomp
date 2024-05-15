@@ -3,19 +3,17 @@
     <p class="texto-progresso">Progresso</p>
     <mat-progress-bar
       class="barra-progresso"
-      mode="determinate"
+      mode="determinate" 
       color="warn"
-      [value]="aprendizagemInformatica.progress"
+      [value]="this.ltiService.notaTotal"
     ></mat-progress-bar>
-    <p>{{ aprendizagemInformatica.progress }}%</p>
+    <p>{{ this.ltiService.notaTotal }}%</p>
   </div>
   <div class="container-topico">
     <div class="topico-container" *ngFor="let topic of aprendizagemInformatica.topics; index as i">
       <input
         type="checkbox"
-        (ngModelChange)="aprendizagemInformatica.updateProgress()"
-        (click)="aprendizagemInformatica.teste()"
-        [disabled]="topic.completed"
+        disabled="true"
       />
       <label>{{ i + 1 }}. {{ topic.name }}</label>
     </div>

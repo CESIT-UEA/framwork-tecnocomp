@@ -86,8 +86,14 @@
 </div>
 
 <div class="container-switch-links" [ngSwitch]="link">
-  <div *ngSwitchCase="'1'"  class="container-main-conteudo-link">
+  <div *ngSwitchCase="'1'" class="container-main-conteudo-link">
+    <div *ngIf="!this.liberado">
+      <p style="color: aliceblue">
+        Complete a atividade para poder ir para o proximo tópico
+      </p>
+    </div>
     <a
+      *ngIf="this.liberado"
       [routerLink]="['../', this.proximo]"
       class="link-proximo"
       (click)="this.aprendizagemInformatica.updateProgress()"
@@ -101,7 +107,7 @@
     </a>
   </div>
 
-  <div *ngSwitchCase="'2'"  class="container-main-conteudo-link-left">
+  <div *ngSwitchCase="'2'" class="container-main-conteudo-link-left">
     <a [routerLink]="['../', this.voltar]" class="link-voltar">
       <img
         src="assets/icons/previous.svg"
@@ -124,10 +130,16 @@
         ANTERIOR
       </a>
 
+      <div *ngIf="!this.liberado">
+        <p style="color: aliceblue">
+          Complete a atividade para poder ir para o proximo tópico
+        </p>
+      </div>
       <a
         [routerLink]="['../', this.proximo]"
         (click)="aprendizagemInformatica.updateProgress()"
         class="link-proximo"
+        *ngIf="this.liberado"
         >PROXÍMO
         <img
           src="assets/icons/next.svg"
@@ -139,5 +151,3 @@
     </div>
   </ng-template>
 </div>
-
-

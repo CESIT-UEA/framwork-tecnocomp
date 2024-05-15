@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatica/aprendizagem-e-informatica.service';
+import { ServiceAppService } from 'src/app/service-app.service';
 
 @Component({
   selector: 'app-behaviorismo',
@@ -9,7 +10,8 @@ import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatic
 })
 export class BehaviorismoComponent {
   constructor(
-    public aprendizagemInformatica: AprendizagemEInformaticaService
+    public aprendizagemInformatica: AprendizagemEInformaticaService,
+    public ltiService:ServiceAppService
   ) {}
   teste = 1;
   nome = 'Behaviorismo';
@@ -62,42 +64,30 @@ export class BehaviorismoComponent {
   }
 
   minhaQuestao = {
-    titulo:
-      'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
+    titulo: 'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
     alternativas: [
       {
-        letra: 'a',
-        descricao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-        explicacao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        descricao: 'Azul',
+        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: false,
       },
       {
-        letra: 'b',
-        descricao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-        explicacao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        descricao: 'Vermelho',
+        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: false,
       },
       {
-        letra: 'c',
-        descricao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-        explicacao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        descricao: 'Verde',
+        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: true,
       },
       {
-        letra: 'd',
-        descricao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
-        explicacao:
-          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        descricao: 'Laranja',
+        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: false,
       },
     ],
-    respostaCorreta: 'c',
+    respostaCorreta: 'Verde',
   };
+  
 }

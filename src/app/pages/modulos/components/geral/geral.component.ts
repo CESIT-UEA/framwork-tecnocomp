@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 import { Router } from '@angular/router';
+import { ServiceAppService } from 'src/app/service-app.service';
 
 @Component({
   selector: 'app-geral',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./geral.component.css']
 })
 export class GeralComponent {
-  constructor(public aprendizagemInformatica:AprendizagemEInformaticaService, private router:Router){
+  constructor(public aprendizagemInformatica:AprendizagemEInformaticaService, private router:Router, public ltiService:ServiceAppService){
   }
   @Input() nome!:string
   @Input() videos!: string[];
@@ -20,6 +21,7 @@ export class GeralComponent {
   @Input() link:number = 0;
   @Input() voltar!:string;
   @Input() proximo!:string;
+  @Input() liberado:boolean = false
 
   navigation(){
     this.router.navigate([this.proximo]);

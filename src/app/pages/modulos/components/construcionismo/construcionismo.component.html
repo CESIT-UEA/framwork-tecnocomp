@@ -5,6 +5,8 @@
       (atividadeClick)="atividadeClick()"
       [questao]="minhaQuestao"
       [gradeIn]="false"
+      [bloqueio]="this.ltiService.bloqueio[3].encerrado"
+      [idTopico]="this.ltiService.bloqueio[3].idTopico" 
     ></app-atividade>
   </div>
 
@@ -42,6 +44,7 @@
     (atividadeClick)="atividadeClick()"
     voltar="socioconstrutivismo"
     [link]="teste"
+    [liberado]="this.ltiService.bloqueio[3].encerrado"
     >
   </app-geral>
 </div>

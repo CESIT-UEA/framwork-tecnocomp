@@ -3,6 +3,8 @@
     <app-atividade
       (atividadeClick)="atividadeClick()"
       [questao]="minhaQuestao"
+      [bloqueio]="this.ltiService.bloqueio[2].encerrado"
+      [idTopico]="this.ltiService.bloqueio[2].idTopico"
     ></app-atividade>
   </div>
   <div *ngSwitchCase="'2'">
@@ -45,7 +47,8 @@
       (atividadeClick)="atividadeClick()"
       proximo="construcionismo"
       voltar="construtivismo"
-    >
+      [liberado]="this.ltiService.bloqueio[2].encerrado"
+    > 
     </app-geral>
   </div>
 </div>

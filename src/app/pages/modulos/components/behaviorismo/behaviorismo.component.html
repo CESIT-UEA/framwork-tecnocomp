@@ -4,6 +4,8 @@
     <app-atividade
       (atividadeClick)="atividadeClick()"
       [questao]="minhaQuestao"
+      [bloqueio]="this.ltiService.bloqueio[0].encerrado"
+      [idTopico]="this.ltiService.bloqueio[0].idTopico"
     ></app-atividade>
   </div>
 
@@ -47,6 +49,7 @@
       (atividadeClick)="atividadeClick()"
       proximo="construtivismo"
       [link]="teste"
+      [liberado]="this.ltiService.bloqueio[0].encerrado"
     >
     </app-geral>
   </div>
