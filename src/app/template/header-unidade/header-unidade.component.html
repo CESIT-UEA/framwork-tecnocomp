@@ -2,6 +2,8 @@
   <div class="img">
     <img (click)="navegarParaRota()" src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
     <div class="menu-teste">
+      <!-- ícone de casa que quando clicado volta a página inicial HOME -->
+      <a routerLink="/home">
       <a (click)="navegarParaRota()">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +34,8 @@
       <aside class="sidebar" [ngClass]="{ open: isOpen }">
         <h2 class="titulo-topico center">TÓPICOS</h2>
 <!--         <app-list-menu [unidades]="listaDeUnidades" [unidadesLinks]="listaDeUnidadesLinks"></app-list-menu> -->
-        <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
+      <!-- chamada do componente da barra de progresso na página da unidade -->        
+      <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
       </aside>
     </div>
   </div>

@@ -6,6 +6,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./ficha-tecnica.component.css']
 })
 export class FichaTecnicaComponent {
+   /**
+   * Vetor de objetos com equipe e membros do projeto
+   */
   cardEquipes = [
     {
       equipe:"COORDENAÇÃO GERAL",
@@ -78,13 +81,28 @@ export class FichaTecnicaComponent {
       ]
     },
   ]
+  /**
+   * variável que controla a posição da equipe atual
+   */
   currentVideoIndex: number = 0;
+
+  /**
+   * @ignore
+   */
   teste = this.cardEquipes[this.currentVideoIndex]
 
+  /**
+   * @method
+   * Método que retorna o número de membros da equipe da posição atual
+   */
   elementMembros(){
     return this.cardEquipes[this.currentVideoIndex].membros.length
   }
 
+  /**
+   * @method
+   * método que controla o avanço para a próxima equipe
+   */
   nextVideo() {
     if (this.currentVideoIndex + 1 == this.cardEquipes.length) {
       this.currentVideoIndex = this.cardEquipes.length - 1
@@ -94,7 +112,10 @@ export class FichaTecnicaComponent {
       this.currentVideoIndex = (this.currentVideoIndex + 1) % this.cardEquipes.length;
     }
   }
-
+  /**
+   * @method
+   * Método que controla o retorno para a equipe anterior
+   */
   prevVideo() {
     if (this.currentVideoIndex == 0) {
       console.log("Oi")
@@ -103,6 +124,11 @@ export class FichaTecnicaComponent {
     }
   }
 
+  /**
+   * @method
+   * @param index 
+   * Método que faz a variável que controla posição, receber um índice
+   */
   selectVideo(index: number) {
     this.currentVideoIndex = index;
   }

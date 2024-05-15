@@ -10,6 +10,10 @@ export class HeaderComponent {
   constructor(public appService:ServiceAppService){}
   events: string[] = [];
   opened!: boolean;
+  /**
+   * @method
+   * Controla a navegação da página HOME com a ficha técnica  
+   */
   clickHeader(){
     if(this.appService.controllerSwitchHome == 0){
       return this.appService.controllerSwitchHome = 1
@@ -18,12 +22,18 @@ export class HeaderComponent {
     }
   }
 
+  /**
+   * Vetor de tópicos
+   */
   unidades: string[] = ['Teorias da Aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
 
   unidadesLinks: string[] = ['/teorias-da-aprendizagem', 'TDICs', 'EDUCAÇÃO  4.0', 'Projeto Aprendizagem e Informatica'];
 
   isOpen = false;
-
+  /**
+   * @method
+   * Controla a alternância da barra de lateral
+   */
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }

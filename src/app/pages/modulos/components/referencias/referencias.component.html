@@ -1,6 +1,7 @@
 <div class="header-atividade">
   <div class="container-links center">
     <div class="header-links">
+      <!-- Ícone de download do ebook -->
       <img
         src="assets/icons/referencias.svg"
         alt="Icone para download do ebook"
@@ -11,7 +12,7 @@
         <span class="container-links-span">02</span> Referências bibliográficas
       </p>
     </div>
-
+    <!-- Ícone que quando clicado volta para a página geral da unidade -->
     <img
       (click)="referenciasClick.emit()"
       src="assets/icons/close.svg"
@@ -26,6 +27,7 @@
     Aqui estão alguns lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat consdnuu
   </p>
   <ul class="container-links-text-lista" >
+    <!-- ngFor que percorre as imagens de referências do livro -->
     <li *ngFor="let item of referencias">
       <img src="../../../../../assets/img/referencias/referencias 1.png" alt="img da referencia do livro">
       <p>{{ item }}</p>

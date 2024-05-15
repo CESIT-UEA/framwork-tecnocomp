@@ -22,17 +22,22 @@
       </div>
     </div>
   </section>
+  <!-- card da equipe do projeto -->
   <section class="content-container-ficha-tecnica-equipe">
     <div class="content-container-ficha-tecnica-equipe-caixa"></div>
 
     <div class="content-container-ficha-tecnica-equipe-caixa-teste">
+      <!-- Nome de uma equipe é exibida de acordo com o valor da variável currentVideoIndex -->
       <h1>{{ cardEquipes[currentVideoIndex].equipe | uppercase }}</h1>
+
+       <!-- Simbolo de voltar para o anterior que quando clicado muda a equipe exibida -->
       <div class="ficha-tecnica-container">
         <img
           src="../../../../assets/icons/previous2.svg"
           alt="simbolo de ir para o proximo"
           (click)="prevVideo()"
         />
+        <!-- Estilo aplicado de acordo com o valor retornado do método elementMembros() -->
         <div
           [ngClass]="{
           'container-membros1': elementMembros() == 1,
@@ -41,6 +46,7 @@
           }"
           class="container-membros"
         >
+        <!-- Percorre o vetor de objetos cardEquipes para exibir o cargo e nome dos membros -->
           <div
             class="ficha-tecnica-container-card"
             *ngFor="let membro of cardEquipes[currentVideoIndex].membros"
@@ -52,12 +58,14 @@
             </div>
           </div>
         </div>
+        <!-- Simbolo de ir para o próximo que quando clicado muda a equipe exibida -->
         <img
           (click)="nextVideo()"
           src="../../../../assets/icons/next2.svg"
           alt="simbolo de ir para o proximo"
         />
       </div>
+      <!-- botões de navegação para trocar a equipe exibida -->
       <div class="navigation-button">
         <ul>
           <li
@@ -68,6 +76,7 @@
             }"
             (click)="selectVideo(i)"
           >
+          <!-- o índice + 1 para representar o número dos botões -->
             {{ i + 1 }}
           </li>
         </ul>

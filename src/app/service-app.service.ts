@@ -6,6 +6,7 @@ import { Bloqueio } from './bloqueioInterface';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServiceAppService {
   constructor(private http: HttpClient) { }
   notaTotal:number = 0
@@ -51,6 +52,9 @@ export class ServiceAppService {
   }
 
 
+  /**
+   * Variável que controla as rotas na página HOME
+   */
   controllerSwitchHome:number = 0
 
   

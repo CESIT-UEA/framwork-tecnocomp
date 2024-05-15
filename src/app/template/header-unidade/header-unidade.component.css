@@ -22,11 +22,13 @@ a svg {
   color: #FAF8E6;
 }
 
+
+/* estilo aplicado quando clicamos no menu de progresso na página geral da unidade */
 .sidebar.open {
   display: block;
   position: fixed;
   transform: translate(-70%, 13%);
-}
+} 
 
 .titulo-topico {
   padding: 1rem;

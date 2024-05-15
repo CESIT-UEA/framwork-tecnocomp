@@ -9,6 +9,10 @@ export class SaibaMaisComponent {
   @Input() links!: string[];
   @Output() linksClick = new EventEmitter<void>();
 
+
+  /**
+   * Vetor de objeto com descrição e links de informações adicionais sobre um determinado tópico 
+   */ 
   saibaMais: any = [
   {
     descricao: 'O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental',

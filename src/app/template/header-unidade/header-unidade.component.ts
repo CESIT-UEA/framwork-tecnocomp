@@ -8,6 +8,10 @@ import { ServiceAppService } from 'src/app/service-app.service';
   styleUrls: ['./header-unidade.component.css']
 })
 export class HeaderUnidadeComponent {
+  constructor(private appService:ServiceAppService){}
+  /**
+   * Vetor de tópicos
+   */
   constructor(private appService:ServiceAppService,private router: Router){}
   listaDeUnidades: string[] = ['Behaviorismo', 'Construtivismo', 'Socioconstrutivismo', 'Construcionismo'];
 
@@ -15,6 +19,10 @@ export class HeaderUnidadeComponent {
 
   isOpen = false;
 
+  /**
+   * @method
+   * Controla a alternância da barra de lateral
+   */
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }
