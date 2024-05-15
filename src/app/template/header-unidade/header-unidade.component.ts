@@ -8,12 +8,19 @@ import { ServiceAppService } from 'src/app/service-app.service';
 })
 export class HeaderUnidadeComponent {
   constructor(private appService:ServiceAppService){}
+  /**
+   * Vetor de tópicos
+   */
   listaDeUnidades: string[] = ['Behaviorismo', 'Construtivismo', 'Socioconstrutivismo', 'Construcionismo'];
 
   listaDeUnidadesLinks: string[] = ['/teorias-da-aprendizagem', '/teorias-da-aprendizagem/construtivismo', '/teorias-da-aprendizagem/socioconstrutivismo', '/teorias-da-aprendizagem/construcionismo'];
 
   isOpen = false;
 
+  /**
+   * @method
+   * Controla a alternância da barra de lateral
+   */
   toggleSidebar() {
     this.isOpen = !this.isOpen;
   }

@@ -1,11 +1,14 @@
+<!-- chamada do componente do cabeçalho da unidade geral -->
 <app-header-unidade></app-header-unidade>
 <div class="container-main-conteudo">
   <div class="div-slide">
     <ul>
+      <!-- Nome do tópico da unidade -->
       <li>{{ nome }}</li>
     </ul>
     <hr />
     <div class="container-video">
+      <!-- chamada do componente slide-unidade para exibir o video do tópico -->
       <app-slide-unidade
         [videos]="videos"
         style="text-align: center"
@@ -16,6 +19,7 @@
   <div class="botoes">
     <section class="section-texto center-2">
       <!-- Todo: Fazer o NG template dos-->
+      <!-- Botão que quando clicado vai para o componente saiba-mais -->
       <button
         class="segundo segundo-botao center-2"
         (click)="referenciasClick.emit()"
@@ -28,6 +32,7 @@
         />
         Saiba mais
       </button>
+      <!-- Botão que quando clicado vai para o componente referências -->
       <button
         class="terceiro terceiro-botao center-2"
         (click)="linksClick.emit()"
@@ -40,6 +45,7 @@
         />
         Referencias Bibliográficas
       </button>
+      <!-- Botão que quando clicado vai para o componente texto de apoio -->
       <button
         class="primeiro segundo-botao center-2"
         (click)="textoApoioClick.emit()"
@@ -56,6 +62,7 @@
 
     <div class="position">
       <section class="buttons-final">
+        <!-- Botão que quando clicado vai para o componente de atividade -->
         <button
           class="atividade-botao center-2"
           (click)="atividadeClick.emit()"
@@ -69,6 +76,7 @@
           ATIVIDADE
         </button>
 
+        <!-- Botão para download do e-book do tópico -->
         <button class="ebook-botao center-2">
           <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"
             >E-BOOK TÓPICO</a

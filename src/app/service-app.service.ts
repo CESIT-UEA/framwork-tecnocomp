@@ -32,5 +32,8 @@ export class ServiceAppService {
     return this.http.post('http://localhost:3000/gradeIn', grade, { headers: headers });
   }
 
+  /**
+   * Variável que controla as rotas na página HOME
+   */
   controllerSwitchHome:number = 0
 }

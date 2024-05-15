@@ -1,0 +1,1147 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  BehaviorismoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-behaviorismo</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./behaviorismo.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./behaviorismo.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#aprendizagemInformatica" >aprendizagemInformatica</a>
+                            </li>
+                            <li>
+                                <a href="#arrayLinks" >arrayLinks</a>
+                            </li>
+                            <li>
+                                <a href="#arrayReferencias" >arrayReferencias</a>
+                            </li>
+                            <li>
+                                <a href="#arrayReferenciasTeste" >arrayReferenciasTeste</a>
+                            </li>
+                            <li>
+                                <a href="#arrayVideos" >arrayVideos</a>
+                            </li>
+                            <li>
+                                <a href="#controllerSwitch" >controllerSwitch</a>
+                            </li>
+                            <li>
+                                <a href="#minhaQuestao" >minhaQuestao</a>
+                            </li>
+                            <li>
+                                <a href="#nome" >nome</a>
+                            </li>
+                            <li>
+                                <a href="#pergunta" >pergunta</a>
+                            </li>
+                            <li>
+                                <a href="#teste" >teste</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#atividadeClick" >atividadeClick</a>
+                            </li>
+                            <li>
+                                <a href="#linksClick" >linksClick</a>
+                            </li>
+                            <li>
+                                <a href="#referenciasClick" >referenciasClick</a>
+                            </li>
+                            <li>
+                                <a href="#textoApoioClick" >textoApoioClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(aprendizagemInformatica: <a href="../injectables/AprendizagemEInformaticaService.html" target="_self">AprendizagemEInformaticaService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:10</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>aprendizagemInformatica</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AprendizagemEInformaticaService.html" target="_self" >AprendizagemEInformaticaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="atividadeClick"></a>
+                    <span class="name">
+                        <span ><b>atividadeClick</b></span>
+                        <a href="#atividadeClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>atividadeClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="linksClick"></a>
+                    <span class="name">
+                        <span ><b>linksClick</b></span>
+                        <a href="#linksClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>linksClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="referenciasClick"></a>
+                    <span class="name">
+                        <span ><b>referenciasClick</b></span>
+                        <a href="#referenciasClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>referenciasClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="textoApoioClick"></a>
+                    <span class="name">
+                        <span ><b>textoApoioClick</b></span>
+                        <a href="#textoApoioClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>textoApoioClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aprendizagemInformatica"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>aprendizagemInformatica</b></span>
+                        <a href="#aprendizagemInformatica"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AprendizagemEInformaticaService.html" target="_self" >AprendizagemEInformaticaService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="arrayLinks"></a>
+                    <span class="name">
+                        <span ><b>arrayLinks</b></span>
+                        <a href="#arrayLinks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="arrayReferencias"></a>
+                    <span class="name">
+                        <span ><b>arrayReferencias</b></span>
+                        <a href="#arrayReferencias"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="arrayReferenciasTeste"></a>
+                    <span class="name">
+                        <span ><b>arrayReferenciasTeste</b></span>
+                        <a href="#arrayReferenciasTeste"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      tituloLivro: &#x27;Behaviorismo Radical: Crítica e Metacrítica&#x27;,
+      nome_autor: &#x27;Kester Carrara&#x27;,
+      caminho_imagem: &#x27;Livro 1&#x27;,
+    },
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="arrayVideos"></a>
+                    <span class="name">
+                        <span ><b>arrayVideos</b></span>
+                        <a href="#arrayVideos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;https://www.youtube.com/embed/c6kVJNkAeH4?si&#x3D;78pwIHKZf_PDQuW_&#x27;,
+    &#x27;https://www.youtube.com/embed/Vh8oOY0v9bg?si&#x3D;_9t9bhiKjef2VgWK&#x27;,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controllerSwitch"></a>
+                    <span class="name">
+                        <span ><b>controllerSwitch</b></span>
+                        <a href="#controllerSwitch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="minhaQuestao"></a>
+                    <span class="name">
+                        <span ><b>minhaQuestao</b></span>
+                        <a href="#minhaQuestao"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    titulo:
+      &#x27;Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?&#x27;,
+    alternativas: [
+      {
+        letra: &#x27;a&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: false,
+      },
+      {
+        letra: &#x27;b&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: false,
+      },
+      {
+        letra: &#x27;c&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: true,
+      },
+      {
+        letra: &#x27;d&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: false,
+      },
+    ],
+    respostaCorreta: &#x27;c&#x27;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nome"></a>
+                    <span class="name">
+                        <span ><b>nome</b></span>
+                        <a href="#nome"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Behaviorismo&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pergunta"></a>
+                    <span class="name">
+                        <span ><b>pergunta</b></span>
+                        <a href="#pergunta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="teste"></a>
+                    <span class="name">
+                        <span ><b>teste</b></span>
+                        <a href="#teste"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/modulos/components/behaviorismo/behaviorismo.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { AprendizagemEInformaticaService } from &#x27;../../aprendizagem-e-informatica/aprendizagem-e-informatica.service&#x27;;
+
+@Component({
+  selector: &#x27;app-behaviorismo&#x27;,
+  templateUrl: &#x27;./behaviorismo.component.html&#x27;,
+  styleUrls: [&#x27;./behaviorismo.component.css&#x27;],
+})
+export class BehaviorismoComponent {
+  constructor(
+    public aprendizagemInformatica: AprendizagemEInformaticaService
+  ) {}
+  teste &#x3D; 1;
+  nome &#x3D; &#x27;Behaviorismo&#x27;;
+  arrayReferenciasTeste &#x3D; [
+    {
+      tituloLivro: &#x27;Behaviorismo Radical: Crítica e Metacrítica&#x27;,
+      nome_autor: &#x27;Kester Carrara&#x27;,
+      caminho_imagem: &#x27;Livro 1&#x27;,
+    },
+  ];
+  arrayReferencias: string[] &#x3D; [
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+    &#x27;CARRARA, Kester Carrara. Behaviorismo Radical: Crítica e Metacrítica. 2. ed. São Paulo: Editora Unesp, 2005. 440 p. ISBN 978-85-393-0285-7&#x27;,
+  ];
+  arrayLinks: string[] &#x3D; [
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+    &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR91199G0&amp;p&#x3D;saiba+mais+uea&#x27;,
+  ];
+
+  arrayVideos: string[] &#x3D; [
+    &#x27;https://www.youtube.com/embed/c6kVJNkAeH4?si&#x3D;78pwIHKZf_PDQuW_&#x27;,
+    &#x27;https://www.youtube.com/embed/Vh8oOY0v9bg?si&#x3D;_9t9bhiKjef2VgWK&#x27;,
+  ];
+  pergunta: string &#x3D;
+    &#x27;Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?&#x27;;
+
+  controllerSwitch: number &#x3D; 0;
+
+  atividadeClick() {
+    this.controllerSwitch &#x3D; this.controllerSwitch &#x3D;&#x3D; 0 ? 1 : 0;
+  }
+
+  referenciasClick() {
+    this.controllerSwitch &#x3D; this.controllerSwitch &#x3D;&#x3D; 0 ? 2 : 0;
+  }
+
+  linksClick() {
+    this.controllerSwitch &#x3D; this.controllerSwitch &#x3D;&#x3D; 0 ? 3 : 0;
+  }
+
+  textoApoioClick() {
+    this.controllerSwitch &#x3D; this.controllerSwitch &#x3D;&#x3D; 0 ? 4 : 0;
+  }
+
+  minhaQuestao &#x3D; {
+    titulo:
+      &#x27;Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?&#x27;,
+    alternativas: [
+      {
+        letra: &#x27;a&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: false,
+      },
+      {
+        letra: &#x27;b&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: false,
+      },
+      {
+        letra: &#x27;c&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: true,
+      },
+      {
+        letra: &#x27;d&#x27;,
+        descricao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        explicacao:
+          &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        correta: false,
+      },
+    ],
+    respostaCorreta: &#x27;c&#x27;,
+  };
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-geral&quot; [ngSwitch]&#x3D;&quot;controllerSwitch&quot;&gt;
+  &lt;div *ngSwitchCase&#x3D;&quot;&#x27;1&#x27;&quot;&gt;
+    &lt;!--     &lt;app-atividade titulo_pergunta&#x3D;&quot;Behaviorismo&quot; (atividadeClick)&#x3D;&quot;atividadeClick()&quot;&gt;&lt;/app-atividade&gt; --&gt;
+    &lt;app-atividade
+      (atividadeClick)&#x3D;&quot;atividadeClick()&quot;
+      [questao]&#x3D;&quot;minhaQuestao&quot;
+    &gt;&lt;/app-atividade&gt;
+  &lt;/div&gt;
+
+  &lt;div *ngSwitchCase&#x3D;&quot;&#x27;2&#x27;&quot;&gt;
+    &lt;app-saiba-mais
+      [links]&#x3D;&quot;arrayLinks&quot;
+      (linksClick)&#x3D;&quot;referenciasClick()&quot;
+    &gt;&lt;/app-saiba-mais&gt;
+  &lt;/div&gt;
+
+  &lt;div *ngSwitchCase&#x3D;&quot;&#x27;3&#x27;&quot;&gt;
+    &lt;app-referencias
+      [referencias]&#x3D;&quot;arrayReferencias&quot;
+      (referenciasClick)&#x3D;&quot;referenciasClick()&quot;
+    &gt;&lt;/app-referencias&gt;
+  &lt;/div&gt;
+
+  &lt;div *ngSwitchCase&#x3D;&quot;&#x27;4&#x27;&quot;&gt;
+    &lt;app-slide&gt;&lt;/app-slide&gt;
+    &lt;div class&#x3D;&quot;center&quot;&gt;
+      &lt;div class&#x3D;&quot;voltarUnidade&quot; (click)&#x3D;&quot;textoApoioClick()&quot;&gt;
+        &lt;img
+          src&#x3D;&quot;assets/icons/voltarUnidade.svg&quot;
+          alt&#x3D;&quot;Icone para download do ebook&quot;
+          width&#x3D;&quot;24px&quot;
+          height&#x3D;&quot;24px&quot;
+        /&gt;
+        &lt;span&gt;VOLTAR A UNIDADE&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;container&quot; *ngSwitchDefault&gt;
+    &lt;app-geral
+      [nome]&#x3D;&quot;nome&quot;
+      [link]&#x3D;&quot;teste&quot;
+      [videos]&#x3D;&quot;arrayVideos&quot;
+      (referenciasClick)&#x3D;&quot;referenciasClick()&quot;
+      (linksClick)&#x3D;&quot;linksClick()&quot;
+      (textoApoioClick)&#x3D;&quot;textoApoioClick()&quot;
+      (atividadeClick)&#x3D;&quot;atividadeClick()&quot;
+      proximo&#x3D;&quot;construtivismo&quot;
+      [link]&#x3D;&quot;teste&quot;
+    &gt;
+    &lt;/app-geral&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./behaviorismo.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.container {
+  background-color: #131313;
+}
+.voltarUnidade {
+  margin: 0 auto;
+  color: white;
+  width: 272px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 25px;
+  border: 3.75px solid #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.voltarUnidade span {
+  font-size: 20px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-geral" [ngSwitch]="controllerSwitch">  <div *ngSwitchCase="\'1\'">    <!--     <app-atividade titulo_pergunta="Behaviorismo" (atividadeClick)="atividadeClick()"></app-atividade> -->    <app-atividade      (atividadeClick)="atividadeClick()"      [questao]="minhaQuestao"    ></app-atividade>  </div>  <div *ngSwitchCase="\'2\'">    <app-saiba-mais      [links]="arrayLinks"      (linksClick)="referenciasClick()"    ></app-saiba-mais>  </div>  <div *ngSwitchCase="\'3\'">    <app-referencias      [referencias]="arrayReferencias"      (referenciasClick)="referenciasClick()"    ></app-referencias>  </div>  <div *ngSwitchCase="\'4\'">    <app-slide></app-slide>    <div class="center">      <div class="voltarUnidade" (click)="textoApoioClick()">        <img          src="assets/icons/voltarUnidade.svg"          alt="Icone para download do ebook"          width="24px"          height="24px"        />        <span>VOLTAR A UNIDADE</span>      </div>    </div>  </div>  <div class="container" *ngSwitchDefault>    <app-geral      [nome]="nome"      [link]="teste"      [videos]="arrayVideos"      (referenciasClick)="referenciasClick()"      (linksClick)="linksClick()"      (textoApoioClick)="textoApoioClick()"      (atividadeClick)="atividadeClick()"      proximo="construtivismo"      [link]="teste"    >    </app-geral>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'BehaviorismoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BehaviorismoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

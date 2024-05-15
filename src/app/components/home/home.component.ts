@@ -35,6 +35,9 @@ export class HomeComponent{
     );
   }
 
+  /**
+   * @method 
+   */
   navigation(){
     this.router.navigate(['/teorias-da-aprendizagem']);
   }
