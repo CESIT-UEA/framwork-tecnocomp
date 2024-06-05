@@ -1,0 +1,67 @@
+<div class="container-topico-forum" *ngIf="!exibirFormulario">
+  <h1>{{ this.forum?.tituloTopico }}</h1>
+  <hr />
+  <div class="pesquisa-forum">
+    <nav>
+      <button>Todos</button>
+      <button>Com resposta</button>
+      <button>Sem resposta</button>
+    </nav>
+    <input
+      type="text"
+      name="assunto"
+      id=""
+      placeholder="Busca por assunto..."
+    />
+    <button class="nova-postagem" (click)="exibirFormularioClick()">
+      Criar nova postagem
+    </button>
+  </div>
+
+  <div class="postagens" *ngFor="let dados of this.forumTopicos">
+    <div class="quantidade-respostas center">
+      <div class="bolinha"></div>
+      <p>0</p>
+      <p>respostas</p>
+    </div>
+    <div class="corpo-postagem">
+      <h3>[Bug] {{ dados.titulo }}</h3>
+      <p>{{ dados.descricao }}</p>
+      <a routerLink="{{ dados.id_forum }}">Responder</a>
+    </div>
+    <div class="autor center">
+      <div class="foto-autor"></div>
+      <p class="por">Por</p>
+
+      <p class="p-autor">{{ dados.nome_autor }}</p>
+      <p class="por">03/06/2024</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="exibirFormulario" class="container-postagem-form">
+  <p class="p1">Compartilhe suas ideias! Crie uma nova postagem.</p>
+  <div class="container-postagem">
+    <h4>{{ this.forum?.tituloTopico }}</h4>
+    <hr />
+    <div class="container-input">
+      <label for="titulo">Titulo</label>
+      <input
+        type="text"
+        name="titulo"
+        id="titulo"
+        placeholder="Escreva um titulo..."
+      />
+    </div>
+    <div class="container-input">
+      <label for="mensagem">Mensagem</label>
+      <input
+        type="text"
+        name="mensagem"
+        id="mensagem"
+        placeholder="Escreva uma mensagem"
+      />
+    </div>
+  </div>
+  <button (click)="fecharFormulario()">Cancelar</button>
+</div>

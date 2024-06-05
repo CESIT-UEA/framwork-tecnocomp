@@ -1,12 +1,18 @@
 import { Component, Input } from '@angular/core';
 import { Questao } from './questao.model';
 
+/**
+ * Componente reutilizavel, é responsavel pelas questões que ficam na atividade nas unidades
+ */
 @Component({
   selector: 'app-atividade-unidade-banco',
   templateUrl: './atividade-unidade-banco.component.html',
   styleUrls: ['./atividade-unidade-banco.component.css'],
 })
 export class AtividadeUnidadeBancoComponent {
+  /**
+   * Variavel a qual guarda as questões que o instrutor quer que estejam nas atividades
+   */
   @Input() questoes_banco: Questao[] = [
     {
       titulo:
@@ -112,15 +118,36 @@ export class AtividadeUnidadeBancoComponent {
       respostaCorreta: 2,
     },
   ];
-  controlador_questao = 0
+
+  /**
+   * Controlador da questão
+   */
+  controlador_questao = 0;
+  /**
+   * Controlador responsavel por guardar a questão atual
+   */
   questaoAtual: Questao;
+
+  /**
+   * Variavel responsavel por guardar a resposta selecionada
+   */
   respostaSelecionada!: number;
+  /**
+   * Componente responsavel pelas questões que ficam na atividade nas unidades
+   */
   respostaEnviada = false;
 
+  /**
+   * @constructor
+   */
   constructor() {
     this.questaoAtual = this.questoes_banco[0];
   }
 
+  /**
+   * @method
+   * Metódo responsavel pela funcionalização quando o usuario selecionar uma das alternativas
+   */
   selecionarResposta(index: number) {
     this.respostaSelecionada = index;
 
@@ -137,22 +164,29 @@ export class AtividadeUnidadeBancoComponent {
     this.respostaEnviada = true;
   }
 
+  /**
+   * @method
+   * Metódo responsavel por selecionar outra questão caso o usuario queira refazer
+   */
   proximaQuestao() {
-    console.log(this.questoes_banco[this.controlador_questao])
-    console.log(this.questaoAtual)
-    
+    console.log(this.questoes_banco[this.controlador_questao]);
+    console.log(this.questaoAtual);
+
     let indexAtual = this.questoes_banco.indexOf(this.questaoAtual);
-    
+
     // Se todas as questões foram respondidas, reinicie o questionário
     if (indexAtual >= this.questoes_banco.length - 1) {
       indexAtual = -1;
     }
-  
+
     this.questaoAtual = this.questoes_banco[indexAtual + 1];
     this.respostaEnviada = false;
   }
-  
 
+  /**
+   * @method
+   * Metódo responsavel por retornar o caminho da imagem de acordo com o número
+   */
   getImagemResposta(i: number): string {
     if (!this.respostaEnviada) {
       return `assets/img/Letra ${[i]}.png`;

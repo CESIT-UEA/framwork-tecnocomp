@@ -7,7 +7,9 @@
       color="warn"
       [value]="this.ltiService.notaTotal"
     ></mat-progress-bar>
-    <p>{{ this.ltiService.notaTotal }}%</p>
+    <p *ngIf="this.ltiService.notaTotal <= 100">{{ this.ltiService.notaTotal }}%</p>
+    
+    <p *ngIf="this.ltiService.notaTotal > 100">100%</p>
   </div>
   <div class="container-topico">
     <div class="topico-container" *ngFor="let topic of aprendizagemInformatica.topics; index as i">
@@ -17,5 +19,6 @@
       />
       <label>{{ i + 1 }}. {{ topic.name }}</label>
     </div>
+    <button class="btn-forum" routerLink="/forum">Fórum</button>
   </div>
 </div>

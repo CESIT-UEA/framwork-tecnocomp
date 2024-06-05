@@ -122,6 +122,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente reutilizavel da Home de cada módulo</p>
+
+    </p>
 
 
 
@@ -235,12 +242,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/home/home.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/home/home.component.ts:18</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Um método feito para testar caso seja clicado</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -326,8 +335,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="41"
-                                    class="link-to-prism">src/app/components/home/home.component.ts:41</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/components/home/home.component.ts:95</a></div>
                         </td>
                     </tr>
 
@@ -363,8 +372,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="17"
-                                    class="link-to-prism">src/app/components/home/home.component.ts:17</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/components/home/home.component.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -406,7 +415,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/home/home.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/home/home.component.ts:25</a></div>
                         </td>
                     </tr>
 
@@ -437,10 +446,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/components/home/home.component.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/home/home.component.ts:18</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda o nome</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -463,10 +478,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/home/home.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/home/home.component.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda o tokenData, o qual é a variavel que guarda as informações do token do usuario, obtidas ao entrar pela primeira vez vindo do moodle</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -481,46 +502,98 @@ import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { ServiceAppService } from &#x27;src/app/service-app.service&#x27;;
 
+/**
+ * Componente reutilizavel da Home de cada módulo
+ */
 @Component({
   selector: &#x27;app-home&#x27;,
   templateUrl: &#x27;./home.component.html&#x27;,
-  styleUrls: [&#x27;./home.component.css&#x27;]
+  styleUrls: [&#x27;./home.component.css&#x27;],
 })
-export class HomeComponent{
+export class HomeComponent {
+  /**
+   * Variavel que guarda o nome
+   */
   nome: string &#x3D; &#x27;&#x27;;
-  constructor(public appService:ServiceAppService,private router:Router,private http:HttpClient){}
 
+  /**
+   * @constructor
+   * Um método feito para testar caso seja clicado
+   */
+  constructor(
+    public appService: ServiceAppService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
+
+  /**
+   * Variavel que guarda o tokenData, o qual é a variavel que guarda as informações do token do usuario, obtidas ao entrar pela primeira vez vindo do moodle
+   */
   tokenData: any;
 
   ngOnInit() {
+    /**
+     * Variavel a qual é uma constante, que recebe a url atual
+     */
     const urlParams &#x3D; new URLSearchParams(window.location.search);
+    /**
+     * Variavel a qual é uma constante, que recebe e guarda o token lti recebido na url
+     */
     const token &#x3D; urlParams.get(&#x27;ltik&#x27;) || &#x27;&#x27;;
-    this.appService.ltik &#x3D; token
-    console.log(this.appService.ltik)
-    console.log(&quot;Tudo embaixo&quot;)
- 
-    this.http.get(&#x60;http://localhost:3000/api/userInfo?ltik&#x3D;${token}&#x60;).subscribe(
-      data &#x3D;&gt; {
-        this.tokenData &#x3D; data;
-        this.nome &#x3D; JSON.stringify(this.tokenData.name)
-        console.log(this.tokenData); 
-        this.appService.quantidadeTopicos &#x3D; this.tokenData.modulo.quantidadeTopicos
-        this.appService.notaTotal &#x3D; this.tokenData.userModulo.notaAcumulada
-      },
-      error &#x3D;&gt; {
-        console.error(&#x27;Error:&#x27;, error);
-      }
-    );
+
+    /**
+     * Condicional que verifica se a constante token é diferente de vazia, se for, ele armazena no armazenamento local
+     */
+    if (token !&#x3D; &#x27;&#x27;) {
+      localStorage.setItem(&#x27;token&#x27;, token);
+    }
+
+    /**
+     * Variavel a qual recebe o token guardado no armazenamento local
+     */
+    let tokenStorage &#x3D; localStorage.getItem(&#x27;token&#x27;);
+
+    this.http
+      .get(&#x60;http://localhost:3000/api/userInfo?ltik&#x3D;${tokenStorage}&#x60;)
+      .subscribe(
+        (data) &#x3D;&gt; {
+          this.tokenData &#x3D; data;
+          console.log(this.tokenData);
+
+          this.appService.urlInicio &#x3D;
+            this.tokenData.modulo.tituloModulo + &#x27;Home&#x27;;
+          localStorage.setItem(
+            &#x27;bloqueio&#x27;,
+            JSON.stringify(this.tokenData.userTopico)
+          );
+
+          let bloqueio &#x3D; localStorage.getItem(&#x27;bloqueio&#x27;);
+          this.appService.topicos &#x3D; this.tokenData.topicos
+          
+          this.appService.bloqueio &#x3D; bloqueio
+            ? JSON.parse(bloqueio)
+            : this.tokenData.userTopico;
+
+          console.log(this.appService.bloqueio);
+          console.log(bloqueio);
+
+          this.appService.informacoes &#x3D; this.tokenData;
+          this.appService.quantidadeTopicos &#x3D;
+            this.tokenData.modulo.quantidadeTopicos;
+          this.appService.notaTotal &#x3D; this.tokenData.userModulo.notaAcumulada;
+        },
+        (error) &#x3D;&gt; {
+          console.error(&#x27;Error:&#x27;, error);
+        }
+      );
   }
 
   /**
-   * @method 
+   * @method
    */
-  navigation(){
+  navigation() {
     this.router.navigate([&#x27;/teorias-da-aprendizagem&#x27;]);
   }
-
-
 }
 </code></pre>
     </div>
@@ -650,7 +723,7 @@ section.content-container-ficha-tecnica {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="main-container">  <!-- chamada do componente de cabeçalho-->  <app-header></app-header>  <div    [ngClass]="{\'content-container-condition\':this.appService.controllerSwitchHome == 1}"    [ngSwitch]="appService.controllerSwitchHome"  >    <section class="content-container-ficha-tecnica" *ngSwitchCase="\'1\'">      <!--        TO DO: Componente do referencial teorico, componentizar melhor ele após as alterações da designer      -->      <app-ficha-tecnica></app-ficha-tecnica>    </section>    <!-- Section padrão da página incial HOME com video e botões -->    <section class="content-container" *ngSwitchDefault>      <div class="content-container-section">        <!-- chamada do componente de video da página home -->        <app-video-section videoUrl="https://www.youtube.com/embed/3D2Xg4t8pdg?si=7MIMoO6rqMVGPZIG"></app-video-section>        <!-- chamada do componente botão na página home -->        <app-botoes-section nome_ebook="Ebook de Teste" caminho_ebook="assets/E-book Teste.PDF" urlInicio="/teorias-da-aprendizagem/behaviorismo"></app-botoes-section>      </div>    </section>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>

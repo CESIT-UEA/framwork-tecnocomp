@@ -122,6 +122,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente reutilizavel que contém a atividade da unidade</p>
+
+    </p>
 
 
 
@@ -260,17 +267,23 @@
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
     {
-      descricao:&#x27;&#x27;,
-      correto:false
-    }
+      descricao: &#x27;&#x27;,
+      correto: false,
+    },
   ]</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:19</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variavel que é um array de objetos que contem as alternativas, contendo sua descrição e se ela é a correta ou não</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -294,9 +307,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:15</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variavel que guarda o titulo da pergunta</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -330,14 +349,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:46</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Um método feito para testar caso seja clicado</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -397,14 +418,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="32"
-                                    class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:32</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:54</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Um método feito para testar caso caia na condição correta</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -440,10 +463,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:40</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda a resposta escolhida</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -472,16 +501,22 @@
     &#x27;assets/img/Letra C.png&#x27;,
     &#x27;assets/img/Letra D.png&#x27;,
     &#x27;assets/img/correto.png&#x27;,
-    &#x27;assets/img/errado.png&#x27;
+    &#x27;assets/img/errado.png&#x27;,
   ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/atividade-unidade/atividade-unidade.component.ts:28</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que é um array de strings que contém o caminho das imagens das alternativas, de A até D assim como a imagem de certo ou errado</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -493,37 +528,59 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
 
+/**
+ * Componente reutilizavel que contém a atividade da unidade
+ */
 @Component({
   selector: &#x27;app-atividade-unidade&#x27;,
   templateUrl: &#x27;./atividade-unidade.component.html&#x27;,
-  styleUrls: [&#x27;./atividade-unidade.component.css&#x27;]
+  styleUrls: [&#x27;./atividade-unidade.component.css&#x27;],
 })
 export class AtividadeUnidadeComponent {
-  @Input() tituloPergunta:any &#x3D; &#x27;&#x27;
-  @Input() alternativas &#x3D;
-  [
+  /**
+   * Variavel que guarda o titulo da pergunta
+   */
+  @Input() tituloPergunta: any &#x3D; &#x27;&#x27;;
+  /**
+   * Variavel que é um array de objetos que contem as alternativas, contendo sua descrição e se ela é a correta ou não
+   */
+  @Input() alternativas &#x3D; [
     {
-      descricao:&#x27;&#x27;,
-      correto:false
-    }
-  ]
+      descricao: &#x27;&#x27;,
+      correto: false,
+    },
+  ];
+  /**
+   * Variavel que é um array de strings que contém o caminho das imagens das alternativas, de A até D assim como a imagem de certo ou errado
+   */
   imgsAlternativas: string[] &#x3D; [
     &#x27;assets/img/Letra A.png&#x27;,
     &#x27;assets/img/Letra B.png&#x27;,
     &#x27;assets/img/Letra C.png&#x27;,
     &#x27;assets/img/Letra D.png&#x27;,
     &#x27;assets/img/correto.png&#x27;,
-    &#x27;assets/img/errado.png&#x27;
-  ]
+    &#x27;assets/img/errado.png&#x27;,
+  ];
 
-  alternativaEscolhida?:number
+  /**
+   * Variavel que guarda a resposta escolhida
+   */
+  alternativaEscolhida?: number;
 
-  public clickTeste(indice:number){
-    this.alternativaEscolhida &#x3D; indice
+  /**
+   * @method
+   * Um método feito para testar caso seja clicado
+   */
+  public clickTeste(indice: number) {
+    this.alternativaEscolhida &#x3D; indice;
   }
 
-  condicao(){
-    return this.imgsAlternativas[4]
+  /**
+   * @method
+   * Um método feito para testar caso caia na condição correta
+   */
+  condicao() {
+    return this.imgsAlternativas[4];
   }
 }
 </code></pre>
@@ -642,7 +699,7 @@ export class AtividadeUnidadeComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><p>  {{ tituloPergunta }}</p><div class="bloco-atividade">  <div    class="alternativas"    *ngFor="let item of alternativas; let i = index"    (click)="clickTeste(i)"  >    <img      class="imgLetras"      src="{{ imgsAlternativas[i] }}"      alt="{{ imgsAlternativas[i] }}"    />    <div class="pergunta">      {{ item.descricao }}    </div>    <img      style="margin: 0 15px 0 0"      src="assets/icons/olho.svg"      alt="Icone para verificar se a resposta é a certa"      width="30px"      height="30px"    />  </div></div><div class="atividade-botao">  <button (click)="condicao()">Enviar</button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AtividadeUnidadeComponent'};
 </script>

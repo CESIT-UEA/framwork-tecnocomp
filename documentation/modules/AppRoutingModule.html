@@ -135,12 +135,14 @@ import { BehaviorismoComponent } from &#x27;./pages/modulos/components/behaviori
 import { ConstrutivismoComponent } from &#x27;./pages/modulos/components/construtivismo/construtivismo.component&#x27;;
 import { SocioconstrutivismoComponent } from &#x27;./pages/modulos/components/socioconstrutivismo/socioconstrutivismo.component&#x27;;
 import { ConstrucionismoComponent } from &#x27;./pages/modulos/components/construcionismo/construcionismo.component&#x27;;
+import { ForumComponent } from &#x27;./components/forum/forum.component&#x27;;
+import { TopicoForumComponent } from &#x27;./components/forum/topico-forum/topico-forum.component&#x27;;
 
 const routes: Routes &#x3D; [
-  {path:&#x27;teorias-da-aprendizagemHome&#x27;,component:HomeComponent},
+  { path: &#x27;teorias-da-aprendizagemHome&#x27;, component: HomeComponent },
   {
-    path:&#x27;teorias-da-aprendizagem&#x27;,
-    component:AprendizagemEInformaticaComponent,
+    path: &#x27;teorias-da-aprendizagem&#x27;,
+    component: AprendizagemEInformaticaComponent,
     children: [
       { path: &#x27;behaviorismo&#x27;, component: BehaviorismoComponent },
       { path: &#x27;construtivismo&#x27;, component: ConstrutivismoComponent },
@@ -148,14 +150,22 @@ const routes: Routes &#x3D; [
       { path: &#x27;construcionismo&#x27;, component: ConstrucionismoComponent },
     ],
   },
-  {path:&#x27;tecnologias-digitais-de-informação-e-comunicaçãoHome&#x27;, component:HomeComponent}
+  {
+    path: &#x27;forum&#x27;,
+    component: ForumComponent,
+  },
+  { path: &#x27;topico/:id&#x27;, component: TopicoForumComponent },
+  {
+    path: &#x27;tecnologias-digitais-de-informação-e-comunicaçãoHome&#x27;,
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 </code></pre>
     </div>
 </div>

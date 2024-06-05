@@ -1,24 +1,40 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
+/**
+ * Componente dos botões que ficam na pagina inicial do modulo
+ */
 @Component({
   selector: 'app-botoes-section',
   templateUrl: './botoes-section.component.html',
-  styleUrls: ['./botoes-section.component.css']
+  styleUrls: ['./botoes-section.component.css'],
 })
 export class BotoesSectionComponent {
   /**
-   * Variáveis filhas inicializadas para receber url, nome de ebook e o caminho no componente home
+   * Variáveis filha que guarda a url da unidade inicial do modulo
    */
-  @Input() urlInicio!:string
-  @Input() nome_ebook!:string
-  @Input() caminho_ebook!:string
+  @Input() urlInicio!: string;
 
-  constructor(private router:Router){}
-   /**
+  /**
+   * Variavel que guarda o nome do ebook
+   */
+  @Input() nome_ebook!: string;
+
+  /**
+   * Variavel que guarda o caminho para o donwoload do ebook
+   */
+  @Input() caminho_ebook!: string;
+
+  /**
+   * @method
+   * Constructor do componente de Botões, que utiliza o Router
+   */
+  constructor(private router: Router) {}
+
+  /**
    * @method
    */
-  iniciarNavegacao(){
+  iniciarNavegacao() {
     return this.router.navigate([this.urlInicio]);
   }
 }

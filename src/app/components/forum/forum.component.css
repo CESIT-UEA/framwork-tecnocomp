@@ -1,0 +1,43 @@
+.inicio{
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 22px;
+    color: #B3B3B3;
+    text-align: center;
+    margin-top: 30px;
+}
+.container-forum{
+    width: 80%;
+    height: 150px;
+    margin-bottom: 25px;
+    border: none;
+    border-top: 3px solid #9665DF;
+    border-radius: 5px;
+    background-color: #27252B;
+    margin: 20px auto;
+    cursor: pointer;
+}
+.titulo-topico{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    text-transform: capitalize;
+}
+.contagem-topico{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-top: 1px solid #B3B3B3;
+    padding: 20px;
+}
+.menor{
+    font-size: 14px;
+    color: #B3B3B3;
+}

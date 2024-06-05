@@ -122,6 +122,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente dos botões que ficam na pagina inicial do modulo</p>
+
+    </p>
 
 
 
@@ -231,12 +238,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:26</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor do componente de Botões, que utiliza o Router</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -287,9 +296,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:26</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variavel que guarda o caminho para o donwoload do ebook</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -308,9 +323,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:21</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variavel que guarda o nome do ebook</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -329,12 +350,12 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:16</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Variáveis filhas inicializadas para receber url, nome de ebook e o caminho no componente home</p>
+                        <div class="io-description"><p>Variáveis filha que guarda a url da unidade inicial do modulo</p>
 </div>
                     </td>
                 </tr>
@@ -369,8 +390,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="21"
-                                    class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:21</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/components/home/botoes-section/botoes-section.component.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -395,24 +416,40 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 
+/**
+ * Componente dos botões que ficam na pagina inicial do modulo
+ */
 @Component({
   selector: &#x27;app-botoes-section&#x27;,
   templateUrl: &#x27;./botoes-section.component.html&#x27;,
-  styleUrls: [&#x27;./botoes-section.component.css&#x27;]
+  styleUrls: [&#x27;./botoes-section.component.css&#x27;],
 })
 export class BotoesSectionComponent {
   /**
-   * Variáveis filhas inicializadas para receber url, nome de ebook e o caminho no componente home
+   * Variáveis filha que guarda a url da unidade inicial do modulo
    */
-  @Input() urlInicio!:string
-  @Input() nome_ebook!:string
-  @Input() caminho_ebook!:string
+  @Input() urlInicio!: string;
 
-  constructor(private router:Router){}
-   /**
+  /**
+   * Variavel que guarda o nome do ebook
+   */
+  @Input() nome_ebook!: string;
+
+  /**
+   * Variavel que guarda o caminho para o donwoload do ebook
+   */
+  @Input() caminho_ebook!: string;
+
+  /**
+   * @method
+   * Constructor do componente de Botões, que utiliza o Router
+   */
+  constructor(private router: Router) {}
+
+  /**
    * @method
    */
-  iniciarNavegacao(){
+  iniciarNavegacao() {
     return this.router.navigate([this.urlInicio]);
   }
 }
@@ -558,7 +595,7 @@ export class BotoesSectionComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><!--Seção de botões da página inicial HOME--><section class="button-section">  <div class="button-group">    <button class="start-button" (click)="iniciarNavegacao()">INICIAR</button>    <button class="download-button">      <a href="assets/E-book Teste.PDF" [href]="caminho_ebook" [download]="nome_ebook">DOWNLOAD E-BOOK UNIDADE</a>      <img src="../../../../assets/img/download.png" alt="icone de download">    </button>  </div></section></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'BotoesSectionComponent'};
 </script>

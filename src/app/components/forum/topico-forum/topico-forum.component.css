@@ -1,0 +1,134 @@
+:host {
+  color: white;
+}
+.container-topico-forum {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+}
+.container-topico-forum h1 {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 22px;
+}
+
+.container-topico-forum h1:before {
+  content: "\2022";
+  margin: 0 10px;
+  color: #9665df /* cor da bolinha */;
+}
+.container-topico-forum hr {
+  width: 100%;
+  margin: 0 auto;
+  height: 2px;
+  border: none;
+  background-color: #3c2859;
+}
+.pesquisa-forum {
+  margin-top: 25px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #242228;
+  height: 250px;
+  border-radius: 5px;
+}
+
+nav {
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+
+.pesquisa-forum nav button {
+  padding: 8px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  outline: none;
+  border: 0.5px solid white;
+  margin: 10px;
+  font-family: Arial;
+  border-radius: 5px;
+  width: 111px;
+}
+.pesquisa-forum nav button:nth-child(1) {
+  background-color: #9665df;
+  border: none;
+}
+.pesquisa-forum input {
+  width: 386px;
+  height: 35px;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 1px solid white;
+  margin: 30px auto;
+  padding: 10px;
+  color: white;
+}
+
+.pesquisa-forum button.nova-postagem {
+  width: 386px;
+  height: 40px;
+  background-color: #5e2fa5;
+  border: none;
+  margin: 0 auto;
+  border-radius: 6px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.postagens {
+  background-color: #242228;
+  height: 160px;
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  margin: 20px 0;
+  align-items: center;
+  border-radius: 10px;
+}
+.postagens .bolinha {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+.quantidade-respostas p {
+  font-size: 12px;
+}
+.corpo-postagem {
+  width: 100%;
+  padding: 0 10px;
+}
+.corpo-postagem h3 {
+  font-size: 22px;
+}
+.corpo-postagem p {
+  color: #9a9a9a;
+}
+.corpo-postagem a {
+  color: #9665df;
+}
+.autor .foto-autor {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #9f69ef;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+.por {
+  color: #686868;
+}
+.p-autor {
+  color: #9665df;
+  text-transform: capitalize;
+}
+.p1 {
+  color: #cdcdcd;
+}

@@ -122,6 +122,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente do Header Unidade, o qual deve ser utilizado em cada unidade (topico) de um modulo</p>
+
+    </p>
 
 
 
@@ -212,6 +219,9 @@
                                 <a href="#menuClick" >menuClick</a>
                             </li>
                             <li>
+                                <a href="#navegarParaRota" >navegarParaRota</a>
+                            </li>
+                            <li>
                                 <a href="#toggleSidebar" >toggleSidebar</a>
                             </li>
                         </ul>
@@ -232,17 +242,19 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(appService: <a href="../injectables/ServiceAppService.html" target="_self">ServiceAppService</a>)</code>
+<code>constructor(appService: <a href="../injectables/ServiceAppService.html" target="_self">ServiceAppService</a>, router: Router)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:13</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor do componente HeaderUnidade, o qual importa o Router e o ServiceAppService</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -259,6 +271,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="../injectables/ServiceAppService.html" target="_self" >ServiceAppService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
                                                         </td>
                                                   
                                                     <td>
@@ -304,14 +328,55 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="28"
-                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:28</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:57</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Metódo para a alternancia dos icons</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navegarParaRota"></a>
+                    <span class="name">
+                        <span ><b>navegarParaRota</b></span>
+                        <a href="#navegarParaRota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navegarParaRota()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo para navegar para a pagina inicial do modulo</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -341,8 +406,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="24"
-                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:24</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:49</a></div>
                         </td>
                     </tr>
 
@@ -384,10 +449,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:43</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel o qual guarda se o menu esta aberto ou não, por padrão ele já começa fechado (false)</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -410,18 +481,23 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[&#x27;Behaviorismo&#x27;, &#x27;Construtivismo&#x27;, &#x27;Socioconstrutivismo&#x27;, &#x27;Construcionismo&#x27;]</code>
+                        <i>Default value : </i><code>[
+    &#x27;Behaviorismo&#x27;,
+    &#x27;Construtivismo&#x27;,
+    &#x27;Socioconstrutivismo&#x27;,
+    &#x27;Construcionismo&#x27;,
+  ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:23</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Vetor de tópicos</p>
+                    <div class="io-description"><p>Vetor o qual guarda o nome das unidades</p>
 </div>
                 </td>
             </tr>
@@ -447,15 +523,26 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>[&#x27;/teorias-da-aprendizagem&#x27;, &#x27;/teorias-da-aprendizagem/construtivismo&#x27;, &#x27;/teorias-da-aprendizagem/socioconstrutivismo&#x27;, &#x27;/teorias-da-aprendizagem/construcionismo&#x27;]</code>
+                        <i>Default value : </i><code>[
+    &#x27;/teorias-da-aprendizagem&#x27;,
+    &#x27;/teorias-da-aprendizagem/construtivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/socioconstrutivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/construcionismo&#x27;,
+  ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Vetor o qual guarda o link para ir até as unidades listadas acima</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -478,15 +565,21 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&quot;menu&quot;</code>
+                        <i>Default value : </i><code>&#x27;menu&#x27;</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:68</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Por padrão, o icone já começa com o de menu</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -497,22 +590,47 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
 import { ServiceAppService } from &#x27;src/app/service-app.service&#x27;;
 
+/**
+ * Componente do Header Unidade, o qual deve ser utilizado em cada unidade (topico) de um modulo
+ */
 @Component({
   selector: &#x27;app-header-unidade&#x27;,
   templateUrl: &#x27;./header-unidade.component.html&#x27;,
-  styleUrls: [&#x27;./header-unidade.component.css&#x27;]
+  styleUrls: [&#x27;./header-unidade.component.css&#x27;],
 })
 export class HeaderUnidadeComponent {
-  constructor(private appService:ServiceAppService){}
   /**
-   * Vetor de tópicos
+   * @method
+   * Constructor do componente HeaderUnidade, o qual importa o Router e o ServiceAppService
    */
-  listaDeUnidades: string[] &#x3D; [&#x27;Behaviorismo&#x27;, &#x27;Construtivismo&#x27;, &#x27;Socioconstrutivismo&#x27;, &#x27;Construcionismo&#x27;];
+  constructor(private appService: ServiceAppService, private router: Router) {}
 
-  listaDeUnidadesLinks: string[] &#x3D; [&#x27;/teorias-da-aprendizagem&#x27;, &#x27;/teorias-da-aprendizagem/construtivismo&#x27;, &#x27;/teorias-da-aprendizagem/socioconstrutivismo&#x27;, &#x27;/teorias-da-aprendizagem/construcionismo&#x27;];
+  /**
+   * Vetor o qual guarda o nome das unidades
+   */
+  listaDeUnidades: string[] &#x3D; [
+    &#x27;Behaviorismo&#x27;,
+    &#x27;Construtivismo&#x27;,
+    &#x27;Socioconstrutivismo&#x27;,
+    &#x27;Construcionismo&#x27;,
+  ];
 
+  /**
+   * Vetor o qual guarda o link para ir até as unidades listadas acima
+   */
+  listaDeUnidadesLinks: string[] &#x3D; [
+    &#x27;/teorias-da-aprendizagem&#x27;,
+    &#x27;/teorias-da-aprendizagem/construtivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/socioconstrutivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/construcionismo&#x27;,
+  ];
+
+  /**
+   * Variavel o qual guarda se o menu esta aberto ou não, por padrão ele já começa fechado (false)
+   */
   isOpen &#x3D; false;
 
   /**
@@ -523,18 +641,30 @@ export class HeaderUnidadeComponent {
     this.isOpen &#x3D; !this.isOpen;
   }
 
-  menuClick(){
-    if(this.menuHeader &#x3D;&#x3D; &quot;menu&quot;){
-      this.menuHeader &#x3D; &quot;close&quot;;
-    }else{
-      this.menuHeader &#x3D; &quot;menu&quot;
+  /**
+   * @method
+   * Metódo para a alternancia dos icons
+   */
+  menuClick() {
+    if (this.menuHeader &#x3D;&#x3D; &#x27;menu&#x27;) {
+      this.menuHeader &#x3D; &#x27;close&#x27;;
+    } else {
+      this.menuHeader &#x3D; &#x27;menu&#x27;;
     }
-
   }
 
-  menuHeader &#x3D; &quot;menu&quot;
+  /**
+   * Por padrão, o icone já começa com o de menu
+   */
+  menuHeader &#x3D; &#x27;menu&#x27;;
 
-
+  /**
+   * @method
+   * Metodo para navegar para a pagina inicial do modulo
+   */
+  navegarParaRota() {
+    this.router.navigate([&#x60;${this.appService.urlInicio}&#x60;]);
+  }
 }
 </code></pre>
     </div>
@@ -542,10 +672,10 @@ export class HeaderUnidadeComponent {
     <div class="tab-pane fade " id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;section&gt;
   &lt;div class&#x3D;&quot;img&quot;&gt;
-    &lt;img src&#x3D;&quot;assets/Tecnocomp+.png&quot; alt&#x3D;&quot;Tecnocom+ LOGO&quot; /&gt;
+    &lt;img (click)&#x3D;&quot;navegarParaRota()&quot; src&#x3D;&quot;assets/Tecnocomp+.png&quot; alt&#x3D;&quot;Tecnocom+ LOGO&quot; /&gt;
     &lt;div class&#x3D;&quot;menu-teste&quot;&gt;
       &lt;!-- ícone de casa que quando clicado volta a página inicial HOME --&gt;
-      &lt;a routerLink&#x3D;&quot;/home&quot;&gt;
+      &lt;a (click)&#x3D;&quot;navegarParaRota()&quot;&gt;
         &lt;svg
           xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
           width&#x3D;&quot;31&quot;
@@ -713,8 +843,8 @@ a svg {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><section>  <div class="img">    <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />    <div class="menu-teste">      <!-- ícone de casa que quando clicado volta a página inicial HOME -->      <a routerLink="/home">        <svg          xmlns="http://www.w3.org/2000/svg"          width="31"          height="31"          viewBox="0 0 31 31"          fill="none"        >          <path            d="M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z"            stroke="#FFF"            stroke-width="2"            stroke-linecap="round"            stroke-linejoin="round"          />          <path            d="M11.3611 27.6113V15.1113H18.8611V27.6113"            stroke="#FFF"            stroke-width="2"            stroke-linecap="round"            stroke-linejoin="round"          />        </svg>      </a>      <mat-icon (click)="menuClick()" (click)="toggleSidebar()" id="icon">{{        menuHeader      }}</mat-icon>      <aside class="sidebar" [ngClass]="{ open: isOpen }">        <h2 class="titulo-topico center">TÓPICOS</h2><!--         <app-list-menu [unidades]="listaDeUnidades" [unidadesLinks]="listaDeUnidadesLinks"></app-list-menu> -->      <!-- chamada do componente da barra de progresso na página da unidade -->              <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>      </aside>    </div>  </div></section></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+        var COMPONENT_TEMPLATE = '<div><section>  <div class="img">    <img (click)="navegarParaRota()" src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />    <div class="menu-teste">      <!-- ícone de casa que quando clicado volta a página inicial HOME -->      <a (click)="navegarParaRota()">        <svg          xmlns="http://www.w3.org/2000/svg"          width="31"          height="31"          viewBox="0 0 31 31"          fill="none"        >          <path            d="M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z"            stroke="#FFF"            stroke-width="2"            stroke-linecap="round"            stroke-linejoin="round"          />          <path            d="M11.3611 27.6113V15.1113H18.8611V27.6113"            stroke="#FFF"            stroke-width="2"            stroke-linecap="round"            stroke-linejoin="round"          />        </svg>      </a>      <mat-icon (click)="menuClick()" (click)="toggleSidebar()" id="icon">{{        menuHeader      }}</mat-icon>      <aside class="sidebar" [ngClass]="{ open: isOpen }">        <h2 class="titulo-topico center">TÓPICOS</h2><!--         <app-list-menu [unidades]="listaDeUnidades" [unidadesLinks]="listaDeUnidadesLinks"></app-list-menu> -->      <!-- chamada do componente da barra de progresso na página da unidade -->              <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>      </aside>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderUnidadeComponent'};
 </script>

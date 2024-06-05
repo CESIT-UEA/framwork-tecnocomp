@@ -3,42 +3,109 @@ import { Questao } from './questao';
 import { HttpClient } from '@angular/common/http';
 import { ServiceAppService } from 'src/app/service-app.service';
 
+/**
+ * Componente reutilizavel de atividade
+ */
 @Component({
   selector: 'app-atividade',
   templateUrl: './atividade.component.html',
   styleUrls: ['./atividade.component.css'],
 })
 export class AtividadeComponent {
+  /**
+   * Variavel que guarda o caminho das imagens das alternativas
+   */
   caminhoImagem: string = '../../../../../assets/img/Letra ';
-  respostaEnviada = false;
-  respostaCorretaEnviada = false;
-  nota = 0;
+
+  /**
+   * Variavel booleana para guardar se a resposta foi enviada ou não. Por padrão começa com não
+   */
+  respostaEnviada: boolean = false;
+
+  /**
+   * Variavel booleana para guardar se a resposta correta foi enviada ou não. Por padrão começa com não
+   */
+  respostaCorretaEnviada: boolean = false;
+
+  /**
+   * Variavel que guarda o valor da nota, por padrão começa com 0
+   */
+  nota: number = 0;
+
+  /**
+   * Variavel responsavel por guardar o evento que será utilizado, especificado ao instanciar o componente
+   */
   @Output() atividadeClick = new EventEmitter<void>();
+
+  /**
+   * Variavel do tipo Questão ou null, responsavel por guardar a questão, por padrão ela começa sendo null caso não seja enviado as questões como parametro ao instanciar o componente
+   */
   @Input() questao: Questao | null = null;
+
+  /**
+   * Variavel do tipo Questão ou null, responsavel por guardar apenas a questão atual
+   */
   questaoAtual: Questao | null = null;
+
+  /**
+   * Variavel do tipo Questão ou null, responsavel por guardar apenas a resposta
+   */
   resposta: string | null = null;
+
+  /**
+   * Variavel do tipo booleano, para informar se é gradeIn ou não
+   */
   @Input() gradeIn = true;
+
+  /**
+   * Variavel do tipo boolean, responsavel por guardar se esta bloqueado ou não
+   */
   @Input() bloqueio: boolean = false;
+
+  /**
+   * Variavel do tipo number, responsavel por guardar o idTopico
+   */
   @Input() idTopico!: number;
+  /**
+   * Variavel responsavel por guardar o token a qual foi armazenado no localStorage
+   */
   tokenStorage = localStorage.getItem('token');
+
+  /**
+   * Variavel por guardar as informações vindas da API, apenas para teste e vizualização
+   */
   tokenData: any;
 
+  /**
+   * @constructor
+   */
   constructor(
     private http: HttpClient,
     private ltiService: ServiceAppService
   ) {}
 
+  /**
+   * @method
+   */
   ngOnInit() {
     this.questaoAtual = this.questao;
     if (this.questaoAtual) {
-      this.questaoAtual.alternativas = this.embaralharAlternativas(this.questaoAtual.alternativas);
-      let respostaCorreta = this.questaoAtual.alternativas.find(a => a.correta);
+      this.questaoAtual.alternativas = this.embaralharAlternativas(
+        this.questaoAtual.alternativas
+      );
+      let respostaCorreta = this.questaoAtual.alternativas.find(
+        (a) => a.correta
+      );
       if (respostaCorreta) {
         this.questaoAtual.respostaCorreta = respostaCorreta.descricao;
       }
     }
   }
-
+  
+  /**
+   * @method
+   * Metódo responsavel pela resposta da atividade
+   */
   responder(resposta: string) {
     if (this.respostaEnviada || this.respostaCorretaEnviada) {
       return;
@@ -47,7 +114,7 @@ export class AtividadeComponent {
     if (this.questaoAtual!.respostaCorreta == resposta) {
       this.respostaCorretaEnviada = true;
       console.log('Resposta certa');
-      console.log(this.questaoAtual?.respostaCorreta)
+      console.log(this.questaoAtual?.respostaCorreta);
 
       this.nota = 100 / this.ltiService.quantidadeTopicos;
       if (this.ltiService.notaTotal == 0) {
@@ -55,6 +122,7 @@ export class AtividadeComponent {
       } else {
         this.ltiService.notaTotal = this.ltiService.notaTotal + this.nota;
       }
+
       this.ltiService.liberar(this.idTopico).subscribe(
         (response) => {
           console.log('Proximo tópico liberado com sucesso', response);
@@ -106,13 +174,21 @@ export class AtividadeComponent {
       }
       this.resposta = resposta;
       this.respostaEnviada = true;
+    } else {
+      alert('Resposta errada, clique em refazer para tentar novamente');
     }
   }
 
+  /**
+   * @method
+   * Metodo responsavel pelo funcionamento do clique em refazer
+   */
   refazer() {
     if (this.questao) {
-      this.questao.alternativas = this.embaralharAlternativas(this.questao.alternativas);
-      let respostaCorreta = this.questao.alternativas.find(a => a.correta);
+      this.questao.alternativas = this.embaralharAlternativas(
+        this.questao.alternativas
+      );
+      let respostaCorreta = this.questao.alternativas.find((a) => a.correta);
       if (respostaCorreta) {
         this.questao.respostaCorreta = respostaCorreta.descricao;
       }
@@ -121,6 +197,10 @@ export class AtividadeComponent {
     this.respostaEnviada = false;
   }
 
+  /**
+   * @method
+   * Metodo responsavel por puxar a explicação que fica na questão
+   */
   getExplicacao(resposta: string) {
     const alternativa = this.questaoAtual?.alternativas.find(
       (a) => a.descricao === resposta
@@ -128,11 +208,20 @@ export class AtividadeComponent {
     return alternativa?.explicacao;
   }
 
-  embaralharAlternativas(alternativas: { descricao: string, explicacao: string, correta: boolean }[]) {
+  /**
+   * @method
+   * Metódo responsavel pelo embaralhamento das alternativas
+   */
+  embaralharAlternativas(
+    alternativas: { descricao: string; explicacao: string; correta: boolean }[]
+  ) {
     let alternativasEmbaralhadas = [...alternativas];
     for (let i = alternativasEmbaralhadas.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [alternativasEmbaralhadas[i], alternativasEmbaralhadas[j]] = [alternativasEmbaralhadas[j], alternativasEmbaralhadas[i]];
+      [alternativasEmbaralhadas[i], alternativasEmbaralhadas[j]] = [
+        alternativasEmbaralhadas[j],
+        alternativasEmbaralhadas[i],
+      ];
     }
     return alternativasEmbaralhadas;
   }

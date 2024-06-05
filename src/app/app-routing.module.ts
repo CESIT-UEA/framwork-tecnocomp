@@ -6,12 +6,14 @@ import { BehaviorismoComponent } from './pages/modulos/components/behaviorismo/b
 import { ConstrutivismoComponent } from './pages/modulos/components/construtivismo/construtivismo.component';
 import { SocioconstrutivismoComponent } from './pages/modulos/components/socioconstrutivismo/socioconstrutivismo.component';
 import { ConstrucionismoComponent } from './pages/modulos/components/construcionismo/construcionismo.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { TopicoForumComponent } from './components/forum/topico-forum/topico-forum.component';
 
 const routes: Routes = [
-  {path:'teorias-da-aprendizagemHome',component:HomeComponent},
+  { path: 'teorias-da-aprendizagemHome', component: HomeComponent },
   {
-    path:'teorias-da-aprendizagem',
-    component:AprendizagemEInformaticaComponent,
+    path: 'teorias-da-aprendizagem',
+    component: AprendizagemEInformaticaComponent,
     children: [
       { path: 'behaviorismo', component: BehaviorismoComponent },
       { path: 'construtivismo', component: ConstrutivismoComponent },
@@ -19,11 +21,19 @@ const routes: Routes = [
       { path: 'construcionismo', component: ConstrucionismoComponent },
     ],
   },
-  {path:'tecnologias-digitais-de-informação-e-comunicaçãoHome', component:HomeComponent}
+  {
+    path: 'forum',
+    component: ForumComponent,
+  },
+  { path: 'topico/:id', component: TopicoForumComponent },
+  {
+    path: 'tecnologias-digitais-de-informação-e-comunicaçãoHome',
+    component: HomeComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

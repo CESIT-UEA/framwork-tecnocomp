@@ -12,8 +12,11 @@ export class SocioconstrutivismoComponent {
   constructor(
     private router: Router,
     public aprendizagemInformatica: AprendizagemEInformaticaService,
-    public ltiService:ServiceAppService
-  ) {}
+    public ltiService: ServiceAppService
+  ) {
+    let bloqueio = localStorage.getItem('bloqueio');
+    this.ltiService.bloqueio = bloqueio ? JSON.parse(bloqueio) : undefined;
+  }
   teste = 0;
   nome = 'Socioconstrutivismo';
 
@@ -64,30 +67,34 @@ export class SocioconstrutivismoComponent {
   }
 
   minhaQuestao = {
-    titulo: 'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
+    titulo:
+      'Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?',
     alternativas: [
       {
         descricao: 'Azul',
-        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: false,
       },
       {
         descricao: 'Vermelho',
-        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: false,
       },
       {
         descricao: 'Verde',
-        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: true,
       },
       {
         descricao: 'Laranja',
-        explicacao: 'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
+        explicacao:
+          'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.',
         correta: false,
       },
     ],
     respostaCorreta: 'Verde',
   };
-  
 }

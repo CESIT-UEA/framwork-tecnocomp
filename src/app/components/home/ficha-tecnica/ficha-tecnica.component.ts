@@ -1,86 +1,89 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
+/**
+ * Componente Ficha Tecnica, a qual deve ser transformado em um componente reutilizavel, pois todo modulo tem sua ficha tecnica única
+ */
 @Component({
   selector: 'app-ficha-tecnica',
   templateUrl: './ficha-tecnica.component.html',
-  styleUrls: ['./ficha-tecnica.component.css']
+  styleUrls: ['./ficha-tecnica.component.css'],
 })
 export class FichaTecnicaComponent {
-   /**
-   * Vetor de objetos com equipe e membros do projeto
+  /**
+   * Vetor de Objetos os quais guarda as informações das equipes e de seus membros
    */
   cardEquipes = [
     {
-      equipe:"COORDENAÇÃO GERAL",
-      membros:[
+      equipe: 'COORDENAÇÃO GERAL',
+      membros: [
         {
-          cargo:"Coordenador",
-          nome:"João da Mata"
-        }
-      ]
+          cargo: 'Coordenador',
+          nome: 'João da Mata',
+        },
+      ],
     },
     {
-      equipe:"CONTEUDISTAS",
-      membros:[
+      equipe: 'CONTEUDISTAS',
+      membros: [
         {
-          cargo:"Conteudista",
-          nome:"Elisângela Oliveira"
+          cargo: 'Conteudista',
+          nome: 'Elisângela Oliveira',
         },
         {
-          cargo:"Conteudista",
-          nome:"Genarde Macedo"
-        }
-      ]
+          cargo: 'Conteudista',
+          nome: 'Genarde Macedo',
+        },
+      ],
     },
     {
-      equipe:"EQUIPE DESENVOLVEDOR",
-      membros:[
+      equipe: 'EQUIPE DESENVOLVEDOR',
+      membros: [
         {
-          cargo:"Desenvolvedor",
-          nome:"Henrique Galvim"
+          cargo: 'Desenvolvedor',
+          nome: 'Henrique Galvim',
         },
         {
-          cargo:"Desenvolvedor",
-          nome:"Kaue Wallace"
-        }
-      ]
-    },
-        {
-      equipe:"DESIGNS",
-      membros:[
-        {
-          cargo:"Design Instrucional",
-          nome:"Jorge Mikael"
+          cargo: 'Desenvolvedor',
+          nome: 'Kaue Wallace',
         },
-        {
-          cargo:"UX/UI Design",
-          nome:"Livia Monteiro"
-        },
-        {
-          cargo:"Design Gráfico",
-          nome:"Ryan Pereira"
-        }
-      ]
+      ],
     },
     {
-      equipe:"VIDEOMAKER",
-      membros:[
+      equipe: 'DESIGNS',
+      membros: [
         {
-          cargo:"videomaker",
-          nome:"Ronaldo Ewerton"
-        }
-      ]
+          cargo: 'Design Instrucional',
+          nome: 'Jorge Mikael',
+        },
+        {
+          cargo: 'UX/UI Design',
+          nome: 'Livia Monteiro',
+        },
+        {
+          cargo: 'Design Gráfico',
+          nome: 'Ryan Pereira',
+        },
+      ],
     },
     {
-      equipe:"ESPECIALISTA H5P",
-      membros:[
+      equipe: 'VIDEOMAKER',
+      membros: [
         {
-          cargo:"Especialista H5P",
-          nome:"Marcos Gabriel"
-        }
-      ]
+          cargo: 'videomaker',
+          nome: 'Ronaldo Ewerton',
+        },
+      ],
     },
-  ]
+    {
+      equipe: 'ESPECIALISTA H5P',
+      membros: [
+        {
+          cargo: 'Especialista H5P',
+          nome: 'Marcos Gabriel',
+        },
+      ],
+    },
+  ];
   /**
    * variável que controla a posição da equipe atual
    */
@@ -89,14 +92,14 @@ export class FichaTecnicaComponent {
   /**
    * @ignore
    */
-  teste = this.cardEquipes[this.currentVideoIndex]
+  teste = this.cardEquipes[this.currentVideoIndex];
 
   /**
    * @method
    * Método que retorna o número de membros da equipe da posição atual
    */
-  elementMembros(){
-    return this.cardEquipes[this.currentVideoIndex].membros.length
+  elementMembros() {
+    return this.cardEquipes[this.currentVideoIndex].membros.length;
   }
 
   /**
@@ -105,11 +108,12 @@ export class FichaTecnicaComponent {
    */
   nextVideo() {
     if (this.currentVideoIndex + 1 == this.cardEquipes.length) {
-      this.currentVideoIndex = this.cardEquipes.length - 1
+      this.currentVideoIndex = this.cardEquipes.length - 1;
 
-      return
+      return;
     } else {
-      this.currentVideoIndex = (this.currentVideoIndex + 1) % this.cardEquipes.length;
+      this.currentVideoIndex =
+        (this.currentVideoIndex + 1) % this.cardEquipes.length;
     }
   }
   /**
@@ -118,15 +122,17 @@ export class FichaTecnicaComponent {
    */
   prevVideo() {
     if (this.currentVideoIndex == 0) {
-      console.log("Oi")
+      console.log('Oi');
     } else {
-      this.currentVideoIndex = (this.currentVideoIndex - 1 + this.cardEquipes.length) % this.cardEquipes.length;
+      this.currentVideoIndex =
+        (this.currentVideoIndex - 1 + this.cardEquipes.length) %
+        this.cardEquipes.length;
     }
   }
 
   /**
    * @method
-   * @param index 
+   * @param index
    * Método que faz a variável que controla posição, receber um índice
    */
   selectVideo(index: number) {

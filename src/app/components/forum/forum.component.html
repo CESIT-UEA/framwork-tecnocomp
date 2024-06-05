@@ -1,0 +1,22 @@
+<p class="inicio">Aqui estão alguns lorem ipsum dolor sit amet consectetur.</p>
+<section class="container-forum" *ngFor="let dados of this.ltiService.topicos">
+  <div class="titulo-topico">
+    {{ dados.tituloTopico }}
+  </div>
+  <div class="contagem-topico" (click)="navegarParaTopico(this.dados.idTopico)">
+    <div class="postagens">
+        <p>14</p>
+        <p class="menor">postagens</p>
+    </div>
+    <div class="com-respostas">
+        <p>9</p>
+        <p class="menor">com respostas</p>
+    </div>
+    <div class="sem-postagens">
+        <p>5</p>
+        <p class="menor">sem respostas</p>
+    </div>
+  </div>
+</section>
+
+<router-outlet></router-outlet>

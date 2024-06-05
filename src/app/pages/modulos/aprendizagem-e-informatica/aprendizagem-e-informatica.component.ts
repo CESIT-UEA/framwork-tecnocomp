@@ -1,11 +1,18 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 
+/**
+ * Componente do modulo de aprendizagem e informática e abordagem pedagogica
+ */
 @Component({
   selector: 'app-aprendizagem-e-informatica',
   templateUrl: './aprendizagem-e-informatica.component.html',
-  styleUrls: ['./aprendizagem-e-informatica.component.css']
+  styleUrls: ['./aprendizagem-e-informatica.component.css'],
 })
-export class AprendizagemEInformaticaComponent {
 
-}
+export class AprendizagemEInformaticaComponent {}

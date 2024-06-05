@@ -122,6 +122,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente reutilizavel Saiba Mais, o qual deve, geralmente, ser chamado nas paginas gerais de vizualização dos vídeos, ficará no menu</p>
+
+    </p>
 
 
 
@@ -247,9 +254,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/pages/modulos/components/saiba-mais/saiba-mais.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/modulos/components/saiba-mais/saiba-mais.component.ts:17</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variavel que receberá os links que serão inseridos pelo usuário</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -271,9 +284,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/pages/modulos/components/saiba-mais/saiba-mais.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/modulos/components/saiba-mais/saiba-mais.component.ts:22</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variavel faz a interligação entre os eventos</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -305,24 +324,26 @@
                 <tr>
                     <td class="col-md-4">
                         <i>Default value : </i><code>[
-  {
-    descricao: &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
-    url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;
-   },
-   {
-    descricao: &#x27;Behaviorismo - o ser humano é realmente livre?&#x27;,
-    url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;
-   },
-   {
-    descricao: &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
-    url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;
-   }
+    {
+      descricao:
+        &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
+      url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;,
+    },
+    {
+      descricao: &#x27;Behaviorismo - o ser humano é realmente livre?&#x27;,
+      url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;,
+    },
+    {
+      descricao:
+        &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
+      url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;,
+    },
   ]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/modulos/components/saiba-mais/saiba-mais.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/modulos/components/saiba-mais/saiba-mais.component.ts:27</a></div>
                         </td>
                     </tr>
 
@@ -343,34 +364,46 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
 
+/**
+ * Componente reutilizavel Saiba Mais, o qual deve, geralmente, ser chamado nas paginas gerais de vizualização dos vídeos, ficará no menu
+ */
 @Component({
   selector: &#x27;app-saiba-mais&#x27;,
   templateUrl: &#x27;./saiba-mais.component.html&#x27;,
-  styleUrls: [&#x27;./saiba-mais.component.css&#x27;]
+  styleUrls: [&#x27;./saiba-mais.component.css&#x27;],
 })
-export class SaibaMaisComponent {
-  @Input() links!: string[];
-  @Output() linksClick &#x3D; new EventEmitter&lt;void&gt;();
 
+
+export class SaibaMaisComponent {
+  /**
+   * Variavel que receberá os links que serão inseridos pelo usuário
+   */
+  @Input() links!: string[];
 
   /**
-   * Vetor de objeto com descrição e links de informações adicionais sobre um determinado tópico 
-   */ 
-  saibaMais: any &#x3D; [
-  {
-    descricao: &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
-    url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;
-   },
-   {
-    descricao: &#x27;Behaviorismo - o ser humano é realmente livre?&#x27;,
-    url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;
-   },
-   {
-    descricao: &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
-    url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;
-   }
-  ]
+   * Variavel faz a interligação entre os eventos
+   */
+  @Output() linksClick &#x3D; new EventEmitter&lt;void&gt;();
 
+  /**
+   * Vetor de objeto com descrição e links de informações adicionais sobre um determinado tópico
+   */
+  saibaMais: any &#x3D; [
+    {
+      descricao:
+        &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
+      url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;,
+    },
+    {
+      descricao: &#x27;Behaviorismo - o ser humano é realmente livre?&#x27;,
+      url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;,
+    },
+    {
+      descricao:
+        &#x27;O que é Behaviorismo? Entenda um pouco da Psicologia Comportamental&#x27;,
+      url: &#x27;https://br.search.yahoo.com/search?fr&#x3D;mcafee&amp;type&#x3D;E210BR714G91805&amp;p&#x3D;interroga%C3%A7%C3%A3o&#x27;,
+    },
+  ];
 }
 </code></pre>
     </div>
@@ -539,7 +572,7 @@ export class SaibaMaisComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="header-atividade">  <div class="container-links">    <div class="header-links">      <!-- Imagem do ícone de download do ebook -->      <img        src="assets/icons/saibaMais.svg"        alt="Icone para download do ebook"        width="28px"        height="28px"      />      <p>Saiba mais</p>    </div>  </div>  <!-- ícone que quando clicado volta para a página geral da unidade -->  <img    (click)="linksClick.emit()"    src="assets/icons/close.svg"    alt="Icone para ir para a atividade da unidade"    width="30px"    height="30px"  /></div><section class="container-links-text">  <p id="container-links-text-frase">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione enim illum sed, consequuntur totam maiores voluptates saepe voluptatibus recusandae vero eum, pariatur facilis dolor ab, quis ad omnis illo ex.</p>  <!-- ngFor que percorre o vetor de objetos que contém descrição e link de informaçõoes adicionais -->  <div class="container-links-text-caixa" *ngFor="let item of saibaMais">    <div class="container-links-text-caixa-descricao-conteudo">      <img src="../../../../../assets/img/youtube.png" alt="imagem da logo do youtube">      <p class="container-links-text-caixa-descricao1">Descrição:</p>    </div>      <!-- a cada iteração do ngFor tem uma descrição e um link diferente sendo exibido -->      <p class="container-links-text-caixa-descricao2">{{ item.descricao }}</p>      <a target="_blank" [href]="item.url">clique aqui</a>  </div></section></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SaibaMaisComponent'};
 </script>

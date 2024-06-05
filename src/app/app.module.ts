@@ -42,6 +42,8 @@ import { SafeUrlPipePipe } from './components/safe-url-pipe.pipe';
 import { BotoesSectionComponent } from './components/home/botoes-section/botoes-section.component';
 import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tecnica.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ForumComponent } from './components/forum/forum.component';
+import { TopicoForumComponent } from './components/forum/topico-forum/topico-forum.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +75,8 @@ import { HttpClientModule } from '@angular/common/http';
     SafeUrlPipePipe,
     BotoesSectionComponent,
     FichaTecnicaComponent,
+    ForumComponent,
+    TopicoForumComponent,
   ],
   imports: [
     BrowserModule,

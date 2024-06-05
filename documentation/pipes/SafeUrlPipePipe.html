@@ -121,6 +121,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Pipe de sanitização de URL</p>
+
+            </p>
 
 
         <section data-compodoc="block-metadata">
@@ -160,14 +167,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="11"
-                                    class="link-to-prism">src/app/components/safe-url-pipe.pipe.ts:11</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="20"
+                                    class="link-to-prism">src/app/components/safe-url-pipe.pipe.ts:20</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Função de sanitização de URL</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -216,13 +225,22 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Pipe, PipeTransform } from &#x27;@angular/core&#x27;;
 import { DomSanitizer, SafeResourceUrl } from &#x27;@angular/platform-browser&#x27;;
 
+/**
+ * Pipe de sanitização de URL
+ */
 @Pipe({
-  name: &#x27;safeUrlPipe&#x27;
+  name: &#x27;safeUrlPipe&#x27;,
 })
 export class SafeUrlPipePipe implements PipeTransform {
-
+  /**
+   * @constructor
+   */
   constructor(private sanitizer: DomSanitizer) {}
 
+  /**
+   * @method
+   * Função de sanitização de URL
+   */
   transform(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }

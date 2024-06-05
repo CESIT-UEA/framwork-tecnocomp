@@ -122,6 +122,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Classe responsavel pelo carregamento dos videos, mas seu funcinamento era ser um componente reutilizavel com o objetivo de ser o slide do texto de apoio</p>
+
+    </p>
 
 
 
@@ -186,9 +193,6 @@
                         <ul class="index-list">
                             <li>
                                 <a href="#currentVideoIndex" >currentVideoIndex</a>
-                            </li>
-                            <li>
-                                <a href="#Is_loading_animation" >Is_loading_animation</a>
                             </li>
                             <li>
                                 <a href="#isLoading" >isLoading</a>
@@ -261,9 +265,15 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:15</a></div>
                             </td>
                         </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Array de links de videos, a qual é uma variavel que recebe um array string ao instanciar este componente, e ele é obrigatório</p>
+</div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -295,14 +305,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:25</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Metódo responsavel por poder selecionar na interface qual video será exibido</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -362,14 +374,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:39</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Metódo responsavel por dar um delay de 1s ao trocar para outro video</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -409,35 +423,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:19</a></div>
                         </td>
                     </tr>
 
-
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="Is_loading_animation"></a>
-                    <span class="name">
-                        <span ><b>Is_loading_animation</b></span>
-                        <a href="#Is_loading_animation"><span class="icon ion-ios-link"></span></a>
-                    </span>
+                    <div class="io-description"><p>Variavel responsavel por guardar o indice do video que será exibido, por padrão começa com 0, pelo link do video em primeiro do vetor acima</p>
+</div>
                 </td>
             </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <i>Default value : </i><code>false</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:11</a></div>
-                        </td>
-                    </tr>
-
 
         </tbody>
     </table>
@@ -459,10 +454,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/components/slide-unidade/slide-unidade.component.ts:33</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel responsavel por guardar se esta havendo carregamento</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -472,32 +473,50 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component,Input } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
 
+/**
+ * Classe responsavel pelo carregamento dos videos, mas seu funcinamento era ser um componente reutilizavel com o objetivo de ser o slide do texto de apoio
+ */
 @Component({
   selector: &#x27;app-slide-unidade&#x27;,
   templateUrl: &#x27;./slide-unidade.component.html&#x27;,
-  styleUrls: [&#x27;./slide-unidade.component.css&#x27;]
+  styleUrls: [&#x27;./slide-unidade.component.css&#x27;],
 })
 export class SlideUnidadeComponent {
-  @Input({required:true}) videos!: string[];
+  /**
+   * Array de links de videos, a qual é uma variavel que recebe um array string ao instanciar este componente, e ele é obrigatório
+   */
+  @Input({ required: true }) videos!: string[];
+  /**
+   * Variavel responsavel por guardar o indice do video que será exibido, por padrão começa com 0, pelo link do video em primeiro do vetor acima
+   */
   currentVideoIndex: number &#x3D; 0;
-  Is_loading_animation &#x3D; false
 
+  /**
+   * @method
+   * Metódo responsavel por poder selecionar na interface qual video será exibido
+   */
   selectVideo(index: number) {
     this.startLoading();
     this.currentVideoIndex &#x3D; index;
   }
 
+  /**
+   * Variavel responsavel por guardar se esta havendo carregamento
+   */
   isLoading &#x3D; false;
 
+  /**
+   * @method
+   * Metódo responsavel por dar um delay de 1s ao trocar para outro video
+   */
   startLoading() {
     this.isLoading &#x3D; true;
     setTimeout(() &#x3D;&gt; {
       this.isLoading &#x3D; false;
     }, 1000);
   }
-
 }
 </code></pre>
     </div>
@@ -646,7 +665,7 @@ export class SlideUnidadeComponent {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div  class="video-container"  *ngIf="isLoading == false; else loading">  <iframe    [src]="videos[currentVideoIndex] | safe"    title="Video Aula"    frameborder="0"    allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"    allowfullscreen  ></iframe>  <div class="navigation-button">    <ul>      <li        *ngFor="let video of videos; index as i"        [ngClass]="{          active: i === currentVideoIndex,          teste: i !== currentVideoIndex        }"        (click)="selectVideo(i)"      >        {{ i + 1 }}      </li>    </ul>  </div></div><ng-template #loading>  <div class="loading center-2">    <div class="spinner"></div>  </div></ng-template></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SlideUnidadeComponent'};
 </script>

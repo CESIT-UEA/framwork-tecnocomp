@@ -44,6 +44,9 @@ input {
 .container-topico {
   height: 260px;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .topico-container {
@@ -64,4 +67,16 @@ input {
   display: flex;
   align-items: center;
 
+}
+
+.btn-forum{
+  background-color: #262626;
+  color: #9665DF;
+  width: 80%;
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  margin-bottom: 20px;
+  font-family: 'Arial' 16px ;
 }

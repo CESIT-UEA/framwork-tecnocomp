@@ -117,6 +117,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Service a qual guarda as operações essenciais, como o envio de notas, as informações do usuario, etc</p>
+
+            </p>
 
 
 
@@ -133,16 +140,32 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#apiUrl" >apiUrl</a>
+                            </li>
+                            <li>
+                                <a href="#bloqueio" >bloqueio</a>
+                            </li>
+                            <li>
                                 <a href="#controllerSwitchHome" >controllerSwitchHome</a>
                             </li>
                             <li>
-                                <a href="#ltik" >ltik</a>
+                                <a href="#informacoes" >informacoes</a>
                             </li>
                             <li>
                                 <a href="#notaTotal" >notaTotal</a>
                             </li>
                             <li>
                                 <a href="#quantidadeTopicos" >quantidadeTopicos</a>
+                            </li>
+                            <li>
+                                <a href="#tokenStorage" >tokenStorage</a>
+                            </li>
+                            <li>
+                                <a href="#topicos" >topicos</a>
+                            </li>
+                            <li>
+                                <a href="#urlInicio" >urlInicio</a>
                             </li>
                         </ul>
                     </td>
@@ -156,6 +179,12 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
+                            <li>
+                                <a href="#getTopicoForum" >getTopicoForum</a>
+                            </li>
+                            <li>
+                                <a href="#liberar" >liberar</a>
+                            </li>
                             <li>
                                 <a href="#sendGrade" >sendGrade</a>
                             </li>
@@ -185,12 +214,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/service-app.service.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/service-app.service.ts:17</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Constructor do ServiceAppService</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -232,6 +263,142 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="getTopicoForum"></a>
+                    <span class="name">
+                        <span ><b>getTopicoForum</b></span>
+                        <a href="#getTopicoForum"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTopicoForum(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/service-app.service.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="liberar"></a>
+                    <span class="name">
+                        <span ><b>liberar</b></span>
+                        <a href="#liberar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>liberar(idTopico: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/service-app.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metódo que ?????? Verificar se este metodo esta sendo utilizado</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idTopico</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="sendGrade"></a>
                     <span class="name">
                         <span ><b>sendGrade</b></span>
@@ -248,14 +415,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="15"
-                                    class="link-to-prism">src/app/service-app.service.ts:15</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/service-app.service.ts:80</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>metódo responsavel pelo envio das notas para o moodle, um dos metódos essenciais, envia de forma com que a atividade seja concluida</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -315,14 +484,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="25"
-                                    class="link-to-prism">src/app/service-app.service.ts:25</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/service-app.service.ts:97</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>metódo responsavel pelo envio das notas para o moodle, um dos metódos essenciais, envia de forma com que a atividade ainda esteja em progresso</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -372,6 +543,76 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="apiUrl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>apiUrl</b></span>
+                        <a href="#apiUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;http://localhost:3000&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/service-app.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>url da API</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="bloqueio"></a>
+                    <span class="name">
+                        <span ><b>bloqueio</b></span>
+                        <a href="#bloqueio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Bloqueio.html" target="_self" >Bloqueio[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/service-app.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda um vetor contendo a relação dos alunos com os topicos, auxiliando no bloqueio para ultrapassar rapidamente os tópicos do modulo</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="controllerSwitchHome"></a>
                     <span class="name">
                         <span ><b>controllerSwitchHome</b></span>
@@ -392,7 +633,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/service-app.service.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/service-app.service.ts:125</a></div>
                         </td>
                     </tr>
 
@@ -409,30 +650,36 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="ltik"></a>
+                    <a name="informacoes"></a>
                     <span class="name">
-                        <span ><b>ltik</b></span>
-                        <a href="#ltik"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>informacoes</b></span>
+                        <a href="#informacoes"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>    <code>[]</code>
 
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                        <i>Default value : </i><code>[]</code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/service-app.service.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/service-app.service.ts:50</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda as informações do usuario vindas do moodle</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -460,10 +707,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/service-app.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/service-app.service.ts:28</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda a nota total do usuario no modulo</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -491,10 +744,115 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/service-app.service.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/service-app.service.ts:38</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda a quantidade de topicos</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tokenStorage"></a>
+                    <span class="name">
+                        <span ><b>tokenStorage</b></span>
+                        <a href="#tokenStorage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>localStorage.getItem(&#x27;token&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/service-app.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda o token do usuario</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="topicos"></a>
+                    <span class="name">
+                        <span ><b>topicos</b></span>
+                        <a href="#topicos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Topico.html" target="_self" >Topico[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/service-app.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="urlInicio"></a>
+                    <span class="name">
+                        <span ><b>urlInicio</b></span>
+                        <a href="#urlInicio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/service-app.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que inicializa para posteriormente salvar a url inicial</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -507,41 +865,128 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient, HttpHeaders } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
+import { Bloqueio } from &#x27;./bloqueioInterface&#x27;;
+import { Topico } from &#x27;./components/forum/topico.interface&#x27;;
 
+/**
+ * Service a qual guarda as operações essenciais, como o envio de notas, as informações do usuario, etc
+ */
 @Injectable({
-  providedIn: &#x27;root&#x27;
+  providedIn: &#x27;root&#x27;,
 })
 export class ServiceAppService {
-  constructor(private http: HttpClient) { }
-  notaTotal:number &#x3D; 0
-  ltik &#x3D; &#x27;&#x27;
-  quantidadeTopicos &#x3D; 0
-  /* TODO: Criar uma variavel pra guardar a url inicial do modulo */
+  /**
+   * url da API
+   */
+  private apiUrl &#x3D; &#x27;http://localhost:3000&#x27;;
 
-  sendGrade(nota: number): Observable&lt;any&gt; {
-    const grade &#x3D; { grade: nota };
+  /**
+   * @method
+   * Constructor do ServiceAppService
+   */
+  constructor(private http: HttpClient) {}
+
+  /**
+   * Variavel que guarda a nota total do usuario no modulo
+   */
+  notaTotal: number &#x3D; 0;
+
+  /**
+   * Variavel que guarda o token do usuario
+   */
+  tokenStorage &#x3D; localStorage.getItem(&#x27;token&#x27;);
+
+  /**
+   * Variavel que guarda a quantidade de topicos
+   */
+  quantidadeTopicos &#x3D; 0;
+
+  topicos: Topico[] &#x3D; [];
+
+  /**
+   * Variavel que guarda um vetor contendo a relação dos alunos com os topicos, auxiliando no bloqueio para ultrapassar rapidamente os tópicos do modulo
+   */
+  bloqueio!: Bloqueio[];
+
+  /**
+   * Variavel que guarda as informações do usuario vindas do moodle
+   */
+  informacoes &#x3D; [];
+
+  /**
+   * Variavel que inicializa para posteriormente salvar a url inicial
+   */
+  urlInicio: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * @method
+   * Metódo que ?????? Verificar se este metodo esta sendo utilizado
+   */
+  liberar(idTopico: number): Observable&lt;any&gt; {
+    this.tokenStorage &#x3D; localStorage.getItem(&#x27;token&#x27;);
+    const grade &#x3D; { token: this.tokenStorage, idTopico: idTopico };
+    console.log(grade);
+
     const headers &#x3D; new HttpHeaders({
       &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
-      &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + this.ltik
+      Authorization: &#x27;Bearer &#x27; + this.tokenStorage,
     });
 
-    return this.http.post(&#x27;http://localhost:3000/grade&#x27;, grade, { headers: headers });
+    return this.http.post(&#x60;${this.apiUrl}/api/liberar&#x60;, grade, {
+      headers: headers,
+    });
   }
 
-  sendGradeIn(nota: number): Observable&lt;any&gt; {
+  /**
+   * @method
+   * metódo responsavel pelo envio das notas para o moodle, um dos metódos essenciais, envia de forma com que a atividade seja concluida
+   */
+  sendGrade(nota: number): Observable&lt;any&gt; {
+    this.tokenStorage &#x3D; localStorage.getItem(&#x27;token&#x27;);
     const grade &#x3D; { grade: nota };
     const headers &#x3D; new HttpHeaders({
       &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
-      &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + this.ltik
+      Authorization: &#x27;Bearer &#x27; + this.tokenStorage,
     });
 
-    return this.http.post(&#x27;http://localhost:3000/gradeIn&#x27;, grade, { headers: headers });
+    return this.http.post(this.apiUrl + &#x27;/grade&#x27;, grade, {
+      headers: headers,
+    });
+  }
+
+  /**
+   * @method
+   * metódo responsavel pelo envio das notas para o moodle, um dos metódos essenciais, envia de forma com que a atividade ainda esteja em progresso
+   */
+  sendGradeIn(nota: number): Observable&lt;any&gt; {
+    this.tokenStorage &#x3D; localStorage.getItem(&#x27;token&#x27;);
+    const grade &#x3D; { grade: nota };
+    const headers &#x3D; new HttpHeaders({
+      &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+      Authorization: &#x27;Bearer &#x27; + this.tokenStorage,
+    });
+
+    return this.http.post(this.apiUrl + &#x27;/gradeIn&#x27;, grade, {
+      headers: headers,
+    });
+  }
+
+  getTopicoForum(id: number): Observable&lt;any&gt; {
+    const url &#x3D; &#x60;${this.apiUrl}/api/forum_topicos/${id}&#x60;;
+    const headers &#x3D; new HttpHeaders({
+      &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+      Authorization: &#x27;Bearer &#x27; + this.tokenStorage,
+    });
+
+    return this.http.get(url, {
+      headers,
+    });
   }
 
   /**
    * Variável que controla as rotas na página HOME
    */
-  controllerSwitchHome:number &#x3D; 0
+  controllerSwitchHome: number &#x3D; 0;
 }
 </code></pre>
     </div>

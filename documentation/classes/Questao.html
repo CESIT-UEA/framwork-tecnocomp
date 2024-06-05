@@ -121,6 +121,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Classe responsavel pela padronização da questão</p>
+
+            </p>
 
 
 
@@ -173,7 +180,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="1" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:1</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:4</a></div>
                             </td>
                         </tr>
 
@@ -260,10 +267,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="4" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:4</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:16</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Alternativas que a questão possui</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -287,10 +300,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:20</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel a qual define qual alternativa é a correta</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -314,10 +333,16 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="3" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:3</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/component/atividade-unidade-banco/questao.model.ts:12</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel que guarda o titulo da questão</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -334,17 +359,44 @@
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class Questao {
+  /**
+   * @constructor
+   */
   constructor(
+    /**
+     * Variavel que guarda o titulo da questão
+     */
     public titulo: string,
+    /**
+     * Alternativas que a questão possui
+     */
     public alternativas: Alternativa[],
+    /**
+     * Variavel a qual define qual alternativa é a correta
+     */
     public respostaCorreta: number
   ) {}
 }
 
+/**
+ * Classe responsavel pela padronização das alternativas
+ */
 export class Alternativa {
+  /**
+   * Variavel responsavel para definir como padrão que a explicação da alternativa é escondida, apenas quando verdadeiro que será mostrada
+   */
   explicacaoVisivel &#x3D; false;
+  /**
+   * @constructor
+   */
   constructor(
+    /**
+     * Variavel responsavel para guardar descricao da alternativa
+     */
     public descricao: string,
+    /**
+     * Variavel responsavel para guardar a explicacao da alternativa
+     */
     public explicacao: string
   ) {}
 }
