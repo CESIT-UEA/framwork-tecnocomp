@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 import { ServiceAppService } from 'src/app/service-app.service';
@@ -8,7 +8,7 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './behaviorismo.component.html',
   styleUrls: ['./behaviorismo.component.css'],
 })
-export class BehaviorismoComponent {
+export class BehaviorismoComponent implements OnInit {
   constructor(
     public aprendizagemInformatica: AprendizagemEInformaticaService,
     public ltiService: ServiceAppService
@@ -16,7 +16,9 @@ export class BehaviorismoComponent {
     let bloqueio = localStorage.getItem('bloqueio');
     this.ltiService.bloqueio = bloqueio ? JSON.parse(bloqueio) : undefined;
   }
-
+  ngOnInit(): void {
+    this.ltiService.controlAtividade = 1
+  }
   teste = 1;
   nome = 'Behaviorismo';
   arrayReferenciasTeste = [

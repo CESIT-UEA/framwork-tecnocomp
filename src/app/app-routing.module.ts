@@ -8,6 +8,10 @@ import { SocioconstrutivismoComponent } from './pages/modulos/components/socioco
 import { ConstrucionismoComponent } from './pages/modulos/components/construcionismo/construcionismo.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { TopicoForumComponent } from './components/forum/topico-forum/topico-forum.component';
+import { ComentariosComponent } from './components/forum/topico-forum/comentarios/comentarios.component';
+import { ErrorComponent } from './components/error/error.component';
+import { ModuloComponent } from './personalizavel/modulo/modulo.component';
+import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
 
 const routes: Routes = [
   { path: 'teorias-da-aprendizagemHome', component: HomeComponent },
@@ -26,10 +30,17 @@ const routes: Routes = [
     component: ForumComponent,
   },
   { path: 'topico/:id', component: TopicoForumComponent },
+  { path: 'topico/:id/:id_comentario', component: ComentariosComponent },
   {
     path: 'tecnologias-digitais-de-informação-e-comunicaçãoHome',
     component: HomeComponent,
   },
+
+  {path:'modulo/:nome_modulo', component:ModuloComponent},
+  {path:'modulo/:nome_modulo/topicos', component:TopicoComponent},
+
+  {path: '**', component:ErrorComponent},
+
 ];
 
 @NgModule({

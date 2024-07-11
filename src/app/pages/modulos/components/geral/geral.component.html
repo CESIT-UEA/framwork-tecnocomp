@@ -63,9 +63,21 @@
     <div class="position">
       <section class="buttons-final">
         <!-- Botão que quando clicado vai para o componente de atividade -->
-        <button
+        <button *ngIf="this.ltiService.controlAtividade >= this.videos.length"
           class="atividade-botao center-2"
           (click)="atividadeClick.emit()"
+        >
+          <img
+            src="assets/icons/atividade.svg"
+            alt="Icone para ir para a atividade da unidade"
+            width="22px"
+            height="24px"
+          />
+          ATIVIDADE
+        </button>
+        <button *ngIf="this.ltiService.controlAtividade < this.videos.length"
+          class="atividade-botao center-2"
+          (click)="clicarVideos()"
         >
           <img
             src="assets/icons/atividade.svg"

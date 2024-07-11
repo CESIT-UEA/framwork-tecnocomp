@@ -44,7 +44,11 @@ import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tec
 import { HttpClientModule } from '@angular/common/http';
 import { ForumComponent } from './components/forum/forum.component';
 import { TopicoForumComponent } from './components/forum/topico-forum/topico-forum.component';
-
+import { ComentariosComponent } from './components/forum/topico-forum/comentarios/comentarios.component';
+import { ErrorComponent } from './components/error/error.component';
+import {ReactiveFormsModule } from '@angular/forms';
+import { ModuloComponent } from './personalizavel/modulo/modulo.component';
+import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +81,10 @@ import { TopicoForumComponent } from './components/forum/topico-forum/topico-for
     FichaTecnicaComponent,
     ForumComponent,
     TopicoForumComponent,
+    ComentariosComponent,
+    ErrorComponent,
+    ModuloComponent,
+    TopicoComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +101,8 @@ import { TopicoForumComponent } from './components/forum/topico-forum/topico-for
     MatSidenavModule,
     MatProgressBarModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

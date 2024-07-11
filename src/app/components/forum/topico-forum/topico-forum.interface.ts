@@ -14,7 +14,7 @@ export interface TopicoF {
 
   resolvido: boolean;
 
-  nome_autor: string;
+  id_autor: number;
 
   /**
    * data de criação do topico

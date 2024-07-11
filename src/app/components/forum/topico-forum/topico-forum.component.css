@@ -1,3 +1,28 @@
+.header {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto auto auto;
+  background-color: black;
+  align-items: center;
+  color: white;
+  border: 1px solid #1f1f1f;
+  padding: 10px;
+  margin-bottom: 30px;
+}
+.icon-forum {
+  background-color: #9665df;
+}
+.center-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #c3a1f5;
+  column-gap: 15px;
+  font-size: 20px;
+}
+.voltar {
+  text-align: end;
+}
 :host {
   color: white;
 }
@@ -19,7 +44,7 @@
   margin: 0 10px;
   color: #9665df /* cor da bolinha */;
 }
-.container-topico-forum hr {
+.container-topico-forum .topico_forum_hr {
   width: 100%;
   margin: 0 auto;
   height: 2px;
@@ -112,6 +137,7 @@ nav {
 }
 .corpo-postagem a {
   color: #9665df;
+  text-decoration: underline;
 }
 .autor .foto-autor {
   width: 30px;
@@ -131,4 +157,73 @@ nav {
 }
 .p1 {
   color: #cdcdcd;
+}
+
+.container-postagem-form {
+  margin-top: 20px;
+  background-color: #242228;
+  border-top: 3px solid #9665df;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+.container-postagem-form h4 {
+  margin: 15px 0 10px 0;
+}
+.container-postagem-form .hr_form {
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+.form_postagem {
+  display: flex;
+  flex-direction: column;
+}
+.form_postagem label {
+  width: 80%;
+  margin: 0 auto;
+  text-align: justify;
+}
+.form_postagem input {
+  width: 80%;
+  margin: 0 auto;
+}
+.p_form {
+  color: #fa7878;
+  text-align: justify;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+#titulo {
+  min-height: 30px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #9a9a9a;
+  color: white;
+  outline: none;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.form_postagem button {
+  width: 100px;
+  height: 35px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: #50288d;
+  color: white;
+  border: none;
+}
+
+.form_postagem textarea {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 200px;
+  background-color: #9a9a9a;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  margin-bottom: 20px;
+  color: white;
+  padding: 10px;
 }

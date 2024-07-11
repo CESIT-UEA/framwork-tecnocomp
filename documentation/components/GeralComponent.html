@@ -124,6 +124,12 @@
 
 
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
 
 
 <section data-compodoc="block-metadata">
@@ -205,10 +211,16 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#clicarVideos" >clicarVideos</a>
+                            </li>
+                            <li>
                                 <a href="#navigation" >navigation</a>
                             </li>
                             <li>
                                 <a href="#navigationVoltar" >navigationVoltar</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                         </ul>
                     </td>
@@ -584,6 +596,43 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="clicarVideos"></a>
+                    <span class="name">
+                        <span ><b>clicarVideos</b></span>
+                        <a href="#clicarVideos"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clicarVideos()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/pages/modulos/components/geral/geral.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="navigation"></a>
                     <span class="name">
                         <span ><b>navigation</b></span>
@@ -600,8 +649,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="26"
-                                    class="link-to-prism">src/app/pages/modulos/components/geral/geral.component.ts:26</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/pages/modulos/components/geral/geral.component.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -637,8 +686,45 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="30"
-                                    class="link-to-prism">src/app/pages/modulos/components/geral/geral.component.ts:30</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/pages/modulos/components/geral/geral.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/pages/modulos/components/geral/geral.component.ts:26</a></div>
                         </td>
                     </tr>
 
@@ -720,7 +806,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, Output } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
 import { AprendizagemEInformaticaService } from &#x27;../../aprendizagem-e-informatica/aprendizagem-e-informatica.service&#x27;;
 import { Router } from &#x27;@angular/router&#x27;;
 import { ServiceAppService } from &#x27;src/app/service-app.service&#x27;;
@@ -730,7 +816,7 @@ import { ServiceAppService } from &#x27;src/app/service-app.service&#x27;;
   templateUrl: &#x27;./geral.component.html&#x27;,
   styleUrls: [&#x27;./geral.component.css&#x27;]
 })
-export class GeralComponent {
+export class GeralComponent implements OnInit{
   constructor(public aprendizagemInformatica:AprendizagemEInformaticaService, private router:Router, public ltiService:ServiceAppService){
   }
   @Input() nome!:string
@@ -745,6 +831,11 @@ export class GeralComponent {
   @Input() proximo!:string;
   @Input() liberado:boolean &#x3D; false
 
+  ngOnInit(): void {
+    if(this.ltiService.controlAtividade &gt;&#x3D; this.videos.length){
+      this.ltiService.controlAtividade &#x3D; 1
+    }
+  }
   navigation(){
     this.router.navigate([this.proximo]);
   }
@@ -752,7 +843,10 @@ export class GeralComponent {
   navigationVoltar(){
     this.router.navigate([this.voltar]);
   }
-
+  clicarVideos(){
+    console.log(this.videos.length)
+    alert(&quot;Assista todos os videos para poder fazer a atividade&quot;)
+  }
 }
 </code></pre>
     </div>
@@ -823,9 +917,21 @@ export class GeralComponent {
     &lt;div class&#x3D;&quot;position&quot;&gt;
       &lt;section class&#x3D;&quot;buttons-final&quot;&gt;
         &lt;!-- Botão que quando clicado vai para o componente de atividade --&gt;
-        &lt;button
+        &lt;button *ngIf&#x3D;&quot;this.ltiService.controlAtividade &gt;&#x3D; this.videos.length&quot;
           class&#x3D;&quot;atividade-botao center-2&quot;
           (click)&#x3D;&quot;atividadeClick.emit()&quot;
+        &gt;
+          &lt;img
+            src&#x3D;&quot;assets/icons/atividade.svg&quot;
+            alt&#x3D;&quot;Icone para ir para a atividade da unidade&quot;
+            width&#x3D;&quot;22px&quot;
+            height&#x3D;&quot;24px&quot;
+          /&gt;
+          ATIVIDADE
+        &lt;/button&gt;
+        &lt;button *ngIf&#x3D;&quot;this.ltiService.controlAtividade &lt; this.videos.length&quot;
+          class&#x3D;&quot;atividade-botao center-2&quot;
+          (click)&#x3D;&quot;clicarVideos()&quot;
         &gt;
           &lt;img
             src&#x3D;&quot;assets/icons/atividade.svg&quot;
@@ -1205,8 +1311,8 @@ button.atividade-botao {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- chamada do componente do cabeçalho da unidade geral --><app-header-unidade></app-header-unidade><div class="container-main-conteudo">  <div class="div-slide">    <ul>      <!-- Nome do tópico da unidade -->      <li>{{ nome }}</li>    </ul>    <hr />    <div class="container-video">      <!-- chamada do componente slide-unidade para exibir o video do tópico -->      <app-slide-unidade        [videos]="videos"        style="text-align: center"      ></app-slide-unidade>    </div>  </div>  <div class="botoes">    <section class="section-texto center-2">      <!-- Todo: Fazer o NG template dos-->      <!-- Botão que quando clicado vai para o componente saiba-mais -->      <button        class="segundo segundo-botao center-2"        (click)="referenciasClick.emit()"      >        <img          src="assets/icons/saibaMais.svg"          alt="Icone para download do ebook"          width="22px"          height="24px"        />        Saiba mais      </button>      <!-- Botão que quando clicado vai para o componente referências -->      <button        class="terceiro terceiro-botao center-2"        (click)="linksClick.emit()"      >        <img          src="assets/icons/referencias.svg"          alt="Icone para download do ebook"          width="22px"          height="24px"        />        Referencias Bibliográficas      </button>      <!-- Botão que quando clicado vai para o componente texto de apoio -->      <button        class="primeiro segundo-botao center-2"        (click)="textoApoioClick.emit()"      >        <img          src="assets/icons/texto-de-apoio.svg"          alt="Icone para download do ebook"          width="22px"          height="24px"        />        Texto de apoio      </button>    </section>    <div class="position">      <section class="buttons-final">        <!-- Botão que quando clicado vai para o componente de atividade -->        <button          class="atividade-botao center-2"          (click)="atividadeClick.emit()"        >          <img            src="assets/icons/atividade.svg"            alt="Icone para ir para a atividade da unidade"            width="22px"            height="24px"          />          ATIVIDADE        </button>        <!-- Botão para download do e-book do tópico -->        <button class="ebook-botao center-2">          <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"            >E-BOOK TÓPICO</a          >          <img            src="assets/icons/download.svg"            alt="Icone para download do ebook"            width="22px"            height="24px"          />        </button>      </section>    </div>  </div></div><div class="container-switch-links" [ngSwitch]="link">  <div *ngSwitchCase="\'1\'" class="container-main-conteudo-link">    <div *ngIf="!this.liberado">      <p style="color: aliceblue">        Complete a atividade para poder ir para o proximo tópico      </p>    </div>    <a      *ngIf="this.liberado"      [routerLink]="[\'../\', this.proximo]"      class="link-proximo"      (click)="this.aprendizagemInformatica.updateProgress()"      >PROXÍMO      <img        src="assets/icons/next.svg"        alt="Icone para ir para a próxima unidade"        width="22px"        height="24px"      />    </a>  </div>  <div *ngSwitchCase="\'2\'" class="container-main-conteudo-link-left">    <a [routerLink]="[\'../\', this.voltar]" class="link-voltar">      <img        src="assets/icons/previous.svg"        alt="Icone para ir para a unidade anterior"        width="22px"        height="24px"      />      ANTERIOR    </a>  </div>  <ng-template ngSwitchDefault class="container-main-conteudo-links" #links>    <div class="container-main-conteudo-links-voltar">      <a [routerLink]="[\'../\', this.voltar]" class="link-voltar">        <img          src="assets/icons/previous.svg"          alt="Icone para ir para a unidade anterior"          width="22px"          height="24px"        />        ANTERIOR      </a>      <div *ngIf="!this.liberado">        <p style="color: aliceblue">          Complete a atividade para poder ir para o proximo tópico        </p>      </div>      <a        [routerLink]="[\'../\', this.proximo]"        (click)="aprendizagemInformatica.updateProgress()"        class="link-proximo"        *ngIf="this.liberado"        >PROXÍMO        <img          src="assets/icons/next.svg"          alt="Icone para ir para a próxima unidade"          width="22px"          height="24px"        />      </a>    </div>  </ng-template></div></div>'
-    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+        var COMPONENT_TEMPLATE = '<div><!-- chamada do componente do cabeçalho da unidade geral --><app-header-unidade></app-header-unidade><div class="container-main-conteudo">  <div class="div-slide">    <ul>      <!-- Nome do tópico da unidade -->      <li>{{ nome }}</li>    </ul>    <hr />    <div class="container-video">      <!-- chamada do componente slide-unidade para exibir o video do tópico -->      <app-slide-unidade        [videos]="videos"        style="text-align: center"      ></app-slide-unidade>    </div>  </div>  <div class="botoes">    <section class="section-texto center-2">      <!-- Todo: Fazer o NG template dos-->      <!-- Botão que quando clicado vai para o componente saiba-mais -->      <button        class="segundo segundo-botao center-2"        (click)="referenciasClick.emit()"      >        <img          src="assets/icons/saibaMais.svg"          alt="Icone para download do ebook"          width="22px"          height="24px"        />        Saiba mais      </button>      <!-- Botão que quando clicado vai para o componente referências -->      <button        class="terceiro terceiro-botao center-2"        (click)="linksClick.emit()"      >        <img          src="assets/icons/referencias.svg"          alt="Icone para download do ebook"          width="22px"          height="24px"        />        Referencias Bibliográficas      </button>      <!-- Botão que quando clicado vai para o componente texto de apoio -->      <button        class="primeiro segundo-botao center-2"        (click)="textoApoioClick.emit()"      >        <img          src="assets/icons/texto-de-apoio.svg"          alt="Icone para download do ebook"          width="22px"          height="24px"        />        Texto de apoio      </button>    </section>    <div class="position">      <section class="buttons-final">        <!-- Botão que quando clicado vai para o componente de atividade -->        <button *ngIf="this.ltiService.controlAtividade >= this.videos.length"          class="atividade-botao center-2"          (click)="atividadeClick.emit()"        >          <img            src="assets/icons/atividade.svg"            alt="Icone para ir para a atividade da unidade"            width="22px"            height="24px"          />          ATIVIDADE        </button>        <button *ngIf="this.ltiService.controlAtividade < this.videos.length"          class="atividade-botao center-2"          (click)="clicarVideos()"        >          <img            src="assets/icons/atividade.svg"            alt="Icone para ir para a atividade da unidade"            width="22px"            height="24px"          />          ATIVIDADE        </button>        <!-- Botão para download do e-book do tópico -->        <button class="ebook-botao center-2">          <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"            >E-BOOK TÓPICO</a          >          <img            src="assets/icons/download.svg"            alt="Icone para download do ebook"            width="22px"            height="24px"          />        </button>      </section>    </div>  </div></div><div class="container-switch-links" [ngSwitch]="link">  <div *ngSwitchCase="\'1\'" class="container-main-conteudo-link">    <div *ngIf="!this.liberado">      <p style="color: aliceblue">        Complete a atividade para poder ir para o proximo tópico      </p>    </div>    <a      *ngIf="this.liberado"      [routerLink]="[\'../\', this.proximo]"      class="link-proximo"      (click)="this.aprendizagemInformatica.updateProgress()"      >PROXÍMO      <img        src="assets/icons/next.svg"        alt="Icone para ir para a próxima unidade"        width="22px"        height="24px"      />    </a>  </div>  <div *ngSwitchCase="\'2\'" class="container-main-conteudo-link-left">    <a [routerLink]="[\'../\', this.voltar]" class="link-voltar">      <img        src="assets/icons/previous.svg"        alt="Icone para ir para a unidade anterior"        width="22px"        height="24px"      />      ANTERIOR    </a>  </div>  <ng-template ngSwitchDefault class="container-main-conteudo-links" #links>    <div class="container-main-conteudo-links-voltar">      <a [routerLink]="[\'../\', this.voltar]" class="link-voltar">        <img          src="assets/icons/previous.svg"          alt="Icone para ir para a unidade anterior"          width="22px"          height="24px"        />        ANTERIOR      </a>      <div *ngIf="!this.liberado">        <p style="color: aliceblue">          Complete a atividade para poder ir para o proximo tópico        </p>      </div>      <a        [routerLink]="[\'../\', this.proximo]"        (click)="aprendizagemInformatica.updateProgress()"        class="link-proximo"        *ngIf="this.liberado"        >PROXÍMO        <img          src="assets/icons/next.svg"          alt="Icone para ir para a próxima unidade"          width="22px"          height="24px"        />      </a>    </div>  </ng-template></div></div>'
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GeralComponent'};
 </script>

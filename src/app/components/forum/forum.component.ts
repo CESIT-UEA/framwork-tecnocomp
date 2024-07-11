@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServiceAppService } from 'src/app/service-app.service';
 
@@ -10,7 +10,7 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './forum.component.html',
   styleUrls: ['./forum.component.css'],
 })
-export class ForumComponent {
+export class ForumComponent implements OnInit {
   /**
    * @constructor
    */
@@ -22,5 +22,17 @@ export class ForumComponent {
    */
   navegarParaTopico(id: number): void {
     this.router.navigate(['/topico', id]);
+  }
+  ngOnInit(): void {
+    let teste_topicos = localStorage.getItem('topicos');
+    if(teste_topicos){
+      this.ltiService.topicos = JSON.parse(teste_topicos)
+    }else{
+      alert("Algo deu errado ao carregar os topicos")
+    }
+  }
+
+  navegarParaRota() {
+    this.router.navigate([`${this.ltiService.urlInicio}`]);
   }
 }

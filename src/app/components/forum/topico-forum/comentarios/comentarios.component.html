@@ -1,0 +1,115 @@
+<div class="postagens">
+  <div class="autor center">
+    <div class="foto-autor"></div>
+    <p class="por">Por</p>
+
+    <p class="p-autor">{{ this.info_topico_atual?.id_autor }}</p>
+    <p class="por">03/06/2024</p>
+  </div>
+  <div class="corpo-postagem">
+    <h3>[Bug] {{ this.info_topico_atual?.titulo }}</h3>
+    <p>{{ this.info_topico_atual?.descricao }}</p>
+    >
+  </div>
+  <div class="quantidade-respostas center">
+    <div class="bolinha"></div>
+    <p>0</p>
+    <p>respostas</p>
+  </div>
+</div>
+
+<div class="comentario">
+  <div class="autor center">
+    <div class="foto-autor"></div>
+  </div>
+  <form [formGroup]="comentario" (ngSubmit)="onSubmit()">
+    <div class="comentario-input">
+      <input
+        type="text"
+        name="comentario"
+        formControlName="mensagem"
+        placeholder="Responder postagem ..."
+      />
+    </div>
+    <div class="quantidade-respostas center">
+      <button class="btn-sub" type="submit" [disabled]="!comentario.valid">
+        <svg
+          width="33"
+          height="36"
+          viewBox="0 0 33 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g clip-path="url(#clip0_4587_35971)">
+            <path
+              d="M16.75 32.5C24.6201 32.5 31 26.1201 31 18.25C31 10.3799 24.6201 4 16.75 4C8.87994 4 2.5 10.3799 2.5 18.25C2.5 26.1201 8.87994 32.5 16.75 32.5Z"
+              stroke="#9A9A9A"
+              stroke-width="2.28"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M22.4498 18.2498L16.7498 12.5498L11.0498 18.2498"
+              stroke="#9A9A9A"
+              stroke-width="2.28"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16.75 23.9498V12.5498"
+              stroke="#9A9A9A"
+              stroke-width="2.28"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_4587_35971">
+              <rect
+                width="32"
+                height="35"
+                fill="white"
+                transform="translate(0.5 0.5)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="comentarios">
+  <h3 style="text-align: center" *ngIf="this.comentarios.length > 0">
+    Respostas
+  </h3>
+  <h3 style="text-align: center" *ngIf="this.comentarios.length == 0">
+    0 Respostas
+  </h3>
+  <div
+    style="margin: 0 0 0 15px"
+    class="container-comentario"
+    *ngFor="let dado of this.comentarios"
+  >
+    <div class="postagens">
+      <div class="autor center">
+        <div class="foto-autor"></div>
+        <p class="por">Por</p>
+
+        <p class="p-autor">{{ dado.id_autor }}</p>
+        <p class="por">{{ dado.data_comentario }}</p>
+      </div>
+      <div class="corpo-postagem">
+        <p>{{ dado.conteudo }}</p>
+      </div>
+      <div class="quantidade-respostas center">
+        <button>Curtir</button>
+        <p>{{ dado.curtidas }}</p>
+        <p>curtidas</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="this.comentarios.length == 0" class="sem-comentarios">
+    <p style="text-align: center">Nenhuma resposta</p>
+  </div>
+</div>

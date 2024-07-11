@@ -101,7 +101,7 @@ export class AtividadeComponent {
       }
     }
   }
-  
+
   /**
    * @method
    * Metódo responsavel pela resposta da atividade
@@ -115,8 +115,9 @@ export class AtividadeComponent {
       this.respostaCorretaEnviada = true;
       console.log('Resposta certa');
       console.log(this.questaoAtual?.respostaCorreta);
+      console.log( this.ltiService.quantidadeTopicos)
+      this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
 
-      this.nota = 100 / this.ltiService.quantidadeTopicos;
       if (this.ltiService.notaTotal == 0) {
         this.ltiService.notaTotal = this.nota;
       } else {
@@ -147,7 +148,6 @@ export class AtividadeComponent {
           }
         );
 
-      console.log(this.ltiService.notaTotal);
       if (this.gradeIn) {
         console.log('Nota grade IN:', this.ltiService.notaTotal);
         this.ltiService.sendGradeIn(this.ltiService.notaTotal).subscribe(
@@ -177,6 +177,7 @@ export class AtividadeComponent {
     } else {
       alert('Resposta errada, clique em refazer para tentar novamente');
     }
+    console.log('ola mundo', this.ltiService.notaTotal);
   }
 
   /**

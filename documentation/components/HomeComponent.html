@@ -335,8 +335,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="95"
-                                    class="link-to-prism">src/app/components/home/home.component.ts:95</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/components/home/home.component.ts:101</a></div>
                         </td>
                     </tr>
 
@@ -540,6 +540,8 @@ export class HomeComponent {
      * Variavel a qual é uma constante, que recebe e guarda o token lti recebido na url
      */
     const token &#x3D; urlParams.get(&#x27;ltik&#x27;) || &#x27;&#x27;;
+    const url_return &#x3D; urlParams.get(&#x27;url_retorno&#x27;) || &#x27;&#x27;;
+    console.log(url_return);
 
     /**
      * Condicional que verifica se a constante token é diferente de vazia, se for, ele armazena no armazenamento local
@@ -566,10 +568,14 @@ export class HomeComponent {
             &#x27;bloqueio&#x27;,
             JSON.stringify(this.tokenData.userTopico)
           );
+          console.log(this.tokenData.user.return_url);
 
+          localStorage.setItem(&#x27;url_retorno&#x27;, this.tokenData.user.return_url);
+
+          localStorage.setItem(&#x27;topicos&#x27;, JSON.stringify(this.tokenData.topicos));
           let bloqueio &#x3D; localStorage.getItem(&#x27;bloqueio&#x27;);
-          this.appService.topicos &#x3D; this.tokenData.topicos
-          
+          this.appService.topicos &#x3D; this.tokenData.topicos;
+
           this.appService.bloqueio &#x3D; bloqueio
             ? JSON.parse(bloqueio)
             : this.tokenData.userTopico;
@@ -723,7 +729,7 @@ section.content-container-ficha-tecnica {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="main-container">  <!-- chamada do componente de cabeçalho-->  <app-header></app-header>  <div    [ngClass]="{\'content-container-condition\':this.appService.controllerSwitchHome == 1}"    [ngSwitch]="appService.controllerSwitchHome"  >    <section class="content-container-ficha-tecnica" *ngSwitchCase="\'1\'">      <!--        TO DO: Componente do referencial teorico, componentizar melhor ele após as alterações da designer      -->      <app-ficha-tecnica></app-ficha-tecnica>    </section>    <!-- Section padrão da página incial HOME com video e botões -->    <section class="content-container" *ngSwitchDefault>      <div class="content-container-section">        <!-- chamada do componente de video da página home -->        <app-video-section videoUrl="https://www.youtube.com/embed/3D2Xg4t8pdg?si=7MIMoO6rqMVGPZIG"></app-video-section>        <!-- chamada do componente botão na página home -->        <app-botoes-section nome_ebook="Ebook de Teste" caminho_ebook="assets/E-book Teste.PDF" urlInicio="/teorias-da-aprendizagem/behaviorismo"></app-botoes-section>      </div>    </section>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomeComponent'};
 </script>

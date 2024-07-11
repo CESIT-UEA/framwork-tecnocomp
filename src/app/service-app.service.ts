@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bloqueio } from './bloqueioInterface';
 import { Topico } from './components/forum/topico.interface';
+import { TopicoF } from './components/forum/topico-forum/topico-forum.interface';
 
 /**
  * Service a qual guarda as operações essenciais, como o envio de notas, as informações do usuario, etc
@@ -11,6 +12,7 @@ import { Topico } from './components/forum/topico.interface';
   providedIn: 'root',
 })
 export class ServiceAppService {
+  controlAtividade:number = 1
   /**
    * url da API
    */
@@ -31,6 +33,7 @@ export class ServiceAppService {
    * Variavel que guarda o token do usuario
    */
   tokenStorage = localStorage.getItem('token');
+  url_return = localStorage.getItem('url_retono');
 
   /**
    * Variavel que guarda a quantidade de topicos
@@ -42,7 +45,7 @@ export class ServiceAppService {
   /**
    * Variavel que guarda um vetor contendo a relação dos alunos com os topicos, auxiliando no bloqueio para ultrapassar rapidamente os tópicos do modulo
    */
-  bloqueio!: Bloqueio[];
+  bloqueio: Bloqueio[] = [] ;
 
   /**
    * Variavel que guarda as informações do usuario vindas do moodle
@@ -119,8 +122,52 @@ export class ServiceAppService {
     });
   }
 
+  getTopicoForumOne(id: number): Observable<any> {
+    const url = `${this.apiUrl}/api/forum_topicos_one/${id}`;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.tokenStorage,
+    });
+
+    return this.http.get(url, {
+      headers,
+    });
+  }
+
   /**
    * Variável que controla as rotas na página HOME
    */
   controllerSwitchHome: number = 0;
+
+  criarPostagemTopico(postagem:any)/* : Observable<any> */ {
+    console.log(postagem)
+    this.tokenStorage = localStorage.getItem('token');
+    const grade = {postagem};
+    console.log(grade);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.tokenStorage,
+    });
+
+    return this.http.post(`${this.apiUrl}/api/criar/forum`, grade, {
+      headers: headers,
+    });
+  }
+
+  criarComentario(comentario:any)/* : Observable<any> */ {
+    console.log(comentario)
+    this.tokenStorage = localStorage.getItem('token');
+    const grade = {comentario};
+    console.log(grade);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.tokenStorage,
+    });
+
+    return this.http.post(`${this.apiUrl}/api/criar/comentario`, grade, {
+      headers: headers,
+    });
+  }
 }

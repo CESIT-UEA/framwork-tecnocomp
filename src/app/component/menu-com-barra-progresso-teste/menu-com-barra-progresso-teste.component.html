@@ -3,12 +3,12 @@
     <p class="texto-progresso">Progresso</p>
     <mat-progress-bar
       class="barra-progresso"
-      mode="determinate" 
+      mode="determinate"
       color="warn"
       [value]="this.ltiService.notaTotal"
     ></mat-progress-bar>
     <p *ngIf="this.ltiService.notaTotal <= 100">{{ this.ltiService.notaTotal }}%</p>
-    
+
     <p *ngIf="this.ltiService.notaTotal > 100">100%</p>
   </div>
   <div class="container-topico">
@@ -20,5 +20,6 @@
       <label>{{ i + 1 }}. {{ topic.name }}</label>
     </div>
     <button class="btn-forum" routerLink="/forum">Fórum</button>
+    <a href="http://200.133.160.212/">Retornar ao Moodle</a>
   </div>
 </div>

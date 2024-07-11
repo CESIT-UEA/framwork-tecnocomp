@@ -1,20 +1,38 @@
-<p class="inicio">Aqui estão alguns lorem ipsum dolor sit amet consectetur.</p>
-<section class="container-forum" *ngFor="let dados of this.ltiService.topicos">
+<div class="header">
+  <div class="icone" (click)="this.navegarParaRota()">
+    <img src="../../../assets/img/logo-tecnocomp-icone-branco.png" />
+  </div>
+  <div class="center-header">
+    <mat-icon class="mat-18" [ngStyle]="{ color: '#9665DF' }">forum</mat-icon>
+    <p>Fórum</p>
+  </div>
+  <div class="voltar">
+    <mat-icon class="mat-18">close</mat-icon>
+  </div>
+</div>
+
+<p class="inicio">Bem-vindo ao Fórum de Discussões!</p>
+
+<section
+  class="container-forum"
+  *ngFor="let dados of this.ltiService.topicos"
+  (click)="navegarParaTopico(this.dados.idTopico)"
+>
   <div class="titulo-topico">
     {{ dados.tituloTopico }}
   </div>
-  <div class="contagem-topico" (click)="navegarParaTopico(this.dados.idTopico)">
+  <div class="contagem-topico">
     <div class="postagens">
-        <p>14</p>
-        <p class="menor">postagens</p>
+      <p>14</p>
+      <p class="menor">postagens</p>
     </div>
     <div class="com-respostas">
-        <p>9</p>
-        <p class="menor">com respostas</p>
+      <p>9</p>
+      <p class="menor">com respostas</p>
     </div>
     <div class="sem-postagens">
-        <p>5</p>
-        <p class="menor">sem respostas</p>
+      <p>5</p>
+      <p class="menor">sem respostas</p>
     </div>
   </div>
 </section>

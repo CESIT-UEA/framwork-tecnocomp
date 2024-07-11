@@ -535,8 +535,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="215"
-                                    class="link-to-prism">src/app/pages/modulos/components/atividade/atividade.component.ts:215</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/app/pages/modulos/components/atividade/atividade.component.ts:216</a></div>
                         </td>
                     </tr>
 
@@ -604,8 +604,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="204"
-                                    class="link-to-prism">src/app/pages/modulos/components/atividade/atividade.component.ts:204</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/app/pages/modulos/components/atividade/atividade.component.ts:205</a></div>
                         </td>
                     </tr>
 
@@ -710,8 +710,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="186"
-                                    class="link-to-prism">src/app/pages/modulos/components/atividade/atividade.component.ts:186</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/pages/modulos/components/atividade/atividade.component.ts:187</a></div>
                         </td>
                     </tr>
 
@@ -1198,7 +1198,7 @@ export class AtividadeComponent {
       }
     }
   }
-  
+
   /**
    * @method
    * Metódo responsavel pela resposta da atividade
@@ -1212,8 +1212,9 @@ export class AtividadeComponent {
       this.respostaCorretaEnviada &#x3D; true;
       console.log(&#x27;Resposta certa&#x27;);
       console.log(this.questaoAtual?.respostaCorreta);
+      console.log( this.ltiService.quantidadeTopicos)
+      this.nota &#x3D; Math.ceil(100 / this.ltiService.quantidadeTopicos);
 
-      this.nota &#x3D; 100 / this.ltiService.quantidadeTopicos;
       if (this.ltiService.notaTotal &#x3D;&#x3D; 0) {
         this.ltiService.notaTotal &#x3D; this.nota;
       } else {
@@ -1244,7 +1245,6 @@ export class AtividadeComponent {
           }
         );
 
-      console.log(this.ltiService.notaTotal);
       if (this.gradeIn) {
         console.log(&#x27;Nota grade IN:&#x27;, this.ltiService.notaTotal);
         this.ltiService.sendGradeIn(this.ltiService.notaTotal).subscribe(
@@ -1274,6 +1274,7 @@ export class AtividadeComponent {
     } else {
       alert(&#x27;Resposta errada, clique em refazer para tentar novamente&#x27;);
     }
+    console.log(&#x27;ola mundo&#x27;, this.ltiService.notaTotal);
   }
 
   /**
@@ -1433,8 +1434,10 @@ button{
 }
 
 .resposta-errada {
+  color: rgb(34, 219, 157);
   border: 2px solid red;
-}</code></pre>
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="tree">
@@ -1463,7 +1466,7 @@ button{
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="header-atividade">  <span class="title">Atividade</span>  <img    (click)="atividadeClick.emit()"    src="assets/icons/close.svg"    alt="Icone para ir para a atividade da unidade"    width="30px"    height="30px"  /></div><div class="container-atividade" *ngIf="this.bloqueio == false">  <div *ngIf="questaoAtual">    <h3>Pontos a se definir sobre {{ questaoAtual.titulo }}</h3>    <div *ngFor="let alternativa of questaoAtual.alternativas; let i = index">      <div        class="alternativas"        [ngClass]="{\'resposta-errada\': resposta === alternativa.descricao && questaoAtual!.respostaCorreta != resposta}"        (click)="!respostaEnviada && responder(alternativa.descricao)"      >        <img          [src]="caminhoImagem + i + \'.png\'"          alt="Alternativa da questão"        />        <div class="container-alternativa">          {{ alternativa.descricao }}          <div class="respostaCerta" *ngIf="resposta === alternativa.descricao">            Explicação: {{ getExplicacao(resposta) }}          </div>        </div>      </div>    </div>  </div>  <button (click)="refazer()">Refazer</button></div><div class="container-atividade" *ngIf="this.bloqueio == true">  <p style="color: aliceblue; text-align: center">    Questão enviada com sucesso  </p></div></div>'
-    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AtividadeComponent'};
 </script>

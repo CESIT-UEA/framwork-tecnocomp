@@ -41,6 +41,8 @@ export class HomeComponent {
      * Variavel a qual é uma constante, que recebe e guarda o token lti recebido na url
      */
     const token = urlParams.get('ltik') || '';
+    const url_return = urlParams.get('url_retorno') || '';
+    console.log(url_return);
 
     /**
      * Condicional que verifica se a constante token é diferente de vazia, se for, ele armazena no armazenamento local
@@ -67,10 +69,14 @@ export class HomeComponent {
             'bloqueio',
             JSON.stringify(this.tokenData.userTopico)
           );
+          console.log(this.tokenData.user.return_url);
 
+          localStorage.setItem('url_retorno', this.tokenData.user.return_url);
+
+          localStorage.setItem('topicos', JSON.stringify(this.tokenData.topicos));
           let bloqueio = localStorage.getItem('bloqueio');
-          this.appService.topicos = this.tokenData.topicos
-          
+          this.appService.topicos = this.tokenData.topicos;
+
           this.appService.bloqueio = bloqueio
             ? JSON.parse(bloqueio)
             : this.tokenData.userTopico;

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 import { Router } from '@angular/router';
 import { ServiceAppService } from 'src/app/service-app.service';
@@ -8,7 +8,7 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './geral.component.html',
   styleUrls: ['./geral.component.css']
 })
-export class GeralComponent {
+export class GeralComponent implements OnInit{
   constructor(public aprendizagemInformatica:AprendizagemEInformaticaService, private router:Router, public ltiService:ServiceAppService){
   }
   @Input() nome!:string
@@ -23,6 +23,11 @@ export class GeralComponent {
   @Input() proximo!:string;
   @Input() liberado:boolean = false
 
+  ngOnInit(): void {
+    if(this.ltiService.controlAtividade >= this.videos.length){
+      this.ltiService.controlAtividade = 1
+    }
+  }
   navigation(){
     this.router.navigate([this.proximo]);
   }
@@ -30,5 +35,8 @@ export class GeralComponent {
   navigationVoltar(){
     this.router.navigate([this.voltar]);
   }
-
+  clicarVideos(){
+    console.log(this.videos.length)
+    alert("Assista todos os videos para poder fazer a atividade")
+  }
 }
