@@ -46,7 +46,7 @@ export class ServiceAppService {
   /**
    * Variavel que guarda um vetor contendo a relação dos alunos com os topicos, auxiliando no bloqueio para ultrapassar rapidamente os tópicos do modulo
    */
-  bloqueio: Bloqueio[] = [] ;
+  bloqueio: any[] = [] ;
 
   /**
    * Variavel que guarda as informações do usuario vindas do moodle

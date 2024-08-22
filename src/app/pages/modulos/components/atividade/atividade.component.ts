@@ -37,6 +37,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.teste = localStorage.getItem('dados_completos_do_modulo');
+    console.log("Bloqueio ta aqui")
+    console.log(this.ltiService.bloqueio[this.idTopico]?.UsuarioTopicos[0].encerrado)
     if (this.teste) {
       this.teste = JSON.parse(this.teste);
       this.quantidadeTopicos = this.teste.topicos
