@@ -46,6 +46,15 @@ export class HomeComponent {
 
     const ltik = this.route.snapshot.queryParamMap.get('ltik');
     if (ltik) {
+      this.http.get<any>(`https://cesitserver.uea.edu.br:8002/userInfo?ltik=${ltik}`).subscribe({
+        next: data => {
+          console.log("Ola mundo")
+          console.log(data);
+        },
+        error: error => {
+            console.error('Erro:', error);
+        }
+    })
       this.moduloService.getUserInfo(ltik).subscribe(
         (data) => {
           this.tokenData = data;
