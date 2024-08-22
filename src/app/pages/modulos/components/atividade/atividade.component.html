@@ -9,7 +9,7 @@
   />
 </div>
 
-<div class="container-atividade" *ngIf="teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade">
+<div class="container-atividade" *ngIf="teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado">
   <div *ngIf="questao">
     <h3>{{ questao.questao }}</h3>
     <div *ngFor="let alternativa of questao.Alternativas; let i = index">
@@ -31,7 +31,7 @@
   <button (click)="refazer()">Refazer</button>
 </div>
 
-<ng-template #elseAtividade>
+<!-- <ng-template #elseAtividade>
   <div class="container-atividade" >
     <div *ngIf="questao">
       <h3>{{ questao.questao }}</h3>
@@ -53,5 +53,5 @@
       </div>
     </div>
   </div>
-</ng-template>
+</ng-template> -->
 
