@@ -38,6 +38,7 @@ const routes: Routes = [
 
   {path:'modulo/:nome_modulo', component:ModuloComponent},
   {path:'modulo/:nome_modulo/topicos', component:TopicoComponent},
+  { path: '',   redirectTo: 'modulo/:nome_modulo', pathMatch: 'full'},
 
   {path: '**', component:ErrorComponent},
 
