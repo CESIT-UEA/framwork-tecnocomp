@@ -9,7 +9,7 @@
   />
 </div>
 
-<div class="container-atividade" *ngIf="bloqueio[idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade">
+<div class="container-atividade" *ngIf="teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade">
   <div *ngIf="questao">
     <h3>{{ questao.questao }}</h3>
     <div *ngFor="let alternativa of questao.Alternativas; let i = index">
