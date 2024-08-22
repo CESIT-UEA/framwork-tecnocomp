@@ -64,7 +64,7 @@
   background-repeat: no-repeat;
   background-position: center;
 
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
   row-gap: 33px;
@@ -72,11 +72,7 @@
 }
 
 .container-links-text-lista li{
-  display: grid;
-  grid-template-columns: 30% 70%;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
+  width: 60%;
   list-style: none;
   margin: 0 auto;
   background-color: #242228;
@@ -88,11 +84,17 @@
 .container-links-text-lista li img{
   border: 3px solid #9665DF;
   border-radius: 15px;
+  max-width: auto;
+  max-height: 130px;
 }
 .container-links-text-lista li p{
-  width: 90%;
   font-size: 14px;
   text-align: left;
   margin: 0 auto;
   color: #CCCCCC;
+}
+.referencias-div{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

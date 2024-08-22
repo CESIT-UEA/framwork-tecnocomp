@@ -80,3 +80,31 @@ input {
   margin-bottom: 20px;
   font-family: 'Arial' 16px ;
 }
+.container-topico a{
+  text-decoration: none;
+  color: white
+}
+
+.container-topico a:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+.titulo-topico {
+  padding: 16px;
+  color: white;
+  background-color: #9665DF;
+  border-radius: 20px 0px 0px 0px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 30px */
+}
+.moodle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moodle a{
+  margin-left: 5px;
+}

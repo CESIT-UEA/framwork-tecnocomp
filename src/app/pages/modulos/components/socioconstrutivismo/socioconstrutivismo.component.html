@@ -1,11 +1,5 @@
 <div class="container-geral" [ngSwitch]="controllerSwitch">
   <div *ngSwitchCase="'1'">
-    <app-atividade
-      (atividadeClick)="atividadeClick()"
-      [questao]="minhaQuestao"
-      [bloqueio]="this.ltiService.bloqueio[2].encerrado"
-      [idTopico]="this.ltiService.bloqueio[2].idTopico"
-    ></app-atividade>
   </div>
   <div *ngSwitchCase="'2'">
     <app-saiba-mais
@@ -48,7 +42,7 @@
       proximo="construcionismo"
       voltar="construtivismo"
       [liberado]="this.ltiService.bloqueio[2].encerrado"
-    > 
+    >
     </app-geral>
   </div>
 </div>

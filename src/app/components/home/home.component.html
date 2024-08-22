@@ -1,6 +1,6 @@
 <div class="main-container">
   <!-- chamada do componente de cabeçalho-->
-  <app-header></app-header>
+  <app-header [nome]="tokenData?.modulo?.nome_modulo"></app-header>
   <div
     [ngClass]="{'content-container-condition':this.appService.controllerSwitchHome == 1}"
     [ngSwitch]="appService.controllerSwitchHome"
@@ -16,9 +16,9 @@
     <section class="content-container" *ngSwitchDefault>
       <div class="content-container-section">
         <!-- chamada do componente de video da página home -->
-        <app-video-section videoUrl="https://www.youtube.com/embed/3D2Xg4t8pdg?si=7MIMoO6rqMVGPZIG"></app-video-section>
+        <app-video-section [videoUrl]="urlVideoInicial"></app-video-section>
         <!-- chamada do componente botão na página home -->
-        <app-botoes-section nome_ebook="Ebook de Teste" caminho_ebook="assets/E-book Teste.PDF" urlInicio="/teorias-da-aprendizagem/behaviorismo"></app-botoes-section>
+        <app-botoes-section nome_ebook="Ebook de Teste" caminho_ebook="assets/E-book Teste.PDF" urlInicio="topicos"></app-botoes-section>
       </div>
     </section>
   </div>

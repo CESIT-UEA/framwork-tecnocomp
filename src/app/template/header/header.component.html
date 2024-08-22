@@ -50,7 +50,6 @@
         <mat-icon id="icon">{{ menuHeader }}</mat-icon>
       </button>
       <aside class="sidebar" [ngClass]="{ open: isOpen }">
-        <h2 class="titulo-topico center">Tópicos</h2>
         <!-- chamada do componente da barra de progresso na página inicial HOME -->
         <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
 
@@ -64,7 +63,7 @@
     <div class="text">
       <!-- Título da página inicial HOME -->
       <p>
-         <span class="text-unidade">TEORIAS DA APRENDIZAGEM</span>
+         <span class="text-unidade">{{nome}}</span>
       </p>
     </div>
   </div>

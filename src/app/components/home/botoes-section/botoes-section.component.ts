@@ -34,7 +34,4 @@ export class BotoesSectionComponent {
   /**
    * @method
    */
-  iniciarNavegacao() {
-    return this.router.navigate([this.urlInicio]);
-  }
 }

@@ -90,7 +90,7 @@
 
         <!-- Botão para download do e-book do tópico -->
         <button class="ebook-botao center-2">
-          <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"
+          <a [href]="linkEbookTopico" download="E-book Teste.PDF"
             >E-BOOK TÓPICO</a
           >
           <img
@@ -103,71 +103,4 @@
       </section>
     </div>
   </div>
-</div>
-
-<div class="container-switch-links" [ngSwitch]="link">
-  <div *ngSwitchCase="'1'" class="container-main-conteudo-link">
-    <div *ngIf="!this.liberado">
-      <p style="color: aliceblue">
-        Complete a atividade para poder ir para o proximo tópico
-      </p>
-    </div>
-    <a
-      *ngIf="this.liberado"
-      [routerLink]="['../', this.proximo]"
-      class="link-proximo"
-      (click)="this.aprendizagemInformatica.updateProgress()"
-      >PROXÍMO
-      <img
-        src="assets/icons/next.svg"
-        alt="Icone para ir para a próxima unidade"
-        width="22px"
-        height="24px"
-      />
-    </a>
-  </div>
-
-  <div *ngSwitchCase="'2'" class="container-main-conteudo-link-left">
-    <a [routerLink]="['../', this.voltar]" class="link-voltar">
-      <img
-        src="assets/icons/previous.svg"
-        alt="Icone para ir para a unidade anterior"
-        width="22px"
-        height="24px"
-      />
-      ANTERIOR
-    </a>
-  </div>
-  <ng-template ngSwitchDefault class="container-main-conteudo-links" #links>
-    <div class="container-main-conteudo-links-voltar">
-      <a [routerLink]="['../', this.voltar]" class="link-voltar">
-        <img
-          src="assets/icons/previous.svg"
-          alt="Icone para ir para a unidade anterior"
-          width="22px"
-          height="24px"
-        />
-        ANTERIOR
-      </a>
-
-      <div *ngIf="!this.liberado">
-        <p style="color: aliceblue">
-          Complete a atividade para poder ir para o proximo tópico
-        </p>
-      </div>
-      <a
-        [routerLink]="['../', this.proximo]"
-        (click)="aprendizagemInformatica.updateProgress()"
-        class="link-proximo"
-        *ngIf="this.liberado"
-        >PROXÍMO
-        <img
-          src="assets/icons/next.svg"
-          alt="Icone para ir para a próxima unidade"
-          width="22px"
-          height="24px"
-        />
-      </a>
-    </div>
-  </ng-template>
 </div>

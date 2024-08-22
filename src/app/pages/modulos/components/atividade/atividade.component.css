@@ -61,3 +61,7 @@ button{
   color: rgb(34, 219, 157);
   border: 2px solid red;
 }
+
+.resposta-correta{
+  border: 2px solid rgb(34, 219, 157);
+}

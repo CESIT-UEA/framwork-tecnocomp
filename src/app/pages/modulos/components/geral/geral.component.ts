@@ -19,6 +19,7 @@ export class GeralComponent implements OnInit{
   @Output() atividadeClick = new EventEmitter<void>();
 
   @Input() link:number = 0;
+  @Input() linkEbookTopico!:string;
   @Input() voltar!:string;
   @Input() proximo!:string;
   @Input() liberado:boolean = false

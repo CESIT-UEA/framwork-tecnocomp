@@ -3,7 +3,7 @@
   *ngIf="isLoading == false; else loading"
 >
   <iframe
-    [src]="videos[currentVideoIndex] | safe"
+    [src]="videos[currentVideoIndex].url | safe"
     title="Video Aula"
     frameborder="0"
     allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"

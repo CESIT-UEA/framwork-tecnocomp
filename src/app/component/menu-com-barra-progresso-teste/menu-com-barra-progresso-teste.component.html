@@ -1,3 +1,4 @@
+<h2 class="titulo-topico center">Tópicos</h2>
 <div class="container-topicos">
   <div class="progresso center">
     <p class="texto-progresso">Progresso</p>
@@ -5,21 +6,28 @@
       class="barra-progresso"
       mode="determinate"
       color="warn"
-      [value]="this.ltiService.notaTotal"
+      [value]="this?.teste?.userModulo?.nota"
     ></mat-progress-bar>
-    <p *ngIf="this.ltiService.notaTotal <= 100">{{ this.ltiService.notaTotal }}%</p>
+    <p *ngIf="this.ltiService.notaTotal <= 100">{{ this?.teste?.userModulo?.nota }}%</p>
 
-    <p *ngIf="this.ltiService.notaTotal > 100">100%</p>
   </div>
   <div class="container-topico">
-    <div class="topico-container" *ngFor="let topic of aprendizagemInformatica.topics; index as i">
+    <div class="topico-container" *ngFor="let topico of teste?.topicos; index as i">
       <input
         type="checkbox"
         disabled="true"
+        [checked]="verificarConcluido(i)"
       />
-      <label>{{ i + 1 }}. {{ topic.name }}</label>
+      <label>{{ i + 1 }}. {{ topico.nome_topico}}</label>
     </div>
-    <button class="btn-forum" routerLink="/forum">Fórum</button>
-    <a href="http://200.133.160.212/">Retornar ao Moodle</a>
+    <div class="moodle">
+      <img
+      src="../../../assets/icons/voltarMoodle.svg"
+      alt="Icone para download do ebook"
+      width="22px"
+      height="24px"
+    />
+      <a href="https://licomp.com.br/ava/">Voltar ao Moodle</a>
+    </div>
   </div>
 </div>

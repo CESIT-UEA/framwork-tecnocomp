@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { AprendizagemEInformaticaService } from 'src/app/pages/modulos/aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 import { ServiceAppService } from 'src/app/service-app.service';
 
@@ -10,7 +10,8 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './menu-com-barra-progresso-teste.component.html',
   styleUrls: ['./menu-com-barra-progresso-teste.component.css'],
 })
-export class MenuComBarraProgressoTesteComponent {
+export class MenuComBarraProgressoTesteComponent implements OnInit{
+  teste:any
   /**
    * @constructor
    */
@@ -25,4 +26,16 @@ export class MenuComBarraProgressoTesteComponent {
      */
     public ltiService: ServiceAppService
   ) {}
+
+  ngOnInit(): void {
+    this.teste = localStorage.getItem('dados_completos_do_modulo');
+    if (this.teste) {
+      this.teste = JSON.parse(this.teste);
+      console.log(this.teste);
+    }
+  }
+
+  verificarConcluido(i:number){
+    return this?.teste?.userTopico[i]?.encerrado
+  }
 }

@@ -26,11 +26,13 @@
   <p class="container-links-text-p">
     Aqui estão alguns lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat consdnuu
   </p>
-  <ul class="container-links-text-lista" >
+  <ul class="container-links-text-lista" *ngIf="referencias" >
     <!-- ngFor que percorre as imagens de referências do livro -->
     <li *ngFor="let item of referencias">
-      <img src="../../../../../assets/img/referencias/referencias 1.png" alt="img da referencia do livro">
-      <p>{{ item }}</p>
+      <div *ngIf="item.caminhoDaImagem && item.referencia" class="referencias-div">
+        <img [src]="item.caminhoDaImagem" alt="img da referencia do livro">
+        <p>{{ item.referencia }}</p>
+      </div>
     </li>
   </ul>
 </div>

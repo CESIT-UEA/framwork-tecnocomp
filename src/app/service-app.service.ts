@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Bloqueio } from './bloqueioInterface';
 import { Topico } from './components/forum/topico.interface';
 import { TopicoF } from './components/forum/topico-forum/topico-forum.interface';
+import { environment } from 'src/environments/environment.development';
 
 /**
  * Service a qual guarda as operações essenciais, como o envio de notas, as informações do usuario, etc
@@ -16,7 +17,7 @@ export class ServiceAppService {
   /**
    * url da API
    */
-  private apiUrl = 'http://localhost:3000';
+  public apiUrl = environment.baseUrl;
 
   /**
    * @method

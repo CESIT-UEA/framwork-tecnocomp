@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiceAppService } from 'src/app/service-app.service';
 
 /**
@@ -9,12 +9,21 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './slide-unidade.component.html',
   styleUrls: ['./slide-unidade.component.css'],
 })
-export class SlideUnidadeComponent {
+export class SlideUnidadeComponent implements OnInit {
   constructor(private ltiService: ServiceAppService) {}
   /**
    * Array de links de videos, a qual é uma variavel que recebe um array string ao instanciar este componente, e ele é obrigatório
    */
-  @Input({ required: true }) videos!: string[];
+  @Input({ required: true }) videos!: any[];
+  videosString!: string[]
+
+  ngOnInit(): void {
+    console.log("Ola mundo")
+    for (const values of this.videos) {
+      console.log("Videos: ",values.url)
+    }
+  }
+
   /**
    * Variavel responsavel por guardar o indice do video que será exibido, por padrão começa com 0, pelo link do video em primeiro do vetor acima
    */

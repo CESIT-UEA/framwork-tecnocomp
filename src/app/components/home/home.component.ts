@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModuloService } from 'src/app/personalizavel/modulo.service';
 import { ServiceAppService } from 'src/app/service-app.service';
 
 /**
@@ -16,15 +17,17 @@ export class HomeComponent {
    * Variavel que guarda o nome
    */
   nome: string = '';
-
+  @Input() urlVideoInicial: any;
   /**
    * @constructor
    * Um método feito para testar caso seja clicado
    */
   constructor(
     public appService: ServiceAppService,
+    public moduloService: ModuloService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private route: ActivatedRoute
   ) {}
 
   /**
@@ -32,67 +35,59 @@ export class HomeComponent {
    */
   tokenData: any;
 
-  ngOnInit() {
-    /**
-     * Variavel a qual é uma constante, que recebe a url atual
-     */
-    const urlParams = new URLSearchParams(window.location.search);
-    /**
-     * Variavel a qual é uma constante, que recebe e guarda o token lti recebido na url
-     */
-    const token = urlParams.get('ltik') || '';
-    const url_return = urlParams.get('url_retorno') || '';
-    console.log(url_return);
-
-    /**
-     * Condicional que verifica se a constante token é diferente de vazia, se for, ele armazena no armazenamento local
-     */
-    if (token != '') {
-      localStorage.setItem('token', token);
+  ngOnInit(): void {
+    this.tokenData = localStorage.getItem('dados_completos_do_modulo');
+    if (this.tokenData) {
+      this.tokenData = JSON.parse(this?.tokenData);
+      this.appService.notaTotal = this?.tokenData?.userModulo.nota;
+      console.log('Nota: ', this?.tokenData?.userModulo?.nota);
+      console.log('Token data: ', this?.tokenData);
     }
 
-    /**
-     * Variavel a qual recebe o token guardado no armazenamento local
-     */
-    let tokenStorage = localStorage.getItem('token');
-
-    this.http
-      .get(`http://localhost:3000/api/userInfo?ltik=${tokenStorage}`)
-      .subscribe(
+    const ltik = this.route.snapshot.queryParamMap.get('ltik');
+    if (ltik) {
+      this.moduloService.getUserInfo(ltik).subscribe(
         (data) => {
           this.tokenData = data;
-          console.log(this.tokenData);
 
-          this.appService.urlInicio =
-            this.tokenData.modulo.tituloModulo + 'Home';
+          this.moduloService.urlInicio =
+            this.tokenData.modulo.nome_modulo + 'Home';
           localStorage.setItem(
             'bloqueio',
             JSON.stringify(this.tokenData.userTopico)
           );
-          console.log(this.tokenData.user.return_url);
+          //!Importante
+          localStorage.setItem(
+            'dados_completos_do_modulo',
+            JSON.stringify(this.tokenData)
+          );
+
+          localStorage.setItem('token', this.tokenData.user.ltik);
 
           localStorage.setItem('url_retorno', this.tokenData.user.return_url);
+          localStorage.setItem(
+            'topicos',
+            JSON.stringify(this.tokenData.topicos)
+          );
 
-          localStorage.setItem('topicos', JSON.stringify(this.tokenData.topicos));
           let bloqueio = localStorage.getItem('bloqueio');
-          this.appService.topicos = this.tokenData.topicos;
+          this.moduloService.topicos = this.tokenData.topicos;
 
-          this.appService.bloqueio = bloqueio
+          this.moduloService.bloqueio = bloqueio
             ? JSON.parse(bloqueio)
             : this.tokenData.userTopico;
 
-          console.log(this.appService.bloqueio);
-          console.log(bloqueio);
-
-          this.appService.informacoes = this.tokenData;
-          this.appService.quantidadeTopicos =
+          this.moduloService.informacoes = this.tokenData;
+          this.moduloService.quantidadeTopicos =
             this.tokenData.modulo.quantidadeTopicos;
-          this.appService.notaTotal = this.tokenData.userModulo.notaAcumulada;
+          this.moduloService.notaTotal =
+            this.tokenData.userModulo.notaAcumulada;
         },
         (error) => {
           console.error('Error:', error);
         }
       );
+    }
   }
 
   /**

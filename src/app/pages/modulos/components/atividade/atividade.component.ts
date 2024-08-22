@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Questao } from './questao';
 import { HttpClient } from '@angular/common/http';
 import { ServiceAppService } from 'src/app/service-app.service';
+import { ModuloService } from 'src/app/personalizavel/modulo.service';
 
 /**
  * Componente reutilizavel de atividade
@@ -11,185 +12,81 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './atividade.component.html',
   styleUrls: ['./atividade.component.css'],
 })
-export class AtividadeComponent {
-  /**
-   * Variavel que guarda o caminho das imagens das alternativas
-   */
-  caminhoImagem: string = '../../../../../assets/img/Letra ';
-
-  /**
-   * Variavel booleana para guardar se a resposta foi enviada ou não. Por padrão começa com não
-   */
-  respostaEnviada: boolean = false;
-
-  /**
-   * Variavel booleana para guardar se a resposta correta foi enviada ou não. Por padrão começa com não
-   */
-  respostaCorretaEnviada: boolean = false;
-
-  /**
-   * Variavel que guarda o valor da nota, por padrão começa com 0
-   */
-  nota: number = 0;
-
-  /**
-   * Variavel responsavel por guardar o evento que será utilizado, especificado ao instanciar o componente
-   */
+export class AtividadeComponent implements OnInit, OnChanges {
+  teste: any;
+  @Input() gradeIn = true;
+  @Input() bloqueio: any = false;
+  @Input() idTopico!: number;
   @Output() atividadeClick = new EventEmitter<void>();
 
-  /**
-   * Variavel do tipo Questão ou null, responsavel por guardar a questão, por padrão ela começa sendo null caso não seja enviado as questões como parametro ao instanciar o componente
-   */
-  @Input() questao: Questao | null = null;
-
-  /**
-   * Variavel do tipo Questão ou null, responsavel por guardar apenas a questão atual
-   */
-  questaoAtual: Questao | null = null;
-
-  /**
-   * Variavel do tipo Questão ou null, responsavel por guardar apenas a resposta
-   */
+  caminhoImagem: string = '../../../../../assets/img/Letra ';
+  respostaEnviada: boolean = false;
+  respostaCorretaEnviada: boolean = false;
+  nota: number = 0;
   resposta: string | null = null;
-
-  /**
-   * Variavel do tipo booleano, para informar se é gradeIn ou não
-   */
-  @Input() gradeIn = true;
-
-  /**
-   * Variavel do tipo boolean, responsavel por guardar se esta bloqueado ou não
-   */
-  @Input() bloqueio: boolean = false;
-
-  /**
-   * Variavel do tipo number, responsavel por guardar o idTopico
-   */
-  @Input() idTopico!: number;
-  /**
-   * Variavel responsavel por guardar o token a qual foi armazenado no localStorage
-   */
-  tokenStorage = localStorage.getItem('token');
-
-  /**
-   * Variavel por guardar as informações vindas da API, apenas para teste e vizualização
-   */
+  tokenStorage: any;
   tokenData: any;
-
-  /**
-   * @constructor
-   */
+  questao: any | null = null;
+  quantidadeTopicos:any = []
   constructor(
     private http: HttpClient,
-    private ltiService: ServiceAppService
+    public ltiService: ServiceAppService,
+    public moduloService: ModuloService,
+    private cd: ChangeDetectorRef
   ) {}
 
-  /**
-   * @method
-   */
   ngOnInit() {
-    this.questaoAtual = this.questao;
-    if (this.questaoAtual) {
-      this.questaoAtual.alternativas = this.embaralharAlternativas(
-        this.questaoAtual.alternativas
-      );
-      let respostaCorreta = this.questaoAtual.alternativas.find(
-        (a) => a.correta
-      );
-      if (respostaCorreta) {
-        this.questaoAtual.respostaCorreta = respostaCorreta.descricao;
-      }
+    this.teste = localStorage.getItem('dados_completos_do_modulo');
+    if (this.teste) {
+      this.teste = JSON.parse(this.teste);
+      this.quantidadeTopicos = this.teste.topicos
+      this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length
+      this.tokenStorage = this.teste.user.ltik
+    }
+    if (this.idTopico === this.quantidadeTopicos.length - 1) {
+      this.gradeIn = false
+    }
+    this.atualizarQuestao();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['idTopico']) {
+      this.atualizarQuestao();
     }
   }
 
-  /**
-   * @method
-   * Metódo responsavel pela resposta da atividade
-   */
-  responder(resposta: string) {
-    if (this.respostaEnviada || this.respostaCorretaEnviada) {
-      return;
+  atualizarQuestao() {
+    this.questao = this.teste?.topicos?.[this.idTopico]?.Exercicios?.[0];
+    if (this.questao && Array.isArray(this.questao.Alternativas)) {
+      this.questao.Alternativas = this.embaralharAlternativas(this.questao.Alternativas);
+      const respostaCorreta = this.questao.Alternativas.find((a: any) => a.correta);
+      if (respostaCorreta) {
+        this.questao.respostaCorreta = respostaCorreta.descricao;
+      }
     }
+    this.cd.detectChanges();
+  }
 
-    if (this.questaoAtual!.respostaCorreta == resposta) {
-      this.respostaCorretaEnviada = true;
-      console.log('Resposta certa');
-      console.log(this.questaoAtual?.respostaCorreta);
-      console.log( this.ltiService.quantidadeTopicos)
-      this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
+  responder(resposta: string) {
 
-      if (this.ltiService.notaTotal == 0) {
-        this.ltiService.notaTotal = this.nota;
-      } else {
-        this.ltiService.notaTotal = this.ltiService.notaTotal + this.nota;
-      }
-
-      this.ltiService.liberar(this.idTopico).subscribe(
-        (response) => {
-          console.log('Proximo tópico liberado com sucesso', response);
-        },
-        (error) => {
-          console.error('Erro ao enviar a liberação', error);
-        }
-      );
-
-      this.http
-        .get(`http://localhost:3000/api/userInfo?ltik=${this.tokenStorage}`)
-        .subscribe(
-          (data) => {
-            console.log('Log do data da atividade');
-            this.tokenData = data;
-            this.ltiService.bloqueio = this.tokenData.userTopico;
-            this.ltiService.informacoes = this.tokenData;
-            console.log(this.tokenData);
-          },
-          (error) => {
-            console.error('Error:', error);
-          }
-        );
-
-      if (this.gradeIn) {
-        console.log('Nota grade IN:', this.ltiService.notaTotal);
-        this.ltiService.sendGradeIn(this.ltiService.notaTotal).subscribe(
-          (response) => {
-            console.log('Nota enviada com sucesso!', response);
-            alert('Nota enviada!');
-          },
-          (error) => {
-            alert('Erro ao enviar a nota!');
-            console.error('Erro ao enviar nota', error);
-          }
-        );
-      } else {
-        this.ltiService.sendGrade(this.ltiService.notaTotal).subscribe(
-          (response) => {
-            console.log('Nota enviada com sucesso!', response);
-            alert('Nota enviada!');
-          },
-          (error) => {
-            alert('Erro ao enviar a nota!');
-            console.error('Erro ao enviar nota', error);
-          }
-        );
-      }
-      this.resposta = resposta;
-      this.respostaEnviada = true;
+    if (this.bloqueio[this.idTopico]?.encerrado == true || this.respostaCorretaEnviada){
+      return
+    }else if (this.questao && this.questao.respostaCorreta === resposta) {
+      this.tratarRespostaCorreta(resposta);
     } else {
       alert('Resposta errada, clique em refazer para tentar novamente');
     }
-    console.log('ola mundo', this.ltiService.notaTotal);
   }
 
-  /**
-   * @method
-   * Metodo responsavel pelo funcionamento do clique em refazer
-   */
+  responderAlternativo(resposta: string) {
+    this.resposta = resposta;
+    this.respostaEnviada = true;
+  }
+
   refazer() {
-    if (this.questao) {
-      this.questao.alternativas = this.embaralharAlternativas(
-        this.questao.alternativas
-      );
-      let respostaCorreta = this.questao.alternativas.find((a) => a.correta);
+    if (this.questao && Array.isArray(this.questao.Alternativas)) {
+      this.questao.Alternativas = this.embaralharAlternativas(this.questao.Alternativas);
+      const respostaCorreta = this.questao.Alternativas.find((a: any) => a.correta);
       if (respostaCorreta) {
         this.questao.respostaCorreta = respostaCorreta.descricao;
       }
@@ -198,32 +95,73 @@ export class AtividadeComponent {
     this.respostaEnviada = false;
   }
 
-  /**
-   * @method
-   * Metodo responsavel por puxar a explicação que fica na questão
-   */
   getExplicacao(resposta: string) {
-    const alternativa = this.questaoAtual?.alternativas.find(
-      (a) => a.descricao === resposta
-    );
+    const alternativa = this.questao?.Alternativas.find((a: any) => a.descricao === resposta);
     return alternativa?.explicacao;
   }
 
-  /**
-   * @method
-   * Metódo responsavel pelo embaralhamento das alternativas
-   */
-  embaralharAlternativas(
-    alternativas: { descricao: string; explicacao: string; correta: boolean }[]
-  ) {
+  embaralharAlternativas(alternativas: any[]) {
     let alternativasEmbaralhadas = [...alternativas];
     for (let i = alternativasEmbaralhadas.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [alternativasEmbaralhadas[i], alternativasEmbaralhadas[j]] = [
-        alternativasEmbaralhadas[j],
-        alternativasEmbaralhadas[i],
-      ];
+      [alternativasEmbaralhadas[i], alternativasEmbaralhadas[j]] = [alternativasEmbaralhadas[j], alternativasEmbaralhadas[i]];
     }
     return alternativasEmbaralhadas;
+  }
+
+  private tratarRespostaCorreta(resposta: string) {
+    this.respostaCorretaEnviada = true;
+    this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
+    console.log(this.nota)
+    console.log(this.ltiService.notaTotal)
+    console.log(this.nota + this.ltiService.notaTotal)
+    this.ltiService.notaTotal = this.ltiService.notaTotal == 0 ? this.nota : this.ltiService.notaTotal + this.nota;
+
+    this.liberarProximoTopico();
+    this.enviarNota();
+    this.obterInformacoesUsuario();
+    this.resposta = resposta;
+    this.respostaEnviada = true;
+  }
+
+  private liberarProximoTopico() {
+    this.ltiService.liberar(this.teste?.topicos?.[this.idTopico].id).subscribe(
+      response => console.log('Proximo tópico liberado com sucesso', response),
+      error => console.error('Erro ao enviar a liberação', error)
+    );
+  }
+
+  private obterInformacoesUsuario() {
+    this.http.get(`${this.ltiService.apiUrl}/userInfo?ltik=${this.tokenStorage}`).subscribe(
+      data => {
+        this.tokenData = data;
+        this.ltiService.bloqueio = this.tokenData.userTopico;
+        this.ltiService.informacoes = this.tokenData;
+        localStorage.setItem(
+          'bloqueio',
+          JSON.stringify(this.tokenData.userTopico)
+        );
+        //!Importante
+        localStorage.setItem(
+          'dados_completos_do_modulo',
+          JSON.stringify(this.tokenData)
+        );
+      },
+      error => console.error('Error:', error)
+    );
+  }
+
+  private enviarNota() {
+    const enviarNota = this.gradeIn ? this.ltiService.sendGradeIn : this.ltiService.sendGrade;
+    enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
+      response => {
+        console.log('Nota enviada com sucesso!', response);
+        alert('Nota enviada!');
+      },
+      error => {
+        alert('Erro ao enviar a nota!');
+        console.error('Erro ao enviar nota', error);
+      }
+    );
   }
 }

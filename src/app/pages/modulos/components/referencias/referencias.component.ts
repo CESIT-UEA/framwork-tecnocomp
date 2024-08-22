@@ -6,6 +6,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./referencias.component.css']
 })
 export class ReferenciasComponent {
-  @Input() referencias!: string[];
+  @Input() referencias!: any[];
   @Output() referenciasClick = new EventEmitter<void>();
 }

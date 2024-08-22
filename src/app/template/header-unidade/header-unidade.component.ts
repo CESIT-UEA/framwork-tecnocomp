@@ -18,26 +18,6 @@ export class HeaderUnidadeComponent {
   constructor(private appService: ServiceAppService, private router: Router) {}
 
   /**
-   * Vetor o qual guarda o nome das unidades
-   */
-  listaDeUnidades: string[] = [
-    'Behaviorismo',
-    'Construtivismo',
-    'Socioconstrutivismo',
-    'Construcionismo',
-  ];
-
-  /**
-   * Vetor o qual guarda o link para ir até as unidades listadas acima
-   */
-  listaDeUnidadesLinks: string[] = [
-    '/teorias-da-aprendizagem',
-    '/teorias-da-aprendizagem/construtivismo',
-    '/teorias-da-aprendizagem/socioconstrutivismo',
-    '/teorias-da-aprendizagem/construcionismo',
-  ];
-
-  /**
    * Variavel o qual guarda se o menu esta aberto ou não, por padrão ele já começa fechado (false)
    */
   isOpen = false;
@@ -67,11 +47,4 @@ export class HeaderUnidadeComponent {
    */
   menuHeader = 'menu';
 
-  /**
-   * @method
-   * Metodo para navegar para a pagina inicial do modulo
-   */
-  navegarParaRota() {
-    this.router.navigate([`${this.appService.urlInicio}`]);
-  }
 }
