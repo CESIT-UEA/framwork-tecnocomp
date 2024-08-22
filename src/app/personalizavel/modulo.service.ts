@@ -21,6 +21,7 @@ export class ModuloService {
 
   constructor(private http: HttpClient) {}
   getUserInfo(ltik: string): Observable<any> {
+    console.log(`Requisição LTI sendo feita para: ${this.baseUrlLTI}/userInfo?ltik=${ltik}`)
     return this.http.get<any>(`${this.baseUrlLTI}/userInfo?ltik=${ltik}`);
   }
 
