@@ -23,7 +23,7 @@ export class ModuloComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
+    console.log("Passou pelo modulo")
   }
 
 }
