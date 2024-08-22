@@ -1,4 +1,17 @@
 <div class="header-atividade">
+  <div class="container-links">
+    <div class="header-links">
+      <!-- Imagem do ícone de download do ebook -->
+      <img
+        src="assets/icons/saibaMais.svg"
+        alt="Icone para download do ebook"
+        width="28px"
+        height="28px"
+      />
+      <p>Saiba mais</p>
+    </div>
+  </div>
+  <!-- ícone que quando clicado volta para a página geral da unidade -->
   <img
     (click)="linksClick.emit()"
     src="assets/icons/close.svg"
@@ -7,22 +20,17 @@
     height="30px"
   />
 </div>
-<div class="container-links">
-  <div class="header-links">
-    <img
-      src="assets/icons/saibaMais.svg"
-      alt="Icone para download do ebook"
-      width="28px"
-      height="28px"
-    />
-    <p>Saiba mais</p>
-  </div>
-</div>
 
-<div class="container-links-text">
-  <ul>
-    <li *ngFor="let item of links">
-      <a target="_blank" [href]="item">{{ item }}</a>
-    </li>
-  </ul>
-</div>
+<section class="container-links-text">
+  <p id="container-links-text-frase">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione enim illum sed, consequuntur totam maiores voluptates saepe voluptatibus recusandae vero eum, pariatur facilis dolor ab, quis ad omnis illo ex.</p>
+  <!-- ngFor que percorre o vetor de objetos que contém descrição e link de informaçõoes adicionais -->
+  <div class="container-links-text-caixa" *ngFor="let item of links">
+    <div class="container-links-text-caixa-descricao-conteudo">
+      <img src="../../../../../assets/img/youtube.png" alt="imagem da logo do youtube">
+      <p class="container-links-text-caixa-descricao1">Descrição:</p>
+    </div>
+      <!-- a cada iteração do ngFor tem uma descrição e um link diferente sendo exibido -->
+      <p class="container-links-text-caixa-descricao2">{{ item.descricao }}</p>
+      <a target="_blank" [href]="item.url">clique aqui</a>
+  </div>
+</section>

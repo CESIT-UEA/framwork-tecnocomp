@@ -1,8 +1,10 @@
+<!--Seção de botões da página inicial HOME-->
 <section class="button-section">
   <div class="button-group">
+    <button class="start-button" [routerLink]="urlInicio">INICIAR</button>
     <button class="download-button">
       <a href="assets/E-book Teste.PDF" [href]="caminho_ebook" [download]="nome_ebook">DOWNLOAD E-BOOK UNIDADE</a>
+      <img src="../../../../assets/img/download.png" alt="icone de download">
     </button>
-    <button class="start-button" (click)="iniciarNavegacao()">INICIAR</button>
   </div>
 </section>

@@ -1,0 +1,940 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HeaderUnidadeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/template/header-unidade/header-unidade.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente do Header Unidade, o qual deve ser utilizado em cada unidade (topico) de um modulo</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-header-unidade</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./header-unidade.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./header-unidade.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#isOpen" >isOpen</a>
+                            </li>
+                            <li>
+                                <a href="#listaDeUnidades" >listaDeUnidades</a>
+                            </li>
+                            <li>
+                                <a href="#listaDeUnidadesLinks" >listaDeUnidadesLinks</a>
+                            </li>
+                            <li>
+                                <a href="#menuHeader" >menuHeader</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#menuClick" >menuClick</a>
+                            </li>
+                            <li>
+                                <a href="#navegarParaRota" >navegarParaRota</a>
+                            </li>
+                            <li>
+                                <a href="#toggleSidebar" >toggleSidebar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(appService: <a href="../injectables/ServiceAppService.html" target="_self">ServiceAppService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor do componente HeaderUnidade, o qual importa o Router e o ServiceAppService</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>appService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ServiceAppService.html" target="_self" >ServiceAppService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuClick"></a>
+                    <span class="name">
+                        <span ><b>menuClick</b></span>
+                        <a href="#menuClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>menuClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metódo para a alternancia dos icons</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navegarParaRota"></a>
+                    <span class="name">
+                        <span ><b>navegarParaRota</b></span>
+                        <a href="#navegarParaRota"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navegarParaRota()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metodo para navegar para a pagina inicial do modulo</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSidebar"></a>
+                    <span class="name">
+                        <span ><b>toggleSidebar</b></span>
+                        <a href="#toggleSidebar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleSidebar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Controla a alternância da barra de lateral</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOpen"></a>
+                    <span class="name">
+                        <span ><b>isOpen</b></span>
+                        <a href="#isOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel o qual guarda se o menu esta aberto ou não, por padrão ele já começa fechado (false)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaDeUnidades"></a>
+                    <span class="name">
+                        <span ><b>listaDeUnidades</b></span>
+                        <a href="#listaDeUnidades"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;Behaviorismo&#x27;,
+    &#x27;Construtivismo&#x27;,
+    &#x27;Socioconstrutivismo&#x27;,
+    &#x27;Construcionismo&#x27;,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Vetor o qual guarda o nome das unidades</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaDeUnidadesLinks"></a>
+                    <span class="name">
+                        <span ><b>listaDeUnidadesLinks</b></span>
+                        <a href="#listaDeUnidadesLinks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;/teorias-da-aprendizagem&#x27;,
+    &#x27;/teorias-da-aprendizagem/construtivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/socioconstrutivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/construcionismo&#x27;,
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Vetor o qual guarda o link para ir até as unidades listadas acima</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuHeader"></a>
+                    <span class="name">
+                        <span ><b>menuHeader</b></span>
+                        <a href="#menuHeader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;menu&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/template/header-unidade/header-unidade.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Por padrão, o icone já começa com o de menu</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { ServiceAppService } from &#x27;src/app/service-app.service&#x27;;
+
+/**
+ * Componente do Header Unidade, o qual deve ser utilizado em cada unidade (topico) de um modulo
+ */
+@Component({
+  selector: &#x27;app-header-unidade&#x27;,
+  templateUrl: &#x27;./header-unidade.component.html&#x27;,
+  styleUrls: [&#x27;./header-unidade.component.css&#x27;],
+})
+export class HeaderUnidadeComponent {
+  /**
+   * @method
+   * Constructor do componente HeaderUnidade, o qual importa o Router e o ServiceAppService
+   */
+  constructor(private appService: ServiceAppService, private router: Router) {}
+
+  /**
+   * Vetor o qual guarda o nome das unidades
+   */
+  listaDeUnidades: string[] &#x3D; [
+    &#x27;Behaviorismo&#x27;,
+    &#x27;Construtivismo&#x27;,
+    &#x27;Socioconstrutivismo&#x27;,
+    &#x27;Construcionismo&#x27;,
+  ];
+
+  /**
+   * Vetor o qual guarda o link para ir até as unidades listadas acima
+   */
+  listaDeUnidadesLinks: string[] &#x3D; [
+    &#x27;/teorias-da-aprendizagem&#x27;,
+    &#x27;/teorias-da-aprendizagem/construtivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/socioconstrutivismo&#x27;,
+    &#x27;/teorias-da-aprendizagem/construcionismo&#x27;,
+  ];
+
+  /**
+   * Variavel o qual guarda se o menu esta aberto ou não, por padrão ele já começa fechado (false)
+   */
+  isOpen &#x3D; false;
+
+  /**
+   * @method
+   * Controla a alternância da barra de lateral
+   */
+  toggleSidebar() {
+    this.isOpen &#x3D; !this.isOpen;
+  }
+
+  /**
+   * @method
+   * Metódo para a alternancia dos icons
+   */
+  menuClick() {
+    if (this.menuHeader &#x3D;&#x3D; &#x27;menu&#x27;) {
+      this.menuHeader &#x3D; &#x27;close&#x27;;
+    } else {
+      this.menuHeader &#x3D; &#x27;menu&#x27;;
+    }
+  }
+
+  /**
+   * Por padrão, o icone já começa com o de menu
+   */
+  menuHeader &#x3D; &#x27;menu&#x27;;
+
+  /**
+   * @method
+   * Metodo para navegar para a pagina inicial do modulo
+   */
+  navegarParaRota() {
+    this.router.navigate([&#x60;${this.appService.urlInicio}&#x60;]);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section&gt;
+  &lt;div class&#x3D;&quot;img&quot;&gt;
+    &lt;img (click)&#x3D;&quot;navegarParaRota()&quot; src&#x3D;&quot;assets/Tecnocomp+.png&quot; alt&#x3D;&quot;Tecnocom+ LOGO&quot; /&gt;
+    &lt;div class&#x3D;&quot;menu-teste&quot;&gt;
+      &lt;!-- ícone de casa que quando clicado volta a página inicial HOME --&gt;
+      &lt;a (click)&#x3D;&quot;navegarParaRota()&quot;&gt;
+        &lt;svg
+          xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot;
+          width&#x3D;&quot;31&quot;
+          height&#x3D;&quot;31&quot;
+          viewBox&#x3D;&quot;0 0 31 31&quot;
+          fill&#x3D;&quot;none&quot;
+        &gt;
+          &lt;path
+            d&#x3D;&quot;M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z&quot;
+            stroke&#x3D;&quot;#FFF&quot;
+            stroke-width&#x3D;&quot;2&quot;
+            stroke-linecap&#x3D;&quot;round&quot;
+            stroke-linejoin&#x3D;&quot;round&quot;
+          /&gt;
+          &lt;path
+            d&#x3D;&quot;M11.3611 27.6113V15.1113H18.8611V27.6113&quot;
+            stroke&#x3D;&quot;#FFF&quot;
+            stroke-width&#x3D;&quot;2&quot;
+            stroke-linecap&#x3D;&quot;round&quot;
+            stroke-linejoin&#x3D;&quot;round&quot;
+          /&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;
+      &lt;mat-icon (click)&#x3D;&quot;menuClick()&quot; (click)&#x3D;&quot;toggleSidebar()&quot; id&#x3D;&quot;icon&quot;&gt;{{
+        menuHeader
+      }}&lt;/mat-icon&gt;
+      &lt;aside class&#x3D;&quot;sidebar&quot; [ngClass]&#x3D;&quot;{ open: isOpen }&quot;&gt;
+        &lt;h2 class&#x3D;&quot;titulo-topico center&quot;&gt;TÓPICOS&lt;/h2&gt;
+&lt;!--         &lt;app-list-menu [unidades]&#x3D;&quot;listaDeUnidades&quot; [unidadesLinks]&#x3D;&quot;listaDeUnidadesLinks&quot;&gt;&lt;/app-list-menu&gt; --&gt;
+      &lt;!-- chamada do componente da barra de progresso na página da unidade --&gt;        
+      &lt;app-menu-com-barra-progresso-teste&gt;&lt;/app-menu-com-barra-progresso-teste&gt;
+      &lt;/aside&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./header-unidade.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@font-face {
+  font-family: minhaFonte;
+  src: url(&#x27;../../../assets/fonteProjeto.ttf&#x27;);
+}
+
+section {
+  background-color: black;
+}
+
+a svg {
+  position: relative;
+  right: 4%;
+}
+
+.sidebar {
+  transition: transform 20s ease-in-out;
+  transform: translateX(100%);
+  width: 350px;
+  background-color: black;
+  border-radius: 10px;
+  display: none;
+  color: #FAF8E6;
+}
+
+
+/* estilo aplicado quando clicamos no menu de progresso na página geral da unidade */
+.sidebar.open {
+  display: block;
+  position: fixed;
+  transform: translate(-70%, 13%);
+} 
+
+.titulo-topico {
+  padding: 1rem;
+  color: #E0D1F5;
+  background-color: #9665DF;
+  border-radius: 20px 0px 0px 0px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 0;
+}
+
+.teste {
+  position: relative;
+  left: 200px;
+}
+
+#button {
+  color: #FFF;
+}
+
+#icon {
+  font-size: 2rem;
+  height: 2rem;
+  width: 2rem;
+  color: #FFF;
+}
+
+.text p {
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 600;
+  font-family: minhaFonte;
+}
+
+.text-unidade {
+  color: #DFBF0B;
+}
+
+.img {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  height: 65px;
+  justify-content: space-between;
+}
+
+.img img {
+  padding-left: 20px;
+  max-height: 80px;
+  height: 40px;
+}
+
+.menu-teste {
+  width: 100px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+
+@media (max-width: 425px) {
+  .text {
+    margin-left: 0;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section>  <div class="img">    <img (click)="navegarParaRota()" src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />    <div class="menu-teste">      <!-- ícone de casa que quando clicado volta a página inicial HOME -->      <a (click)="navegarParaRota()">        <svg          xmlns="http://www.w3.org/2000/svg"          width="31"          height="31"          viewBox="0 0 31 31"          fill="none"        >          <path            d="M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z"            stroke="#FFF"            stroke-width="2"            stroke-linecap="round"            stroke-linejoin="round"          />          <path            d="M11.3611 27.6113V15.1113H18.8611V27.6113"            stroke="#FFF"            stroke-width="2"            stroke-linecap="round"            stroke-linejoin="round"          />        </svg>      </a>      <mat-icon (click)="menuClick()" (click)="toggleSidebar()" id="icon">{{        menuHeader      }}</mat-icon>      <aside class="sidebar" [ngClass]="{ open: isOpen }">        <h2 class="titulo-topico center">TÓPICOS</h2><!--         <app-list-menu [unidades]="listaDeUnidades" [unidadesLinks]="listaDeUnidadesLinks"></app-list-menu> -->      <!-- chamada do componente da barra de progresso na página da unidade -->              <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>      </aside>    </div>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HeaderUnidadeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HeaderUnidadeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

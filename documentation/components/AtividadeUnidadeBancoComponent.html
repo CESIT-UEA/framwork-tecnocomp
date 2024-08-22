@@ -1,0 +1,1226 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>app documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avaoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-block d-sm-none">
+            <a href="../" class="navbar-brand">app documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AtividadeUnidadeBancoComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente reutilizavel, é responsavel pelas questões que ficam na atividade nas unidades</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-atividade-unidade-banco</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./atividade-unidade-banco.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./atividade-unidade-banco.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#controlador_questao" >controlador_questao</a>
+                            </li>
+                            <li>
+                                <a href="#questaoAtual" >questaoAtual</a>
+                            </li>
+                            <li>
+                                <a href="#respostaEnviada" >respostaEnviada</a>
+                            </li>
+                            <li>
+                                <a href="#respostaSelecionada" >respostaSelecionada</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#enviarResposta" >enviarResposta</a>
+                            </li>
+                            <li>
+                                <a href="#getImagemResposta" >getImagemResposta</a>
+                            </li>
+                            <li>
+                                <a href="#proximaQuestao" >proximaQuestao</a>
+                            </li>
+                            <li>
+                                <a href="#selecionarResposta" >selecionarResposta</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#questoes_banco" >questoes_banco</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor()</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:138</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="questoes_banco"></a>
+                        <b>questoes_banco</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Questao.html" target="_self" >Questao[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      titulo:
+        &#x27;Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?&#x27;,
+      alternativas: [
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.&#x27;,
+          explicacao:
+            &#x27;Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+      ],
+      respostaCorreta: 0,
+    },
+    {
+      titulo: &#x27;O que é o behaviorismo?&#x27;,
+      alternativas: [
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.&#x27;,
+          explicacao:
+            &#x27;Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+      ],
+      respostaCorreta: 1,
+    },
+    {
+      titulo: &#x27;Skinner e Piaget são teoricos do behaviorismo?&#x27;,
+      alternativas: [
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.&#x27;,
+          explicacao:
+            &#x27;Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+      ],
+      respostaCorreta: 2,
+    },
+  ]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:16</a></div>
+                            </td>
+                        </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Variavel a qual guarda as questões que o instrutor quer que estejam nas atividades</p>
+</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enviarResposta"></a>
+                    <span class="name">
+                        <span ><b>enviarResposta</b></span>
+                        <a href="#enviarResposta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>enviarResposta()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getImagemResposta"></a>
+                    <span class="name">
+                        <span ><b>getImagemResposta</b></span>
+                        <a href="#getImagemResposta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getImagemResposta(i: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:190</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metódo responsavel por retornar o caminho da imagem de acordo com o número</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="proximaQuestao"></a>
+                    <span class="name">
+                        <span ><b>proximaQuestao</b></span>
+                        <a href="#proximaQuestao"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>proximaQuestao()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metódo responsavel por selecionar outra questão caso o usuario queira refazer</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selecionarResposta"></a>
+                    <span class="name">
+                        <span ><b>selecionarResposta</b></span>
+                        <a href="#selecionarResposta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>selecionarResposta(index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Metódo responsavel pela funcionalização quando o usuario selecionar uma das alternativas</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controlador_questao"></a>
+                    <span class="name">
+                        <span ><b>controlador_questao</b></span>
+                        <a href="#controlador_questao"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:125</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controlador da questão</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="questaoAtual"></a>
+                    <span class="name">
+                        <span ><b>questaoAtual</b></span>
+                        <a href="#questaoAtual"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Questao.html" target="_self" >Questao</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:129</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Controlador responsavel por guardar a questão atual</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="respostaEnviada"></a>
+                    <span class="name">
+                        <span ><b>respostaEnviada</b></span>
+                        <a href="#respostaEnviada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:138</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Componente responsavel pelas questões que ficam na atividade nas unidades</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="respostaSelecionada"></a>
+                    <span class="name">
+                        <span ><b>respostaSelecionada</b></span>
+                        <a href="#respostaSelecionada"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/app/component/atividade-unidade-banco/atividade-unidade-banco.component.ts:134</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Variavel responsavel por guardar a resposta selecionada</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input } from &#x27;@angular/core&#x27;;
+import { Questao } from &#x27;./questao.model&#x27;;
+
+/**
+ * Componente reutilizavel, é responsavel pelas questões que ficam na atividade nas unidades
+ */
+@Component({
+  selector: &#x27;app-atividade-unidade-banco&#x27;,
+  templateUrl: &#x27;./atividade-unidade-banco.component.html&#x27;,
+  styleUrls: [&#x27;./atividade-unidade-banco.component.css&#x27;],
+})
+export class AtividadeUnidadeBancoComponent {
+  /**
+   * Variavel a qual guarda as questões que o instrutor quer que estejam nas atividades
+   */
+  @Input() questoes_banco: Questao[] &#x3D; [
+    {
+      titulo:
+        &#x27;Aprendemos na aula anterior que existem três passos principais para definir uma boa estratégia. Quais são eles?&#x27;,
+      alternativas: [
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.&#x27;,
+          explicacao:
+            &#x27;Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+      ],
+      respostaCorreta: 0,
+    },
+    {
+      titulo: &#x27;O que é o behaviorismo?&#x27;,
+      alternativas: [
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.&#x27;,
+          explicacao:
+            &#x27;Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+      ],
+      respostaCorreta: 1,
+    },
+    {
+      titulo: &#x27;Skinner e Piaget são teoricos do behaviorismo?&#x27;,
+      alternativas: [
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper  congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue.&#x27;,
+          explicacao:
+            &#x27;Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+        {
+          explicacaoVisivel: true,
+          descricao:
+            &#x27;Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed volutpat congue turpis.&#x27;,
+          explicacao:
+            &#x27;Errado! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.&#x27;,
+        },
+      ],
+      respostaCorreta: 2,
+    },
+  ];
+
+  /**
+   * Controlador da questão
+   */
+  controlador_questao &#x3D; 0;
+  /**
+   * Controlador responsavel por guardar a questão atual
+   */
+  questaoAtual: Questao;
+
+  /**
+   * Variavel responsavel por guardar a resposta selecionada
+   */
+  respostaSelecionada!: number;
+  /**
+   * Componente responsavel pelas questões que ficam na atividade nas unidades
+   */
+  respostaEnviada &#x3D; false;
+
+  /**
+   * @constructor
+   */
+  constructor() {
+    this.questaoAtual &#x3D; this.questoes_banco[0];
+  }
+
+  /**
+   * @method
+   * Metódo responsavel pela funcionalização quando o usuario selecionar uma das alternativas
+   */
+  selecionarResposta(index: number) {
+    this.respostaSelecionada &#x3D; index;
+
+    if (this.questaoAtual.respostaCorreta &#x3D;&#x3D; this.respostaSelecionada) {
+      console.log(&#x27;Resposta certa&#x27;);
+    } else {
+      console.log(&#x27;Resposta errada&#x27;);
+    }
+
+    console.log(this.respostaSelecionada);
+  }
+
+  enviarResposta() {
+    this.respostaEnviada &#x3D; true;
+  }
+
+  /**
+   * @method
+   * Metódo responsavel por selecionar outra questão caso o usuario queira refazer
+   */
+  proximaQuestao() {
+    console.log(this.questoes_banco[this.controlador_questao]);
+    console.log(this.questaoAtual);
+
+    let indexAtual &#x3D; this.questoes_banco.indexOf(this.questaoAtual);
+
+    // Se todas as questões foram respondidas, reinicie o questionário
+    if (indexAtual &gt;&#x3D; this.questoes_banco.length - 1) {
+      indexAtual &#x3D; -1;
+    }
+
+    this.questaoAtual &#x3D; this.questoes_banco[indexAtual + 1];
+    this.respostaEnviada &#x3D; false;
+  }
+
+  /**
+   * @method
+   * Metódo responsavel por retornar o caminho da imagem de acordo com o número
+   */
+  getImagemResposta(i: number): string {
+    if (!this.respostaEnviada) {
+      return &#x60;assets/img/Letra ${[i]}.png&#x60;;
+    } else if (i &#x3D;&#x3D;&#x3D; this.questaoAtual.respostaCorreta) {
+      return &#x27;assets/img/correto.png&#x27;;
+    } else if (i &#x3D;&#x3D;&#x3D; this.respostaSelecionada) {
+      return &#x27;assets/img/errado.png&#x27;;
+    } else {
+      return &#x60;assets/img/Letra ${[i]}.png&#x60;;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;questaoAtual&quot; class&#x3D;&quot;container-atividade&quot;&gt;
+  &lt;h2&gt;{{ questaoAtual.titulo }}&lt;/h2&gt;
+  &lt;div
+    class&#x3D;&quot;container-resposta&quot;
+    *ngFor&#x3D;&quot;let alternativa of questaoAtual.alternativas; let i &#x3D; index&quot;
+    [class.correto]&#x3D;&quot;respostaEnviada &amp;&amp; i &#x3D;&#x3D;&#x3D; questaoAtual.respostaCorreta&quot;
+    [class.errado]&#x3D;&quot;
+      respostaEnviada &amp;&amp;
+      i &#x3D;&#x3D;&#x3D; respostaSelecionada &amp;&amp;
+      i !&#x3D;&#x3D; questaoAtual.respostaCorreta
+    &quot;
+  &gt;
+    &lt;div (click)&#x3D;&quot;selecionarResposta(i);enviarResposta();alternativa.explicacaoVisivel &#x3D; !alternativa.explicacaoVisivel;&quot; class&#x3D;&quot;container-resposta-conteudo&quot;&gt;
+      &lt;img class&#x3D;&quot;container-resposta-conteudo-imagem-alternativa&quot; [src]&#x3D;&quot;getImagemResposta(i)&quot; alt&#x3D;&quot;Letra {{ [i] }}&quot;
+       /&gt;
+      &lt;p&gt;
+        {{ alternativa.descricao }}
+        &lt;br&gt;
+        &lt;span *ngIf&#x3D;&quot;respostaEnviada&quot;&gt;
+          &lt;span
+           [class.corretoVisivel]&#x3D;&quot;respostaEnviada &amp;&amp; i &#x3D;&#x3D;&#x3D; questaoAtual.respostaCorreta&quot;
+           [class.erradoVisivel]&#x3D;&quot;respostaEnviada &amp;&amp; i !&#x3D;&#x3D; questaoAtual.respostaCorreta&quot;
+           class&#x3D;&quot;container-resposta-conteudo-resposta-enviada&quot;
+            *ngIf&#x3D;&quot;alternativa.explicacaoVisivel&quot;
+          &gt;{{ alternativa.explicacao }}&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;botao&quot;&gt;
+    &lt;button (click)&#x3D;&quot;proximaQuestao()&quot; *ngIf&#x3D;&quot;respostaEnviada&quot;&gt;Refazer&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./atividade-unidade-banco.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.container-atividade {
+  color: white;
+  margin: 50px 0;
+}
+
+.correto {
+  color: green;
+  border-color: green;
+}
+
+.errado {
+  color: red;
+  border-color: red;
+}
+
+.container-resposta {
+  margin-bottom: 35px;
+  border-radius: 8px;
+  background: var(--24, #4F4F4F);
+}
+
+.container-resposta-conteudo {
+  display: flex;
+  align-items: center;
+}
+
+.container-resposta-conteudo p {
+  padding: 15px 30px;
+  color: #FFF;
+  font-family: Arial;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+.corretoVisivel,
+.erradoVisivel {
+  display: block;
+  color: #B3B3B3;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  margin: 0 auto;
+  padding: 0 10px;
+  /* 150% */
+}
+
+.corretoVisivel {
+  border: 1px solid #498040;
+}
+
+.erradoVisivel {
+  border: 1px solid rgb(175, 12, 12);
+}
+.olhoIMG{
+  padding: 10px;
+}
+.botao {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.botao button {
+  border-radius: 5px;
+  background-color: #361B5E;
+  padding: 6px 17px;
+  outline: none;
+  border: none;
+  color: #818181;
+  font-family: Arial;
+  font-size: 18px;
+  line-height: normal;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="questaoAtual" class="container-atividade">  <h2>{{ questaoAtual.titulo }}</h2>  <div    class="container-resposta"    *ngFor="let alternativa of questaoAtual.alternativas; let i = index"    [class.correto]="respostaEnviada && i === questaoAtual.respostaCorreta"    [class.errado]="      respostaEnviada &&      i === respostaSelecionada &&      i !== questaoAtual.respostaCorreta    "  >    <div (click)="selecionarResposta(i);enviarResposta();alternativa.explicacaoVisivel = !alternativa.explicacaoVisivel;" class="container-resposta-conteudo">      <img class="container-resposta-conteudo-imagem-alternativa" [src]="getImagemResposta(i)" alt="Letra {{ [i] }}"       />      <p>        {{ alternativa.descricao }}        <br>        <span *ngIf="respostaEnviada">          <span           [class.corretoVisivel]="respostaEnviada && i === questaoAtual.respostaCorreta"           [class.erradoVisivel]="respostaEnviada && i !== questaoAtual.respostaCorreta"           class="container-resposta-conteudo-resposta-enviada"            *ngIf="alternativa.explicacaoVisivel"          >{{ alternativa.explicacao }}</span>        </span>      </p>    </div>  </div>  <div class="botao">    <button (click)="proximaQuestao()" *ngIf="respostaEnviada">Refazer</button>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AprendizagemEInformaticaComponent', 'selector': 'app-aprendizagem-e-informatica'},{'name': 'AtividadeComponent', 'selector': 'app-atividade'},{'name': 'AtividadeUnidadeBancoComponent', 'selector': 'app-atividade-unidade-banco'},{'name': 'AtividadeUnidadeComponent', 'selector': 'app-atividade-unidade'},{'name': 'BehaviorismoComponent', 'selector': 'app-behaviorismo'},{'name': 'BotoesSectionComponent', 'selector': 'app-botoes-section'},{'name': 'ComentariosComponent', 'selector': 'app-comentarios'},{'name': 'ConstrucionismoComponent', 'selector': 'app-construcionismo'},{'name': 'ConstrutivismoComponent', 'selector': 'app-construtivismo'},{'name': 'ErrorComponent', 'selector': 'app-error'},{'name': 'FichaMembrosComponent', 'selector': 'app-ficha-membros'},{'name': 'FichaTecnicaComponent', 'selector': 'app-ficha-tecnica'},{'name': 'ForumComponent', 'selector': 'app-forum'},{'name': 'GeralComponent', 'selector': 'app-geral'},{'name': 'HeaderAtividadeComponent', 'selector': 'app-header-atividade'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HeaderUnidadeComponent', 'selector': 'app-header-unidade'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ListMenuComponent', 'selector': 'app-list-menu'},{'name': 'MenuComBarraProgressoTesteComponent', 'selector': 'app-menu-com-barra-progresso-teste'},{'name': 'ReferenciasComponent', 'selector': 'app-referencias'},{'name': 'SaibaMaisComponent', 'selector': 'app-saiba-mais'},{'name': 'SlideComponent', 'selector': 'app-slide'},{'name': 'SlideUnidadeComponent', 'selector': 'app-slide-unidade'},{'name': 'SocioconstrutivismoComponent', 'selector': 'app-socioconstrutivismo'},{'name': 'SpanAnimationComponent', 'selector': 'app-span-animation'},{'name': 'SpanAnimationTextoComponent', 'selector': 'app-span-animation-texto'},{'name': 'TopicoForumComponent', 'selector': 'app-topico-forum'},{'name': 'VideoSectionComponent', 'selector': 'app-video-section'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AtividadeUnidadeBancoComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AtividadeUnidadeBancoComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

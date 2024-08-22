@@ -1,0 +1,98 @@
+<div class="header">
+  <div class="icone" (click)="this.navegarParaRota()">
+    <img src="../../../assets/img/logo-tecnocomp-icone-branco.png" />
+  </div>
+  <div class="center-header">
+    <mat-icon class="mat-18" [ngStyle]="{ color: '#9665DF' }">forum</mat-icon>
+    <p>Fórum</p>
+  </div>
+  <div class="voltar" (click)="this.navegarParaRotaForum()">
+    <mat-icon class="mat-18">close</mat-icon>
+  </div>
+</div>
+
+<div class="container-topico-forum">
+  <h1>{{ this.forum?.tituloTopico }}</h1>
+  <hr class="topico_forum_hr" />
+  <div
+    class="padrao-forum"
+    *ngIf="!exibirFormulario && this.id_forum_topico_escolhido == 0"
+  >
+    <div class="pesquisa-forum">
+      <nav>
+        <button>Todos</button>
+        <button>Com resposta</button>
+        <button>Sem resposta</button>
+      </nav>
+      <input
+        type="text"
+        name="assunto"
+        id=""
+        placeholder="Busca por assunto..."
+      />
+      <button class="nova-postagem" (click)="exibirFormularioClick()">
+        Criar nova postagem
+      </button>
+    </div>
+
+    <div
+      class="postagens"
+      *ngFor="let dados of this.forumTopicos.slice().reverse()"
+    >
+      <div class="quantidade-respostas center">
+        <div class="bolinha"></div>
+        <p>0</p>
+        <p>respostas</p>
+      </div>
+      <div class="corpo-postagem">
+        <h3>[Bug] {{ dados.titulo }}</h3>
+        <p>{{ dados.descricao }}</p>
+        <a (click)="this.escolher_forum_topico(dados.id_topico_forum)"
+          >Responder</a
+        >
+      </div>
+      <div class="autor center">
+        <div class="foto-autor"></div>
+        <p class="por">Por</p>
+
+        <p class="p-autor">{{ dados.id_autor }}</p>
+        <p class="por">{{ dados.criado }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="comentario" *ngIf="this.id_forum_topico_escolhido != 0">
+    <app-comentarios [id]="this.id_forum_topico_escolhido"></app-comentarios>
+    <button (click)="this.sair_comentario()">Voltar</button>
+  </div>
+
+  <div *ngIf="exibirFormulario" class="container-postagem-form">
+    <div class="container-postagem center">
+      <h4>Criar nova postagem</h4>
+      <hr class="hr_form" />
+      <p class="p_form">* Indica uma pergunta obrigatória</p>
+      <form
+        class="form_postagem"
+        [formGroup]="forum_topico"
+        (ngSubmit)="onSubmit()"
+      >
+        <label for="titulo"
+          >Titulo <span style="color: #fa7878">*</span>
+        </label>
+        <input
+          id="titulo"
+          type="text"
+          formControlName="titulo"
+          placeholder="Escreva um titulo"
+        />
+
+        <label for="mensagem"
+          >Mensagem <span style="color: #fa7878">*</span></label
+        >
+        <textarea id="mensagem" formControlName="mensagem" name="mensagem" placeholder="Escreva uma mensagem...."></textarea>
+        <button type="submit" [disabled]="!forum_topico.valid">Enviar</button>
+      </form>
+    </div>
+    <button (click)="fecharFormulario()">Cancelar</button>
+  </div>
+</div>

@@ -1,82 +1,28 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
+/**
+ * Componente depreciado, era responsavel por ser o slide do texto de apoio. É um componente reutilizavel
+ */
 @Component({
   selector: 'app-slide',
   templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.css']
+  styleUrls: ['./slide.component.css'],
 })
-export class SlideComponent {
-  controllerSwitch: number = 0
-  iniciarClick() {
-    this.controllerSwitch = this.controllerSwitch == 0 ? 1 : 0
-  }
-  @Input() nomeTopico:string = "Behaviorismo";
-  @Input() slide = [
-    {
-      titulo: 'Lorem Ipsum',
-      caminhoImagen: 'Lorem Ipsum',
-      texto: [
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.'
-      ]
-    },
-    {
-      titulo: 'Lorem Ipsum 2',
-      caminhoImagen: 'Lorem Ipsum',
-      texto: [
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.'
-      ],
-    },
-    {
-      titulo: 'Lorem Ipsum 3',
-      caminhoImagen: 'Lorem Ipsum',
-      texto: [
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.'
-      ]
-    },
-    {
-      titulo: 'Lorem Ipsum 4',
-      caminhoImagen: 'Lorem Ipsum',
-      texto: [
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.'
-      ]
-    },
-    {
-      titulo: 'Lorem Ipsum 5',
-      caminhoImagen: 'Lorem Ipsum',
-      texto: [
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.',
-        'Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis. Pellentesque nullam et nisi imperdiet. Magna aenean ullamcorper risus nibh tincidunt egestas. Elit egestas auctor dolor a a at pretium integer.'
-      ]
-    },
-  ]
+export class SlideComponent implements OnInit {
+  @Input() caminhoSlide!: any;
+  constructor(private sanitizer: DomSanitizer) {}
+  teste:any;
 
-  currentVideoIndex: number = 0;
-  teste = this.slide[this.currentVideoIndex].texto
-
-  nextVideo() {
-    if (this.currentVideoIndex + 1 == this.slide.length) {
-      this.currentVideoIndex = this.slide.length - 1
-
-      return
-    } else {
-      this.currentVideoIndex = (this.currentVideoIndex + 1) % this.slide.length;
-    }
-  }
-
-  prevVideo() {
-    if (this.currentVideoIndex == 0) {
-      this.iniciarClick()
-    } else {
-      this.currentVideoIndex = (this.currentVideoIndex - 1 + this.slide.length) % this.slide.length;
-    }
+  ngOnInit(): void {
+    this.teste = `<div style="position: relative; width: 86%; height: 0; padding-top: 48.25%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); overflow: hidden;
+ border-radius: 8px; will-change: transform; margin: 0 auto; margin-bottom: -2.5%;">
+     <iframe loading="lazy" style="position: absolute; width: 100%; height: 80%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+       src=`+ this.caminhoSlide + ` allow="fullscreen">
+     </iframe>
+   </div>
+   `;
+    this.teste = this.sanitizer.bypassSecurityTrustHtml(this.teste);
   }
 }

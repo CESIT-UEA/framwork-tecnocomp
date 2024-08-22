@@ -1,6 +1,6 @@
 @font-face {
   font-family: minhaFonte;
-  src: url('../../../assets/Arial Rounded MT Bold Regular.ttf');
+  src: url('../../../assets/fonteProjeto.ttf');
 }
 
 section {
@@ -22,11 +22,13 @@ a svg {
   color: #FAF8E6;
 }
 
+
+/* estilo aplicado quando clicamos no menu de progresso na página geral da unidade */
 .sidebar.open {
   display: block;
   position: fixed;
-  transform: translate(-72%, 0);
-}
+  transform: translate(-70%, 13%);
+} 
 
 .titulo-topico {
   padding: 1rem;
@@ -68,19 +70,24 @@ a svg {
 }
 
 .img {
-  display: flex;
+  display: grid;
+  grid-template-columns: 90% 10%;
   align-items: center;
   height: 65px;
   justify-content: space-between;
 }
 
 .img img {
+  padding-left: 20px;
   max-height: 80px;
   height: 40px;
 }
 
 .menu-teste {
   width: 100px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
 }
 
 @media (max-width: 425px) {

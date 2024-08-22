@@ -41,7 +41,14 @@ import { VideoSectionComponent } from './components/home/video-section/video-sec
 import { SafeUrlPipePipe } from './components/safe-url-pipe.pipe';
 import { BotoesSectionComponent } from './components/home/botoes-section/botoes-section.component';
 import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tecnica.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ForumComponent } from './components/forum/forum.component';
+import { TopicoForumComponent } from './components/forum/topico-forum/topico-forum.component';
+import { ComentariosComponent } from './components/forum/topico-forum/comentarios/comentarios.component';
+import { ErrorComponent } from './components/error/error.component';
+import {ReactiveFormsModule } from '@angular/forms';
+import { ModuloComponent } from './personalizavel/modulo/modulo.component';
+import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +79,12 @@ import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tec
     SafeUrlPipePipe,
     BotoesSectionComponent,
     FichaTecnicaComponent,
+    ForumComponent,
+    TopicoForumComponent,
+    ComentariosComponent,
+    ErrorComponent,
+    ModuloComponent,
+    TopicoComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +100,9 @@ import { FichaTecnicaComponent } from './components/home/ficha-tecnica/ficha-tec
     MatProgressSpinnerModule,
     MatSidenavModule,
     MatProgressBarModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@
   <div class="img">
     <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
     <div class="menu-teste">
+      <!-- Menu da página inicial que quando clicado vai para a ficha técnica -->
       <p
         (click)="clickHeader()"
         *ngIf="appService.controllerSwitchHome == 0"
@@ -9,6 +10,7 @@
       >
         Ficha Técnica
       </p>
+      <!-- Menu da página ficha técnica que quando clicado volta para a página inicial HOME -->
       <span
         *ngIf="appService.controllerSwitchHome == 1"
         (click)="clickHeader()"
@@ -37,6 +39,7 @@
         </svg>
       </span>
 
+      <!-- Menu que quando clicado exibe a barra de progresso e os tópicos na página inicial HOME -->
       <button
         *ngIf="appService.controllerSwitchHome == 0"
         id="button"
@@ -47,11 +50,9 @@
         <mat-icon id="icon">{{ menuHeader }}</mat-icon>
       </button>
       <aside class="sidebar" [ngClass]="{ open: isOpen }">
-        <h2 class="titulo-topico center">Tópicos</h2>
-        <app-list-menu
-          [unidades]="unidades"
-          [unidadesLinks]="unidadesLinks"
-        ></app-list-menu>
+        <!-- chamada do componente da barra de progresso na página inicial HOME -->
+        <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
+
       </aside>
     </div>
   </div>
@@ -60,9 +61,9 @@
 <section>
   <div class="position" *ngIf="appService.controllerSwitchHome == 0">
     <div class="text">
+      <!-- Título da página inicial HOME -->
       <p>
-        APRENDIZAGEM E <br />
-        INFORMÁTICA: <span class="text-unidade">Abordagem Pedagógica</span>
+         <span class="text-unidade">{{nome}}</span>
       </p>
     </div>
   </div>

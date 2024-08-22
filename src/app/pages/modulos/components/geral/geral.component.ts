@@ -1,14 +1,15 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 import { Router } from '@angular/router';
+import { ServiceAppService } from 'src/app/service-app.service';
 
 @Component({
   selector: 'app-geral',
   templateUrl: './geral.component.html',
   styleUrls: ['./geral.component.css']
 })
-export class GeralComponent {
-  constructor(public aprendizagemInformatica:AprendizagemEInformaticaService, private router:Router){
+export class GeralComponent implements OnInit{
+  constructor(public aprendizagemInformatica:AprendizagemEInformaticaService, private router:Router, public ltiService:ServiceAppService){
   }
   @Input() nome!:string
   @Input() videos!: string[];
@@ -16,15 +17,16 @@ export class GeralComponent {
   @Output() linksClick = new EventEmitter<void>();
   @Output() textoApoioClick = new EventEmitter<void>();
   @Output() atividadeClick = new EventEmitter<void>();
-  @Input() link!:number;
+
+  @Input() link:number = 0;
+  @Input() linkEbookTopico!:string;
   @Input() voltar!:string;
   @Input() proximo!:string;
+  @Input() liberado:boolean = false
 
-  isValid(){
-    if(this.link == 0){
-      return true
-    }else{
-      return false
+  ngOnInit(): void {
+    if(this.ltiService.controlAtividade >= this.videos.length){
+      this.ltiService.controlAtividade = 1
     }
   }
   navigation(){
@@ -34,5 +36,8 @@ export class GeralComponent {
   navigationVoltar(){
     this.router.navigate([this.voltar]);
   }
-
+  clicarVideos(){
+    console.log(this.videos.length)
+    alert("Assista todos os videos para poder fazer a atividade")
+  }
 }

@@ -1,11 +1,14 @@
+<!-- chamada do componente do cabeçalho da unidade geral -->
 <app-header-unidade></app-header-unidade>
 <div class="container-main-conteudo">
   <div class="div-slide">
     <ul>
-      <li>{{nome}}</li>
+      <!-- Nome do tópico da unidade -->
+      <li>{{ nome }}</li>
     </ul>
     <hr />
     <div class="container-video">
+      <!-- chamada do componente slide-unidade para exibir o video do tópico -->
       <app-slide-unidade
         [videos]="videos"
         style="text-align: center"
@@ -16,6 +19,7 @@
   <div class="botoes">
     <section class="section-texto center-2">
       <!-- Todo: Fazer o NG template dos-->
+      <!-- Botão que quando clicado vai para o componente saiba-mais -->
       <button
         class="segundo segundo-botao center-2"
         (click)="referenciasClick.emit()"
@@ -28,6 +32,7 @@
         />
         Saiba mais
       </button>
+      <!-- Botão que quando clicado vai para o componente referências -->
       <button
         class="terceiro terceiro-botao center-2"
         (click)="linksClick.emit()"
@@ -40,6 +45,7 @@
         />
         Referencias Bibliográficas
       </button>
+      <!-- Botão que quando clicado vai para o componente texto de apoio -->
       <button
         class="primeiro segundo-botao center-2"
         (click)="textoApoioClick.emit()"
@@ -56,8 +62,35 @@
 
     <div class="position">
       <section class="buttons-final">
+        <!-- Botão que quando clicado vai para o componente de atividade -->
+        <button *ngIf="this.ltiService.controlAtividade >= this.videos.length"
+          class="atividade-botao center-2"
+          (click)="atividadeClick.emit()"
+        >
+          <img
+            src="assets/icons/atividade.svg"
+            alt="Icone para ir para a atividade da unidade"
+            width="22px"
+            height="24px"
+          />
+          ATIVIDADE
+        </button>
+        <button *ngIf="this.ltiService.controlAtividade < this.videos.length"
+          class="atividade-botao center-2"
+          (click)="clicarVideos()"
+        >
+          <img
+            src="assets/icons/atividade.svg"
+            alt="Icone para ir para a atividade da unidade"
+            width="22px"
+            height="24px"
+          />
+          ATIVIDADE
+        </button>
+
+        <!-- Botão para download do e-book do tópico -->
         <button class="ebook-botao center-2">
-          <a href="assets/E-book Teste.PDF" download="E-book Teste.PDF"
+          <a [href]="linkEbookTopico" download="E-book Teste.PDF"
             >E-BOOK TÓPICO</a
           >
           <img
@@ -67,58 +100,7 @@
             height="24px"
           />
         </button>
-
-        <button class="atividade-botao center-2" (click)="atividadeClick.emit()">
-          <img
-            src="assets/icons/atividade.svg"
-            alt="Icone para ir para a atividade da unidade"
-            width="22px"
-            height="24px"
-          />
-          ATIVIDADE
-        </button>
       </section>
     </div>
   </div>
 </div>
-
-<hr class="hr-final" />
-
-<div class="container-main-conteudo-link" *ngIf="isValid() == true; else links">
-  <a
-  [routerLink]="['../',this.proximo]"
-    class="link-proximo"
-    (click)="this.aprendizagemInformatica.updateProgress()"
-    >PROXÍMO
-    <img
-      src="assets/icons/next.svg"
-      alt="Icone para ir para a próxima unidade"
-      width="22px"
-      height="24px"
-    />
-  </a>
-</div>
-
-<ng-template class="container-main-conteudo-links" #links>
-  <div class="container-main-conteudo-links-voltar">
-    <a [routerLink]="['../',this.voltar]"  class="link-voltar">
-      <img
-        src="assets/icons/previous.svg"
-        alt="Icone para ir para a unidade anterior"
-        width="22px"
-        height="24px"
-      />
-      ANTERIOR
-    </a>
-  </div>
-  <a [routerLink]="['../',this.proximo]" (click)="aprendizagemInformatica.updateProgress()" class="link-proximo"
-    >PROXÍMO
-    <img
-      src="assets/icons/next.svg"
-      alt="Icone para ir para a próxima unidade"
-      width="22px"
-      height="24px"
-    />
-  </a>
-</ng-template>
-

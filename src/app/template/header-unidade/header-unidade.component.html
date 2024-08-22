@@ -1,8 +1,9 @@
 <section>
   <div class="img">
-    <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
+    <img  style="cursor: pointer;" routerLink="../" src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
     <div class="menu-teste">
-      <a routerLink="/home">
+      <!-- ícone de casa que quando clicado volta a página inicial HOME -->
+      <a style="cursor: pointer;" routerLink="../">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="31"
@@ -30,10 +31,9 @@
         menuHeader
       }}</mat-icon>
       <aside class="sidebar" [ngClass]="{ open: isOpen }">
-        <h2 class="titulo-topico center">TÓPICOS</h2>
-<!--         <app-list-menu [unidades]="listaDeUnidades" [unidadesLinks]="listaDeUnidadesLinks"></app-list-menu> -->
-        <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
+      <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
       </aside>
+      <input type="checkbox" name="" id="" >
     </div>
   </div>
 </section>

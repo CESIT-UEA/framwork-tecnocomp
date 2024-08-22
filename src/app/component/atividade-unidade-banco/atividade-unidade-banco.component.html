@@ -11,7 +11,7 @@
     "
   >
     <div (click)="selecionarResposta(i);enviarResposta();alternativa.explicacaoVisivel = !alternativa.explicacaoVisivel;" class="container-resposta-conteudo">
-      <img class="container-resposta-conteudo-imagem-alternativa" [src]="getImagem(i)" alt="Letra {{ [i] }}"
+      <img class="container-resposta-conteudo-imagem-alternativa" [src]="getImagemResposta(i)" alt="Letra {{ [i] }}"
        />
       <p>
         {{ alternativa.descricao }}

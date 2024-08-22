@@ -1,19 +1,23 @@
 <div class="container-geral" [ngSwitch]="controllerSwitch">
-
   <div *ngSwitchCase="'1'">
-    <app-atividade titulo_pergunta="Construtivismo" [questoes]="questoes" (atividadeClick)="atividadeClick()"></app-atividade>
+
   </div>
 
   <div *ngSwitchCase="'2'">
-    <app-saiba-mais [links]="arrayLinks" (linksClick)="referenciasClick()"></app-saiba-mais>
+    <app-saiba-mais
+      [links]="arrayLinks"
+      (linksClick)="referenciasClick()"
+    ></app-saiba-mais>
   </div>
 
   <div *ngSwitchCase="'3'">
-    <app-referencias [referencias]="arrayReferencias" (referenciasClick)="referenciasClick()"></app-referencias>
+    <app-referencias
+      [referencias]="arrayReferencias"
+      (referenciasClick)="referenciasClick()"
+    ></app-referencias>
   </div>
 
   <div *ngSwitchCase="'4'">
-    <app-slide nomeTopico="Construtivismo" [slide]="slide"></app-slide>
     <div class="center">
       <div class="voltarUnidade" (click)="textoApoioClick()">
         <img
@@ -29,15 +33,17 @@
 
   <div class="container" *ngSwitchDefault>
     <app-geral
-    [nome]="nome"
-    [link]="teste"
-    [videos]="arrayVideos"
-    (referenciasClick)="referenciasClick()"
-    (linksClick)="linksClick()"
-    (textoApoioClick)="textoApoioClick()"
-    (atividadeClick)="atividadeClick()"
-    proximo="socioconstrutivismo"
-    voltar="behaviorismo"
+      [nome]="nome"
+      [link]="teste"
+      [videos]="arrayVideos"
+      (referenciasClick)="referenciasClick()"
+      (linksClick)="linksClick()"
+      (textoApoioClick)="textoApoioClick()"
+      (atividadeClick)="atividadeClick()"
+      proximo="socioconstrutivismo"
+      voltar="behaviorismo"
+      [liberado]="this.ltiService.bloqueio[1].encerrado"
     >
-  </app-geral>
+    </app-geral>
+  </div>
 </div>

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: minhaFonte;
+  src: url('../../../../assets/fonteProjeto.ttf');
+}
 .button-section {
   display: grid;
   align-items: center;
@@ -7,25 +11,15 @@
 .button-section::before {
   z-index: 8;
   content: '';
-  background: url('../../../../assets/mundo.png') no-repeat;
+  background: url('../../../../assets/imagem-acima-botoes.png') no-repeat;
   background-size: contain;
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 200px;
   margin: 0 auto;
   position: relative;
   top: -40px;
-  animation: rotateAnimation 7s linear infinite;
 }
 
-@keyframes rotateAnimation {
-  0% {
-    transform: scale(2.5) rotate(0deg);
-  }
-
-  100% {
-    transform: scale(2.5) rotate(360deg);
-  }
-}
 
 .button-section .button-group {
   text-align: center;
@@ -41,10 +35,15 @@
 }
 
 .button-section .button-group .download-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 8px;
   border-radius: 6.95px;
   background: none;
+  margin: 0 auto;
   color: #FFF;
-  font-family: customFont;
+  font-family: minhaFonte;
   border: 1.738px solid #FFF;
   font-size: 0.8rem;
   font-style: normal;
@@ -78,4 +77,12 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+@media (max-width: 899px) {
+  .button-section::before{
+    display: none;
+  }
+  .button-section{
+    margin-top: 20px;
+  }
 }
