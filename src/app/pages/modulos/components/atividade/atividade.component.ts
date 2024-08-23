@@ -1,4 +1,13 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Questao } from './questao';
 import { HttpClient } from '@angular/common/http';
 import { ServiceAppService } from 'src/app/service-app.service';
@@ -27,7 +36,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
   tokenStorage: any;
   tokenData: any;
   questao: any | null = null;
-  quantidadeTopicos:any = []
+  quantidadeTopicos: any = [];
   constructor(
     private http: HttpClient,
     public ltiService: ServiceAppService,
@@ -37,16 +46,18 @@ export class AtividadeComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.teste = localStorage.getItem('dados_completos_do_modulo');
-    console.log("Bloqueio ta aqui")
-    console.log(this.teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado)
+    console.log('Bloqueio ta aqui');
+    console.log(
+      this.teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado
+    );
     if (this.teste) {
       this.teste = JSON.parse(this.teste);
-      this.quantidadeTopicos = this.teste.topicos
-      this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length
-      this.tokenStorage = this.teste.user.ltik
+      this.quantidadeTopicos = this.teste.topicos;
+      this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length;
+      this.tokenStorage = this.teste.user.ltik;
     }
     if (this.idTopico === this.quantidadeTopicos.length - 1) {
-      this.gradeIn = false
+      this.gradeIn = false;
     }
     this.atualizarQuestao();
   }
@@ -60,8 +71,12 @@ export class AtividadeComponent implements OnInit, OnChanges {
   atualizarQuestao() {
     this.questao = this.teste?.topicos?.[this.idTopico]?.Exercicios?.[0];
     if (this.questao && Array.isArray(this.questao.Alternativas)) {
-      this.questao.Alternativas = this.embaralharAlternativas(this.questao.Alternativas);
-      const respostaCorreta = this.questao.Alternativas.find((a: any) => a.correta);
+      this.questao.Alternativas = this.embaralharAlternativas(
+        this.questao.Alternativas
+      );
+      const respostaCorreta = this.questao.Alternativas.find(
+        (a: any) => a.correta
+      );
       if (respostaCorreta) {
         this.questao.respostaCorreta = respostaCorreta.descricao;
       }
@@ -70,10 +85,12 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   responder(resposta: string) {
-
-    if (this.bloqueio[this.idTopico]?.encerrado == true || this.respostaCorretaEnviada){
-      return
-    }else if (this.questao && this.questao.respostaCorreta === resposta) {
+    if (
+      this.bloqueio[this.idTopico]?.encerrado == true ||
+      this.respostaCorretaEnviada
+    ) {
+      return;
+    } else if (this.questao && this.questao.respostaCorreta === resposta) {
       this.tratarRespostaCorreta(resposta);
     } else {
       alert('Resposta errada, clique em refazer para tentar novamente');
@@ -87,8 +104,12 @@ export class AtividadeComponent implements OnInit, OnChanges {
 
   refazer() {
     if (this.questao && Array.isArray(this.questao.Alternativas)) {
-      this.questao.Alternativas = this.embaralharAlternativas(this.questao.Alternativas);
-      const respostaCorreta = this.questao.Alternativas.find((a: any) => a.correta);
+      this.questao.Alternativas = this.embaralharAlternativas(
+        this.questao.Alternativas
+      );
+      const respostaCorreta = this.questao.Alternativas.find(
+        (a: any) => a.correta
+      );
       if (respostaCorreta) {
         this.questao.respostaCorreta = respostaCorreta.descricao;
       }
@@ -98,7 +119,9 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   getExplicacao(resposta: string) {
-    const alternativa = this.questao?.Alternativas.find((a: any) => a.descricao === resposta);
+    const alternativa = this.questao?.Alternativas.find(
+      (a: any) => a.descricao === resposta
+    );
     return alternativa?.explicacao;
   }
 
@@ -106,7 +129,10 @@ export class AtividadeComponent implements OnInit, OnChanges {
     let alternativasEmbaralhadas = [...alternativas];
     for (let i = alternativasEmbaralhadas.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [alternativasEmbaralhadas[i], alternativasEmbaralhadas[j]] = [alternativasEmbaralhadas[j], alternativasEmbaralhadas[i]];
+      [alternativasEmbaralhadas[i], alternativasEmbaralhadas[j]] = [
+        alternativasEmbaralhadas[j],
+        alternativasEmbaralhadas[i],
+      ];
     }
     return alternativasEmbaralhadas;
   }
@@ -114,13 +140,16 @@ export class AtividadeComponent implements OnInit, OnChanges {
   private tratarRespostaCorreta(resposta: string) {
     this.respostaCorretaEnviada = true;
     this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
-    console.log(this.nota)
-    console.log(this.ltiService.notaTotal)
-    console.log(this.nota + this.ltiService.notaTotal)
-    this.ltiService.notaTotal = this.ltiService.notaTotal == 0 ? this.nota : this.ltiService.notaTotal + this.nota;
+    console.log(this.nota);
+    console.log(this.ltiService.notaTotal);
+    console.log(this.nota + this.ltiService.notaTotal);
+    this.ltiService.notaTotal =
+      this.ltiService.notaTotal == 0
+        ? this.nota
+        : this.ltiService.notaTotal + this.nota;
 
     if (this.ltiService.notaTotal > 100) {
-      this.ltiService.notaTotal = 100
+      this.ltiService.notaTotal = 100;
     }
 
     this.enviarNota();
@@ -132,33 +161,36 @@ export class AtividadeComponent implements OnInit, OnChanges {
 
   private liberarProximoTopico() {
     this.ltiService.liberar(this.teste?.topicos?.[this.idTopico].id).subscribe(
-      response => console.log('Proximo tópico liberado com sucesso', response),
-      error => console.error('Erro ao enviar a liberação', error)
+      (response) =>
+        console.log('Proximo tópico liberado com sucesso', response),
+      (error) => console.error('Erro ao enviar a liberação', error)
     );
   }
 
   private obterInformacoesUsuario() {
-    this.http.get(`${this.ltiService.apiUrl}/userInfo?ltik=${this.tokenStorage}`).subscribe(
-      data => {
-        this.tokenData = data;
-        this.ltiService.bloqueio = this.tokenData.userTopico;
-        this.ltiService.informacoes = this.tokenData;
-        localStorage.setItem(
-          'bloqueio',
-          JSON.stringify(this.tokenData.userTopico)
-        );
-        //!Importante
-        localStorage.setItem(
-          'dados_completos_do_modulo',
-          JSON.stringify(this.tokenData)
-        );
-      },
-      error => console.error('Error:', error)
-    );
+    this.http
+      .get(`${this.ltiService.apiUrl}/userInfo?ltik=${this.tokenStorage}`)
+      .subscribe(
+        (data) => {
+          this.tokenData = data;
+          this.ltiService.bloqueio = this.tokenData.userTopico;
+          this.ltiService.informacoes = this.tokenData;
+          localStorage.setItem(
+            'bloqueio',
+            JSON.stringify(this.tokenData.userTopico)
+          );
+          //!Importante
+          localStorage.setItem(
+            'dados_completos_do_modulo',
+            JSON.stringify(this.tokenData)
+          );
+        },
+        (error) => console.error('Error:', error)
+      );
   }
 
-  private enviarNota() {
-/*     const enviarNota = this.gradeIn ? this.ltiService.sendGradeIn : this.ltiService.sendGrade;
+  public enviarNota() : void {
+    /*     const enviarNota = this.gradeIn ? this.ltiService.sendGradeIn : this.ltiService.sendGrade;
     enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
       response => {
         console.log('Nota enviada com sucesso!', response);
@@ -169,8 +201,13 @@ export class AtividadeComponent implements OnInit, OnChanges {
         console.error('Erro ao enviar nota', error);
       }
     ); */
-  this.ltiService.sendGradeIn(50).subscribe({
-     next: value => console.log('Resposta: ' + value),
-    error: err => console.error('Erro:' + err),})
+    this.ltiService.sendGradeIn(50).subscribe({
+      next: (value) => console.log('Resposta: ' + value),
+      error: (err) => {
+        console.log(err)
+        console.log(err.message)
+        console.error('Erro:' + err)
+      }
+    });
   }
 }

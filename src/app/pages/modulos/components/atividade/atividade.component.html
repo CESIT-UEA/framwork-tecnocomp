@@ -12,6 +12,7 @@
 <div class="container-atividade" *ngIf="teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado">
   <div *ngIf="questao">
     <h3>{{ questao.questao }}</h3>
+    <button (click)="enviarNota()" style="color: white;">Enviar Nota</button>
     <div *ngFor="let alternativa of questao.Alternativas; let i = index">
       <div
         class="alternativas"
