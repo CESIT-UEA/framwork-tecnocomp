@@ -206,7 +206,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
       error: (err) => {
         console.log(err)
         console.log(err.message)
-        console.error('Erro:' + err)
+        console.error('Erro Aqui:' + err)
       }
     });
   }
