@@ -111,7 +111,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
     return alternativasEmbaralhadas;
   }
 
-  private async tratarRespostaCorreta(resposta: string) {
+  private tratarRespostaCorreta(resposta: string) {
     this.respostaCorretaEnviada = true;
     this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
     console.log(this.nota)
@@ -123,9 +123,9 @@ export class AtividadeComponent implements OnInit, OnChanges {
       this.ltiService.notaTotal = 100
     }
 
-    await this.enviarNota();
+    this.enviarNota();
     //this.liberarProximoTopico();
-    this.obterInformacoesUsuario();
+    //this.obterInformacoesUsuario();
     this.resposta = resposta;
     this.respostaEnviada = true;
   }
