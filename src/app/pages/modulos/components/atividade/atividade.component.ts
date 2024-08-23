@@ -120,7 +120,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
     this.ltiService.notaTotal = this.ltiService.notaTotal == 0 ? this.nota : this.ltiService.notaTotal + this.nota;
 
     this.enviarNota();
-    this.liberarProximoTopico();
+    //this.liberarProximoTopico();
     this.obterInformacoesUsuario();
     this.resposta = resposta;
     this.respostaEnviada = true;
