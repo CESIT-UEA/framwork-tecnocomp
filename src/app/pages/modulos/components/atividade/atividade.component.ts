@@ -158,7 +158,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   private enviarNota() {
-    const enviarNota = this.gradeIn ? this.ltiService.sendGradeIn : this.ltiService.sendGrade;
+/*     const enviarNota = this.gradeIn ? this.ltiService.sendGradeIn : this.ltiService.sendGrade;
     enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
       response => {
         console.log('Nota enviada com sucesso!', response);
@@ -168,6 +168,9 @@ export class AtividadeComponent implements OnInit, OnChanges {
         alert('Erro ao enviar a nota!');
         console.error('Erro ao enviar nota', error);
       }
-    );
+    ); */
+  this.ltiService.sendGradeIn(50).subscribe({
+     next: value => console.log('Resposta: ' + value),
+    error: err => console.error('Erro:' + err),})
   }
 }
