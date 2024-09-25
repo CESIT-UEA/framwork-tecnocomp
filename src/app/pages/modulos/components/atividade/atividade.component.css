@@ -58,10 +58,9 @@ button{
 }
 
 .resposta-errada {
-  color: rgb(34, 219, 157);
   border: 2px solid red;
 }
 
-.resposta-correta{
+.respostaCorreta{
   border: 2px solid rgb(34, 219, 157);
 }

@@ -8,21 +8,21 @@
     height="30px"
   />
 </div>
-
-<div class="container-atividade" *ngIf="teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado">
+<div class="container-atividade" *ngIf="this?.teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade">
   <div *ngIf="questao">
     <h3>{{ questao.questao }}</h3>
-    <button (click)="enviarNota()" style="color: white;">Enviar Nota</button>
+
     <div *ngFor="let alternativa of questao.Alternativas; let i = index">
       <div
         class="alternativas"
-        [ngClass]="{'resposta-errada': resposta === alternativa.descricao && questao['respostaCorreta'] != resposta}"
+        [ngClass]="{'resposta-errada': resposta === alternativa.descricao && questao['respostaCorreta'] != resposta,
+          'respostaCorreta': resposta === alternativa.descricao && questao['respostaCorreta'] == resposta}"
         (click)="!respostaEnviada && responder(alternativa.descricao)"
       >
         <img [src]="caminhoImagem + i + '.png'" alt="Alternativa da questão" />
         <div class="container-alternativa">
           {{ alternativa.descricao }}
-          <div class="respostaCerta" *ngIf="resposta === alternativa.descricao">
+          <div *ngIf="resposta === alternativa.descricao">
             Explicação: {{ resposta ? getExplicacao(resposta) : '' }}
           </div>
         </div>
@@ -32,7 +32,7 @@
   <button (click)="refazer()">Refazer</button>
 </div>
 
-<!-- <ng-template #elseAtividade>
+<ng-template #elseAtividade>
   <div class="container-atividade" >
     <div *ngIf="questao">
       <h3>{{ questao.questao }}</h3>
@@ -40,13 +40,13 @@
         <div
           class="alternativas"
           [ngClass]="{'resposta-errada': resposta === alternativa.descricao && questao['respostaCorreta'] != resposta,
-          'resposta-correta': resposta === alternativa.descricao && questao['respostaCorreta'] == resposta}"
+          'respostaCorreta': resposta === alternativa.descricao && questao['respostaCorreta'] == resposta}"
           (click)="responderAlternativo(alternativa.descricao)"
         >
           <img [src]="caminhoImagem + i + '.png'" alt="Alternativa da questão" />
           <div class="container-alternativa">
             {{ alternativa.descricao }}
-            <div class="respostaCerta" *ngIf="resposta === alternativa.descricao">
+            <div class="respostaCorreta" *ngIf="resposta === alternativa.descricao">
               Explicação: {{ resposta ? getExplicacao(resposta) : '' }}
             </div>
           </div>
@@ -54,5 +54,5 @@
       </div>
     </div>
   </div>
-</ng-template> -->
+</ng-template>
 

@@ -47,11 +47,11 @@ export class AtividadeComponent implements OnInit, OnChanges {
   ngOnInit() {
     this.teste = localStorage.getItem('dados_completos_do_modulo');
     console.log('Bloqueio ta aqui');
-    console.log(
-      this.teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado
-    );
     if (this.teste) {
       this.teste = JSON.parse(this.teste);
+      console.log(
+        this.teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado
+      );
       this.quantidadeTopicos = this.teste.topicos;
       this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length;
       this.tokenStorage = this.teste.user.ltik;
@@ -153,8 +153,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
     }
 
     this.enviarNota();
-    //this.liberarProximoTopico();
-    //this.obterInformacoesUsuario();
+    this.liberarProximoTopico();
+    this.obterInformacoesUsuario();
     this.resposta = resposta;
     this.respostaEnviada = true;
   }
@@ -189,25 +189,19 @@ export class AtividadeComponent implements OnInit, OnChanges {
       );
   }
 
-  public enviarNota() : void {
-    /*     const enviarNota = this.gradeIn ? this.ltiService.sendGradeIn : this.ltiService.sendGrade;
+  public enviarNota(): void {
+    const enviarNota = this.gradeIn
+      ? this.ltiService.sendGradeIn
+      : this.ltiService.sendGrade;
     enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
-      response => {
+      (response) => {
         console.log('Nota enviada com sucesso!', response);
         alert('Nota enviada!');
       },
-      error => {
+      (error) => {
         alert('Erro ao enviar a nota!');
         console.error('Erro ao enviar nota', error);
       }
-    ); */
-    this.ltiService.sendGradeIn(50).subscribe({
-      next: (value) => console.log('Resposta: ' + value),
-      error: (err) => {
-        console.log(err)
-        console.log(err.message)
-        console.error('Erro Aqui:' + err)
-      }
-    });
+    );
   }
 }

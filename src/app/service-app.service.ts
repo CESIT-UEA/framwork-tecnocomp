@@ -106,7 +106,7 @@ export class ServiceAppService {
       Authorization: 'Bearer ' + this.tokenStorage,
     });
 
-    return this.http.post(this.apiUrl + '/gradeIn?lik='+this.tokenStorage, grade, {
+    return this.http.post(this.apiUrl + '/gradeIn', grade, {
       headers: headers,
     });
   }

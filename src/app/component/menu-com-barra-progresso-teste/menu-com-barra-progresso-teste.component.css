@@ -100,6 +100,9 @@ input {
   line-height: 150%;
   /* 30px */
 }
+.topico-container label{
+  font-size: 16px;
+}
 .moodle{
   display: flex;
   justify-content: center;

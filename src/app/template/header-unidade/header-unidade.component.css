@@ -28,7 +28,7 @@ a svg {
   display: block;
   position: fixed;
   transform: translate(-70%, 13%);
-} 
+}
 
 .titulo-topico {
   padding: 1rem;
@@ -89,7 +89,15 @@ a svg {
   grid-template-columns: auto auto;
   justify-content: space-between;
 }
-
+.user{
+  display: inline-block;
+  color: black;
+  font-weight: bold;
+  padding: 5px;
+  background-color: #E0D1F5;
+  border: 1px solid #9665DF;
+  border-radius: 50%;
+}
 @media (max-width: 425px) {
   .text {
     margin-left: 0;

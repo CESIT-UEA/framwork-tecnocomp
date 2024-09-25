@@ -19,7 +19,6 @@ section.content-container-ficha-tecnica {
 }
 
 .content-container-section {
-  margin-top: 40px;
   display: grid;
   justify-content: center;
   grid-template-columns: 60% 40%;
