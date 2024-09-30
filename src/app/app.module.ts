@@ -49,6 +49,7 @@ import { ErrorComponent } from './components/error/error.component';
 import {ReactiveFormsModule } from '@angular/forms';
 import { ModuloComponent } from './personalizavel/modulo/modulo.component';
 import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
+
 @NgModule({
   declarations: [
     AppComponent,

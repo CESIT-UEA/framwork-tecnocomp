@@ -1,32 +1,36 @@
 <h2 class="titulo-topico center">Tópicos</h2>
+<div class="progresso center">
+  <p class="texto-progresso">Progresso</p>
+  <mat-progress-bar
+    class="barra-progresso"
+    mode="determinate"
+    color="warn"
+    [value]="this?.teste?.userModulo?.nota"
+  ></mat-progress-bar>
+  <p>{{ this?.teste?.userModulo?.nota }}%</p>
+</div>
 <div class="container-topicos">
-  <div class="progresso center">
-    <p class="texto-progresso">Progresso</p>
-    <mat-progress-bar
-      class="barra-progresso"
-      mode="determinate"
-      color="warn"
-      [value]="this?.teste?.userModulo?.nota"
-    ></mat-progress-bar>
-    <p>{{ this?.teste?.userModulo?.nota }}%</p>
-
-  </div>
   <div class="container-topico">
-    <div class="topico-container" *ngFor="let topico of teste?.topicos; index as i">
+    <div
+      class="topico-container"
+      *ngFor="let topico of teste?.topicos; index as i"
+    >
       <input
         type="checkbox"
         disabled="true"
         [checked]="verificarConcluido(i)"
       />
-      <label>{{ i + 1 }}. {{ topico.nome_topico}}</label>
+      <label>{{ i + 1 }}. {{ topico.nome_topico }}</label>
     </div>
+  </div>
+  <div class="outros-links">
     <div class="moodle">
       <img
-      src="../../../assets/icons/voltarMoodle.svg"
-      alt="Icone para download do ebook"
-      width="22px"
-      height="24px"
-    />
+        src="../../../assets/icons/voltarMoodle.svg"
+        alt="Icone para download do ebook"
+        width="22px"
+        height="24px"
+      />
       <a href="https://licomp.com.br/ava/">Voltar ao Moodle</a>
     </div>
   </div>

@@ -1,3 +1,6 @@
+.container{
+ background-color: #131313;
+}
 .cabecalho-slide {
   display: grid;
   grid-template-columns: 95% 5%;

@@ -2,32 +2,19 @@
   font-family: minhaFonte;
   src: url('../../../assets/fonteProjeto.ttf');
 }
-
-section {
-  background-color: black;
+mat-sidenav {
+  height: 90%;
+  background-color: #131313;
 }
-
 a svg {
   position: relative;
   right: 4%;
 }
 
 .sidebar {
-  transition: transform 20s ease-in-out;
-  transform: translateX(100%);
-  width: 350px;
   background-color: black;
   border-radius: 10px;
-  display: none;
   color: #FAF8E6;
-}
-
-
-/* estilo aplicado quando clicamos no menu de progresso na página geral da unidade */
-.sidebar.open {
-  display: block;
-  position: fixed;
-  transform: translate(-70%, 13%);
 }
 
 .titulo-topico {
@@ -75,6 +62,7 @@ a svg {
   align-items: center;
   height: 65px;
   justify-content: space-between;
+  background-color: black;
 }
 
 .img img {

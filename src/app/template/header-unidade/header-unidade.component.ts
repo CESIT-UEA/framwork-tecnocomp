@@ -21,7 +21,7 @@ export class HeaderUnidadeComponent implements OnInit{
   /**
    * Variavel o qual guarda se o menu esta aberto ou não, por padrão ele já começa fechado (false)
    */
-  isOpen = false;
+  isOpen:boolean = false;
 
   ngOnInit(): void {
     this.tokenData = localStorage.getItem('dados_completos_do_modulo');
@@ -43,24 +43,7 @@ export class HeaderUnidadeComponent implements OnInit{
    * Controla a alternância da barra de lateral
    */
   toggleSidebar() {
-    this.isOpen = !this.isOpen;
+    return this.isOpen = !this.isOpen;
   }
-
-  /**
-   * @method
-   * Metódo para a alternancia dos icons
-   */
-  menuClick() {
-    if (this.menuHeader == 'menu') {
-      this.menuHeader = 'close';
-    } else {
-      this.menuHeader = 'menu';
-    }
-  }
-
-  /**
-   * Por padrão, o icone já começa com o de menu
-   */
-  menuHeader = 'menu';
 
 }
