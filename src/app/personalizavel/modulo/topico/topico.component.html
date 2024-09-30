@@ -48,7 +48,7 @@
         *ngIf="teste?.topicos?.[controll_topico]?.nome_topico && teste?.topicos?.[controll_topico]?.SaibaMais && teste?.topicos?.[controll_topico]?.VideoUrls"
       >
         <app-geral
-          [nome]="teste?.topicos?.[controll_topico]?.nome_topico"
+          [nome]="this.nomeModulo"
           [videos]="teste?.topicos?.[controll_topico]?.VideoUrls"
           (referenciasClick)="referenciasClick()"
           (linksClick)="linksClick()"

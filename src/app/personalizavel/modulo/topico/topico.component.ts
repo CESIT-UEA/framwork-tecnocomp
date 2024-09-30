@@ -9,7 +9,7 @@ import { ModuloService } from '../../modulo.service';
   styleUrls: ['./topico.component.css'],
 })
 export class TopicoComponent implements OnInit {
-  nomeModulo!: string;
+  nomeModulo: string = '';
   nomeTopico!: string;
   controll_topico = 0;
   teste: any;
@@ -26,7 +26,7 @@ export class TopicoComponent implements OnInit {
     if (this.teste) {
       this.teste = JSON.parse(this.teste);
       console.log(this.teste);
-
+      this.nomeModulo = `${this.controll_topico + 1}. ${this.teste?.topicos?.[this.controll_topico]?.nome_topico}`
       const topicoId = this.route.snapshot.queryParamMap.get('topicoId');
       if (topicoId && this.teste.topicos) {
         this.controll_topico = this.teste.topicos.findIndex((topico: any) => topico.id == topicoId);

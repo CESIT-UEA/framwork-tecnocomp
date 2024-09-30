@@ -36,16 +36,7 @@ export class HomeComponent {
   tokenData: any;
 
   ngOnInit(): void {
-    this.tokenData = localStorage.getItem('dados_completos_do_modulo');
-    if (this.tokenData) {
-      this.tokenData = JSON.parse(this?.tokenData);
-      this.appService.notaTotal = this?.tokenData?.userModulo.nota;
-      console.log('Nota: ', this?.tokenData?.userModulo?.nota);
-      console.log('Token data: ', this?.tokenData);
-    }
-
     const ltik = this.route.snapshot.queryParamMap.get('ltik');
-
     if (ltik) {
       this.moduloService.getUserInfo(ltik).subscribe(
         (data) => {
@@ -88,6 +79,15 @@ export class HomeComponent {
           console.error('Error:', error);
         }
       );
+    }
+
+    this.tokenData = localStorage.getItem('dados_completos_do_modulo');
+
+    if (this.tokenData) {
+      this.tokenData = JSON.parse(this?.tokenData);
+      this.appService.notaTotal = this?.tokenData?.userModulo.nota;
+      console.log('Nota: ', this?.tokenData?.userModulo?.nota);
+      console.log('Token data: ', this?.tokenData);
     }
   }
 
