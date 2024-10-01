@@ -9,7 +9,6 @@
 }
 
 .button-section::before {
-  z-index: 8;
   content: '';
   background: url('../../../../assets/imagem-acima-botoes.png') no-repeat;
   background-size: contain;

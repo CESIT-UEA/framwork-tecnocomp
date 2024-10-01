@@ -1,25 +1,72 @@
 <div class="main-container">
-  <!-- chamada do componente de cabeçalho-->
-  <app-header [nome]="tokenData?.modulo?.nome_modulo"></app-header>
-  <div
-    [ngClass]="{'content-container-condition':this.appService.controllerSwitchHome == 1}"
-    [ngSwitch]="appService.controllerSwitchHome"
-  >
-    <section class="content-container-ficha-tecnica" *ngSwitchCase="'1'">
-      <!--
-        TO DO: Componente do referencial teorico, componentizar melhor ele após as alterações da designer
-      -->
-      <app-ficha-tecnica></app-ficha-tecnica>
-    </section>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" fixedInViewport="Fixed" position="end">
+      <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
+    </mat-sidenav>
 
-    <!-- Section padrão da página incial HOME com video e botões -->
-    <section class="content-container" *ngSwitchDefault>
-      <div class="content-container-section">
-        <!-- chamada do componente de video da página home -->
-        <app-video-section [videoUrl]="tokenData?.modulo?.video_inicial"></app-video-section>
-        <!-- chamada do componente botão na página home -->
-        <app-botoes-section nome_ebook="Ebook de Teste" caminho_ebook="assets/E-book Teste.PDF" urlInicio="topicos"></app-botoes-section>
+    <mat-sidenav-content>
+      <mat-toolbar class="header">
+        <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
+        <nav>
+          <div class="links">
+            <span
+              (click)="clickHeader()"
+              *ngIf="appService.controllerSwitchHome == 0"
+              class="btn-ficha"
+            >
+              Ficha Técnica
+            </span>
+          </div>
+          <div class="end-navbar">
+            <mat-icon
+              style="color: #fff"
+              (click)="clickHeader()"
+              *ngIf="appService.controllerSwitchHome == 1"
+              >home</mat-icon
+            >
+            <mat-icon
+              (click)="sidenav.open()"
+              id="icon"
+              *ngIf="appService.controllerSwitchHome == 0"
+              >menu</mat-icon
+            >
+          </div>
+        </nav>
+      </mat-toolbar>
+      <div
+        [ngClass]="{
+          'content-container-condition':
+            this.appService.controllerSwitchHome == 1
+        }"
+        [ngSwitch]="appService.controllerSwitchHome"
+      >
+        <section class="content-container-ficha-tecnica" *ngSwitchCase="'1'">
+          <app-ficha-tecnica></app-ficha-tecnica>
+        </section>
+
+        <!-- Section padrão da página incial HOME com video e botões -->
+        <section class="content-container" *ngSwitchDefault>
+          <div class="position">
+            <div class="text">
+              <p>
+                <span class="text-unidade">{{ nome }}</span>
+              </p>
+            </div>
+          </div>
+          <div class="content-container-section">
+            <!-- chamada do componente de video da página home -->
+            <app-video-section
+              [videoUrl]="tokenData?.modulo?.video_inicial"
+            ></app-video-section>
+            <!-- chamada do componente botão na página home -->
+            <app-botoes-section
+              nome_ebook="Ebook de Teste"
+              caminho_ebook="assets/E-book Teste.PDF"
+              urlInicio="topicos"
+            ></app-botoes-section>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

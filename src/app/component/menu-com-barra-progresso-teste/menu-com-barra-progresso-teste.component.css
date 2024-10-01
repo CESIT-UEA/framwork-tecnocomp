@@ -1,7 +1,6 @@
 .titulo-topico {
   color: black;
   background-color: #9665DF;
-  border-radius: 20px 0px 0px 0px;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -9,19 +8,15 @@
 }
 
 .progresso {
-  border-radius: 0px 0px 15px 15px;
   background: #212121;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 15px 15px;
   color: #CDCDCD;
 }
 
-input {
-  width: 16px;
-  height: 16px;
+input[type="checkbox"] {
   background-color: transparent;
   border: 1px solid white;
-  margin: 20px;
+  margin: 15px;
 }
 
 .barra-progresso {
@@ -37,27 +32,23 @@ input {
 .container-topico {
   height: 370px;
   overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #181818;
 }
 
 .topico-container {
   border-radius: 8px;
   border: 2px solid #FFF;
-  width: 291px;
+  width: 95%;
+  max-width: 290px;
   height: 61px;
-
   color: #FFF;
 
   margin: 15px auto;
-
+  padding: 16px 0;
   font-family: Arial;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 150%;
   display: flex;
   align-items: center;
 
@@ -94,9 +85,6 @@ input {
   line-height: 150%;
   margin-bottom: 0;
   /* 30px */
-}
-.topico-container label{
-  font-size: 16px;
 }
 .moodle{
   display: flex;

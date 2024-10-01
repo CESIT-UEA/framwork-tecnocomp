@@ -5,6 +5,7 @@
 mat-sidenav {
   height: 90%;
   background-color: #131313;
+  border-radius: 20px 0;
 }
 a svg {
   position: relative;

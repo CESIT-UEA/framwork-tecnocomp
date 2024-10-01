@@ -89,6 +89,14 @@ export class HomeComponent {
       console.log('Nota: ', this?.tokenData?.userModulo?.nota);
       console.log('Token data: ', this?.tokenData);
     }
+
+    this.nome = this.tokenData.modulo.nome_modulo;
+    let words = this.nome.split('-');
+    let capitalizedWords = words.map(
+      (word) => word.charAt(0).toUpperCase() + word.slice(1)
+    );
+    let result = capitalizedWords.join(' ');
+    this.nome = result;
   }
 
   /**
@@ -96,5 +104,13 @@ export class HomeComponent {
    */
   navigation() {
     this.router.navigate(['/teorias-da-aprendizagem']);
+  }
+
+  clickHeader() {
+    if (this.appService.controllerSwitchHome == 0) {
+      return (this.appService.controllerSwitchHome = 1);
+    } else {
+      return (this.appService.controllerSwitchHome = 0);
+    }
   }
 }

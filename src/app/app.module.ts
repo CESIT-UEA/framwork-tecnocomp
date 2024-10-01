@@ -49,6 +49,7 @@ import { ErrorComponent } from './components/error/error.component';
 import {ReactiveFormsModule } from '@angular/forms';
 import { ModuloComponent } from './personalizavel/modulo/modulo.component';
 import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -103,7 +104,8 @@ import { TopicoComponent } from './personalizavel/modulo/topico/topico.component
     MatProgressBarModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
