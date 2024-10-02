@@ -37,3 +37,6 @@ body {
     overflow-y: scroll;
 }
 } */
+.testando{
+  --mat-snack-bar-button-color: #C3A1F5;
+}

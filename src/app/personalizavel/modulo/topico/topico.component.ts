@@ -2,6 +2,8 @@ import { ServiceAppService } from 'src/app/service-app.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModuloService } from '../../modulo.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { config } from 'rxjs';
 
 @Component({
   selector: 'app-topico',
@@ -18,7 +20,8 @@ export class TopicoComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public moduloService: ModuloService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -37,11 +40,13 @@ export class TopicoComponent implements OnInit {
   }
 
   proximo(): void {
+    let config = new MatSnackBarConfig();
+    config.panelClass = 'testando'
     if (this.controll_topico < this.teste.topicos.length - 1) {
       if (this.teste.userTopico[this.controll_topico].encerrado == true) {
         this.controll_topico += 1;
       }else{
-        alert("Para liberar o próximo tópico, responda corretamente a atividade")
+        this._snackBar.open("Você precisa responder à atividade antes!","ok",config);
       }
     }
   }

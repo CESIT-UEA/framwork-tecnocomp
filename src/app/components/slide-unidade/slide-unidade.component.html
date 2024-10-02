@@ -8,22 +8,22 @@
     frameborder="0"
     allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"
     allowfullscreen
+    width="560" height="349"
   ></iframe>
-
-  <div class="navigation-button">
-    <ul>
-      <li
-        *ngFor="let video of videos; index as i"
-        [ngClass]="{
-          active: i === currentVideoIndex,
-          teste: i !== currentVideoIndex
-        }"
-        (click)="selectVideo(i)"
-      >
-        {{ i + 1 }}
-      </li>
-    </ul>
-  </div>
+</div>
+<div class="navigation-button">
+  <ul>
+    <li
+      *ngFor="let video of videos; index as i"
+      [ngClass]="{
+        active: i === currentVideoIndex,
+        teste: i !== currentVideoIndex
+      }"
+      (click)="selectVideo(i)"
+    >
+      {{ i + 1 }}
+    </li>
+  </ul>
 </div>
 <ng-template #loading>
   <div class="loading center-2">

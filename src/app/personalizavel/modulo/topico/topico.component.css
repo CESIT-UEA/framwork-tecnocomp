@@ -1,3 +1,7 @@
+:host{
+  background-color: #131313;
+  height: 100%;
+}
 .container{
  background-color: #131313;
 }
@@ -29,7 +33,7 @@
   font: normal 400 16px Arial;
   column-gap: 10px;
   padding-right: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 .container-main-conteudo-links-voltar {
   display: grid;
@@ -48,5 +52,42 @@
   line-height: normal;
   column-gap: 10px;
   padding-left: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+/* Header CSS e Sidenav */
+mat-sidenav {
+  height: 90%;
+  background-color: #131313;
+  border-radius: 20px 0;
+}
+
+.header nav{
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+.end-navbar{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+.mat-drawer-container{
+  background-color: transparent;
+  height: 100%;
+}
+.header {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  justify-content: space-between;
+}
+.header img {
+  max-height: 80px;
+  margin-left: 1rem;
+  height: 40px;
+}
+#icon {
+  color: #fff;
 }

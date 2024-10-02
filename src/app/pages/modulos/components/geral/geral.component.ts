@@ -6,38 +6,42 @@ import { ServiceAppService } from 'src/app/service-app.service';
 @Component({
   selector: 'app-geral',
   templateUrl: './geral.component.html',
-  styleUrls: ['./geral.component.css']
+  styleUrls: ['./geral.component.css'],
 })
-export class GeralComponent implements OnInit{
-  constructor(public aprendizagemInformatica:AprendizagemEInformaticaService, private router:Router, public ltiService:ServiceAppService){
-  }
-  @Input() nome!:string
+export class GeralComponent implements OnInit {
+  constructor(
+    public aprendizagemInformatica: AprendizagemEInformaticaService,
+    private router: Router,
+    public ltiService: ServiceAppService
+
+  ) {}
+  @Input() nome!: string;
   @Input() videos!: string[];
   @Output() referenciasClick = new EventEmitter<void>();
   @Output() linksClick = new EventEmitter<void>();
   @Output() textoApoioClick = new EventEmitter<void>();
   @Output() atividadeClick = new EventEmitter<void>();
 
-  @Input() link:number = 0;
-  @Input() linkEbookTopico!:string;
-  @Input() voltar!:string;
-  @Input() proximo!:string;
-  @Input() liberado:boolean = false
+  @Input() link: number = 0;
+  @Input() linkEbookTopico!: string;
+  @Input() voltar!: string;
+  @Input() proximo!: string;
+  @Input() liberado: boolean = false;
 
   ngOnInit(): void {
-    if(this.ltiService.controlAtividade >= this.videos.length){
-      this.ltiService.controlAtividade = 1
+    if (this.ltiService.controlAtividade >= this.videos.length) {
+      this.ltiService.controlAtividade = 1;
     }
   }
-  navigation(){
+  navigation() {
     this.router.navigate([this.proximo]);
   }
 
-  navigationVoltar(){
+  navigationVoltar() {
     this.router.navigate([this.voltar]);
   }
-  clicarVideos(){
-    console.log(this.videos.length)
-    alert("Assista todos os videos para poder fazer a atividade")
+  clicarVideos() {
+    console.log(this.videos.length);
+    alert('Assista todos os videos para poder fazer a atividade');
   }
 }

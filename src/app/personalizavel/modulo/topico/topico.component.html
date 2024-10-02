@@ -1,4 +1,3 @@
-<router-outlet></router-outlet>
 <div *ngIf="teste?.topicos">
   <div class="container-geral" [ngSwitch]="controllerSwitch">
     <div *ngSwitchCase="'1'">
@@ -47,41 +46,70 @@
       <div
         *ngIf="teste?.topicos?.[controll_topico]?.nome_topico && teste?.topicos?.[controll_topico]?.SaibaMais && teste?.topicos?.[controll_topico]?.VideoUrls"
       >
-        <app-geral
-          [nome]="this.nomeModulo"
-          [videos]="teste?.topicos?.[controll_topico]?.VideoUrls"
-          (referenciasClick)="referenciasClick()"
-          (linksClick)="linksClick()"
-          (textoApoioClick)="textoApoioClick()"
-          (atividadeClick)="atividadeClick()"
-          [linkEbookTopico]="teste?.topicos?.[controll_topico]?.ebookUrlGeral"
-          [liberado]="this.moduloService.bloqueio?.[controll_topico]?.encerrado"
-        ></app-geral>
+        <mat-sidenav-container>
+          <mat-sidenav
+            #sidenav
+            mode="over"
+            fixedInViewport="Fixed"
+            position="end"
+          >
+            <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
+          </mat-sidenav>
 
-        <div class="botoes-navegar" >
+          <mat-sidenav-content>
+            <mat-toolbar class="header">
+              <img
+                src="assets/Tecnocomp+.png"
+                alt="Tecnocom+ LOGO"
+                routerLink="../"
+              />
+              <nav>
+                <div class="end-navbar">
+                  <mat-icon style="color: #fff" routerLink="../">home</mat-icon>
+                  <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
+                </div>
+              </nav>
+            </mat-toolbar>
+            <app-geral
+              [nome]="this.nomeModulo"
+              [videos]="teste?.topicos?.[controll_topico]?.VideoUrls"
+              (referenciasClick)="referenciasClick()"
+              (linksClick)="linksClick()"
+              (textoApoioClick)="textoApoioClick()"
+              (atividadeClick)="atividadeClick()"
+              [linkEbookTopico]="teste?.topicos?.[controll_topico]?.ebookUrlGeral"
+              [liberado]="this.moduloService.bloqueio?.[controll_topico]?.encerrado"
+            ></app-geral>
 
-        </div>
-        <div class="container-main-conteudo-links-voltar">
-          <div [ngStyle]="{'color':controll_topico == 0 ? '#131313' : 'white' }" class="link-voltar" (click)="voltar()">
-            <img
-            *ngIf="controll_topico != 0"
-            src="../../../../assets/icons//voltarUnidadeCorreto.svg"
-            alt="Icone para voltar unidade"
-            width="30px"
-            height="30px"
-          />
-          ANTERIOR
-          </div>
-          <div class="link-proximo" (click)="proximo()">
-            PRÓXIMO
-            <img
-            src="a../../../../../../assets/icons/avancarUnidade.svg"
-            alt="Icone para avançar unidade"
-            width="30px"
-            height="30px"
-          />
-          </div>
-        </div>
+            <div class="container-main-conteudo-links-voltar">
+              <div
+                [ngStyle]="{
+                  color: controll_topico == 0 ? '#131313' : 'white'
+                }"
+                class="link-voltar"
+                (click)="voltar()"
+              >
+                <img
+                  *ngIf="controll_topico != 0"
+                  src="../../../../assets/icons//voltarUnidadeCorreto.svg"
+                  alt="Icone para voltar unidade"
+                  width="30px"
+                  height="30px"
+                />
+                ANTERIOR
+              </div>
+              <div class="link-proximo" (click)="proximo()">
+                PRÓXIMO
+                <img
+                  src="a../../../../../../assets/icons/avancarUnidade.svg"
+                  alt="Icone para avançar unidade"
+                  width="30px"
+                  height="30px"
+                />
+              </div>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
       </div>
     </div>
   </div>

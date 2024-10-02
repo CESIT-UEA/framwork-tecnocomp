@@ -1,12 +1,14 @@
 <!-- chamada do componente do cabeçalho da unidade geral -->
-<app-header-unidade></app-header-unidade>
+<div class="titulo-topico">
+  <ul>
+    <!-- Nome do tópico da unidade -->
+    <li>{{ nome }}</li>
+  </ul>
+  <hr />
+</div>
+
 <div class="container-main-conteudo">
   <div class="div-slide">
-    <ul>
-      <!-- Nome do tópico da unidade -->
-      <li>{{ nome }}</li>
-    </ul>
-    <hr />
     <div class="container-video">
       <!-- chamada do componente slide-unidade para exibir o video do tópico -->
       <app-slide-unidade
@@ -63,7 +65,8 @@
     <div class="position">
       <section class="buttons-final">
         <!-- Botão que quando clicado vai para o componente de atividade -->
-        <button *ngIf="this.ltiService.controlAtividade >= this.videos.length"
+        <button
+          *ngIf="this.ltiService.controlAtividade >= this.videos.length"
           class="atividade-botao center-2"
           (click)="atividadeClick.emit()"
         >
@@ -75,7 +78,8 @@
           />
           ATIVIDADE
         </button>
-        <button *ngIf="this.ltiService.controlAtividade < this.videos.length"
+        <button
+          *ngIf="this.ltiService.controlAtividade < this.videos.length"
           class="atividade-botao center-2"
           (click)="clicarVideos()"
         >
