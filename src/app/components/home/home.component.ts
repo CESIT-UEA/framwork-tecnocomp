@@ -81,6 +81,8 @@ export class HomeComponent {
       );
     }
 
+    this.appService.dados_completos = localStorage.getItem('dados_completos_do_modulo');
+
     this.tokenData = localStorage.getItem('dados_completos_do_modulo');
 
     if (this.tokenData) {

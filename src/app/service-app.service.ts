@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bloqueio } from './bloqueioInterface';
 import { Topico } from './components/forum/topico.interface';
@@ -12,12 +12,16 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root',
 })
-export class ServiceAppService {
+export class ServiceAppService{
+
   controlAtividade:number = 1
   /**
    * url da API
    */
   public apiUrl = environment.baseUrl;
+
+  // Implementar o Controle com apenas um service
+  public dados_completos:any = []
 
   /**
    * @method

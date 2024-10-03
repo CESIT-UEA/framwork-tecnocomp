@@ -43,7 +43,7 @@ export class TopicoComponent implements OnInit {
     let config = new MatSnackBarConfig();
     config.panelClass = 'testando'
     if (this.controll_topico < this.teste.topicos.length - 1) {
-      if (this.teste.userTopico[this.controll_topico].encerrado == true) {
+      if (this?.teste?.userTopico[this.controll_topico]?.UsuarioTopicos[0].encerrado) {
         this.controll_topico += 1;
       }else{
         this._snackBar.open("Você precisa responder à atividade antes!","ok",config);

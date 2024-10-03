@@ -36,7 +36,6 @@ export class MenuComBarraProgressoTesteComponent implements OnInit{
   }
 
   verificarConcluido(i:number){
-    console.log(this?.teste?.userTopico[i]?.UsuarioTopicos[0].encerrado)
     return this?.teste?.userTopico[i]?.UsuarioTopicos[0].encerrado
   }
 }

@@ -71,7 +71,7 @@
               </nav>
             </mat-toolbar>
             <app-geral
-              [nome]="this.nomeModulo"
+              [nome]="teste?.topicos?.[controll_topico]?.nome_topico"
               [videos]="teste?.topicos?.[controll_topico]?.VideoUrls"
               (referenciasClick)="referenciasClick()"
               (linksClick)="linksClick()"
