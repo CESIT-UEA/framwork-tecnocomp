@@ -12,6 +12,7 @@ import { Questao } from './questao';
 import { HttpClient } from '@angular/common/http';
 import { ServiceAppService } from 'src/app/service-app.service';
 import { ModuloService } from 'src/app/personalizavel/modulo.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 /**
  * Componente reutilizavel de atividade
@@ -41,7 +42,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
     private http: HttpClient,
     public ltiService: ServiceAppService,
     public moduloService: ModuloService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -93,7 +95,13 @@ export class AtividadeComponent implements OnInit, OnChanges {
     } else if (this.questao && this.questao.respostaCorreta === resposta) {
       this.tratarRespostaCorreta(resposta);
     } else {
-      alert('Resposta errada, clique em refazer para tentar novamente');
+      let config = new MatSnackBarConfig();
+      config.panelClass = 'testando';
+      this._snackBar.open(
+        'Resposta Errada! Clique em refazer para fazer novamente',
+        'ok',
+        config
+      );
     }
   }
 
@@ -195,12 +203,14 @@ export class AtividadeComponent implements OnInit, OnChanges {
       : this.ltiService.sendGrade;
     enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
       (response) => {
-        console.log('Nota enviada com sucesso!', response);
-        alert('Nota enviada!');
+        let config = new MatSnackBarConfig();
+        config.panelClass = 'testando';
+        this._snackBar.open("Resposta Correta! Sua nota já foi retornada para o LMS","ok",config);
       },
       (error) => {
-        alert('Erro ao enviar a nota!');
-        console.error('Erro ao enviar nota', error);
+        let config = new MatSnackBarConfig();
+        config.panelClass = 'testando';
+        this._snackBar.open("Houve um problema ao enviar a nota para seu LMS","ok",config);
       }
     );
   }
