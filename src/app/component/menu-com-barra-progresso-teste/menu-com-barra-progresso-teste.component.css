@@ -1,16 +1,33 @@
+.header-menu {
+  color: white;
+  background-color: #9665df;
+  border-radius: 20px 0px 0px 0px;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  min-height: 61px;
+  width: 100%;
+}
 .titulo-topico {
-  color: black;
-  background-color: #9665DF;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+  text-transform: uppercase;
+  align-self: center;
+  width: fit-content;
+  margin: 0 auto;
+  margin-right: 29%;
 }
-
+mat-icon {
+  font-size: 30px;
+  justify-self: end;
+  margin-right: 15px;
+  margin-top: 5px;
+}
 .progresso {
   background: #212121;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-  color: #CDCDCD;
+  color: #cdcdcd;
 }
 
 input[type="checkbox"] {
@@ -37,11 +54,11 @@ input[type="checkbox"] {
 
 .topico-container {
   border-radius: 8px;
-  border: 2px solid #FFF;
+  border: 2px solid #fff;
   width: 95%;
   max-width: 290px;
   height: 61px;
-  color: #FFF;
+  color: #fff;
 
   margin: 15px auto;
   padding: 16px 0;
@@ -51,50 +68,39 @@ input[type="checkbox"] {
   font-weight: 700;
   display: flex;
   align-items: center;
-
 }
 
-.btn-forum{
+.btn-forum {
   background-color: #262626;
-  color: #9665DF;
+  color: #9665df;
   width: 80%;
   border-radius: 5px;
   padding: 10px;
   outline: none;
   border: none;
   margin-bottom: 20px;
-  font-family: 'Arial' 16px ;
+  font-family: "Arial" 16px;
 }
-.container-topico a, .moodle a{
+.container-topico a,
+.moodle a {
   text-decoration: none;
-  color: white
+  color: white;
 }
 
-.container-topico a:hover{
+.container-topico a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.titulo-topico {
-  padding: 16px;
-  color: white;
-  background-color: #9665DF;
-  border-radius: 20px 0px 0px 0px;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  margin-bottom: 0;
-  /* 30px */
-}
-.moodle{
+
+.moodle {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.moodle a{
+.moodle a {
   margin-left: 5px;
   outline: none;
 }
 .outros-links {
-  background-color: #1C1C1C;
+  background-color: #1c1c1c;
 }

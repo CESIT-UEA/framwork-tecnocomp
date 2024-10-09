@@ -1,4 +1,4 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, signal } from '@angular/core';
 import { AprendizagemEInformaticaService } from 'src/app/pages/modulos/aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 import { ServiceAppService } from 'src/app/service-app.service';
 
@@ -15,6 +15,13 @@ export class MenuComBarraProgressoTesteComponent implements OnInit{
   /**
    * @constructor
    */
+
+  @Output() fecharMenu = new EventEmitter<void>();
+
+  @Output() navegarModulo = new EventEmitter<number>();
+
+  @Input()  verificaMenuHome = false;
+
   constructor(
     /**
      * Variavel que instancia o service AprendizagemEmInformaticaService

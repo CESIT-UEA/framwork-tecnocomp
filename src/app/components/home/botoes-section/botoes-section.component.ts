@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 /**
@@ -34,4 +34,5 @@ export class BotoesSectionComponent {
   /**
    * @method
    */
+
 }

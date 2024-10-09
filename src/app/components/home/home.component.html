@@ -1,7 +1,7 @@
 <div class="main-container">
   <mat-sidenav-container>
     <mat-sidenav #sidenav mode="over" fixedInViewport="Fixed" position="end">
-      <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
+      <app-menu-com-barra-progresso-teste (navegarModulo)="navegarModulo($event)" (fecharMenu)="fecharMenuClick()" [verificaMenuHome]="true"></app-menu-com-barra-progresso-teste>
     </mat-sidenav>
 
     <mat-sidenav-content>

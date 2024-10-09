@@ -8,7 +8,6 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Questao } from './questao';
 import { HttpClient } from '@angular/common/http';
 import { ServiceAppService } from 'src/app/service-app.service';
 import { ModuloService } from 'src/app/personalizavel/modulo.service';
@@ -28,6 +27,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
   @Input() bloqueio: any = false;
   @Input() idTopico!: number;
   @Output() atividadeClick = new EventEmitter<void>();
+  vetorLetras : string[] = ['A','B','C','D']
 
   caminhoImagem: string = '../../../../../assets/img/Letra ';
   respostaEnviada: boolean = false;

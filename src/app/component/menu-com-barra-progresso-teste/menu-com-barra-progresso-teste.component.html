@@ -1,4 +1,7 @@
-<h2 class="titulo-topico center">Tópicos</h2>
+<div class="header-menu">
+  <p class="titulo-topico center">Tópicos</p>
+  <mat-icon (click)="fecharMenu.emit()">close</mat-icon>
+</div>
 <div class="progresso center">
   <p class="texto-progresso">Progresso</p>
   <mat-progress-bar
@@ -20,7 +23,9 @@
         disabled="true"
         [checked]="verificarConcluido(i)"
       />
-      <p>{{ i + 1 }}. {{ topico.nome_topico }}</p>
+      <p *ngIf="verificarConcluido(i) == false">{{ i + 1 }}. {{ topico.nome_topico }}</p>
+      <p *ngIf="verificarConcluido(i) == true && verificaMenuHome == false" (click)="navegarModulo.emit(i)">{{ i + 1 }}. {{ topico.nome_topico }}</p>
+      <p *ngIf="verificarConcluido(i) == true && verificaMenuHome == true" (click)="navegarModulo.emit(i)" routerLink="topicos">{{ i + 1 }}. {{ topico.nome_topico }}</p>
     </div>
   </div>
   <div class="outros-links">

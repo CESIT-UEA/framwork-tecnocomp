@@ -18,6 +18,7 @@ export class ModuloService {
   informacoes: any;
   quantidadeTopicos!: number;
   notaTotal!: number;
+  controll_topico:number = 0;
 
   constructor(private http: HttpClient) {}
   getUserInfo(ltik: string): Observable<any> {

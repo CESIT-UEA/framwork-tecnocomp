@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AprendizagemEInformaticaService } from '../../aprendizagem-e-informatica/aprendizagem-e-informatica.service';
 import { Router } from '@angular/router';
 import { ServiceAppService } from 'src/app/service-app.service';
+import { ModuloService } from 'src/app/personalizavel/modulo.service';
 
 @Component({
   selector: 'app-geral',
@@ -12,7 +13,8 @@ export class GeralComponent implements OnInit {
   constructor(
     public aprendizagemInformatica: AprendizagemEInformaticaService,
     private router: Router,
-    public ltiService: ServiceAppService
+    public ltiService: ServiceAppService,
+    public moduloService: ModuloService,
 
   ) {}
   @Input() nome!: string;
