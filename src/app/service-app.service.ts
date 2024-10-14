@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Bloqueio } from './bloqueioInterface';
 import { Topico } from './components/forum/topico.interface';
 import { TopicoF } from './components/forum/topico-forum/topico-forum.interface';
@@ -21,7 +21,9 @@ export class ServiceAppService{
   public apiUrl = environment.baseUrl;
 
   // Implementar o Controle com apenas um service
+  private storageKey = 'dados_completos_do_modulo';
   public dados_completos:any = []
+
 
   /**
    * @method
@@ -79,6 +81,26 @@ export class ServiceAppService{
     return this.http.post(`${this.apiUrl}/api/liberar`, grade, {
       headers: headers,
     });
+  }
+
+  getDadosCompletos() : void{
+    this.dados_completos = localStorage.getItem(this.storageKey);
+    if (this.dados_completos) {
+       this.dados_completos = JSON.parse(this.dados_completos);
+       this.notaTotal = this.dados_completos.userModulo.nota;
+
+       console.log('Service data 3: ', this.dados_completos);
+     }
+  }
+
+  setDadosCompletos(dados : any) {
+    localStorage.setItem(this.storageKey,JSON.stringify(dados));
+
+    this.getDadosCompletos();
+  }
+
+  removeDadosCompletos(): void {
+    localStorage.removeItem(this.storageKey);
   }
 
   /**

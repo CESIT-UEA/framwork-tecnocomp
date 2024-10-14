@@ -24,7 +24,7 @@
 </div> -->
 <div
   class="container-atividade"
-  *ngIf="this?.teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade"
+  *ngIf="this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade"
 >
   <div *ngIf="questao">
     <h3>{{ questao.questao }}</h3>

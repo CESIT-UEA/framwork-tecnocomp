@@ -56,7 +56,7 @@
           <div class="content-container-section">
             <!-- chamada do componente de video da página home -->
             <app-video-section
-              [videoUrl]="tokenData?.modulo?.video_inicial"
+              [videoUrl]="this.appService.dados_completos?.modulo?.video_inicial"
             ></app-video-section>
             <!-- chamada do componente botão na página home -->
             <app-botoes-section

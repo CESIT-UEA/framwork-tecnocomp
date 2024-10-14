@@ -8,15 +8,16 @@
     class="barra-progresso"
     mode="determinate"
     color="warn"
-    [value]="this?.teste?.userModulo?.nota"
+    this.teste
+    [value]="this.ltiService.dados_completos?.userModulo?.nota"
   ></mat-progress-bar>
-  <p>{{ this?.teste?.userModulo?.nota }}%</p>
+  <p>{{ this.ltiService.dados_completos?.userModulo?.nota }}%</p>
 </div>
 <div class="container-topicos">
   <div class="container-topico">
     <div
       class="topico-container"
-      *ngFor="let topico of teste?.topicos; index as i"
+      *ngFor="let topico of this.ltiService.dados_completos?.topicos; index as i"
     >
       <input
         type="checkbox"

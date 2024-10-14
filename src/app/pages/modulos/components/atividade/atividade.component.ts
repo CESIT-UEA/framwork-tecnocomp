@@ -47,16 +47,11 @@ export class AtividadeComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit() {
-    this.teste = localStorage.getItem('dados_completos_do_modulo');
-    console.log('Bloqueio ta aqui');
-    if (this.teste) {
-      this.teste = JSON.parse(this.teste);
-      console.log(
-        this.teste?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado
-      );
-      this.quantidadeTopicos = this.teste.topicos;
+    if (this.ltiService.dados_completos) {
+      console.log("Em atividade")
+      this.quantidadeTopicos = this.ltiService.dados_completos.topicos;
       this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length;
-      this.tokenStorage = this.teste.user.ltik;
+      this.tokenStorage = this.ltiService.dados_completos.user.ltik;
     }
     if (this.idTopico === this.quantidadeTopicos.length - 1) {
       this.gradeIn = false;
@@ -71,7 +66,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   atualizarQuestao() {
-    this.questao = this.teste?.topicos?.[this.idTopico]?.Exercicios?.[0];
+    this.questao = this.ltiService.dados_completos.topicos?.[this.idTopico]?.Exercicios?.[0];
     if (this.questao && Array.isArray(this.questao.Alternativas)) {
       this.questao.Alternativas = this.embaralharAlternativas(
         this.questao.Alternativas
@@ -103,6 +98,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
         config
       );
     }
+    this.cd.detectChanges();
   }
 
   responderAlternativo(resposta: string) {
@@ -146,15 +142,16 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   private tratarRespostaCorreta(resposta: string) {
-    this.respostaCorretaEnviada = true;
     this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
     console.log(this.nota);
     console.log(this.ltiService.notaTotal);
     console.log(this.nota + this.ltiService.notaTotal);
-    this.ltiService.notaTotal =
-      this.ltiService.notaTotal == 0
-        ? this.nota
-        : this.ltiService.notaTotal + this.nota;
+
+    if (this.ltiService.notaTotal == 0) {
+      this.ltiService.notaTotal = this.nota
+    }else{
+      this.ltiService.notaTotal = this.ltiService.notaTotal + this.nota
+    }
 
     if (this.ltiService.notaTotal > 100) {
       this.ltiService.notaTotal = 100;
@@ -162,13 +159,12 @@ export class AtividadeComponent implements OnInit, OnChanges {
 
     this.enviarNota();
     this.liberarProximoTopico();
-    this.obterInformacoesUsuario();
     this.resposta = resposta;
     this.respostaEnviada = true;
   }
 
   private liberarProximoTopico() {
-    this.ltiService.liberar(this.teste?.topicos?.[this.idTopico].id).subscribe(
+    this.ltiService.liberar(this.ltiService.dados_completos.topicos?.[this.idTopico].id).subscribe(
       (response) =>
         console.log('Proximo tópico liberado com sucesso', response),
       (error) => console.error('Erro ao enviar a liberação', error)
@@ -176,21 +172,15 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   private obterInformacoesUsuario() {
-    this.http
+     this.http
       .get(`${this.ltiService.apiUrl}/userInfo?ltik=${this.tokenStorage}`)
       .subscribe(
         (data) => {
           this.tokenData = data;
           this.ltiService.bloqueio = this.tokenData.userTopico;
-          this.ltiService.informacoes = this.tokenData;
           localStorage.setItem(
             'bloqueio',
             JSON.stringify(this.tokenData.userTopico)
-          );
-          //!Importante
-          localStorage.setItem(
-            'dados_completos_do_modulo',
-            JSON.stringify(this.tokenData)
           );
         },
         (error) => console.error('Error:', error)
@@ -205,6 +195,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
       (response) => {
         let config = new MatSnackBarConfig();
         config.panelClass = 'testando';
+        this.ltiService.removeDadosCompletos();
         this._snackBar.open("Resposta Correta! Sua nota já foi retornada para o LMS","ok",config);
       },
       (error) => {

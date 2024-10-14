@@ -22,29 +22,19 @@ export class TopicoComponent implements OnInit {
     private route: ActivatedRoute,
     public moduloService: ModuloService,
     private router: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public ltiService: ServiceAppService
   ) {}
 
   ngOnInit(): void {
-    this.teste = localStorage.getItem('dados_completos_do_modulo');
-    if (this.teste) {
-      this.teste = JSON.parse(this.teste);
-      console.log(this.teste);
-      this.nomeModulo = `${this.moduloService.controll_topico + 1}. ${this.teste?.topicos?.[this.moduloService.controll_topico]?.nome_topico}`
-      const topicoId = this.route.snapshot.queryParamMap.get('topicoId');
-      if (topicoId && this.teste.topicos) {
-        this.moduloService.controll_topico = this.teste.topicos.findIndex((topico: any) => topico.id == topicoId);
-      }
-    } else {
-      console.error('Dados não encontrados no localStorage');
-    }
+    this.ltiService.getDadosCompletos()
   }
 
   proximo(): void {
     let config = new MatSnackBarConfig();
     config.panelClass = 'testando'
-    if (this.moduloService.controll_topico < this.teste.topicos.length - 1) {
-      if (this?.teste?.userTopico[this.moduloService.controll_topico]?.UsuarioTopicos[0].encerrado) {
+    if (this.moduloService.controll_topico < this.ltiService.dados_completos.topicos.length - 1) {
+      if (this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico]?.UsuarioTopicos[0].encerrado) {
         this.moduloService.controll_topico += 1;
       }else{
         this._snackBar.open("Você precisa responder à atividade antes!","ok",config);

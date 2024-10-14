@@ -35,14 +35,10 @@ export class MenuComBarraProgressoTesteComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.teste = localStorage.getItem('dados_completos_do_modulo');
-    if (this.teste) {
-      this.teste = JSON.parse(this.teste);
-      console.log(this.teste);
-    }
+
   }
 
   verificarConcluido(i:number){
-    return this?.teste?.userTopico[i]?.UsuarioTopicos[0].encerrado
+    return this.ltiService.dados_completos?.userTopico[i]?.UsuarioTopicos[0].encerrado
   }
 }

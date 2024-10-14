@@ -44,25 +44,19 @@ export class HomeComponent {
       this.moduloService.getUserInfo(ltik).subscribe(
         (data) => {
           this.tokenData = data;
+          console.log(data);
 
           this.moduloService.urlInicio =
             this.tokenData.modulo.nome_modulo + 'Home';
-          localStorage.setItem(
+
+            localStorage.setItem(
             'bloqueio',
             JSON.stringify(this.tokenData.userTopico)
           );
 
-          // Removendo se já existir um
-          let teste = localStorage.getItem('dados_completos_do_modulo');
-          if (teste) {
-            localStorage.removeItem('dados_completos_do_modulo')
-          }
+          this.appService.setDadosCompletos(data);
 
-          //!Importante
-          localStorage.setItem(
-            'dados_completos_do_modulo',
-            JSON.stringify(data)
-          );
+
           let teste2 = localStorage.getItem('token');
           if (teste2) {
             localStorage.removeItem('token')
@@ -82,12 +76,6 @@ export class HomeComponent {
           this.moduloService.bloqueio = bloqueio
             ? JSON.parse(bloqueio)
             : this.tokenData.userTopico;
-
-          this.moduloService.informacoes = this.tokenData;
-          this.moduloService.quantidadeTopicos =
-            this.tokenData.modulo.quantidadeTopicos;
-          this.moduloService.notaTotal =
-            this.tokenData.userModulo.notaAcumulada;
         },
         (error) => {
           console.error('Error:', error);
@@ -95,26 +83,9 @@ export class HomeComponent {
       );
     }
 
-    this.appService.dados_completos = localStorage.getItem('dados_completos_do_modulo');
+    this.appService.getDadosCompletos();
 
-    this.tokenData = localStorage.getItem('dados_completos_do_modulo');
-
-/*    if (this.appService.dados_completos) {
-      this.appService.dados_completos = JSON.parse(this.appService.dados_completos);
-      this.appService.notaTotal = this.appService.dados_completos.userModulo.nota;
-      console.log('Nota 3: ', this.appService.dados_completos.userModulo?.nota);
-      console.log('Service data 3: ', this.appService.dados_completos);
-    }*/
-
-    if (this.tokenData) {
-      this.tokenData = JSON.parse(this?.tokenData);
-      this.appService.notaTotal = this?.tokenData?.userModulo.nota;
-      console.log('Nota: ', this?.tokenData?.userModulo?.nota);
-      console.log('Token data: ', this?.tokenData);
-    }
-
-
-    this.nome = this.tokenData.modulo.nome_modulo;
+    this.nome = this.appService.dados_completos.modulo.nome_modulo;
     let words = this.nome.split('-');
     let capitalizedWords = words.map(
       (word) => word.charAt(0).toUpperCase() + word.slice(1)
