@@ -8,20 +8,7 @@
     height="30px"
   />
 </div>
-<!-- <div class="container">
-  <div class="alternativa-correta">
-      <img src="assets/icons/check-circle.svg" alt="alternativa correta">
-  </div>
-  <div class="container-textos">
-      <div class="texto-cima">
-          <p>Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.Lorem ipsum dolor sit amet consectetur.Erat quis luctus </p>
-          <img src="assets/icons/eye.svg" alt="icone de visualiação">
-      </div>
-      <div class="texto-baixo">
-          <p>Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.Correto! Lorem ipsum dolor sit amet consectetur. Correto! Lorem ipsum dolor sit amet consectetur. Erat quis luctus sed semper volutpat congue turpis.Correto! Lorem ipsum dolor sit amet</p>
-      </div>
-  </div>
-</div> -->
+
 <div
   class="container-atividade"
   *ngIf="this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade"
@@ -54,7 +41,8 @@
       </div>
     </div>
   </div>
-  <button (click)="refazer()">Refazer</button>
+  <button (click)="refazer()" [disabled]="respostaCorretaEnviada">Refazer</button>
+
 </div>
 
 <ng-template #elseAtividade>

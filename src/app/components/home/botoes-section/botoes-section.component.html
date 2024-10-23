@@ -1,10 +1,27 @@
 <!--Seção de botões da página inicial HOME-->
-<section class="button-section">
-  <div class="button-group">
-    <button class="start-button" [routerLink]="urlInicio">INICIAR</button>
-    <button class="download-button">
-      <a href="https://tecnocomp.uea.edu.br/ebooks/completo-Introdu%C3%A7%C3%A3o%20a%20pensamento%20computacional%20.pdf"  [download]="nome_ebook" target="_blank">DOWNLOAD E-BOOK UNIDADE</a>
-      <img src="../../../../assets/img/download.png" alt="icone de download">
-    </button>
-  </div>
-</section>
+<div class="container">
+  <img
+    class="imagem-acima"
+    src="../../../../assets/imagem-acima-botoes.png"
+    alt=""
+    width="300px"
+    height="220px"
+  />
+  <section class="button-section">
+    <div class="button-group">
+      <button class="start-button" [routerLink]="urlInicio">INICIAR</button>
+      <button class="download-button">
+        <a
+          href="https://tecnocomp.uea.edu.br/ebooks/completo-Introdu%C3%A7%C3%A3o%20a%20pensamento%20computacional%20.pdf"
+          [download]="nome_ebook"
+          target="_blank"
+          >DOWNLOAD E-BOOK UNIDADE</a
+        >
+        <img
+          src="../../../../assets/img/download.png"
+          alt="icone de download"
+        />
+      </button>
+    </div>
+  </section>
+</div>

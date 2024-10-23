@@ -66,8 +66,8 @@
       <section class="buttons-final">
         <!-- Botão que quando clicado vai para o componente de atividade -->
         <button
-          *ngIf="this.ltiService.controlAtividade >= this.videos.length"
-          class="atividade-botao center-2"
+          *ngIf="this.ltiService.verificarTodosVideosCompletos(this.videos)"
+          class="atividade-botao center-2 active"
           (click)="atividadeClick.emit()"
         >
           <img
@@ -79,8 +79,8 @@
           ATIVIDADE
         </button>
         <button
-          *ngIf="this.ltiService.controlAtividade < this.videos.length"
-          class="atividade-botao center-2"
+          class="atividade-botao center-2 disabled"
+          *ngIf="!this.ltiService.verificarTodosVideosCompletos(this.videos)"
           (click)="clicarVideos()"
         >
           <img

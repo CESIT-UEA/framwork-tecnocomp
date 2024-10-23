@@ -157,7 +157,7 @@ button.atividade-botao {
   gap: 12.559px;
   border: none;
   border-radius: 7.177px;
-  background: var(--2, #793CD4);
+
   color: #FFF;
   text-align: center;
   font-family: Arial;
@@ -167,7 +167,12 @@ button.atividade-botao {
   line-height: normal;
   margin-bottom: 22px;
 }
-
+.active{
+  background: var(--2, #793CD4);
+}
+.disabled{
+  background-color: #4F4F4F;
+}
 .primeiro-botao {
   border: 2px solid var(--Terciaria, #FFF);
   background-color: transparent;

@@ -84,14 +84,6 @@ export class HomeComponent {
     }
 
     this.appService.getDadosCompletos();
-
-    this.nome = this.appService.dados_completos.modulo.nome_modulo;
-    let words = this.nome.split('-');
-    let capitalizedWords = words.map(
-      (word) => word.charAt(0).toUpperCase() + word.slice(1)
-    );
-    let result = capitalizedWords.join(' ');
-    this.nome = result;
   }
 
   /**

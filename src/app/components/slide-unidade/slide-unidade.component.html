@@ -3,7 +3,7 @@
   *ngIf="isLoading == false; else loading"
 >
   <iframe
-    [src]="videos[currentVideoIndex].url | safe"
+    [src]="videos[this.ltiService.currentVideoIndex].url | safe"
     title="Video Aula"
     frameborder="0"
     allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"
@@ -11,13 +11,14 @@
     width="560" height="349"
   ></iframe>
 </div>
+
 <div class="navigation-button">
   <ul>
     <li
       *ngFor="let video of videos; index as i"
       [ngClass]="{
-        active: i === currentVideoIndex,
-        teste: i !== currentVideoIndex
+        'concluido': videos[i].UsuarioVideos[0].completo,
+        'naoConcluido': !videos[i].UsuarioVideos[0].completo
       }"
       (click)="selectVideo(i)"
     >
@@ -25,6 +26,7 @@
     </li>
   </ul>
 </div>
+
 <ng-template #loading>
   <div class="loading center-2">
     <div class="spinner"></div>

@@ -19,7 +19,7 @@ export class ServiceAppService{
    * url da API
    */
   public apiUrl = environment.baseUrl;
-
+  public currentVideoIndex: number = 0;
   // Implementar o Controle com apenas um service
   private storageKey = 'dados_completos_do_modulo';
   public dados_completos:any = []
@@ -87,7 +87,7 @@ export class ServiceAppService{
     this.dados_completos = localStorage.getItem(this.storageKey);
     if (this.dados_completos) {
        this.dados_completos = JSON.parse(this.dados_completos);
-       this.notaTotal = this.dados_completos.userModulo.nota;
+       this.notaTotal = this.dados_completos?.userModulo?.nota;
 
        console.log('Service data 3: ', this.dados_completos);
      }
@@ -196,5 +196,31 @@ export class ServiceAppService{
     return this.http.post(`${this.apiUrl}/api/criar/comentario`, grade, {
       headers: headers,
     });
+  }
+
+  finalizarVideo(ltiUserId: string, videoId: number, ltik: string): Observable<any> {
+    const body = { ltiUserId, videoId, ltik };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+    });
+
+    return this.http.post(`${this.apiUrl}/finalizar-video`, body, { headers });
+  }
+
+  public verificarTodosVideosCompletos(videos: any[]): boolean {
+    // Itera sobre todos os vídeos
+    for (const video of videos) {
+      // Para cada vídeo, verifica os dados de UsuarioVideos
+      for (const usuarioVideo of video.UsuarioVideos) {
+        // Se encontrar algum vídeo não completo, retorna false
+        if (!usuarioVideo.completo) {
+          return false;
+        }
+      }
+    }
+    // Se nenhum vídeo estiver incompleto, retorna true
+    return true;
   }
 }

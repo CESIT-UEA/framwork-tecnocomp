@@ -40,9 +40,14 @@
 }
 
 .teste {
-  color: #FFF;
+  background-color: #FFF;
 }
-
+.concluido{
+  background-color: green;
+}
+.naoConcluido{
+  background-color: red;
+}
 .active {
   background: #9665DF;
 }

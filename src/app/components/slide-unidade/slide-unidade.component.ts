@@ -10,7 +10,7 @@ import { ServiceAppService } from 'src/app/service-app.service';
   styleUrls: ['./slide-unidade.component.css'],
 })
 export class SlideUnidadeComponent implements OnInit {
-  constructor(private ltiService: ServiceAppService) {}
+  constructor(public ltiService: ServiceAppService) {}
   /**
    * Array de links de videos, a qual é uma variavel que recebe um array string ao instanciar este componente, e ele é obrigatório
    */
@@ -25,19 +25,35 @@ export class SlideUnidadeComponent implements OnInit {
   }
 
   /**
-   * Variavel responsavel por guardar o indice do video que será exibido, por padrão começa com 0, pelo link do video em primeiro do vetor acima
-   */
-  currentVideoIndex: number = 0;
-
-  /**
    * @method
    * Metódo responsavel por poder selecionar na interface qual video será exibido
    */
   selectVideo(index: number) {
-    this.ltiService.controlAtividade = this.ltiService.controlAtividade + 1;
-    console.log(this.ltiService.controlAtividade);
     this.startLoading();
-    this.currentVideoIndex = index;
+
+    // Atualiza imediatamente o índice para o vídeo selecionado
+    this.ltiService.currentVideoIndex = index;
+
+    // Verifica se o vídeo anterior foi concluído
+    if (this.videos[index].UsuarioVideos[0].completo === false) {
+      this.ltiService.finalizarVideo(
+        this.ltiService.dados_completos.user.ltiUserId,
+        this.videos[index].id,
+        this.ltiService.dados_completos.user.ltik
+      ).subscribe(
+        (response) => {
+          console.log('Vídeo finalizado e dados atualizados:', response);
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response); // Atualiza os dados completos no localStorage
+        },
+        (error) => {
+          console.error('Erro ao finalizar vídeo:', error);
+        }
+      );
+    }
+
+    // Garante que a interface seja atualizada após a mudança de vídeo
+    this.startLoading(); // Simula carregamento após troca de vídeo
   }
 
   /**

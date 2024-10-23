@@ -107,6 +107,10 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   refazer() {
+    if (this.respostaCorretaEnviada) {
+      return;
+    }
+
     if (this.questao && Array.isArray(this.questao.Alternativas)) {
       this.questao.Alternativas = this.embaralharAlternativas(
         this.questao.Alternativas
@@ -171,34 +175,22 @@ export class AtividadeComponent implements OnInit, OnChanges {
     );
   }
 
-  private obterInformacoesUsuario() {
-     this.http
-      .get(`${this.ltiService.apiUrl}/userInfo?ltik=${this.tokenStorage}`)
-      .subscribe(
-        (data) => {
-          this.tokenData = data;
-          this.ltiService.bloqueio = this.tokenData.userTopico;
-          localStorage.setItem(
-            'bloqueio',
-            JSON.stringify(this.tokenData.userTopico)
-          );
-        },
-        (error) => console.error('Error:', error)
-      );
-  }
-
   public enviarNota(): void {
     const enviarNota = this.gradeIn
       ? this.ltiService.sendGradeIn
       : this.ltiService.sendGrade;
     enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
       (response) => {
+        console.log("Resposta apos enviar a nota pro moodle:",response);
         let config = new MatSnackBarConfig();
         config.panelClass = 'testando';
         this.ltiService.removeDadosCompletos();
+        this.ltiService.setDadosCompletos(response)
+
         this._snackBar.open("Resposta Correta! Sua nota já foi retornada para o LMS","ok",config);
       },
       (error) => {
+        console.log(error)
         let config = new MatSnackBarConfig();
         config.panelClass = 'testando';
         this._snackBar.open("Houve um problema ao enviar a nota para seu LMS","ok",config);

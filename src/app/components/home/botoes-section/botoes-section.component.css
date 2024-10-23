@@ -2,21 +2,20 @@
   font-family: minhaFonte;
   src: url('../../../../assets/fonteProjeto.ttf');
 }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .button-section {
   display: grid;
   align-items: center;
   height: 100%;
 }
 
-.button-section::before {
-  content: '';
-  background: url('../../../../assets/imagem-acima-botoes.png') no-repeat;
-  background-size: contain;
-  width: 300px;
-  height: 200px;
-  margin: 0 auto;
-  position: relative;
-  top: -40px;
+.imagem-acima {
+  align-self: center;
+  margin-bottom: 50px;
 }
 
 
