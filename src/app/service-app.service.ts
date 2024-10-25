@@ -227,10 +227,13 @@ export class ServiceAppService {
     return true;
   }
 
-  public mensagem(texto: string) {
+  public mensagem(texto: string, classePersonalizada:string = '',tempo: number = 2000) {
     let config = new MatSnackBarConfig();
     config.panelClass = 'testando';
-    config.duration = 2000
+    if (classePersonalizada != '') {
+      config.panelClass = classePersonalizada
+    }
+    config.duration = tempo
     this._snackBar.open(texto,"ok",config);
 
   }

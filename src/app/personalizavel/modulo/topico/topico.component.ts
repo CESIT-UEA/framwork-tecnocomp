@@ -22,7 +22,6 @@ export class TopicoComponent implements OnInit {
     private route: ActivatedRoute,
     public moduloService: ModuloService,
     private router: Router,
-    private _snackBar: MatSnackBar,
     public ltiService: ServiceAppService
   ) {}
 
@@ -31,14 +30,12 @@ export class TopicoComponent implements OnInit {
   }
 
   proximo(): void {
-    let config = new MatSnackBarConfig();
-    config.panelClass = 'testando'
     this.ltiService.currentVideoIndex = 0
     if (this.moduloService.controll_topico < this.ltiService.dados_completos.topicos.length - 1) {
       if (this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico]?.UsuarioTopicos[0].encerrado) {
         this.moduloService.controll_topico += 1;
       }else{
-        this._snackBar.open("Você precisa responder à atividade antes!","ok",config);
+        this.ltiService.mensagem("Você precisa responder à atividade antes!");
       }
     }
   }

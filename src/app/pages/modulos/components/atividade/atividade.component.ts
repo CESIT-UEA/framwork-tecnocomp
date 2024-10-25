@@ -43,7 +43,6 @@ export class AtividadeComponent implements OnInit, OnChanges {
     public ltiService: ServiceAppService,
     public moduloService: ModuloService,
     private cd: ChangeDetectorRef,
-    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -90,13 +89,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
     } else if (this.questao && this.questao.respostaCorreta === resposta) {
       this.tratarRespostaCorreta(resposta);
     } else {
-      let config = new MatSnackBarConfig();
-      config.panelClass = 'testando';
-      this._snackBar.open(
-        'Resposta Errada! Clique em refazer para fazer novamente',
-        'ok',
-        config
-      );
+      this.ltiService.mensagem("Resposta Errada! Clique em refazer para fazer novamente");
     }
     this.cd.detectChanges();
   }
@@ -187,13 +180,11 @@ export class AtividadeComponent implements OnInit, OnChanges {
         this.ltiService.removeDadosCompletos();
         this.ltiService.setDadosCompletos(response)
 
-        this._snackBar.open("Resposta Correta! Sua nota já foi retornada para o LMS","ok",config);
+        this.ltiService.mensagem("Resposta Correta! Sua nota já foi retornada para o LMS");
       },
       (error) => {
         console.log(error)
-        let config = new MatSnackBarConfig();
-        config.panelClass = 'testando';
-        this._snackBar.open("Houve um problema ao enviar a nota para seu LMS","ok",config);
+        this.ltiService.mensagem("Houve um problema ao enviar a nota para seu LMS");
       }
     );
   }
