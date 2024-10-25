@@ -18,7 +18,8 @@
       *ngFor="let video of videos; index as i"
       [ngClass]="{
         'concluido': videos[i].UsuarioVideos[0].completo,
-        'naoConcluido': !videos[i].UsuarioVideos[0].completo
+        'naoConcluido': !videos[i].UsuarioVideos[0].completo,
+        '.active' : this.ltiService.currentVideoIndex == i
       }"
       (click)="selectVideo(i)"
     >

@@ -11,7 +11,6 @@ import {
 import { HttpClient } from '@angular/common/http';
 import { ServiceAppService } from 'src/app/service-app.service';
 import { ModuloService } from 'src/app/personalizavel/modulo.service';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 /**
  * Componente reutilizavel de atividade
@@ -175,8 +174,6 @@ export class AtividadeComponent implements OnInit, OnChanges {
     enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
       (response) => {
         console.log("Resposta apos enviar a nota pro moodle:",response);
-        let config = new MatSnackBarConfig();
-        config.panelClass = 'testando';
         this.ltiService.removeDadosCompletos();
         this.ltiService.setDadosCompletos(response)
 

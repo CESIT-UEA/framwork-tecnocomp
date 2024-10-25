@@ -2,7 +2,6 @@ import { ServiceAppService } from 'src/app/service-app.service';
 import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModuloService } from '../../modulo.service';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { config } from 'rxjs';
 import { MatSidenavContainer } from '@angular/material/sidenav';
 
