@@ -43,10 +43,10 @@
   background-color: #FFF;
 }
 .concluido{
-  background-color: green;
+  background-color: #9665DF;
 }
 .naoConcluido{
-  background-color: red;
+  background-color: transparent;
 }
 .active {
   background: #9665DF;
