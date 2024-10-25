@@ -5,6 +5,7 @@ import { Bloqueio } from './bloqueioInterface';
 import { Topico } from './components/forum/topico.interface';
 import { TopicoF } from './components/forum/topico-forum/topico-forum.interface';
 import { environment } from 'src/environments/environment.development';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 /**
  * Service a qual guarda as operações essenciais, como o envio de notas, as informações do usuario, etc
@@ -12,9 +13,8 @@ import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root',
 })
-export class ServiceAppService{
-
-  controlAtividade:number = 1
+export class ServiceAppService {
+  controlAtividade: number = 1;
   /**
    * url da API
    */
@@ -22,14 +22,13 @@ export class ServiceAppService{
   public currentVideoIndex: number = 0;
   // Implementar o Controle com apenas um service
   private storageKey = 'dados_completos_do_modulo';
-  public dados_completos:any = []
-
+  public dados_completos: any = [];
 
   /**
    * @method
    * Constructor do ServiceAppService
    */
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
 
   /**
    * Variavel que guarda a nota total do usuario no modulo
@@ -52,7 +51,7 @@ export class ServiceAppService{
   /**
    * Variavel que guarda um vetor contendo a relação dos alunos com os topicos, auxiliando no bloqueio para ultrapassar rapidamente os tópicos do modulo
    */
-  bloqueio: any[] = [] ;
+  bloqueio: any[] = [];
 
   /**
    * Variavel que guarda as informações do usuario vindas do moodle
@@ -83,18 +82,18 @@ export class ServiceAppService{
     });
   }
 
-  getDadosCompletos() : void{
+  getDadosCompletos(): void {
     this.dados_completos = localStorage.getItem(this.storageKey);
     if (this.dados_completos) {
-       this.dados_completos = JSON.parse(this.dados_completos);
-       this.notaTotal = this.dados_completos?.userModulo?.nota;
+      this.dados_completos = JSON.parse(this.dados_completos);
+      this.notaTotal = this.dados_completos?.userModulo?.nota;
 
-       console.log('Service data 3: ', this.dados_completos);
-     }
+      console.log('Service data 3: ', this.dados_completos);
+    }
   }
 
-  setDadosCompletos(dados : any) {
-    localStorage.setItem(this.storageKey,JSON.stringify(dados));
+  setDadosCompletos(dados: any) {
+    localStorage.setItem(this.storageKey, JSON.stringify(dados));
 
     this.getDadosCompletos();
   }
@@ -166,10 +165,10 @@ export class ServiceAppService{
    */
   controllerSwitchHome: number = 0;
 
-  criarPostagemTopico(postagem:any)/* : Observable<any> */ {
-    console.log(postagem)
+  criarPostagemTopico(postagem: any) /* : Observable<any> */ {
+    console.log(postagem);
     this.tokenStorage = localStorage.getItem('token');
-    const grade = {postagem};
+    const grade = { postagem };
     console.log(grade);
 
     const headers = new HttpHeaders({
@@ -182,10 +181,10 @@ export class ServiceAppService{
     });
   }
 
-  criarComentario(comentario:any)/* : Observable<any> */ {
-    console.log(comentario)
+  criarComentario(comentario: any) /* : Observable<any> */ {
+    console.log(comentario);
     this.tokenStorage = localStorage.getItem('token');
-    const grade = {comentario};
+    const grade = { comentario };
     console.log(grade);
 
     const headers = new HttpHeaders({
@@ -198,7 +197,11 @@ export class ServiceAppService{
     });
   }
 
-  finalizarVideo(ltiUserId: string, videoId: number, ltik: string): Observable<any> {
+  finalizarVideo(
+    ltiUserId: string,
+    videoId: number,
+    ltik: string
+  ): Observable<any> {
     const body = { ltiUserId, videoId, ltik };
 
     const headers = new HttpHeaders({
@@ -222,5 +225,13 @@ export class ServiceAppService{
     }
     // Se nenhum vídeo estiver incompleto, retorna true
     return true;
+  }
+
+  public mensagem(texto: string) {
+    let config = new MatSnackBarConfig();
+    config.panelClass = 'testando';
+    config.duration = 2000
+    this._snackBar.open(texto,"ok",config);
+
   }
 }
