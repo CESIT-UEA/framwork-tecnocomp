@@ -1,11 +1,26 @@
 @font-face {
-  font-family: customFont;
-  src: url('../../../assets/fonteProjeto.ttf');
+  font-family: minhaFonte;
+  src: url("../../../assets/fonteProjeto.ttf");
 }
 .content-container-condition {
   height: 100%;
 }
-
+.content-container {
+  width: 100%;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.cont {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  justify-content: center;
+}
+.imagem-acima {
+  align-self: center;
+  margin-bottom: 70px;
+}
 section.content-container-ficha-tecnica {
   height: 100%;
 }
@@ -13,28 +28,29 @@ mat-sidenav {
   height: 90%;
   background-color: #131313;
   border-radius: 20px 0;
+  width: 375px;
 }
-.btn-ficha{
+.btn-ficha {
   color: #fff;
   font-size: 16px;
   font-weight: normal;
   cursor: pointer;
 }
 .btn-ficha:hover {
-  border-bottom: 3px solid #793CD4;
+  border-bottom: 3px solid #793cd4;
   padding-bottom: 3px;
 }
-.header nav{
+.header nav {
   width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.end-navbar{
+.end-navbar {
   display: flex;
   align-items: center;
 }
-.mat-drawer-container{
+.mat-drawer-container {
   background-color: transparent;
   height: 100%;
 }
@@ -43,6 +59,8 @@ mat-sidenav {
   align-items: center;
   background-color: transparent;
   justify-content: space-between;
+  border-bottom: 2px solid #1c1c1c;
+  height: 10vh;
 }
 .header img {
   max-height: 80px;
@@ -53,7 +71,8 @@ mat-sidenav {
   color: #fff;
 }
 .main-container {
-  background: url('../../../assets/fundo-alternativo.png'), lightgray -283px -148.75px / 134.172% 160.539%;
+  background: url("../../../assets/fundo-alternativo.png"),
+    lightgray -283px -148.75px / 134.172% 160.539%;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -67,16 +86,15 @@ mat-sidenav {
   color: aliceblue;
 }
 
-.text {
+.container-esquerdo {
   color: #faf8e6;
 }
 
-.text p {
-  text-transform: capitalize;
-  font-size: 2rem;
-  font-weight: 600;
-  font-family: minhaFonte;
+.container-esquerdo h1 {
   text-align: center;
+  font-size: 36px;
+  font-family: "minhaFonte";
+  padding: 20px;
 }
 
 .text-unidade {
@@ -87,9 +105,11 @@ mat-sidenav {
   width: 80%;
   margin: 40px 0 45px 0;
 }
-/* Responsividade */
 
-@media (max-width:1100px) {
+.container-direito {
+}
+
+@media (max-width: 1100px) {
   .button-section img {
     top: 10%;
     left: 66%;
@@ -105,7 +125,7 @@ mat-sidenav {
   }
 }
 
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .button-section img {
     display: none;
   }
@@ -116,9 +136,16 @@ mat-sidenav {
 }
 
 @media (max-width: 899px) {
+  .content-container {
+    grid-template-columns: 1fr;
+  }
   .content-container-section {
     display: grid;
     justify-content: center;
     grid-template-columns: 100%;
+  }
+
+  .imagem-acima {
+    display: none;
   }
 }

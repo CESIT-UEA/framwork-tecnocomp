@@ -1,11 +1,12 @@
 @font-face {
   font-family: minhaFonte;
-  src: url('../../../../assets/fonteProjeto.ttf');
+  src: url("../../../../assets/fonteProjeto.ttf");
 }
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 .button-section {
   display: grid;
@@ -15,12 +16,12 @@
 
 .imagem-acima {
   align-self: center;
-  margin-bottom: 50px;
 }
 
-
 .button-section .button-group {
+  width: 80%;
   text-align: center;
+  margin: 0 auto;
 }
 
 .button-section .button-group button {
@@ -40,13 +41,13 @@
   border-radius: 6.95px;
   background: none;
   margin: 0 auto;
-  color: #FFF;
+  color: #fff;
   font-family: minhaFonte;
-  border: 1.738px solid #FFF;
+  border: 1.738px solid #fff;
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 500;
-  background: linear-gradient(to right, #5E2FA5 50%, transparent 50%);
+  background: linear-gradient(to right, #5e2fa5 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all 0.5s ease-out;
@@ -54,7 +55,7 @@
 
 .button-section .button-group .download-button a {
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
 }
 
 .button-section .button-group .download-button:hover {
@@ -62,25 +63,34 @@
   color: black;
   font-weight: 400;
   line-height: normal;
-  border: 1.738px solid #50288D;
+  border: 1.738px solid #50288d;
 }
 
 .button-section .button-group .start-button {
   border-radius: 0.49963rem;
-  background: #9665DF;
-  font-family: customFont;
-  color: var(--Terciaria, #FFF);
+  background: #793CD4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--Terciaria, #fff);
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   line-height: normal;
 }
 @media (max-width: 899px) {
-  .button-section::before{
+  .button-section::before {
     display: none;
   }
-  .button-section{
+  .button-section {
     margin-top: 20px;
+  }
+
+  .imagem-acima {
+    display: none;
+  }
+}
+@media (max-width: 530px) {
+  .button-section .button-group {
+    width: 100%;
   }
 }

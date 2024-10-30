@@ -9,7 +9,6 @@ html,
 body {
   height: 100vh;
   background-color: black;
-  overflow-x: hidden;
 }
 
 body {
@@ -31,12 +30,7 @@ body {
   --mdc-linear-progress-active-indicator-color: #44BA31;
   --mdc-linear-progress-track-color: #818181;
 }
-/* @media (max-width: 425px) {
-    html,
-body {
-    overflow-y: scroll;
-}
-} */
+
 .testando{
   --mat-snack-bar-button-color: #C3A1F5;
 }
