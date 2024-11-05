@@ -1,6 +1,6 @@
 <div class="header-menu">
   <p class="titulo-topico center">Tópicos</p>
-  <mat-icon (click)="fecharMenu.emit()">close</mat-icon>
+  <mat-icon class="close" (click)="fecharMenu.emit()">close</mat-icon>
 </div>
 <div class="progresso center">
   <p class="texto-progresso">Progresso</p>
@@ -18,12 +18,14 @@
     <div
       class="topico-container"
       *ngFor="let topico of this.ltiService.dados_completos?.topicos; index as i"
+      [ngClass]="{
+        'active-topico-container':
+          i == this.moduloService.controll_topico
+      }"
     >
-      <input
-        type="checkbox"
-        disabled="true"
-        [checked]="verificarConcluido(i)"
-      />
+      <div class="caixa">
+        <mat-icon *ngIf="verificarConcluido(i)">check</mat-icon>
+      </div>
       <p *ngIf="verificarConcluido(i) == false">{{ i + 1 }}. {{ topico.nome_topico }}</p>
       <p *ngIf="verificarConcluido(i) == true && verificaMenuHome == false" (click)="navegarModulo.emit(i)">{{ i + 1 }}. {{ topico.nome_topico }}</p>
       <p *ngIf="verificarConcluido(i) == true && verificaMenuHome == true" (click)="navegarModulo.emit(i)" routerLink="topicos">{{ i + 1 }}. {{ topico.nome_topico }}</p>

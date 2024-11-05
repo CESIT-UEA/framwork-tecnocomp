@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, signal } from '@angular/core';
 import { AprendizagemEInformaticaService } from 'src/app/pages/modulos/aprendizagem-e-informatica/aprendizagem-e-informatica.service';
+import { ModuloService } from 'src/app/personalizavel/modulo.service';
 import { ServiceAppService } from 'src/app/service-app.service';
 
 /**
@@ -22,6 +23,7 @@ export class MenuComBarraProgressoTesteComponent implements OnInit{
 
   @Input()  verificaMenuHome = false;
 
+
   constructor(
     /**
      * Variavel que instancia o service AprendizagemEmInformaticaService
@@ -31,7 +33,8 @@ export class MenuComBarraProgressoTesteComponent implements OnInit{
     /**
      * Variavel que instancia o service ServiceAppService, que contém as configurações LTI
      */
-    public ltiService: ServiceAppService
+    public ltiService: ServiceAppService,
+    public moduloService: ModuloService
   ) {}
 
   ngOnInit(): void {

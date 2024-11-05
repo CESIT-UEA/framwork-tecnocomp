@@ -1,60 +1,7 @@
 :host{
-  background-color: #131313;
-  position: absolute;
   width: 100%;
-  height: 100%;
-}
-.container{
- background-color: #131313;
-}
-.cabecalho-slide {
-  display: grid;
-  grid-template-columns: 95% 5%;
-  background-color: #131313;
-  color: #B3B3B3;
-  padding: 12px 0;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.cabecalho-slide-titulo{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.cabecalho-slide span{
-  font-size: 22px;
-  padding-left: 10px;
-}
-.link-proximo {
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  text-decoration: none;
-  font: normal 400 16px Arial;
-  column-gap: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px;
-}
-.container-main-conteudo-links-voltar {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
-.link-voltar {
-  display: inline-grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  text-decoration: none;
-  font-family: Arial;
-  font-size: 16px;
-  line-height: normal;
-  column-gap: 10px;
-  padding-left: 20px;
-  padding-bottom: 10px;
+  height: 100vh;
+  display: block;
 }
 
 /* Header CSS e Sidenav */
@@ -80,6 +27,7 @@ mat-sidenav {
   height: 100%;
 }
 .header {
+  height: 10vh;
   display: flex;
   align-items: center;
   background-color: black;
@@ -92,4 +40,49 @@ mat-sidenav {
 }
 #icon {
   color: #fff;
+}
+.container-main-conteudo-links-voltar {
+  display: grid;
+  align-items: center;
+  color: white;
+  height: 10vh;
+  padding-top: calc(2% - 5px);
+}
+
+.link-proximo {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  text-decoration: none;
+  font: normal 400 16px Arial;
+  column-gap: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  width: fit-content;
+  justify-self: end;
+}
+
+.link-voltar {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  text-decoration: none;
+  font-family: Arial;
+  font-size: 16px;
+  line-height: normal;
+  column-gap: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  width: fit-content;
+  justify-self: start;
+}
+.container-links{
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+}
+.sozinho-proximo{
+  justify-self: end;
+}
+.bg-container{
+  background-color: #131313;
 }

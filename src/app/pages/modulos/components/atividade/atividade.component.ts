@@ -26,7 +26,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
   @Input() bloqueio: any = false;
   @Input() idTopico!: number;
   @Output() atividadeClick = new EventEmitter<void>();
-  vetorLetras : string[] = ['A','B','C','D']
+  vetorLetras: string[] = ['A', 'B', 'C', 'D'];
+  abre: boolean | null = null;
 
   caminhoImagem: string = '../../../../../assets/img/Letra ';
   respostaEnviada: boolean = false;
@@ -41,12 +42,11 @@ export class AtividadeComponent implements OnInit, OnChanges {
     private http: HttpClient,
     public ltiService: ServiceAppService,
     public moduloService: ModuloService,
-    private cd: ChangeDetectorRef,
+    private cd: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
     if (this.ltiService.dados_completos) {
-      console.log("Em atividade")
       this.quantidadeTopicos = this.ltiService.dados_completos.topicos;
       this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length;
       this.tokenStorage = this.ltiService.dados_completos.user.ltik;
@@ -64,7 +64,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   atualizarQuestao() {
-    this.questao = this.ltiService.dados_completos.topicos?.[this.idTopico]?.Exercicios?.[0];
+    this.questao =
+      this.ltiService.dados_completos.topicos?.[this.idTopico]?.Exercicios?.[0];
     if (this.questao && Array.isArray(this.questao.Alternativas)) {
       this.questao.Alternativas = this.embaralharAlternativas(
         this.questao.Alternativas
@@ -88,7 +89,10 @@ export class AtividadeComponent implements OnInit, OnChanges {
     } else if (this.questao && this.questao.respostaCorreta === resposta) {
       this.tratarRespostaCorreta(resposta);
     } else {
-      this.ltiService.mensagem("Resposta Errada! Clique em refazer para fazer novamente");
+      this.respostaEnviada = true;
+      this.ltiService.mensagem(
+        'Resposta Errada! Clique em refazer para fazer novamente'
+      );
     }
     this.cd.detectChanges();
   }
@@ -144,9 +148,9 @@ export class AtividadeComponent implements OnInit, OnChanges {
     console.log(this.nota + this.ltiService.notaTotal);
 
     if (this.ltiService.notaTotal == 0) {
-      this.ltiService.notaTotal = this.nota
-    }else{
-      this.ltiService.notaTotal = this.ltiService.notaTotal + this.nota
+      this.ltiService.notaTotal = this.nota;
+    } else {
+      this.ltiService.notaTotal = this.ltiService.notaTotal + this.nota;
     }
 
     if (this.ltiService.notaTotal > 100) {
@@ -160,11 +164,13 @@ export class AtividadeComponent implements OnInit, OnChanges {
   }
 
   private liberarProximoTopico() {
-    this.ltiService.liberar(this.ltiService.dados_completos.topicos?.[this.idTopico].id).subscribe(
-      (response) =>
-        console.log('Proximo tópico liberado com sucesso', response),
-      (error) => console.error('Erro ao enviar a liberação', error)
-    );
+    this.ltiService
+      .liberar(this.ltiService.dados_completos.topicos?.[this.idTopico].id)
+      .subscribe(
+        (response) =>
+          console.log('Proximo tópico liberado com sucesso', response),
+        (error) => console.error('Erro ao enviar a liberação', error)
+      );
   }
 
   public enviarNota(): void {
@@ -173,16 +179,31 @@ export class AtividadeComponent implements OnInit, OnChanges {
       : this.ltiService.sendGrade;
     enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
       (response) => {
-        console.log("Resposta apos enviar a nota pro moodle:",response);
+        console.log('Resposta apos enviar a nota pro moodle:', response);
         this.ltiService.removeDadosCompletos();
-        this.ltiService.setDadosCompletos(response)
+        this.ltiService.setDadosCompletos(response);
 
-        this.ltiService.mensagem("Resposta Correta! Sua nota já foi retornada para o LMS");
+        this.ltiService.mensagem(
+          'Resposta Correta! Sua nota já foi retornada para o LMS'
+        );
       },
       (error) => {
-        console.log(error)
-        this.ltiService.mensagem("Houve um problema ao enviar a nota para seu LMS");
+        console.log(error);
+        this.ltiService.mensagem(
+          'Houve um problema ao enviar a nota para seu LMS'
+        );
       }
     );
   }
+
+  clickOlho() {
+    if (this.abre == false) {
+      this.abre = true;
+      return true;
+    } else {
+      this.abre = false;
+      return false;
+    }
+  }
+
 }

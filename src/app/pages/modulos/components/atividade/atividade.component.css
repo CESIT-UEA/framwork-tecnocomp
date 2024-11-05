@@ -1,56 +1,62 @@
-:host{
+:host {
+  display: block;
   height: 100%;
 }
 .header-atividade {
   display: grid;
   height: 64px;
-  grid-template-columns: auto auto;
+  grid-template-columns: 95% 5%;
   width: 100%;
-  justify-items: end;
-  background-color: #212121;
+  justify-content: center;
+  background-color: #161616;
   align-items: center;
 }
 
-.header-atividade .title {
-  font-size: 24px;
-  margin-left: 10px;
-  color: aliceblue;
+.header-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
 }
 
-.header-atividade img {
-  margin-left: 5px;
+.header-links p {
+  font-size: 24px;
+  color: #B3B3B3;
 }
+
 
 .container-atividade {
   width: 80%;
   margin: 0 auto;
   font-size: 22px;
+  padding: 15px 0;
 }
 
-.container-atividade h3{
+.container-atividade h3 {
   color: white;
+  font-size: 20px;
+  margin-top: 20px;
 }
 
-.container-atividade .alternativas{
+.container-atividade .alternativas {
   display: grid;
-  grid-template-columns: minmax(80px,100px) 1fr;
+  grid-template-columns: minmax(80px, 100px) 1fr;
   margin-bottom: 20px;
-  background-color: #4F4F4F;
   color: white;
   align-items: center;
 }
 
-.respostaCerta{
+.respostaCerta {
   width: 80%;
   margin-top: 10px;
   padding: 10px;
-  color: #B3B3B3;
+  color: #b3b3b3;
 }
-.container-alternativa{
+.container-alternativa {
   padding: 20px 0;
 }
 
-button{
+button {
   width: 100px;
   height: 50px;
   color: white;
@@ -60,14 +66,12 @@ button{
   border-radius: 20px;
 }
 
-.resposta-errada {
-  border: 2px solid red;
-}
-
-.respostaCorreta{
+.respostaCorreta {
   border: 2px solid rgb(34, 219, 157);
 }
-
+.respostaErrada {
+  border: 2px solid red;
+}
 /* Refatoração */
 .container {
   display: flex;
@@ -82,39 +86,77 @@ button{
   color: white;
 }
 
-
 .container-textos {
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
   padding: 25px 0;
+  background-color: #4f4f4f;
+  border-radius: 0px 8px 8px 0px;
 }
-
 
 .texto-cima {
   display: flex;
-
 }
-
 
 .texto-baixo {
   background-color: #333;
   padding: 10px 20px;
   border-radius: 2px;
-  border: 2px solid #58DB43;
 }
 
-
-.alternativa-correta {
-
+.options {
+  line-height: 150%;
+  color: white;
+  font-size: 40px;
+  background-color: #9665df;
   display: flex;
-  align-items: center;
-  background-color: #58DB43;
-  width: 73px;
   height: 100%;
-  min-height: 90px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px 0 0 8px;
+}
+.img {
+  width: 40px;
+  height: 40px;
+}
+.img-correta {
+  justify-self: center;
+  align-self: center;
+}
+.img-errada {
+  justify-self: center;
+  align-self: center;
+}
+.container-prefix {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 8px 0 0 8px;
+}
+.container-textos {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  padding: 0 17px;
+  padding: 25px 0;
+  height: 100%;
+}
+.texto-cima {
+  display: flex;
+  gap: 10px;
+}
+.texto-baixo {
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: 2px;
+  width: 95%;
+  margin-left: 20px;
+}
+.texto-cima p {
+  width: 95%;
+  padding-left: 20px;
 }

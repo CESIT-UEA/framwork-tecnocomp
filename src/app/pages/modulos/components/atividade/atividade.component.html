@@ -1,5 +1,17 @@
 <div class="header-atividade">
-  <span class="title">Atividade</span>
+  <div class="container-links">
+    <div class="header-links">
+      <!-- Imagem do ícone de download do ebook -->
+      <img
+        src="assets/icons/clipboard.svg"
+        alt="Icone para download do ebook"
+        width="28px"
+        height="28px"
+      />
+      <p>Atividade</p>
+    </div>
+  </div>
+  <!-- ícone que quando clicado volta para a página geral da unidade -->
   <img
     (click)="atividadeClick.emit()"
     src="assets/icons/close.svg"
@@ -19,30 +31,34 @@
     <div *ngFor="let alternativa of questao.Alternativas; let i = index">
       <div
         class="alternativas"
-        [ngClass]="{
-          'resposta-errada':
-            resposta === alternativa.descricao &&
-            questao['respostaCorreta'] != resposta,
-          respostaCorreta:
-            resposta === alternativa.descricao &&
-            questao['respostaCorreta'] == resposta
-        }"
         (click)="!respostaEnviada && responder(alternativa.descricao)"
       >
-        <img [src]="caminhoImagem + i + '.png'" alt="Alternativa da questão" />
-        <div class="container-alternativa">
-          <!-- Mecanismo para as letras -->
-          <!--           <h1 style="color: aliceblue;">{{vetorLetras[i]}}</h1> -->
-          {{ alternativa.descricao }}
-          <div *ngIf="resposta === alternativa.descricao">
-            Explicação: {{ resposta ? getExplicacao(resposta) : "" }}
+        <p class="options">{{ vetorLetras[i] }}</p>
+        <div class="container-textos">
+          <div class="texto-cima">
+            <p>{{ alternativa.descricao }}</p>
+          </div>
+          <div
+            class="texto-baixo"
+            *ngIf="resposta === alternativa.descricao"
+            [ngClass]="{
+              respostaErrada: this.questao.respostaCorreta !== respostaEnviada,
+              respostaCorreta: this.questao.respostaCorreta === respostaEnviada
+            }"
+          >
+            <p>{{ resposta ? getExplicacao(resposta) : "" }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <button (click)="refazer()" [disabled]="respostaCorretaEnviada">Refazer</button>
-
+  <button
+    *ngIf="this.respostaEnviada == true"
+    (click)="refazer()"
+    [disabled]="respostaCorretaEnviada"
+  >
+    Refazer
+  </button>
 </div>
 
 <ng-template #elseAtividade>
@@ -52,27 +68,115 @@
       <div *ngFor="let alternativa of questao.Alternativas; let i = index">
         <div
           class="alternativas"
-          [ngClass]="{
-            'resposta-errada':
-              resposta === alternativa.descricao &&
-              questao['respostaCorreta'] != resposta,
-            respostaCorreta:
-              resposta === alternativa.descricao &&
-              questao['respostaCorreta'] == resposta
-          }"
           (click)="responderAlternativo(alternativa.descricao)"
         >
-          <img
-            [src]="caminhoImagem + i + '.png'"
-            alt="Alternativa da questão"
-          />
-          <div class="container-alternativa">
-            {{ alternativa.descricao }}
-            <div
-              class="respostaCorreta"
-              *ngIf="resposta === alternativa.descricao"
+          <div
+            class="container-prefix"
+            [ngStyle]="{
+              'background-color':
+                (resposta === alternativa.descricao &&
+                  alternativa.correta == true) ||
+                (resposta === alternativa.descricao &&
+                  alternativa.correta == true) ||
+                alternativa.correta == true
+                  ? '#58DB43'
+                  : resposta === alternativa.descricao &&
+                    alternativa.correta == false
+                  ? 'red'
+                  : null
+            }"
+          >
+            <p
+              *ngIf="
+                resposta != alternativa.descricao &&
+                alternativa.correta != true &&
+                this.abre == null
+              "
+              class="options"
+              [ngClass]="{
+                respostaCorreta:
+                  resposta === alternativa.descricao && this.abre == false
+              }"
             >
-              Explicação: {{ resposta ? getExplicacao(resposta) : "" }}
+              {{ vetorLetras[i] }}
+            </p>
+
+            <p
+              *ngIf="resposta != alternativa.descricao && this.abre != null"
+              class="options"
+            >
+              {{ vetorLetras[i] }}
+            </p>
+
+            <img
+              class="img img-correta"
+              *ngIf="
+                resposta === alternativa.descricao &&
+                alternativa.correta == true
+              "
+              src="../../../../../assets/img/checkAtividade.png"
+              alt=""
+            />
+            <img
+              class="img img-correta"
+              *ngIf="
+                this.abre == null &&
+                alternativa.correta == true
+              "
+              src="../../../../../assets/img/checkAtividade.png"
+              alt=""
+            />
+            <img
+              class="img img-errada"
+              *ngIf="
+                resposta === alternativa.descricao &&
+                alternativa.correta == false
+              "
+              src="../../../../../assets/img/erradoAtividade.png"
+              alt=""
+            />
+          </div>
+          <div class="container-textos">
+            <div class="texto-cima">
+              <p>{{ alternativa.descricao }}</p>
+              <mat-icon
+                (click)="clickOlho()"
+                [ngStyle]="{
+                  color:
+                    resposta === alternativa.descricao && this.abre == true
+                      ? '#A174E2'
+                      : this.abre == false
+                      ? 'white'
+                      : null
+                }"
+                >remove_red_eye</mat-icon
+              >
+            </div>
+            <div
+              class="texto-baixo"
+              *ngIf="resposta === alternativa.descricao && this.abre == true"
+              [ngClass]="{
+                respostaErrada: this.questao.respostaCorreta != resposta,
+                respostaCorreta: this.questao.respostaCorreta == resposta
+              }"
+            >
+              <p>{{ resposta ? getExplicacao(resposta) : "" }}</p>
+            </div>
+            <div
+              class="texto-baixo"
+              *ngIf="
+                alternativa.descricao != null &&
+                alternativa.correta == true &&
+                this.abre == null
+              "
+              [ngClass]="{
+                respostaCorreta:
+                  alternativa.descricao != null &&
+                  alternativa.correta == true &&
+                  this.abre == null
+              }"
+            >
+              <p>{{ alternativa.explicacao }}</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,10 @@
 @font-face {
   font-family: minhaFonte;
-  src: url('../../../../../assets/fonteProjeto.ttf');
+  src: url("../../../../../assets/fonteProjeto.ttf");
+}
+:host {
+  height: 80vh;
+  display: block;
 }
 .container {
   background-color: #131313;
@@ -8,31 +12,35 @@
 .container-main-conteudo {
   display: flex;
   justify-content: space-evenly;
-  border-bottom: 3px solid #5A3D86;
-  padding-bottom: 10px;
-  margin-bottom: 10px;
+  border-bottom: 3px solid #5a3d86;
+  padding-bottom: 20px;
+  height: 90%;
+  align-items: center;
 }
-
+.container-video {
+  height: 100%;
+}
 .div-slide {
   width: 60%;
+  height: 100%;
 }
-.titulo-topico{
-  width: 65%;
+.titulo-topico {
+  width: 75%;
 }
 .titulo-topico ul li {
   list-style: none;
   text-align: center;
-  color: #F0E5FF;
-  padding: 20px 0 0 0;
+  color: #f0e5ff;
+  padding: 30px 0 0 0;
   font-family: minhaFonte;
   font-size: 25px;
   margin-bottom: 10px;
 }
 
 .titulo-topico ul li:before {
-  content: '\2022';
+  content: "\2022";
   margin: 0 10px;
-  color: #9665DF;
+  color: #9665df;
 }
 
 .titulo-topico hr {
@@ -41,17 +49,18 @@
   margin: auto;
   margin-bottom: 10px;
   border-radius: 10px;
-  background-color: #3C2859;
+  background-color: #3c2859;
   border: none;
 }
 
 .botoes {
-  padding: 30px;
+  padding: 15px;
   display: grid;
   align-items: center;
   border-radius: 15px;
-  background: rgba(28, 28, 28, 0.70);
-  height: 90%;
+  background: rgba(28, 28, 28, 0.7);
+  height: 95%;
+  align-self: flex-start;
 }
 
 .primeiro {
@@ -88,9 +97,13 @@ button.segundo-botao {
   gap: 2px;
   flex-shrink: 0;
   border-radius: 6px;
-  border: 1.146px solid var(--Primaria, #9665DF);
-  background: radial-gradient(50% 50% at 50% 50%, rgba(150, 101, 223, 0.50) 0%, rgba(150, 101, 223, 0.00) 100%);
-  color: var(--Terciaria, #FFF);
+  border: 1.146px solid var(--Primaria, #9665df);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(150, 101, 223, 0.5) 0%,
+    rgba(150, 101, 223, 0) 100%
+  );
+  color: var(--Terciaria, #fff);
   font-family: Arial;
   font-size: 14px;
   font-style: normal;
@@ -110,9 +123,13 @@ button.terceiro-botao {
   gap: 5px;
   flex-shrink: 0;
   border-radius: 6px;
-  border: 1.146px solid var(--Primaria, #9665DF);
-  background: radial-gradient(50% 50% at 50% 50%, rgba(150, 101, 223, 0.50) 0%, rgba(150, 101, 223, 0.00) 100%);
-  color: var(--Terciaria, #FFF);
+  border: 1.146px solid var(--Primaria, #9665df);
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(150, 101, 223, 0.5) 0%,
+    rgba(150, 101, 223, 0) 100%
+  );
+  color: var(--Terciaria, #fff);
   text-align: center;
   font-family: Arial;
   font-size: 14px;
@@ -135,11 +152,11 @@ button.ebook-botao {
   gap: 12.559px;
   background-color: transparent;
   border-radius: 7.177px;
-  border: 1.794px solid var(--Terciaria, #FFF);
+  border: 1.794px solid var(--Terciaria, #fff);
 }
 
 button.ebook-botao a {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: Arial;
   font-size: 15.25px;
@@ -158,7 +175,7 @@ button.atividade-botao {
   border: none;
   border-radius: 7.177px;
 
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: Arial;
   font-size: 15.25px;
@@ -167,28 +184,29 @@ button.atividade-botao {
   line-height: normal;
   margin-bottom: 22px;
 }
-.active{
-  background: var(--2, #793CD4);
+.active {
+  background: var(--2, #793cd4);
 }
-.disabled{
-  background-color: #4F4F4F;
+.disabled {
+  background: #50288D;
+
 }
 .primeiro-botao {
-  border: 2px solid var(--Terciaria, #FFF);
+  border: 2px solid var(--Terciaria, #fff);
   background-color: transparent;
 }
 
 .primeiro-botao a,
 .segundo-botao {
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
   text-align: center;
-  font: normal 400 17px/normal Arial;
+  font: normal 400 17px / normal Arial;
 }
 
 .segundo-botao {
   border: none;
-  background-color: #793CD4;
+  background-color: #793cd4;
 }
 
 .container-main-conteudo-link {
@@ -221,7 +239,7 @@ button.atividade-botao {
   grid-template-columns: auto auto;
   align-items: center;
   text-decoration: none;
-  color: #4F4F4F;
+  color: #4f4f4f;
   font: normal 400 16px normal Arial;
   column-gap: 10px;
   padding-right: 20px;
@@ -237,7 +255,7 @@ button.atividade-botao {
   grid-template-columns: auto auto;
   align-items: center;
   text-decoration: none;
-  color: #FFF;
+  color: #fff;
   font-family: Arial;
   font-size: 16px;
   line-height: normal;
@@ -246,7 +264,11 @@ button.atividade-botao {
   padding-bottom: 10px;
 }
 
-@media (max-width:800px) {
+@media (max-width: 800px) {
+  :host {
+    height: 100%;
+    display: block;
+  }
   .container-main-conteudo {
     flex-direction: column;
     row-gap: 20px;
@@ -254,5 +276,10 @@ button.atividade-botao {
 
   .div-slide {
     width: 80%;
+  }
+
+  .titulo-topico {
+    width: 90%;
+    margin: 0 auto;
   }
 }
