@@ -5,7 +5,7 @@
 }
 .header-atividade {
   display: grid;
-  height: 64px;
+  height: 10vh;
   grid-template-columns: 95% 5%;
   width: 100%;
   justify-content: center;
@@ -27,4 +27,7 @@
 .header-links p {
   font-size: 30px;
   color: #B3B3B3;
+}
+.teste{
+  height: 90vh;
 }

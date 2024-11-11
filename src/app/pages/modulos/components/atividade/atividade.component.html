@@ -31,34 +31,138 @@
     <div *ngFor="let alternativa of questao.Alternativas; let i = index">
       <div
         class="alternativas"
-        (click)="!respostaEnviada && responder(alternativa.descricao)"
+        (click)="SetRespostaEscolhida(alternativa.descricao)"
       >
-        <p class="options">{{ vetorLetras[i] }}</p>
-        <div class="container-textos">
+        <div
+          class="container-prefix"
+          [ngStyle]="{
+            'background-color':
+              (resposta === alternativa.descricao &&
+                alternativa.correta == true) ||
+              alternativa.correta == true
+                ? '#58DB43'
+                : (resposta === alternativa.descricao &&
+                  alternativa.correta == false) || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != null
+                ? 'red'
+                : null,
+            border:
+              resposta === alternativa.descricao && alternativa.correta == false
+                ? 'none'
+                : null
+          }"
+        >
+          <p
+            *ngIf="
+              resposta != alternativa.descricao && this.respostaEnviada == false && (this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != alternativa.descricao || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null)
+            "
+            class="options"
+          >
+            {{ vetorLetras[i] }}
+          </p>
+          <p
+            *ngIf="
+              resposta != alternativa.descricao && this.respostaEnviada == true
+            "
+            class="options"
+          >
+            {{ vetorLetras[i] }}
+          </p>
+
+          <img
+            class="img img-correta"
+            *ngIf="
+              resposta === alternativa.descricao && this.respostaEnviada == true && alternativa.correta == true
+            "
+            src="../../../../../assets/img/checkAtividade.png"
+            alt=""
+          />
+          <img
+            class="img img-errada"
+            *ngIf="
+              (resposta === alternativa.descricao && this.respostaEnviada == true && alternativa.correta == false) || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao && alternativa.correta == false
+            "
+            src="../../../../../assets/img/erradoAtividade.png"
+            alt=""
+          />
+        </div>
+        <div
+          class="container-textos"
+          [ngClass]="{
+            'active-alternativa':
+              this.respostaEscolhida == alternativa.descricao &&
+              this.respostaEnviada == false &&
+              this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null
+          }"
+        >
           <div class="texto-cima">
             <p>{{ alternativa.descricao }}</p>
+            <mat-icon
+              *ngIf="
+                (resposta === alternativa.descricao &&
+                alternativa.correta == false) || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao
+              "
+              (click)="clickOlho()"
+              [ngStyle]="{
+                color:
+                  (resposta === alternativa.descricao && this.abre == true) || (this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao && this.abre == true || this.abre == null)
+                    ? '#A174E2'
+                    : this.abre == false
+                    ? 'white'
+                    : null
+              }"
+              >remove_red_eye</mat-icon
+            >
           </div>
           <div
             class="texto-baixo"
-            *ngIf="resposta === alternativa.descricao"
+            *ngIf="
+              resposta === alternativa.descricao &&
+              (this.abre == true || this.abre == null) && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao == null
+            "
             [ngClass]="{
-              respostaErrada: this.questao.respostaCorreta !== respostaEnviada,
-              respostaCorreta: this.questao.respostaCorreta === respostaEnviada
+              respostaErrada: this.questao.respostaCorreta != resposta
             }"
           >
             <p>{{ resposta ? getExplicacao(resposta) : "" }}</p>
           </div>
+
+          <div
+            class="texto-baixo"
+            *ngIf="
+            (
+            (this.abre == true || this.abre == null) ) && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao
+          "
+            [ngClass]="{
+              respostaErrada: this.questao.respostaCorreta != resposta
+            }"
+          >
+            <p
+              *ngIf="this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao != null"
+            >
+              {{ getExplicacao(this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada)}}
+            </p>
+          </div>
         </div>
       </div>
     </div>
+    <div class="butoes">
+      <button
+        class="refazer"
+        *ngIf="this.respostaEnviada == true || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != null"
+        (click)="refazer()"
+        [disabled]="respostaCorretaEnviada"
+      >
+        Refazer
+      </button>
+      <button
+        class="btn-submit active"
+        *ngIf="this.respostaEscolhida != null && this.respostaEnviada != true && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null"
+        (click)="!respostaEnviada && responder(this.respostaEscolhida)"
+      >
+        Enviar
+      </button>
+    </div>
   </div>
-  <button
-    *ngIf="this.respostaEnviada == true"
-    (click)="refazer()"
-    [disabled]="respostaCorretaEnviada"
-  >
-    Refazer
-  </button>
 </div>
 
 <ng-template #elseAtividade>
@@ -112,7 +216,9 @@
               class="img img-correta"
               *ngIf="
                 resposta === alternativa.descricao &&
-                alternativa.correta == true
+                alternativa.correta == true &&
+                this.respondidoOficialmente == false &&
+                this.abre != null
               "
               src="../../../../../assets/img/checkAtividade.png"
               alt=""
@@ -121,7 +227,18 @@
               class="img img-correta"
               *ngIf="
                 this.abre == null &&
-                alternativa.correta == true
+                alternativa.correta == true &&
+                this.respondidoOficialmente == false
+              "
+              src="../../../../../assets/img/checkAtividade.png"
+              alt=""
+            />
+            <img
+              class="img img-correta"
+              *ngIf="
+                this.abre == null &&
+                alternativa.correta == true &&
+                this.respondidoOficialmente == true
               "
               src="../../../../../assets/img/checkAtividade.png"
               alt=""
@@ -143,7 +260,7 @@
                 (click)="clickOlho()"
                 [ngStyle]="{
                   color:
-                    resposta === alternativa.descricao && this.abre == true
+                    (resposta === alternativa.descricao && (this.abre == true || this.abre == null))
                       ? '#A174E2'
                       : this.abre == false
                       ? 'white'

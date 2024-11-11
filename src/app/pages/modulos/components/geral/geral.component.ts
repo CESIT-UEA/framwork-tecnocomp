@@ -34,6 +34,10 @@ export class GeralComponent implements OnInit {
     if (this.ltiService.controlAtividade >= this.videos.length) {
       this.ltiService.controlAtividade = 1;
     }
+    console.log(this.ltiService.dados_completos.userTopico[
+      this.moduloService.controll_topico
+    ].UsuarioTopicos[0].resposta_errada);
+
   }
   navigation() {
     this.router.navigate([this.proximo]);

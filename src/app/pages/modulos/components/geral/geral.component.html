@@ -2,7 +2,7 @@
 <div class="titulo-topico">
   <ul>
     <!-- Nome do tópico da unidade -->
-    <li>{{this.moduloService.controll_topico + 1}}. {{ this.nome }}</li>
+    <li>{{ this.moduloService.controll_topico + 1 }}. {{ this.nome }}</li>
   </ul>
   <hr />
 </div>
@@ -66,7 +66,14 @@
       <section class="buttons-final">
         <!-- Botão que quando clicado vai para o componente de atividade -->
         <button
-          *ngIf="this.ltiService.verificarTodosVideosCompletos(this.videos)"
+          *ngIf="
+            this.ltiService.verificarTodosVideosCompletos(this.videos) &&
+              this.ltiService.dados_completos.userTopico[
+                this.moduloService.controll_topico
+              ].UsuarioTopicos[0].resposta_errada == null && this.ltiService.dados_completos.userTopico[
+                this.moduloService.controll_topico
+              ].UsuarioTopicos[0].encerrado != true
+          "
           class="atividade-botao center-2 active"
           (click)="atividadeClick.emit()"
         >
@@ -78,6 +85,40 @@
           />
           ATIVIDADE
         </button>
+
+        <button
+          *ngIf="
+            this.ltiService.verificarTodosVideosCompletos(this.videos)
+            && this.ltiService.dados_completos.userTopico[
+              this.moduloService.controll_topico
+            ].UsuarioTopicos[0].resposta_errada != null
+          "
+          class="atividade-botao center-2 active-incorreto"
+          (click)="atividadeClick.emit()"
+        >
+          <img
+            src="../../../../../assets/img/erradoAtividade.png"
+            alt="Icone para ir para a atividade da unidade"
+            width="22px"
+            height="24px"
+          />
+          Ops! Refazer a Atividade
+        </button>
+
+        <button
+        *ngIf="this.ltiService.verificarTodosVideosCompletos(this.videos) && this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].encerrado == true"
+        class="atividade-botao center-2 active-correto"
+        (click)="atividadeClick.emit()"
+      >
+        <img
+          src="../../../../../assets/img/checkAtividade.png"
+          alt="Icone para ir para a atividade da unidade"
+          width="22px"
+          height="24px"
+        />
+        Acertou! Ver resposta
+      </button>
+
         <button
           class="atividade-botao center-2 disabled"
           *ngIf="!this.ltiService.verificarTodosVideosCompletos(this.videos)"
@@ -94,7 +135,10 @@
 
         <!-- Botão para download do e-book do tópico -->
         <button class="ebook-botao center-2">
-          <a [href]="linkEbookTopico" download="E-book Teste.PDF"
+          <a
+            [href]="linkEbookTopico"
+            download="E-book Teste.PDF"
+            target="_blank"
             >E-BOOK TÓPICO</a
           >
           <img

@@ -28,7 +28,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
   @Output() atividadeClick = new EventEmitter<void>();
   vetorLetras: string[] = ['A', 'B', 'C', 'D'];
   abre: boolean | null = null;
-
+  respondidoOficialmente: boolean = false;
   caminhoImagem: string = '../../../../../assets/img/Letra ';
   respostaEnviada: boolean = false;
   respostaCorretaEnviada: boolean = false;
@@ -38,6 +38,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
   tokenData: any;
   questao: any | null = null;
   quantidadeTopicos: any = [];
+  respostaEscolhida: any = null;
+
   constructor(
     private http: HttpClient,
     public ltiService: ServiceAppService,
@@ -50,6 +52,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
       this.quantidadeTopicos = this.ltiService.dados_completos.topicos;
       this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length;
       this.tokenStorage = this.ltiService.dados_completos.user.ltik;
+      console.log(this.respondidoOficialmente);
     }
     if (this.idTopico === this.quantidadeTopicos.length - 1) {
       this.gradeIn = false;
@@ -88,8 +91,30 @@ export class AtividadeComponent implements OnInit, OnChanges {
       return;
     } else if (this.questao && this.questao.respostaCorreta === resposta) {
       this.tratarRespostaCorreta(resposta);
+      this.respondidoOficialmente = true;
+      console.log(this.respondidoOficialmente);
     } else {
+      this.resposta = resposta;
       this.respostaEnviada = true;
+      this.ltiService
+        .enviarRespostaIncorreta(
+          this.ltiService.dados_completos.topicos?.[this.idTopico].id,
+          this.ltiService.dados_completos.user.ltik,
+          resposta
+        )
+        .subscribe(
+          (response) => {
+            console.log('Resposta apos enviar a resposta incorreta', response);
+            this.ltiService.removeDadosCompletos();
+            this.ltiService.setDadosCompletos(response);
+          },
+          (error) => {
+            console.log(error);
+            this.ltiService.mensagem(
+              'Houve um problema ao enviar a resposta incorreta'
+            );
+          }
+        );
       this.ltiService.mensagem(
         'Resposta Errada! Clique em refazer para fazer novamente'
       );
@@ -100,6 +125,9 @@ export class AtividadeComponent implements OnInit, OnChanges {
   responderAlternativo(resposta: string) {
     this.resposta = resposta;
     this.respostaEnviada = true;
+    if (this.abre == null) {
+      this.abre = true;
+    }
   }
 
   refazer() {
@@ -118,6 +146,26 @@ export class AtividadeComponent implements OnInit, OnChanges {
         this.questao.respostaCorreta = respostaCorreta.descricao;
       }
     }
+
+    this.ltiService
+        .enviarResetarRespostaIncorreta(
+          this.ltiService.dados_completos.topicos?.[this.idTopico].id,
+          this.ltiService.dados_completos.user.ltik
+        )
+        .subscribe(
+          (response) => {
+            console.log('Resposta apos tentar resetar a resposta incorreta', response);
+            this.ltiService.removeDadosCompletos();
+            this.ltiService.setDadosCompletos(response);
+          },
+          (error) => {
+            console.log(error);
+            this.ltiService.mensagem(
+              'Houve um problema ao tentar resetar resposta incorreta'
+            );
+          }
+        );
+
     this.resposta = null;
     this.respostaEnviada = false;
   }
@@ -126,6 +174,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
     const alternativa = this.questao?.Alternativas.find(
       (a: any) => a.descricao === resposta
     );
+    console.log(String)
+    console.log(alternativa)
     return alternativa?.explicacao;
   }
 
@@ -196,7 +246,18 @@ export class AtividadeComponent implements OnInit, OnChanges {
     );
   }
 
+  public SetRespostaEscolhida(respostaEscolhida: string): void {
+    this.respostaEscolhida = respostaEscolhida;
+  }
+
+  public RemoveRespostaEscolhida() {
+    this.respostaEscolhida = null;
+  }
+
   clickOlho() {
+    if (this.respondidoOficialmente == true) {
+      this.respondidoOficialmente = false;
+    }
     if (this.abre == false) {
       this.abre = true;
       return true;
@@ -205,5 +266,4 @@ export class AtividadeComponent implements OnInit, OnChanges {
       return false;
     }
   }
-
 }

@@ -1,29 +1,33 @@
-<div *ngIf="this.ltiService?.dados_completos" style="height: 100%;">
-  <div class="container-geral" [ngSwitch]="controllerSwitch" style="height: 100%;">
-    <div *ngSwitchCase="'1'" style="height: 100%;">
+<div *ngIf="this.ltiService?.dados_completos" style="height: 100%">
+  <div
+    class="container-geral"
+    [ngSwitch]="controllerSwitch"
+    style="height: 100%"
+  >
+    <div *ngSwitchCase="'1'" style="height: 100%">
       <app-atividade
         (atividadeClick)="atividadeClick()"
         [idTopico]="this.moduloService.controll_topico"
       ></app-atividade>
     </div>
 
-    <div *ngSwitchCase="'3'" style="height: 100%;">
+    <div *ngSwitchCase="'3'" style="height: 100%">
       <app-referencias
         [referencias]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.Referencias"
         (referenciasClick)="referenciasClick()"
       ></app-referencias>
     </div>
 
-    <div *ngSwitchCase="'2'" style="height: 100%;">
+    <div *ngSwitchCase="'2'" style="height: 100%">
       <app-saiba-mais
         [links]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.SaibaMais"
         (linksClick)="linksClick()"
       ></app-saiba-mais>
     </div>
 
-    <div *ngSwitchCase="'4'" style="height: 100%;">
+    <div *ngSwitchCase="'4'" style="height: 100%">
       <app-slide
-      (textoApoioClick)="textoApoioClick()"
+        (textoApoioClick)="textoApoioClick()"
         [caminhoSlide]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.textoApoio"
       ></app-slide>
     </div>
@@ -34,13 +38,13 @@
       >
         <mat-sidenav-container>
           <mat-sidenav
+            class="menu"
             #sidenav
             mode="over"
             fixedInViewport="Fixed"
             position="end"
           >
             <app-menu-com-barra-progresso-teste
-
               (fecharMenu)="fecharMenuClick()"
               (navegarModulo)="navegarModulo($event)"
             ></app-menu-com-barra-progresso-teste>
@@ -55,6 +59,29 @@
               />
               <nav>
                 <div class="end-navbar">
+                  <div
+                    *ngIf="this.perfilUser == false"
+                    class="container-foto-header"
+                  >
+                    <div class="foto-header">H</div>
+                    <mat-icon style="color: white" (click)="abreMenuUser()">
+                      keyboard_arrow_down
+                    </mat-icon>
+                  </div>
+
+                  <div
+                    *ngIf="this.perfilUser == true"
+                    class="container-foto-header-active"
+                  >
+                    <div class="cima">
+                      <div class="foto-header">H</div>
+                      <span>Minha Pontuação</span>
+                      <mat-icon style="color: white" (click)="fechaMenuUser()">
+                        keyboard_arrow_up
+                      </mat-icon>
+                    </div>
+                  </div>
+
                   <mat-icon style="color: #fff" routerLink="../">home</mat-icon>
                   <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
                 </div>
@@ -71,17 +98,21 @@
               [liberado]="this.moduloService.bloqueio?.[this.moduloService.controll_topico]?.encerrado"
             ></app-geral>
 
-            <div class="container-main-conteudo-links-voltar"
-            [ngClass]="{
-              'container-links': this.verificaVoltar() && this.verificaProximo()
-            }"
+            <div
+              class="container-main-conteudo-links-voltar"
+              [ngClass]="{
+                'container-links':
+                  this.verificaVoltar() && this.verificaProximo()
+              }"
             >
               <div
                 *ngIf="this.verificaVoltar()"
                 class="link-voltar"
                 (click)="voltar()"
                 [ngClass]="{
-                  'sozinho': this.verificaVoltar() == true && this.verificaProximo() == false
+                  sozinho:
+                    this.verificaVoltar() == true &&
+                    this.verificaProximo() == false
                 }"
               >
                 <img
@@ -98,7 +129,9 @@
                 class="link-proximo"
                 (click)="proximo()"
                 [ngClass]="{
-                  'sozinho-proximo': this.verificaVoltar() == false && this.verificaProximo() == true
+                  'sozinho-proximo':
+                    this.verificaVoltar() == false &&
+                    this.verificaProximo() == true
                 }"
               >
                 PRÓXIMO

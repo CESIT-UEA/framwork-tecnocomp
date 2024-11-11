@@ -164,11 +164,11 @@ button.ebook-botao a {
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
+  width: 80%;
 }
 
 button.atividade-botao {
   display: inline-flex;
-  padding: 9.868px 56.516px;
   justify-content: center;
   align-items: center;
   gap: 12.559px;
@@ -183,13 +183,20 @@ button.atividade-botao {
   font-weight: 700;
   line-height: normal;
   margin-bottom: 22px;
+  width: 100%;
+  padding: 15px;
 }
 .active {
   background: var(--2, #793cd4);
 }
 .disabled {
   background: #50288D;
-
+}
+.active-incorreto{
+  background-color: #DE3535;
+}
+.active-correto{
+  background-color: #44A834;
 }
 .primeiro-botao {
   border: 2px solid var(--Terciaria, #fff);

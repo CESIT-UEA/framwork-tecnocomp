@@ -9,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './slide.component.html',
   styleUrls: ['./slide.component.css'],
 })
-export class SlideComponent implements OnInit {
+export class  SlideComponent implements OnInit {
   @Input() caminhoSlide!: any;
   constructor(private sanitizer: DomSanitizer) {}
   teste:any;
@@ -24,8 +24,8 @@ export class SlideComponent implements OnInit {
     position: relative;
     width: 100%;
 
-    height: 400px;">
-     <iframe loading="lazy" style="width: 100%; height: 100%;max-height: 400px; border: none; padding: 0;margin: 0;"
+    height: 100%">
+     <iframe loading="lazy" style="width: 100%; height: 100%; border: none; padding: 0;margin: 0;"
        src=`+ this.caminhoSlide + ` allow="fullscreen">
      </iframe>
    </div>

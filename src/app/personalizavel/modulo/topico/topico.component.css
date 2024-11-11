@@ -1,28 +1,59 @@
-:host{
+:host {
   width: 100%;
   height: 100vh;
   display: block;
 }
 
 /* Header CSS e Sidenav */
-mat-sidenav {
+.menu {
   height: 90%;
   background-color: #131313;
   border-radius: 20px 0;
+  width: 375px;
 }
-
-.header nav{
+.container-foto-header {
+  display: flex;
+  padding: 2px;
+  align-items: center;
+  gap: 5px;
+  border-radius: 20px;
+  background: #131313;
+}
+.foto-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  color: black;
+  background-color: white;
+  border-radius: 28px;
+  border: 1px solid var(--Primaria, #9665df);
+}
+.menu-user {
+  width: 270px;
+  height: 175px;
+  display: inline-flex;
+  padding: 14px 1px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--Primaria, #9665df);
+  background: var(--Background, #131313);
+}
+.header nav {
   width: 20%;
   display: flex;
   align-items: center;
 }
-.end-navbar{
+.end-navbar {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: space-around;
 }
-.mat-drawer-container{
+.mat-drawer-container {
   background-color: transparent;
   height: 100%;
 }
@@ -76,13 +107,13 @@ mat-sidenav {
   width: fit-content;
   justify-self: start;
 }
-.container-links{
+.container-links {
   grid-template-columns: auto auto;
   justify-content: space-between;
 }
-.sozinho-proximo{
+.sozinho-proximo {
   justify-self: end;
 }
-.bg-container{
+.bg-container {
   background-color: #131313;
 }

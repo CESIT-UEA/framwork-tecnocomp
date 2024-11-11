@@ -237,4 +237,33 @@ export class ServiceAppService {
     this._snackBar.open(texto,"ok",config);
 
   }
+
+ enviarRespostaIncorreta(
+  idTopico: number,
+  ltik: string,
+  respostaErrada: string
+  ): Observable<any> {
+    const body = { idTopico, ltik, respostaErrada };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+    });
+
+    return this.http.post(`${this.apiUrl}/resposta-errada`, body, { headers });
+  }
+
+  enviarResetarRespostaIncorreta(
+    idTopico: number,
+    ltik: string,
+    ): Observable<any> {
+      const body = { idTopico, ltik };
+
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+      });
+
+      return this.http.post(`${this.apiUrl}/resposta-errada-refazer`, body, { headers });
+    }
 }

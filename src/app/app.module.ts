@@ -51,6 +51,7 @@ import { ModuloComponent } from './personalizavel/modulo/modulo.component';
 import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -107,7 +108,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HttpClientModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

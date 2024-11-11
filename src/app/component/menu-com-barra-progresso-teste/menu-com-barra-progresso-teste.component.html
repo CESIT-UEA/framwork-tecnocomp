@@ -17,18 +17,34 @@
   <div class="container-topico">
     <div
       class="topico-container"
-      *ngFor="let topico of this.ltiService.dados_completos?.topicos; index as i"
+      *ngFor="
+        let topico of this.ltiService.dados_completos?.topicos;
+        index as i
+      "
       [ngClass]="{
-        'active-topico-container':
-          i == this.moduloService.controll_topico
+        'active-topico-container': i == this.moduloService.controll_topico,
+        'disabled-link': verificarConcluido(i) == false
       }"
     >
       <div class="caixa">
         <mat-icon *ngIf="verificarConcluido(i)">check</mat-icon>
       </div>
-      <p *ngIf="verificarConcluido(i) == false">{{ i + 1 }}. {{ topico.nome_topico }}</p>
-      <p *ngIf="verificarConcluido(i) == true && verificaMenuHome == false" (click)="navegarModulo.emit(i)">{{ i + 1 }}. {{ topico.nome_topico }}</p>
-      <p *ngIf="verificarConcluido(i) == true && verificaMenuHome == true" (click)="navegarModulo.emit(i)" routerLink="topicos">{{ i + 1 }}. {{ topico.nome_topico }}</p>
+      <p *ngIf="verificarConcluido(i) == false">
+        {{ i + 1 }}. {{ topico.nome_topico }}
+      </p>
+      <p
+        *ngIf="verificarConcluido(i) == true && verificaMenuHome == false"
+        (click)="navegarModulo.emit(i)"
+      >
+        {{ i + 1 }}. {{ topico.nome_topico }}
+      </p>
+      <p
+        *ngIf="verificarConcluido(i) == true && verificaMenuHome == true"
+        (click)="navegarModulo.emit(i)"
+        routerLink="topicos"
+      >
+        {{ i + 1 }}. {{ topico.nome_topico }}
+      </p>
     </div>
   </div>
 </div>
