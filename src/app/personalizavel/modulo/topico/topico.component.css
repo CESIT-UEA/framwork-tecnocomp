@@ -114,6 +114,9 @@
 .sozinho-proximo {
   justify-self: end;
 }
+.opactiy-active{
+  opacity: .5;
+}
 .bg-container {
   background-color: #131313;
 }

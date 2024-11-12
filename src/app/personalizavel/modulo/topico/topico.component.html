@@ -108,7 +108,8 @@
                 [ngClass]="{
                   'sozinho-proximo':
                     this.verificaVoltar() == false &&
-                    this.verificaProximo() == true
+                    this.verificaProximo() == true,
+                    'opactiy-active' : this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].encerrado == false
                 }"
               >
                 PRÓXIMO
