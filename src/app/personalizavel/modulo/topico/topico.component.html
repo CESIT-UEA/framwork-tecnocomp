@@ -86,20 +86,25 @@
                       </mat-icon>
                     </div>
                     <div class="meio">
-                      <p>Progresso: </p>
+                      <p>Progresso:</p>
                       <div class="spinner">
                         <mat-progress-spinner
                           class="example-margin"
                           mode="determinate"
-                          [value]="
-                            100
-                          "
-                          style="width: 100%"
+                          [value]="this.ltiService.dados_completos?.userModulo?.nota"
+                          style="width: 66px; height: 66px; border-radius: 40px;"
                         >
                         </mat-progress-spinner>
-                        <span class="progress-spinner" >{{this.ltiService.dados_completos?.userModulo?.nota}}%</span>
+                        <span class="progress-spinner"
+                          >{{
+                            this.ltiService.dados_completos?.userModulo?.nota
+                          }}%</span
+                        >
                       </div>
                     </div>
+                    <p class="center" style="color: #9665DF;">{{
+                      this.ltiService.dados_completos?.userModulo?.nota
+                    }} pontos</p>
                   </div>
 
                   <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>

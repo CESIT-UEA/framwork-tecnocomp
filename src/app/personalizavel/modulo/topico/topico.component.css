@@ -139,6 +139,7 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   padding: 0 10px;
   color: white;
 }
@@ -148,13 +149,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  color: white;
+  color: rgba(234, 224, 249, 0.58)
 }
 .mat-mdc-progress-spinner {
-  width: 50px;
+  background-color: #281446;
+}
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #58DB43;
 }
 .progress-spinner{
   position: absolute;
-  top: 51%;
+  top: 43%;
+  right: 10%;
   font-size: 16px;
 }
