@@ -273,8 +273,8 @@
               class="texto-baixo"
               *ngIf="resposta === alternativa.descricao && this.abre == true"
               [ngClass]="{
-                respostaErrada: this.questao.respostaCorreta != resposta,
-                respostaCorreta: this.questao.respostaCorreta == resposta
+                'respostaErrada': alternativa.correta == false,
+                'respostaCorreta': alternativa.correta == true
               }"
             >
               <p>{{ resposta ? getExplicacao(resposta) : "" }}</p>
