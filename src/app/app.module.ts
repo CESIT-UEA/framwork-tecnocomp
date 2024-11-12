@@ -52,6 +52,7 @@ import { TopicoComponent } from './personalizavel/modulo/topico/topico.component
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +90,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ErrorComponent,
     ModuloComponent,
     TopicoComponent,
+    PaginaInicialComponent,
   ],
   imports: [
     BrowserModule,
