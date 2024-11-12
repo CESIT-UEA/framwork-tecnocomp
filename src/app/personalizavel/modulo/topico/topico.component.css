@@ -114,9 +114,27 @@
 .sozinho-proximo {
   justify-self: end;
 }
-.opactiy-active{
-  opacity: .5;
+.opactiy-active {
+  opacity: 0.5;
 }
 .bg-container {
   background-color: #131313;
+}
+.container-foto-header-active {
+  display: inline-flex;
+  padding: 14px 1px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--Primaria, #9665df);
+  background: var(--Background, #131313);
+  position: fixed;
+  right: 8%;
+  top: 3%;
+  width: 270px;
+  height: 175px;
+}
+.cima {
+  display: flex;
 }

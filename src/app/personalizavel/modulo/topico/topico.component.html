@@ -60,6 +60,33 @@
               <nav>
                 <div class="end-navbar">
                   <mat-icon style="color: #fff" routerLink="../">home</mat-icon>
+                  <div
+                    *ngIf="this.perfilUser == false"
+                    class="container-foto-header"
+                  >
+                    <div class="foto-header">
+                      {{ this.ltiService.dados_completos.user.nome[0] }}
+                    </div>
+                    <mat-icon style="color: white" (click)="abreMenuUser()">
+                      keyboard_arrow_down
+                    </mat-icon>
+                  </div>
+
+                  <div
+                    *ngIf="this.perfilUser == true"
+                    class="container-foto-header-active"
+                  >
+                    <div class="cima">
+                      <div class="foto-header">
+                        {{ this.ltiService.dados_completos.user.nome[0] }}
+                      </div>
+                      <p>Minha Pontuação</p>
+                      <mat-icon style="color: white" (click)="fechaMenuUser()">
+                        keyboard_arrow_up
+                      </mat-icon>
+                    </div>
+                  </div>
+
                   <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
                 </div>
               </nav>
@@ -109,7 +136,10 @@
                   'sozinho-proximo':
                     this.verificaVoltar() == false &&
                     this.verificaProximo() == true,
-                    'opactiy-active' : this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].encerrado == false
+                  'opactiy-active':
+                    this.ltiService.dados_completos.userTopico[
+                      this.moduloService.controll_topico
+                    ].UsuarioTopicos[0].encerrado == false
                 }"
               >
                 PRÓXIMO

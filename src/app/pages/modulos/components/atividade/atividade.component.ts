@@ -90,9 +90,9 @@ export class AtividadeComponent implements OnInit, OnChanges {
     ) {
       return;
     } else if (this.questao && this.questao.respostaCorreta === resposta) {
-      this.tratarRespostaCorreta(resposta);
       this.respondidoOficialmente = true;
       console.log(this.respondidoOficialmente);
+      this.tratarRespostaCorreta(resposta);
     } else {
       this.resposta = resposta;
       this.respostaEnviada = true;
@@ -232,6 +232,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
         console.log('Resposta apos enviar a nota pro moodle:', response);
         this.ltiService.removeDadosCompletos();
         this.ltiService.setDadosCompletos(response);
+
 
         this.ltiService.mensagem(
           'Resposta Correta! Sua nota já foi retornada para o LMS'

@@ -148,7 +148,7 @@
     <div class="butoes">
       <button
         class="refazer"
-        *ngIf="this.respostaEnviada == true || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != null"
+        *ngIf="(this.respostaEnviada == true || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != null) && this.respondidoOficialmente == false"
         (click)="refazer()"
         [disabled]="respostaCorretaEnviada"
       >
