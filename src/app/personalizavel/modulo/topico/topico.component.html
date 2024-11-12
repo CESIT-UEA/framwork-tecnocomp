@@ -59,29 +59,6 @@
               />
               <nav>
                 <div class="end-navbar">
-                  <div
-                    *ngIf="this.perfilUser == false"
-                    class="container-foto-header"
-                  >
-                    <div class="foto-header">H</div>
-                    <mat-icon style="color: white" (click)="abreMenuUser()">
-                      keyboard_arrow_down
-                    </mat-icon>
-                  </div>
-
-                  <div
-                    *ngIf="this.perfilUser == true"
-                    class="container-foto-header-active"
-                  >
-                    <div class="cima">
-                      <div class="foto-header">H</div>
-                      <span>Minha Pontuação</span>
-                      <mat-icon style="color: white" (click)="fechaMenuUser()">
-                        keyboard_arrow_up
-                      </mat-icon>
-                    </div>
-                  </div>
-
                   <mat-icon style="color: #fff" routerLink="../">home</mat-icon>
                   <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
                 </div>
