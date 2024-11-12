@@ -57,7 +57,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
     if (this.idTopico === this.quantidadeTopicos.length - 1) {
       this.gradeIn = false;
     }
-    this.atualizarQuestao();
+
+      this.atualizarQuestao();
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -69,7 +70,8 @@ export class AtividadeComponent implements OnInit, OnChanges {
   atualizarQuestao() {
     this.questao =
       this.ltiService.dados_completos.topicos?.[this.idTopico]?.Exercicios?.[0];
-    if (this.questao && Array.isArray(this.questao.Alternativas)) {
+
+    if (this.questao && Array.isArray(this.questao.Alternativas) && (this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null )) {
       this.questao.Alternativas = this.embaralharAlternativas(
         this.questao.Alternativas
       );
@@ -148,23 +150,26 @@ export class AtividadeComponent implements OnInit, OnChanges {
     }
 
     this.ltiService
-        .enviarResetarRespostaIncorreta(
-          this.ltiService.dados_completos.topicos?.[this.idTopico].id,
-          this.ltiService.dados_completos.user.ltik
-        )
-        .subscribe(
-          (response) => {
-            console.log('Resposta apos tentar resetar a resposta incorreta', response);
-            this.ltiService.removeDadosCompletos();
-            this.ltiService.setDadosCompletos(response);
-          },
-          (error) => {
-            console.log(error);
-            this.ltiService.mensagem(
-              'Houve um problema ao tentar resetar resposta incorreta'
-            );
-          }
-        );
+      .enviarResetarRespostaIncorreta(
+        this.ltiService.dados_completos.topicos?.[this.idTopico].id,
+        this.ltiService.dados_completos.user.ltik
+      )
+      .subscribe(
+        (response) => {
+          console.log(
+            'Resposta apos tentar resetar a resposta incorreta',
+            response
+          );
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response);
+        },
+        (error) => {
+          console.log(error);
+          this.ltiService.mensagem(
+            'Houve um problema ao tentar resetar resposta incorreta'
+          );
+        }
+      );
 
     this.resposta = null;
     this.respostaEnviada = false;
@@ -174,8 +179,6 @@ export class AtividadeComponent implements OnInit, OnChanges {
     const alternativa = this.questao?.Alternativas.find(
       (a: any) => a.descricao === resposta
     );
-    console.log(String)
-    console.log(alternativa)
     return alternativa?.explicacao;
   }
 
@@ -232,7 +235,6 @@ export class AtividadeComponent implements OnInit, OnChanges {
         console.log('Resposta apos enviar a nota pro moodle:', response);
         this.ltiService.removeDadosCompletos();
         this.ltiService.setDadosCompletos(response);
-
 
         this.ltiService.mensagem(
           'Resposta Correta! Sua nota já foi retornada para o LMS'

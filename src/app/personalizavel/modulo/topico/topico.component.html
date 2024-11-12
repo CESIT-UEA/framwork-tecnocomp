@@ -85,6 +85,21 @@
                         keyboard_arrow_up
                       </mat-icon>
                     </div>
+                    <div class="meio">
+                      <p>Progresso: </p>
+                      <div class="spinner">
+                        <mat-progress-spinner
+                          class="example-margin"
+                          mode="determinate"
+                          [value]="
+                            100
+                          "
+                          style="width: 100%"
+                        >
+                        </mat-progress-spinner>
+                        <span class="progress-spinner" >{{this.ltiService.dados_completos?.userModulo?.nota}}%</span>
+                      </div>
+                    </div>
                   </div>
 
                   <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
