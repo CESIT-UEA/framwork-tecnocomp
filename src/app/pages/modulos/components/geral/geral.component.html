@@ -7,7 +7,7 @@
   <hr />
 </div>
 
-<div class="container-main-conteudo">
+<div class="container-main-conteudo" >
   <div class="div-slide">
     <div class="container-video">
       <!-- chamada do componente slide-unidade para exibir o video do tópico -->
@@ -91,7 +91,7 @@
             this.ltiService.verificarTodosVideosCompletos(this.videos)
             && this.ltiService.dados_completos.userTopico[
               this.moduloService.controll_topico
-            ].UsuarioTopicos[0].resposta_errada != null
+            ].UsuarioTopicos[0].resposta_errada != null && this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].encerrado == false
           "
           class="atividade-botao center-2 active-incorreto"
           (click)="atividadeClick.emit()"

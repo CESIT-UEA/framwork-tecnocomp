@@ -1,5 +1,5 @@
 import { ServiceAppService } from 'src/app/service-app.service';
-import { Component, EventEmitter, Input, OnInit, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, signal, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModuloService } from '../../modulo.service';
 import { config } from 'rxjs';
@@ -17,22 +17,13 @@ export class TopicoComponent implements OnInit {
   controllerSwitch = 'default'; // Inicialmente exibe o componente default
   @ViewChild(MatSidenavContainer) sidenavContainer!: MatSidenavContainer;
   menu = false;
-  perfilUser = false;
 
-  abreMenuUser(){
-    this.perfilUser = true
-  }
-
-  fechaMenuUser(){
-    this.perfilUser = false
-    console.log("Fechou menu User")
-  }
 
   constructor(
     private route: ActivatedRoute,
     public moduloService: ModuloService,
     private router: Router,
-    public ltiService: ServiceAppService
+    public ltiService: ServiceAppService,
   ) {}
 
   ngOnInit(): void {

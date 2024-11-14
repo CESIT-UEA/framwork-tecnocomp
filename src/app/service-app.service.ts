@@ -24,6 +24,18 @@ export class ServiceAppService {
   private storageKey = 'dados_completos_do_modulo';
   public dados_completos: any = [];
 
+  perfilUser = false;
+
+  abreMenuUser(){
+    this.perfilUser = true
+    console.log("Abrindo menu")
+  }
+
+  fechaMenuUser(){
+    this.perfilUser = false
+    console.log("Fechou menu User")
+  }
+
   /**
    * @method
    * Constructor do ServiceAppService

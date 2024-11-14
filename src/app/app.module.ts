@@ -53,6 +53,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
+import { PerfilUserComponent } from './components/perfil-user/perfil-user.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inici
     ModuloComponent,
     TopicoComponent,
     PaginaInicialComponent,
+    PerfilUserComponent,
   ],
   imports: [
     BrowserModule,

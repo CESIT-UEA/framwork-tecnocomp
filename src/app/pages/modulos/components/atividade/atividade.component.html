@@ -71,7 +71,7 @@
           <img
             class="img img-correta"
             *ngIf="
-              resposta === alternativa.descricao && this.respostaEnviada == true && alternativa.correta == true
+              resposta == alternativa.descricao && this.respostaEnviada == true && alternativa.correta == true
             "
             src="../../../../../assets/img/checkAtividade.png"
             alt=""
@@ -132,9 +132,10 @@
             (
             (this.abre == true || this.abre == null) ) && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao
           "
-            [ngClass]="{
-              respostaErrada: this.questao.respostaCorreta != resposta
-            }"
+              [ngClass]="{
+                'respostaErrada': alternativa.correta == false,
+                'respostaCorreta': alternativa.correta == true
+              }"
           >
             <p
               *ngIf="this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao != null"

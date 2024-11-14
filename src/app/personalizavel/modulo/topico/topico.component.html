@@ -61,51 +61,17 @@
                 <div class="end-navbar">
                   <mat-icon style="color: #fff" routerLink="../">home</mat-icon>
                   <div
-                    *ngIf="this.perfilUser == false"
+                    *ngIf="this.ltiService.perfilUser == false"
                     class="container-foto-header"
                   >
                     <div class="foto-header">
                       {{ this.ltiService.dados_completos.user.nome[0] }}
                     </div>
-                    <mat-icon style="color: white" (click)="abreMenuUser()">
+                    <mat-icon style="color: white" (click)="this.ltiService.abreMenuUser(); $event.stopPropagation()">
                       keyboard_arrow_down
                     </mat-icon>
                   </div>
-
-                  <div
-                    *ngIf="this.perfilUser == true"
-                    class="container-foto-header-active"
-                  >
-                    <div class="cima">
-                      <div class="foto-header">
-                        {{ this.ltiService.dados_completos.user.nome[0] }}
-                      </div>
-                      <p>Minha Pontuação</p>
-                      <mat-icon style="color: white" (click)="fechaMenuUser()">
-                        keyboard_arrow_up
-                      </mat-icon>
-                    </div>
-                    <div class="meio">
-                      <p>Progresso:</p>
-                      <div class="spinner">
-                        <mat-progress-spinner
-                          class="example-margin"
-                          mode="determinate"
-                          [value]="this.ltiService.dados_completos?.userModulo?.nota"
-                          style="width: 66px; height: 66px; border-radius: 40px;"
-                        >
-                        </mat-progress-spinner>
-                        <span class="progress-spinner"
-                          >{{
-                            this.ltiService.dados_completos?.userModulo?.nota
-                          }}%</span
-                        >
-                      </div>
-                    </div>
-                    <p class="center" style="color: #9665DF;">{{
-                      this.ltiService.dados_completos?.userModulo?.nota
-                    }} pontos</p>
-                  </div>
+                  <app-perfil-user *ngIf="this.ltiService.perfilUser == true"></app-perfil-user>
 
                   <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
                 </div>
