@@ -6,6 +6,7 @@ import { Topico } from './components/forum/topico.interface';
 import { TopicoF } from './components/forum/topico-forum/topico-forum.interface';
 import { environment } from 'src/environments/environment.development';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { ModuloService } from './personalizavel/modulo.service';
 
 /**
  * Service a qual guarda as operações essenciais, como o envio de notas, as informações do usuario, etc
@@ -40,7 +41,7 @@ export class ServiceAppService {
    * @method
    * Constructor do ServiceAppService
    */
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar,public moduloService: ModuloService) {}
 
   /**
    * Variavel que guarda a nota total do usuario no modulo
@@ -143,7 +144,7 @@ export class ServiceAppService {
       Authorization: 'Bearer ' + this.tokenStorage,
     });
 
-    return this.http.post(this.apiUrl + '/gradeIn', grade, {
+    return this.http.post(this.apiUrl + '/gradein', grade, {
       headers: headers,
     });
   }
@@ -222,6 +223,16 @@ export class ServiceAppService {
     });
 
     return this.http.post(`${this.apiUrl}/finalizar-video`, body, { headers });
+  }
+  salvarProgressoVideos(): Observable<any> {
+    const body = { id_video: this.currentVideoIndex, id_topico: this.dados_completos.topicos?.[this.moduloService.controll_topico].id, ltik : this.dados_completos.user.ltik };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+    });
+
+    return this.http.post(`${this.apiUrl}/salvar-progresso-video`, body, { headers });
   }
 
   public verificarTodosVideosCompletos(videos: any[]): boolean {

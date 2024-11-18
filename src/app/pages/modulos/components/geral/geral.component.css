@@ -280,7 +280,9 @@ button.atividade-botao {
     flex-direction: column;
     row-gap: 20px;
   }
-
+  .botoes{
+    margin: 0 auto;
+  }
   .div-slide {
     width: 80%;
   }

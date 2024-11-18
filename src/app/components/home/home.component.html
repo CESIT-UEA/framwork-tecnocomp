@@ -51,7 +51,6 @@
         <!-- Section padrão da página incial HOME com video e botões -->
         <section class="content-container" *ngSwitchDefault>
           <div class="container-esquerdo">
-            <div class="cont">
               <h1 class="title">
                 <span class="text-unidade">{{
                   this.appService.dados_completos.modulo.nome_modulo
@@ -64,9 +63,7 @@
                 "
               ></app-video-section>
             </div>
-          </div>
           <div class="container-direito">
-            <div class="cont">
               <img
                 class="imagem-acima"
                 src="../../../../assets/imagem-acima-botoes.png"
@@ -80,7 +77,6 @@
                 urlInicio="topicos"
               ></app-botoes-section>
             </div>
-          </div>
         </section>
       </div>
     </mat-sidenav-content>

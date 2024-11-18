@@ -43,6 +43,7 @@
             mode="over"
             fixedInViewport="Fixed"
             position="end"
+            style="border-radius: 20px 0 20px 0 !important;"
           >
             <app-menu-com-barra-progresso-teste
               (fecharMenu)="fecharMenuClick()"
@@ -112,7 +113,7 @@
                   width="30px"
                   height="30px"
                 />
-                ANTERIOR
+                Tópico Anterior
               </div>
               <div
                 *ngIf="verificaProximo()"
@@ -128,7 +129,7 @@
                     ].UsuarioTopicos[0].encerrado == false
                 }"
               >
-                PRÓXIMO
+                Próximo Tópico
                 <img
                   src="a../../../../../../assets/icons/avancarUnidade.svg"
                   alt="Icone para avançar unidade"

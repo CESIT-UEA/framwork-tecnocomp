@@ -1,35 +1,60 @@
-<div
-  class="video-container"
-  *ngIf="isLoading == false; else loading"
->
+<div class="video-container" *ngIf="isLoading == false; else loading">
   <iframe
     [src]="videos[this.ltiService.currentVideoIndex].url | safe"
     title="Video Aula"
     frameborder="0"
     allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"
     allowfullscreen
-    width="560" height="349"
+    width="560"
+    height="349"
   ></iframe>
 </div>
 
 <div class="navigation-button">
-  <ul>
-    <li
-      *ngFor="let video of videos; index as i"
+  <div class="box-navigate-left">
+    <p class="navigate-p" style="color: white">
+      {{ getVerificaVideosAssistidos() }}/{{ videos.length }} Assistidos
+    </p>
+  </div>
+  <div class="box-navigate-right">
+    <mat-icon
+      class="mat-18 voltar"
+      (click)="voltar()"
       [ngClass]="{
-        'concluido': videos[i].UsuarioVideos[0].completo,
-        'naoConcluido': !videos[i].UsuarioVideos[0].completo,
-        'active' : this.ltiService.currentVideoIndex == i
+        disabled: this.ltiService.currentVideoIndex == 0
       }"
-      (click)="selectVideo(i)"
+      >arrow_back</mat-icon
     >
-      {{ i + 1 }}
-    </li>
-  </ul>
+    <ul>
+      <li
+        *ngFor="let video of videos; index as i"
+        [ngClass]="{
+          naoConcluido: !videos[i].UsuarioVideos[0].completo,
+          active: this.ltiService.currentVideoIndex == i
+        }"
+        (click)="selectVideo(i)"
+      >
+        {{ i + 1 }}
+        <mat-icon class="concluido" *ngIf="videos[i].UsuarioVideos[0].completo"
+          >check</mat-icon
+        >
+      </li>
+    </ul>
+    <mat-icon
+      class="mat-18 proximo"
+      (click)="proximo()"
+      [ngClass]="{
+        disabled: this.ltiService.currentVideoIndex + 1 == videos.length
+      }"
+      >arrow_forward</mat-icon
+    >
+  </div>
 </div>
 
 <ng-template #loading>
-  <div class="loading center-2">
-    <div class="spinner"></div>
+  <div class="video-container">
+    <div class="loading center-2">
+      <div class="spinner"></div>
+    </div>
   </div>
 </ng-template>

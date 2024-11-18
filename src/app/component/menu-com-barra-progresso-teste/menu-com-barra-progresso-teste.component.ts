@@ -44,4 +44,19 @@ export class MenuComBarraProgressoTesteComponent implements OnInit{
   verificarConcluido(i:number){
     return this.ltiService.dados_completos?.userTopico[i]?.UsuarioTopicos[0].encerrado
   }
+
+  getQuantidadeVideosConcluidos(){
+    let cont = 0;
+    this.ltiService.dados_completos.userTopico.map((topico:any) => {
+      if(topico.UsuarioTopicos[0].encerrado == true){
+        cont +=1
+      }
+    })
+
+    return cont
+  }
+
+  retornarLms(){
+    window.location.href = this.ltiService.dados_completos.userModulo.url_retorno
+  }
 }

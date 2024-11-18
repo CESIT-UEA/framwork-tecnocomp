@@ -1,5 +1,14 @@
 import { ServiceAppService } from 'src/app/service-app.service';
-import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, signal, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  OnInit,
+  signal,
+  ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModuloService } from '../../modulo.service';
 import { config } from 'rxjs';
@@ -18,12 +27,11 @@ export class TopicoComponent implements OnInit {
   @ViewChild(MatSidenavContainer) sidenavContainer!: MatSidenavContainer;
   menu = false;
 
-
   constructor(
     private route: ActivatedRoute,
     public moduloService: ModuloService,
     private router: Router,
-    public ltiService: ServiceAppService,
+    public ltiService: ServiceAppService
   ) {}
 
   ngOnInit(): void {
@@ -46,6 +54,18 @@ export class TopicoComponent implements OnInit {
         this.ltiService.mensagem('Você precisa responder à atividade antes!');
       }
     }
+
+    if (
+      this.ltiService.dados_completos.userTopico[
+        this.moduloService.controll_topico
+      ].UsuarioTopicos[0].indice_video != null
+    ) {
+      this.ltiService.currentVideoIndex =
+        this.ltiService.dados_completos.userTopico[
+          this.moduloService.controll_topico
+        ].UsuarioTopicos[0].indice_video;
+      console.log('Video retornado salvo já');
+    }
   }
   voltarCss() {
     if (this.moduloService.controll_topico == 0) {
@@ -58,6 +78,17 @@ export class TopicoComponent implements OnInit {
     if (this.moduloService.controll_topico > 0) {
       this.moduloService.controll_topico -= 1;
       this.ltiService.currentVideoIndex = 0;
+    }
+    if (
+      this.ltiService.dados_completos.userTopico[
+        this.moduloService.controll_topico
+      ].UsuarioTopicos[0].indice_video != null
+    ) {
+      this.ltiService.currentVideoIndex =
+        this.ltiService.dados_completos.userTopico[
+          this.moduloService.controll_topico
+        ].UsuarioTopicos[0].indice_video;
+      console.log('Video retornado salvo já');
     }
   }
 
@@ -89,6 +120,12 @@ export class TopicoComponent implements OnInit {
     console.log(topicoId);
     this.moduloService.controll_topico = topicoId;
     this.sidenavContainer.close();
+    if (this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video != null) {
+      this.ltiService.currentVideoIndex = this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video
+      console.log("Video retornado salvo já")
+    }else{
+      this.ltiService.currentVideoIndex = 0
+    }
   }
 
   verificaProximo() {

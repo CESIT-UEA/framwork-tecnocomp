@@ -109,5 +109,11 @@ export class HomeComponent {
     console.log(topicoId)
     this.moduloService.controll_topico = topicoId
     this.sidenavContainer.close();
+    if (this.appService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video != null) {
+      this.appService.currentVideoIndex = this.appService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video
+      console.log("Video retornado salvo já")
+    }else{
+      this.appService.currentVideoIndex = 0
+    }
   }
 }

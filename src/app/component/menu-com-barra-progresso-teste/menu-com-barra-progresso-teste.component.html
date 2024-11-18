@@ -1,18 +1,27 @@
-<div class="header-menu">
-  <p class="titulo-topico center">Tópicos</p>
-  <mat-icon class="close" (click)="fecharMenu.emit()">close</mat-icon>
+<div class="parte-cima">
+  <div class="header-menu">
+    <mat-icon class="close" (click)="fecharMenu.emit()">close</mat-icon>
+  </div>
+  <p class="titulo-topico center">
+    {{ this.ltiService.dados_completos.modulo.nome_modulo }}
+  </p>
+  <div class="progresso center">
+    <p class="texto-progresso">Progresso:</p>
+    <mat-progress-bar
+      class="barra-progresso"
+      mode="determinate"
+      color="warn"
+      this.teste
+      [value]="this.ltiService.dados_completos?.userModulo?.nota"
+    ></mat-progress-bar>
+    <p>{{ this.ltiService.dados_completos?.userModulo?.nota }}%</p>
+  </div>
+  <p class="p-progresso">
+    {{ getQuantidadeVideosConcluidos() }} /
+    {{ this.ltiService.dados_completos.topicos.length }} Tópicos Concluídos
+  </p>
 </div>
-<div class="progresso center">
-  <p class="texto-progresso">Progresso</p>
-  <mat-progress-bar
-    class="barra-progresso"
-    mode="determinate"
-    color="warn"
-    this.teste
-    [value]="this.ltiService.dados_completos?.userModulo?.nota"
-  ></mat-progress-bar>
-  <p>{{ this.ltiService.dados_completos?.userModulo?.nota }}%</p>
-</div>
+
 <div class="container-topicos">
   <div class="container-topico">
     <div
@@ -26,9 +35,6 @@
         'disabled-link': verificarConcluido(i) == false
       }"
     >
-      <div class="caixa">
-        <mat-icon *ngIf="verificarConcluido(i)">check</mat-icon>
-      </div>
       <p *ngIf="verificarConcluido(i) == false">
         {{ i + 1 }}. {{ topico.nome_topico }}
       </p>
@@ -45,17 +51,31 @@
       >
         {{ i + 1 }}. {{ topico.nome_topico }}
       </p>
+      <div class="caixa">
+        <mat-icon *ngIf="verificarConcluido(i)">check</mat-icon>
+      </div>
     </div>
   </div>
 </div>
+
 <div class="outros-links">
-  <div class="moodle">
+  <hr
+  style="
+    width: 90%;
+    background-color: #232324;
+    margin: 0 auto;
+    height: 2px;
+    border: none;
+  "
+/>
+  <h3>Links Úteis</h3>
+  <div class="moodle" (click)="retornarLms()">
+    <a [href]="this.ltiService.dados_completos.userModulo.url_retorno">Voltar ao Moodle</a>
     <img
-      src="../../../assets/icons/voltarMoodle.svg"
-      alt="Icone para download do ebook"
-      width="22px"
-      height="24px"
-    />
-    <a href="https://licomp.com.br/ava/">Voltar ao Moodle</a>
+    src="../../../assets/icons/voltarMoodle.svg"
+    alt="Icone para download do ebook"
+    width="22px"
+    height="24px"
+  />
   </div>
 </div>
