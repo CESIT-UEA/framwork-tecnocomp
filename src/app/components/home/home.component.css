@@ -4,17 +4,54 @@
   src: url("../../../assets/fonteProjeto.ttf");
 }
 
+.main-container {
+  background: url("../../../assets/fundo-alternativo.png"),
+    lightgray -283px -148.75px / 134.172% 160.539%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+
 .content-container-condition {
   height: 100%;
 }
 
 .content-container {
   width: 100%;
-  height: 90vh;
+  height: 80vh;
   display: grid;
   grid-template-columns: 60% 40%;
   padding: 0 40px;
   align-items: center;
+}
+.voltar-ava {
+  height: 10vh;
+  color: white;
+  text-align: center;
+}
+.voltar-ava .button {
+  border-radius: 8px;
+  background: linear-gradient(
+      90deg,
+      rgba(92, 51, 153, 0.75) 0%,
+      rgba(71, 42, 125, 0.61) 14.78%,
+      rgba(57, 36, 107, 0.53) 24.39%,
+      rgba(29, 38, 92, 0.45) 57.95%,
+      rgba(40, 53, 122, 0.6) 85.46%,
+      rgba(51, 68, 153, 0.75) 100%
+    ),
+    #0f0f0f;
+  width: fit-content;
+  padding: 6px 15px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+/* Mat-Sidenav */
+mat-sidenav {
+  height: 100vh;
+  background-color: transparent;
+  width: 320px;
 }
 
 .imagem-acima {
@@ -31,13 +68,6 @@ app-video-section iframe {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9; /* Mantém proporção padrão de vídeos */
-}
-
-/* Mat-Sidenav */
-mat-sidenav {
-  height: 100vh;
-  background-color: transparent;
-  width: 320px;
 }
 
 .btn-ficha {
@@ -83,30 +113,26 @@ mat-sidenav {
   color: #fff;
 }
 
-.main-container {
-  background: url("../../../assets/fundo-alternativo.png"),
-    lightgray -283px -148.75px / 134.172% 160.539%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-}
-
 /* Grid geral */
 .content-container-section {
   display: grid;
   justify-content: center;
   grid-template-columns: 60% 40%;
   color: aliceblue;
-
 }
 
 .container-esquerdo {
   color: #faf8e6;
-}
-.container-direito {
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+}
+.container-direito {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .container-esquerdo h1 {
@@ -177,7 +203,6 @@ mat-sidenav {
 
 @media (max-width: 600px) {
   .content-container {
-    height: auto;
     grid-template-columns: 1fr;
   }
 
@@ -194,56 +219,3 @@ mat-sidenav {
     display: none;
   }
 }
-
-/* Para telas grandes: 1440px e acima */
-@media (min-width: 1440px) {
-  .content-container {
-    padding: 0 80px; /* Maior espaçamento nas laterais */
-    grid-template-columns: 65% 35%; /* Reequilibrar proporções */
-    height: 95vh; /* Aumentar a altura geral */
-  }
-
-  .container-esquerdo h1 {
-    font-size: 48px; /* Aumentar o tamanho da fonte */
-    padding: 30px; /* Maior espaçamento interno */
-  }
-
-  .imagem-acima {
-    width: 350px; /* Tornar imagens maiores */
-    height: auto;
-    margin-bottom: 80px; /* Espaçamento maior entre elementos */
-  }
-
-  .header img {
-    max-height: 100px; /* Ajustar logo */
-    height: 60px;
-  }
-
-  .btn-ficha {
-    font-size: 18px; /* Tamanho de texto maior */
-  }
-}
-
-/* Para telas ultra largas: 1920px e acima */
-@media (min-width: 1920px) {
-  .content-container {
-    padding: 0 120px;
-    grid-template-columns: 70% 30%; /* Proporções ajustadas */
-    height: 100vh;
-  }
-
-  .container-esquerdo h1 {
-    font-size: 56px; /* Fonte ainda maior */
-  }
-
-  .imagem-acima {
-    width: 400px; /* Aumentar dimensões */
-    margin-bottom: 100px;
-  }
-
-  .header img {
-    max-height: 120px; /* Logo ainda maior */
-    height: 80px;
-  }
-}
-
