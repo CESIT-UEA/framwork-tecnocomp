@@ -3,10 +3,8 @@
   <section class="button-section">
     <div class="button-group">
       <button class="start-button" [routerLink]="urlInicio">INICIAR</button>
-      <button class="download-button">
+      <button class="download-button" (click)="clickDonwload()">
         <a
-          [href]="this.ltiService.dados_completos.topicos[0].ebookUrlGeral"
-          target="_blank"
           >DOWNLOAD E-BOOK UNIDADE</a
         >
         <img

@@ -289,4 +289,10 @@ export class ServiceAppService {
 
       return this.http.post(`${this.apiUrl}/resposta-errada-refazer`, body, { headers });
     }
+
+
+  retornarLms(){
+    console.log(this.dados_completos.userModulo.url_retorno)
+    window.location.href = this.dados_completos.userModulo.url_retorno
+  }
 }

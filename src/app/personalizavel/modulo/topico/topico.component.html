@@ -43,7 +43,7 @@
             mode="over"
             fixedInViewport="Fixed"
             position="end"
-            style="border-radius: 20px 0 20px 0 !important;"
+            style="border-radius: 20px 0 20px 0 !important"
           >
             <app-menu-com-barra-progresso-teste
               (fecharMenu)="fecharMenuClick()"
@@ -57,10 +57,18 @@
                 src="assets/Tecnocomp+.jpeg"
                 alt="Tecnocom+ LOGO"
                 routerLink="../"
+                class="logo"
               />
               <nav>
                 <div class="end-navbar">
-                  <mat-icon style="color: #fff" routerLink="../">home</mat-icon>
+                  <img
+                    routerLink="../"
+                    src="../../../../assets/icons/home.svg"
+                    alt="Icone para download do ebook"
+                    width="22px"
+                    height="24px"
+                    class="icon-home"
+                  />
                   <div
                     *ngIf="this.ltiService.perfilUser == false"
                     class="container-foto-header"
@@ -68,11 +76,18 @@
                     <div class="foto-header">
                       {{ this.ltiService.dados_completos.user.nome[0] }}
                     </div>
-                    <mat-icon style="color: white" (click)="this.ltiService.abreMenuUser(); $event.stopPropagation()">
+                    <mat-icon
+                      style="color: white; cursor: pointer;"
+                      (click)="
+                        this.ltiService.abreMenuUser(); $event.stopPropagation()
+                      "
+                    >
                       keyboard_arrow_down
                     </mat-icon>
                   </div>
-                  <app-perfil-user *ngIf="this.ltiService.perfilUser == true"></app-perfil-user>
+                  <app-perfil-user
+                    *ngIf="this.ltiService.perfilUser == true"
+                  ></app-perfil-user>
 
                   <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
                 </div>

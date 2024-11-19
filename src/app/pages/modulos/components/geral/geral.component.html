@@ -134,11 +134,9 @@
         </button>
 
         <!-- Botão para download do e-book do tópico -->
-        <button class="ebook-botao center-2">
+        <button class="ebook-botao center-2" (click)="clickDownloadEbookTopico()">
           <a
-            [href]="linkEbookTopico"
             download="E-book Teste.PDF"
-            target="_blank"
             >E-BOOK TÓPICO</a
           >
           <img

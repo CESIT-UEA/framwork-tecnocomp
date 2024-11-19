@@ -18,6 +18,7 @@
     alt="Icone para ir para a atividade da unidade"
     width="30px"
     height="30px"
+    style="cursor: pointer;"
   />
 </div>
 
@@ -35,6 +36,7 @@
       >
         <div
           class="container-prefix"
+          style="cursor: pointer;"
           [ngStyle]="{
             'background-color':
               (resposta === alternativa.descricao &&
@@ -170,10 +172,11 @@
   <div class="container-atividade">
     <div *ngIf="questao">
       <h3>{{ questao.questao }}</h3>
-      <div *ngFor="let alternativa of questao.Alternativas; let i = index">
+      <div *ngFor="let alternativa of questao.Alternativas; let i = index" >
         <div
           class="alternativas"
           (click)="responderAlternativo(alternativa.descricao)"
+          style="cursor: pointer;"
         >
           <div
             class="container-prefix"

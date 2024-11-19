@@ -69,7 +69,7 @@
   "
 />
   <h3>Links Úteis</h3>
-  <div class="moodle" (click)="retornarLms()">
+  <div class="moodle" (click)="this.ltiService.retornarLms()">
     <a [href]="this.ltiService.dados_completos.userModulo.url_retorno">Voltar ao Moodle</a>
     <img
     src="../../../assets/icons/voltarMoodle.svg"

@@ -50,4 +50,8 @@ export class GeralComponent implements OnInit {
     console.log(this.videos.length);
     this.ltiService.mensagem("Assista todos os videos para poder fazer a atividade! ");
   }
+
+  clickDownloadEbookTopico(){
+    window.location.href = this.linkEbookTopico
+  }
 }

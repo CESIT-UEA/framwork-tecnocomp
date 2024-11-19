@@ -56,7 +56,5 @@ export class MenuComBarraProgressoTesteComponent implements OnInit{
     return cont
   }
 
-  retornarLms(){
-    window.location.href = this.ltiService.dados_completos.userModulo.url_retorno
-  }
+
 }

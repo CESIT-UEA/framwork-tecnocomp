@@ -6,7 +6,7 @@
 
 /* Header CSS e Sidenav */
 .menu {
-  height: 95%;
+  height: 100vh;
   background-color: transparent !important;
   border-radius: 20px 0 0 0;
   width: 320px;
@@ -64,13 +64,25 @@
   background-color: black;
   justify-content: space-between;
 }
-.header img {
+.header .logo {
   max-height: 80px;
   margin-left: 1rem;
-  height: 40px;
+  padding: 15px 0;
+  cursor: pointer;
 }
 #icon {
   color: #fff;
+  cursor: pointer;
+  font-size: 35px;
+  width: 30px;
+  height: 30px;
+}
+.icon-home {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  color: white;
+  cursor: pointer;
 }
 .container-main-conteudo-links-voltar {
   display: grid;
@@ -151,22 +163,22 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
-  color: rgba(234, 224, 249, 0.58)
+  color: rgba(234, 224, 249, 0.58);
 }
 .mat-mdc-progress-spinner {
   background-color: #281446;
 }
 .mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #58DB43;
+  --mdc-circular-progress-active-indicator-color: #58db43;
 }
-.progress-spinner{
+.progress-spinner {
   position: absolute;
   top: 43%;
   right: 10%;
   font-size: 16px;
 }
 
-@media (max-width: 800px)  {
+@media (max-width: 800px) {
   .header nav {
     width: auto;
   }

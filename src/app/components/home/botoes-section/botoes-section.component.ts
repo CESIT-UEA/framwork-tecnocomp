@@ -36,4 +36,8 @@ export class BotoesSectionComponent {
    * @method
    */
 
+  clickDonwload(){
+    window.location.href = this.ltiService.dados_completos.topicos[0].ebookUrlGeral
+  }
+
 }
