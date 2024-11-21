@@ -49,40 +49,43 @@
         </section>
 
         <!-- Section padrão da página incial HOME com video e botões -->
-        <section class="content-container" *ngSwitchDefault>
-          <div class="container-esquerdo">
-            <h1 class="title">
-              <span class="text-unidade">{{
-                this.appService.dados_completos.modulo.nome_modulo
-              }}</span>
-            </h1>
+        <section class="container-section" *ngSwitchDefault>
+          <div class="content-container">
+            <div class="container-esquerdo">
+              <h1 class="title">
+                <span class="text-unidade">{{
+                  this.appService.dados_completos.modulo.nome_modulo
+                }}</span>
+              </h1>
 
-            <app-video-section
-              [videoUrl]="
-                this.appService.dados_completos?.modulo?.video_inicial
-              "
-            ></app-video-section>
+              <app-video-section
+                [videoUrl]="
+                  this.appService.dados_completos?.modulo?.video_inicial
+                "
+              ></app-video-section>
+            </div>
+            <div class="container-direito">
+              <img
+                class="imagem-acima"
+                src="../../../../assets/imagem-acima-botoes.png"
+                alt=""
+                width="300px"
+                height="220px"
+              />
+              <app-botoes-section
+                nome_ebook="Ebook de Teste"
+                caminho_ebook="assets/E-book Teste.PDF"
+                urlInicio="topicos"
+              ></app-botoes-section>
+            </div>
           </div>
-          <div class="container-direito">
-            <img
-              class="imagem-acima"
-              src="../../../../assets/imagem-acima-botoes.png"
-              alt=""
-              width="300px"
-              height="220px"
-            />
-            <app-botoes-section
-              nome_ebook="Ebook de Teste"
-              caminho_ebook="assets/E-book Teste.PDF"
-              urlInicio="topicos"
-            ></app-botoes-section>
+
+          <div class="voltar-ava">
+            <div class="button" (click)="this.appService.retornarLms()">
+              <p>Voltar ao AVA</p>
+            </div>
           </div>
         </section>
-      </div>
-      <div class="voltar-ava">
-        <div class="button" (click)="this.appService.retornarLms()">
-          <p>Voltar ao AVA</p>
-        </div>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

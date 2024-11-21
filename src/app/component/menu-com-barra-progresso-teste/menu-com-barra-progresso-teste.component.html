@@ -32,8 +32,10 @@
       "
       [ngClass]="{
         'active-topico-container': i == this.moduloService.controll_topico,
-        'disabled-link': verificarConcluido(i) == false
+        'disabled-link': verificarConcluido(i) == false,
+        'hover': verificarConcluido(i) == true
       }"
+      (click)="ola(i)"
     >
       <p *ngIf="verificarConcluido(i) == false">
         {{ i + 1 }}. {{ topico.nome_topico }}
@@ -52,7 +54,13 @@
         {{ i + 1 }}. {{ topico.nome_topico }}
       </p>
       <div class="caixa">
-        <mat-icon *ngIf="verificarConcluido(i)">check</mat-icon>
+        <mat-icon
+          *ngIf="
+            this.ltiService.dados_completos?.userTopico[i]?.UsuarioTopicos[0]
+              .encerrado
+          "
+          >check</mat-icon
+        >
       </div>
     </div>
   </div>
@@ -60,22 +68,24 @@
 
 <div class="outros-links">
   <hr
-  style="
-    width: 90%;
-    background-color: #232324;
-    margin: 0 auto;
-    height: 2px;
-    border: none;
-  "
-/>
+    style="
+      width: 90%;
+      background-color: #232324;
+      margin: 0 auto;
+      height: 2px;
+      border: none;
+    "
+  />
   <h3>Links Úteis</h3>
   <div class="moodle" (click)="this.ltiService.retornarLms()">
-    <a [href]="this.ltiService.dados_completos.userModulo.url_retorno">Voltar ao Moodle</a>
+    <a [href]="this.ltiService.dados_completos.userModulo.url_retorno"
+      >Voltar ao Moodle</a
+    >
     <img
-    src="../../../assets/icons/voltarMoodle.svg"
-    alt="Icone para download do ebook"
-    width="22px"
-    height="24px"
-  />
+      src="../../../assets/icons/voltarMoodle.svg"
+      alt="Icone para download do ebook"
+      width="22px"
+      height="24px"
+    />
   </div>
 </div>
