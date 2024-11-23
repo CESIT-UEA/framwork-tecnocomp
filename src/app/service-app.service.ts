@@ -27,21 +27,25 @@ export class ServiceAppService {
 
   perfilUser = false;
 
-  abreMenuUser(){
-    this.perfilUser = true
-    console.log("Abrindo menu")
+  abreMenuUser() {
+    this.perfilUser = true;
+    console.log('Abrindo menu');
   }
 
-  fechaMenuUser(){
-    this.perfilUser = false
-    console.log("Fechou menu User")
+  fechaMenuUser() {
+    this.perfilUser = false;
+    console.log('Fechou menu User');
   }
 
   /**
    * @method
    * Constructor do ServiceAppService
    */
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar,public moduloService: ModuloService) {}
+  constructor(
+    private http: HttpClient,
+    private _snackBar: MatSnackBar,
+    public moduloService: ModuloService
+  ) {}
 
   /**
    * Variavel que guarda a nota total do usuario no modulo
@@ -225,14 +229,21 @@ export class ServiceAppService {
     return this.http.post(`${this.apiUrl}/finalizar-video`, body, { headers });
   }
   salvarProgressoVideos(): Observable<any> {
-    const body = { id_video: this.currentVideoIndex, id_topico: this.dados_completos.topicos?.[this.moduloService.controll_topico].id, ltik : this.dados_completos.user.ltik };
+    const body = {
+      id_video: this.currentVideoIndex,
+      id_topico:
+        this.dados_completos.topicos?.[this.moduloService.controll_topico].id,
+      ltik: this.dados_completos.user.ltik,
+    };
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: 'Bearer ' + this.dados_completos.user.ltik,
     });
 
-    return this.http.post(`${this.apiUrl}/salvar-progresso-video`, body, { headers });
+    return this.http.post(`${this.apiUrl}/salvar-progresso-video`, body, {
+      headers,
+    });
   }
 
   public verificarTodosVideosCompletos(videos: any[]): boolean {
@@ -250,21 +261,24 @@ export class ServiceAppService {
     return true;
   }
 
-  public mensagem(texto: string, classePersonalizada:string = '',tempo: number = 2000) {
+  public mensagem(
+    texto: string,
+    classePersonalizada: string = '',
+    tempo: number = 2000
+  ) {
     let config = new MatSnackBarConfig();
     config.panelClass = 'testando';
     if (classePersonalizada != '') {
-      config.panelClass = classePersonalizada
+      config.panelClass = classePersonalizada;
     }
-    config.duration = tempo
-    this._snackBar.open(texto,"ok",config);
-
+    config.duration = tempo;
+    this._snackBar.open(texto, 'ok', config);
   }
 
- enviarRespostaIncorreta(
-  idTopico: number,
-  ltik: string,
-  respostaErrada: string
+  enviarRespostaIncorreta(
+    idTopico: number,
+    ltik: string,
+    respostaErrada: string
   ): Observable<any> {
     const body = { idTopico, ltik, respostaErrada };
 
@@ -278,21 +292,73 @@ export class ServiceAppService {
 
   enviarResetarRespostaIncorreta(
     idTopico: number,
-    ltik: string,
-    ): Observable<any> {
-      const body = { idTopico, ltik };
+    ltik: string
+  ): Observable<any> {
+    const body = { idTopico, ltik };
 
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.dados_completos.user.ltik,
-      });
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+    });
 
-      return this.http.post(`${this.apiUrl}/resposta-errada-refazer`, body, { headers });
-    }
+    return this.http.post(`${this.apiUrl}/resposta-errada-refazer`, body, {
+      headers,
+    });
+  }
 
+  enviarVistoSaibaMais(): Observable<any> {
+    const body = {
+      idTopico:
+        this.dados_completos.topicos?.[this.moduloService.controll_topico].id,
+      ltik: this.dados_completos.user.ltik,
+    };
 
-  retornarLms(){
-    console.log(this.dados_completos.userModulo.url_retorno)
-    window.location.href = this.dados_completos.userModulo.url_retorno
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+    });
+
+    return this.http.post(`${this.apiUrl}/finalizaSaibaMais`, body, {
+      headers,
+    });
+  }
+
+  enviarVistoTextoApoio(): Observable<any> {
+    const body = {
+      idTopico:
+        this.dados_completos.topicos?.[this.moduloService.controll_topico].id,
+      ltik: this.dados_completos.user.ltik,
+    };
+    console.log(this.dados_completos.topicos?.[this.moduloService.controll_topico].id)
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+    });
+
+    return this.http.post(`${this.apiUrl}/finalizaTextoApoio`, body, {
+      headers,
+    });
+  }
+
+  enviarVistoReferencias(): Observable<any> {
+    const body = {
+      idTopico:
+        this.dados_completos.topicos?.[this.moduloService.controll_topico].id,
+      ltik: this.dados_completos.user.ltik,
+    };
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.dados_completos.user.ltik,
+    });
+
+    return this.http.post(`${this.apiUrl}/finalizaReferencias`, body, {
+      headers,
+    });
+  }
+
+  retornarLms() {
+    console.log(this.dados_completos.userModulo.url_retorno);
+    window.location.href = this.dados_completos.userModulo.url_retorno;
   }
 }

@@ -99,17 +99,64 @@ export class TopicoComponent implements OnInit {
 
   referenciasClick() {
     this.controllerSwitch =
-      this.controllerSwitch == 'default' ? '2' : 'default';
+      this.controllerSwitch == 'default' ? '3' : 'default';
+
+    if (
+      this.ltiService.dados_completos.userTopico[
+        this.moduloService.controll_topico
+      ].UsuarioTopicos[0].isReferencias == false
+    ) {
+      this.ltiService.enviarVistoReferencias().subscribe(
+        (response) => {
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
   }
 
   linksClick() {
     this.controllerSwitch =
-      this.controllerSwitch == 'default' ? '3' : 'default';
+      this.controllerSwitch == 'default' ? '2' : 'default';
+      if (
+        this.ltiService.dados_completos.userTopico[
+          this.moduloService.controll_topico
+        ].UsuarioTopicos[0].isSaibaMais == false
+      ) {
+        this.ltiService.enviarVistoSaibaMais().subscribe(
+          (response) => {
+            this.ltiService.removeDadosCompletos();
+            this.ltiService.setDadosCompletos(response);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
   }
 
   textoApoioClick() {
     this.controllerSwitch =
       this.controllerSwitch == 'default' ? '4' : 'default';
+
+      if (
+        this.ltiService.dados_completos.userTopico[
+          this.moduloService.controll_topico
+        ].UsuarioTopicos[0].isTextoApoio == false
+      ) {
+        this.ltiService.enviarVistoTextoApoio().subscribe(
+          (response) => {
+            this.ltiService.removeDadosCompletos();
+            this.ltiService.setDadosCompletos(response);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
   }
 
   fecharMenuClick() {
@@ -120,11 +167,18 @@ export class TopicoComponent implements OnInit {
     console.log(topicoId);
     this.moduloService.controll_topico = topicoId;
     this.sidenavContainer.close();
-    if (this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video != null) {
-      this.ltiService.currentVideoIndex = this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video
-      console.log("Video retornado salvo já")
-    }else{
-      this.ltiService.currentVideoIndex = 0
+    if (
+      this.ltiService.dados_completos.userTopico[
+        this.moduloService.controll_topico
+      ].UsuarioTopicos[0].indice_video != null
+    ) {
+      this.ltiService.currentVideoIndex =
+        this.ltiService.dados_completos.userTopico[
+          this.moduloService.controll_topico
+        ].UsuarioTopicos[0].indice_video;
+      console.log('Video retornado salvo já');
+    } else {
+      this.ltiService.currentVideoIndex = 0;
     }
   }
 
