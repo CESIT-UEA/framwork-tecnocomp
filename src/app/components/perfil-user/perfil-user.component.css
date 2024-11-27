@@ -6,12 +6,25 @@
   gap: 10px;
   border-radius: 8px;
   border: 1px solid var(--Primaria, #9665df);
-  background: var(--Background, #131313);
+  background: linear-gradient(
+      167deg,
+      rgba(61, 34, 102, 0.7) 3.02%,
+      rgba(34, 25, 72, 0.42) 24.84%,
+      rgba(16, 19, 53, 0.24) 54.42%,
+      rgba(11, 20, 69, 0.37) 77.21%,
+      rgba(34, 45, 102, 0.7) 100%
+    ),
+    #000;
   position: fixed;
   right: 8%;
   top: 3%;
-  width: 270px;
-  height: 175px;
+  width: 277px;
+  height: 290px;
+  z-index: 2;
+}
+.nome p {
+  color: white;
+  margin-top: 15px;
 }
 .cima {
   display: flex;
@@ -21,34 +34,46 @@
   padding: 0 10px;
   color: white;
 }
+.cima-p{
+  margin-left: 15px;
+}
 .meio {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+  padding: 15px 30px;
+  justify-content: center;
   align-items: center;
-  padding: 0 10px;
-  color: rgba(234, 224, 249, 0.58)
+  gap: 15px;
+  color: white;
+  border-radius: 8px;
+  background: var(--3, #6c36bc);
 }
 .mat-mdc-progress-spinner {
   background-color: #281446;
 }
 .mat-mdc-progress-spinner {
-  --mdc-circular-progress-active-indicator-color: #58DB43;
+  --mdc-circular-progress-active-indicator-color: #58db43;
 }
-.progress-spinner{
+.spinner{
+  position: relative;
+}
+.progress-spinner {
   position: absolute;
-  top: 43%;
-  right: 10%;
+  top: 27%;
+  right: 20%;
   font-size: 16px;
 }
 .foto-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 28px;
-  height: 28px;
+  width: 60px;
+  height: 60px;
   color: black;
   background-color: white;
   border-radius: 28px;
-  border: 1px solid var(--Primaria, #9665df);
+  border: 3px solid var(--Primaria, #9665df);
+  margin: 0 auto;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
 }
