@@ -54,96 +54,80 @@
 }
 
 .botoes {
-  padding: 15px;
+  padding: 30px;
   display: grid;
   align-items: center;
   border-radius: 15px;
   background: rgba(28, 28, 28, 0.7);
-  height: 95%;
+  height: 100%;
   align-self: flex-start;
+  width: 100%;
+  max-width: 300px;
 }
-
-.primeiro {
-  grid-area: primeiro;
-}
-
-.segundo {
-  grid-area: segundo;
-}
-
-.terceiro {
-  grid-area: terceiro;
+.title {
+  color: #fff;
+  text-align: center;
+  text-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
 .section-texto {
   width: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 22px;
   justify-content: center;
-  grid-template-areas:
-    "primeiro segundo"
-    "terceiro terceiro";
 }
-
-button.primeiro-botao,
-button.segundo-botao {
+.botoes-cima {
   display: flex;
-  width: 90px;
+  justify-content: space-around;
+}
+.saibaMais,
+.referencias,
+.textoApoio {
+  display: flex;
+  width: 96px;
   height: 70px;
   padding: 8px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2px;
+  gap: 10px;
   flex-shrink: 0;
   border-radius: 6px;
-  border: 1.146px solid var(--Primaria, #9665df);
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(150, 101, 223, 0.5) 0%,
-    rgba(150, 101, 223, 0) 100%
-  );
-  color: var(--Terciaria, #fff);
-  font-family: Arial;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  padding: 8px;
+  background: #2a2a2a;
+  box-shadow: -5px 5px 5px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  color: white;
+  border: none;
+  position: relative;
 }
-
-button.terceiro-botao {
-  display: flex;
-  width: 202px;
-  height: 70px;
-  padding: 8px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  flex-shrink: 0;
-  border-radius: 6px;
-  border: 1.146px solid var(--Primaria, #9665df);
-  background: radial-gradient(
-    50% 50% at 50% 50%,
-    rgba(150, 101, 223, 0.5) 0%,
-    rgba(150, 101, 223, 0) 100%
-  );
-  color: var(--Terciaria, #fff);
-  text-align: center;
-  font-family: Arial;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  cursor: pointer;
+.referencias {
+  margin: 0 auto;
 }
-
+.box {
+  position: absolute;
+  top: 5px; /* Ajuste para mover para cima */
+  right: 5px;
+  border: 1.5px solid white;
+  border-radius: 50px;
+  width: 15px;
+  height: 15px;
+}
+.concluido {
+  position: absolute; /* Posiciona o ícone em relação ao li */
+  top: -5px; /* Ajuste para mover para cima */
+  right: -1px; /* Ajuste para mover para a direita */
+  font-size: 27px; /* Ajuste o tamanho do ícone, se necessário */
+  color: #58db43;
+}
 .buttons-final {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
 }
 
 button.ebook-botao {
@@ -156,6 +140,8 @@ button.ebook-botao {
   border-radius: 7.177px;
   border: 1.794px solid var(--Terciaria, #fff);
   cursor: pointer;
+  height: 40px;
+  width: 95%;
 }
 
 button.ebook-botao a {
@@ -167,7 +153,7 @@ button.ebook-botao a {
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
-  width: 80%;
+  width: 100%;
 }
 
 button.atividade-botao {
@@ -186,38 +172,21 @@ button.atividade-botao {
   font-weight: 700;
   line-height: normal;
   margin-bottom: 22px;
-  width: 100%;
-  padding: 15px;
+  width: 95%;
+  height: 40px;
   cursor: pointer;
 }
 .active {
   background: var(--2, #793cd4);
 }
 .disabled {
-  background: #50288D;
+  background: #50288d;
 }
-.active-incorreto{
-  background-color: #DE3535;
+.active-incorreto {
+  background-color: #de3535;
 }
-.active-correto{
-  background-color: #44A834;
-}
-.primeiro-botao {
-  border: 2px solid var(--Terciaria, #fff);
-  background-color: transparent;
-}
-
-.primeiro-botao a,
-.segundo-botao {
-  text-decoration: none;
-  color: #fff;
-  text-align: center;
-  font: normal 400 17px / normal Arial;
-}
-
-.segundo-botao {
-  border: none;
-  background-color: #793cd4;
+.active-correto {
+  background-color: #44a834;
 }
 
 .container-main-conteudo-link {
@@ -275,6 +244,44 @@ button.atividade-botao {
   padding-bottom: 10px;
 }
 
+.linha {
+  width: 85%;
+  height: 2px;
+  border: none;
+  outline: none;
+  margin: 20px auto;
+
+  background-color: white;
+  opacity: 0.5;
+}
+
+.voltar-ava .button {
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  background: linear-gradient(
+      90deg,
+      rgba(92, 51, 153, 0.75) 0%,
+      rgba(71, 42, 125, 0.61) 14.78%,
+      rgba(57, 36, 107, 0.53) 24.39%,
+      rgba(29, 38, 92, 0.45) 57.95%,
+      rgba(40, 53, 122, 0.6) 85.46%,
+      rgba(51, 68, 153, 0.75) 100%
+    ),
+    #0f0f0f;
+  width: 90%;
+  padding: 10px 15px;
+  margin: 0 auto;
+  cursor: pointer;
+
+  color: var(--Terciaria, #fff);
+  font-family: Arial;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
 @media (max-width: 800px) {
   :host {
     height: 100%;
@@ -284,7 +291,7 @@ button.atividade-botao {
     flex-direction: column;
     row-gap: 20px;
   }
-  .botoes{
+  .botoes {
     margin: 0 auto;
   }
   .div-slide {
