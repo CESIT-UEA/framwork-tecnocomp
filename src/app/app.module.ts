@@ -54,6 +54,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
 import { PerfilUserComponent } from './components/perfil-user/perfil-user.component';
+import { SobreComponent } from './components/home/sobre/sobre.component';
+import { FooterFichaComponent } from './components/home/footer-ficha/footer-ficha.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +95,8 @@ import { PerfilUserComponent } from './components/perfil-user/perfil-user.compon
     TopicoComponent,
     PaginaInicialComponent,
     PerfilUserComponent,
+    SobreComponent,
+    FooterFichaComponent,
   ],
   imports: [
     BrowserModule,

@@ -93,12 +93,8 @@ export class HomeComponent {
     this.router.navigate(['/teorias-da-aprendizagem']);
   }
 
-  clickHeader() {
-    if (this.appService.controllerSwitchHome == 0) {
-      return (this.appService.controllerSwitchHome = 1);
-    } else {
-      return (this.appService.controllerSwitchHome = 0);
-    }
+  clickHeader(controller: number) {
+    return (this.appService.controllerSwitchHome = controller)
   }
 
   fecharMenuClick() {

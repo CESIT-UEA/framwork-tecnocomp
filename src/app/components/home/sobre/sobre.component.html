@@ -1,0 +1,112 @@
+<div class="container">
+    <section class="section">
+        <div class="titulos">
+            <h2>Sobre nós</h2>
+            <h1 class="titulo">TECNOCOMP+: Conectando Saberes Digitais para o futuro</h1>
+        </div>
+        <section class="descricao">
+            <h3 class="descricao-titulo">Descrição</h3>
+            <div class="descricao-imagem">
+                <p>“Tecnocomp+: Conectando Saberes Digitais para o Futuro” é uma iniciativa do Curso de Licenciatura em Computação que visa conectar estudantes e a sociedade por meio de atividade de extensão. Oferece cursos online para a comunidade de Itacoatiarense sobre tecnologias digitais, promovendo o aprofundamento de conhecimentos.</p>
+                <img src="../../../../assets/img/logo_tec.png" class="logo" alt="">
+            </div>
+        </section>
+        <section class="card">
+            <p class="card-p">Informações Detalhadas</p>
+            <section class="card-informacoes">
+                <div class="card-1">
+                    <p class="card-titulo">Objetivo</p>
+                    <ul class="lista">
+                      <li class="lista-elemento">Estudantes na faixa de 16 a 20 anos</li>
+                      <li class="lista-elemento">Professores de escolas</li>
+                    </ul>
+                    <div class="img">
+                      <img src="../../../../assets/img/Creativity And Resourcefulness.png" alt="">
+                    </div>
+                </div>
+                <div class="card-2">
+                    <p class="card-titulo">Público-alvo</p>
+                    <ul class="lista">
+                      <li class="lista-elemento">Estudantes na faixa de 16 a 20 anos</li>
+                      <li class="lista-elemento">Professores de escolas</li>
+                    </ul>
+                    <div class="img">
+                      <img src="../../../../assets/img/Cheating on exams.png" alt="">
+                    </div>
+                </div>
+                <div class="card-3">
+                    <p class="card-titulo">Funcionalidades Principais</p>
+                    <ul class="lista">
+                      <li class="lista-elemento">Estudantes na faixa de 16 a 20 anos</li>
+                      <li class="lista-elemento">Professores de escolas</li>
+                    </ul>
+                    <div class="img">
+                      <img src="../../../../assets/img/Supplies for online education, e-learning.png" alt="" >
+                    </div>
+                </div>
+            </section>
+          </section>
+    </section>
+    <!-- card da equipe do projeto -->
+    <section class="content-container-ficha-tecnica-equipe">
+    <div class="content-container-ficha-tecnica-equipe-caixa"></div>
+
+    <div class="content-container-ficha-tecnica-equipe-caixa-teste">
+      <!-- Nome de uma equipe é exibida de acordo com o valor da variável currentVideoIndex -->
+      <h1>{{ cardEquipes[currentVideoIndex].equipe | uppercase }}</h1>
+
+       <!-- Simbolo de voltar para o anterior que quando clicado muda a equipe exibida -->
+      <div class="ficha-tecnica-container">
+        <img
+          src="../../../../assets/icons/previous2.svg"
+          alt="simbolo de ir para o proximo"
+          (click)="prevVideo()"
+        />
+        <!-- Estilo aplicado de acordo com o valor retornado do método elementMembros() -->
+        <div
+          [ngClass]="{
+          'container-membros1': elementMembros() == 1,
+          'container-membros2': elementMembros() == 2,
+          'container-membros3': elementMembros() == 3,
+          }"
+          class="container-membros"
+        >
+        <!-- Percorre o vetor de objetos cardEquipes para exibir o cargo e nome dos membros -->
+          <div
+            class="ficha-tecnica-container-card"
+            *ngFor="let membro of cardEquipes[currentVideoIndex].membros"
+          >
+            <p class="cargo-membro">{{ membro.cargo }}</p>
+            <div class="ficha-tecnica-container-card-conteudo">
+              <div class="img-membro"></div>
+              <p class="nome-membro">{{ membro.nome }}</p>
+            </div>
+          </div>
+        </div>
+        <!-- Simbolo de ir para o próximo que quando clicado muda a equipe exibida -->
+        <img
+          (click)="nextVideo()"
+          src="../../../../assets/icons/next2.svg"
+          alt="simbolo de ir para o proximo"
+        />
+      </div>
+      <!-- botões de navegação para trocar a equipe exibida -->
+      <div class="navigation-button">
+        <ul>
+          <li
+            *ngFor="let video of cardEquipes; index as i"
+            [ngClass]="{
+              active: i === currentVideoIndex,
+              teste: i !== currentVideoIndex
+            }"
+            (click)="selectVideo(i)"
+          >
+          <!-- o índice + 1 para representar o número dos botões -->
+            {{ i + 1 }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+<app-footer-ficha></app-footer-ficha>
+</div>

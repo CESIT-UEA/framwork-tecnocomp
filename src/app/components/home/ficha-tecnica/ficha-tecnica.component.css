@@ -1,4 +1,4 @@
-p{
+.container{
   height: 100%;
-  background-color: black;
+  background: linear-gradient(#3D2266B2, #2219486C, #1013353E, #0B14455E, #222D66B2)
 }
