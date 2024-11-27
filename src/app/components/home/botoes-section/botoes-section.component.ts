@@ -32,12 +32,5 @@ export class BotoesSectionComponent {
    */
   constructor(private router: Router,public ltiService: ServiceAppService) {}
 
-  /**
-   * @method
-   */
-
-  clickDonwload(){
-    window.location.href = this.ltiService.dados_completos.modulo.ebookUrlGeral
-  }
 
 }
