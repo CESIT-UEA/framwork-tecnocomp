@@ -119,11 +119,11 @@
   height: 15px;
 }
 .concluido {
-  position: absolute; /* Posiciona o ícone em relação ao li */
-  top: -5px; /* Ajuste para mover para cima */
-  right: -1px; /* Ajuste para mover para a direita */
-  font-size: 27px; /* Ajuste o tamanho do ícone, se necessário */
-  color: #58db43;
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  font-size: 27px;
+  color: #58DB43;
 }
 .buttons-final {
   display: flex;
@@ -186,7 +186,7 @@ button.atividade-botao {
   background-color: #de3535;
 }
 .active-correto {
-  background-color: #44a834;
+  background-color: #58DB43;
 }
 
 .container-main-conteudo-link {
