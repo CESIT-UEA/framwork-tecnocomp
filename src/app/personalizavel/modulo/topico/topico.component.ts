@@ -190,6 +190,7 @@ export class TopicoComponent implements OnInit {
     } else {
       this.ltiService.currentVideoIndex = 0;
     }
+    this.ltiService.recreatePlayer()
   }
 
   verificaProximo() {

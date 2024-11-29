@@ -450,6 +450,11 @@ export class ServiceAppService {
       this.currentVideoIndex++;
       this.recreatePlayer();
     }
+    this.salvarProgressoVideos().subscribe((response) => {
+      console.log('Progresso salvo:', response);
+      this.removeDadosCompletos()
+      this.setDadosCompletos(response)
+    });
   }
 
   voltar(): void {
@@ -457,5 +462,11 @@ export class ServiceAppService {
       this.currentVideoIndex--;
       this.recreatePlayer();
     }
+
+    this.salvarProgressoVideos().subscribe((response) => {
+      console.log('Progresso salvo:', response);
+      this.removeDadosCompletos()
+      this.setDadosCompletos(response)
+    });
   }
 }

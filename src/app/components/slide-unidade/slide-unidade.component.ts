@@ -41,6 +41,8 @@ export class SlideUnidadeComponent implements OnInit, AfterViewInit, OnDestroy {
     // Atualiza o progresso do vídeo
     this.ltiService.salvarProgressoVideos().subscribe((response) => {
       console.log('Progresso salvo:', response);
+      this.ltiService.removeDadosCompletos()
+      this.ltiService.setDadosCompletos(response)
     });
 
     // Recria o player para o novo vídeo
