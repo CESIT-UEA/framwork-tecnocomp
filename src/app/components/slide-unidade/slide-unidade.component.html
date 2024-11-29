@@ -1,15 +1,9 @@
-<div class="video-container" *ngIf="isLoading == false; else loading">
-  <iframe
-    [src]="videos[this.ltiService.currentVideoIndex].url | safe"
-    title="Video Aula"
-    frameborder="0"
-    allow="accelerometer; clipboard-write; gyroscope; picture-in-picture; web-share"
-    allowfullscreen
-    width="560"
-    height="349"
-  ></iframe>
+<div class="video-container" *ngIf="!isLoading; else loading">
+  <!-- Iframe para o player -->
+  <div id="player"></div>
 </div>
 
+<!-- Navegação entre os vídeos -->
 <div class="navigation-button">
   <div class="box-navigate-left">
     <p class="navigate-p" style="color: white">
@@ -20,11 +14,9 @@
     <mat-icon
       class="mat-18 voltar"
       (click)="voltar()"
-      [ngClass]="{
-        disabled: this.ltiService.currentVideoIndex == 0
-      }"
-      >arrow_back</mat-icon
-    >
+      [ngClass]="{ disabled: this.ltiService.currentVideoIndex == 0 }">
+      arrow_back
+    </mat-icon>
     <ul>
       <li
         *ngFor="let video of videos; index as i"
@@ -32,12 +24,11 @@
           naoConcluido: !videos[i].UsuarioVideos[0].completo,
           active: this.ltiService.currentVideoIndex == i
         }"
-        (click)="selectVideo(i)"
-      >
+        (click)="selectVideo(i)">
         {{ i + 1 }}
-        <mat-icon class="concluido" *ngIf="videos[i].UsuarioVideos[0].completo"
-          >check</mat-icon
-        >
+        <mat-icon class="concluido" *ngIf="videos[i].UsuarioVideos[0].completo">
+          check
+        </mat-icon>
       </li>
     </ul>
     <mat-icon
@@ -45,12 +36,13 @@
       (click)="proximo()"
       [ngClass]="{
         disabled: this.ltiService.currentVideoIndex + 1 == videos.length
-      }"
-      >arrow_forward</mat-icon
-    >
+      }">
+      arrow_forward
+    </mat-icon>
   </div>
 </div>
 
+<!-- Tela de carregamento -->
 <ng-template #loading>
   <div class="video-container">
     <div class="loading center-2">

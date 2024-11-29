@@ -36,6 +36,7 @@ export class TopicoComponent implements OnInit {
 
   ngOnInit(): void {
     this.ltiService.getDadosCompletos();
+    this.ltiService.loadYouTubeAPI();
   }
 
   proximo(): void {
@@ -66,6 +67,8 @@ export class TopicoComponent implements OnInit {
         ].UsuarioTopicos[0].indice_video;
       console.log('Video retornado salvo já');
     }
+
+    this.ltiService.recreatePlayer();
   }
   voltarCss() {
     if (this.moduloService.controll_topico == 0) {
@@ -79,6 +82,7 @@ export class TopicoComponent implements OnInit {
       this.moduloService.controll_topico -= 1;
       this.ltiService.currentVideoIndex = 0;
     }
+
     if (
       this.ltiService.dados_completos.userTopico[
         this.moduloService.controll_topico
@@ -90,6 +94,7 @@ export class TopicoComponent implements OnInit {
         ].UsuarioTopicos[0].indice_video;
       console.log('Video retornado salvo já');
     }
+    this.ltiService.recreatePlayer();
   }
 
   atividadeClick() {
@@ -110,53 +115,58 @@ export class TopicoComponent implements OnInit {
         (response) => {
           this.ltiService.removeDadosCompletos();
           this.ltiService.setDadosCompletos(response);
+          this.ltiService.loadYouTubeAPI();
         },
         (error) => {
           console.log(error);
         }
       );
     }
+    console.log("Fechei referencias")
+
   }
 
   linksClick() {
     this.controllerSwitch =
       this.controllerSwitch == 'default' ? '2' : 'default';
-      if (
-        this.ltiService.dados_completos.userTopico[
-          this.moduloService.controll_topico
-        ].UsuarioTopicos[0].isSaibaMais == false
-      ) {
-        this.ltiService.enviarVistoSaibaMais().subscribe(
-          (response) => {
-            this.ltiService.removeDadosCompletos();
-            this.ltiService.setDadosCompletos(response);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-      }
+    if (
+      this.ltiService.dados_completos.userTopico[
+        this.moduloService.controll_topico
+      ].UsuarioTopicos[0].isSaibaMais == false
+    ) {
+      this.ltiService.enviarVistoSaibaMais().subscribe(
+        (response) => {
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+    console.log("Fechei links")
   }
 
   textoApoioClick() {
     this.controllerSwitch =
       this.controllerSwitch == 'default' ? '4' : 'default';
 
-      if (
-        this.ltiService.dados_completos.userTopico[
-          this.moduloService.controll_topico
-        ].UsuarioTopicos[0].isTextoApoio == false
-      ) {
-        this.ltiService.enviarVistoTextoApoio().subscribe(
-          (response) => {
-            this.ltiService.removeDadosCompletos();
-            this.ltiService.setDadosCompletos(response);
-          },
-          (error) => {
-            console.log(error);
-          }
-        );
-      }
+    if (
+      this.ltiService.dados_completos.userTopico[
+        this.moduloService.controll_topico
+      ].UsuarioTopicos[0].isTextoApoio == false
+    ) {
+      this.ltiService.enviarVistoTextoApoio().subscribe(
+        (response) => {
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }
+    console.log("Fechei texto apoio")
   }
 
   fecharMenuClick() {
