@@ -433,6 +433,29 @@ export class ServiceAppService {
           this.setDadosCompletos(response);
         });
       }
+/*       setTimeout(() => {
+        this.proximo();
+      }, 3000); */
+    }
+  }
+
+  proximo(): void {
+    console.log('ola mundo');
+    if (
+      this.currentVideoIndex <
+      this.dados_completos.topicos?.[this.moduloService.controll_topico]
+        ?.VideoUrls.length
+    ) {
+      console.log('Entrei');
+      this.currentVideoIndex++;
+      this.recreatePlayer();
+    }
+  }
+
+  voltar(): void {
+    if (this.currentVideoIndex - 1 >= 0) {
+      this.currentVideoIndex--;
+      this.recreatePlayer();
     }
   }
 }

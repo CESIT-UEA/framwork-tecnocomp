@@ -69,10 +69,12 @@
   text-align: center;
   text-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: Arial;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #9665df;
 }
 
 .section-texto {
@@ -175,12 +177,15 @@ button.atividade-botao {
   width: 95%;
   height: 40px;
   cursor: pointer;
+
 }
 .active {
   background: var(--2, #793cd4);
 }
 .disabled {
-  background: #50288d;
+  box-shadow: -5.574px 5.574px 5.574px 0px rgba(0, 0, 0, 0.25);
+  opacity: 0.5;
+  background: var(--2, #793CD4);
 }
 .active-incorreto {
   background-color: #de3535;

@@ -48,19 +48,6 @@ export class SlideUnidadeComponent implements OnInit, AfterViewInit, OnDestroy {
     this.stopLoading();
   }
 
-  proximo(): void {
-    if (this.ltiService.currentVideoIndex + 1 < this.videos.length) {
-      this.ltiService.currentVideoIndex++;
-      this.ltiService.recreatePlayer();
-    }
-  }
-
-  voltar(): void {
-    if (this.ltiService.currentVideoIndex - 1 >= 0) {
-      this.ltiService.currentVideoIndex--;
-      this.ltiService.recreatePlayer();
-    }
-  }
 
   startLoading(): void {
     this.isLoading = true;

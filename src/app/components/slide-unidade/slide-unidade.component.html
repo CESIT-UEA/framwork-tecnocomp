@@ -13,7 +13,7 @@
   <div class="box-navigate-right">
     <mat-icon
       class="mat-18 voltar"
-      (click)="voltar()"
+      (click)="this.ltiService.voltar()"
       [ngClass]="{ disabled: this.ltiService.currentVideoIndex == 0 }">
       arrow_back
     </mat-icon>
@@ -33,7 +33,7 @@
     </ul>
     <mat-icon
       class="mat-18 proximo"
-      (click)="proximo()"
+      (click)="this.ltiService.proximo()"
       [ngClass]="{
         disabled: this.ltiService.currentVideoIndex + 1 == videos.length
       }">
