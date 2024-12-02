@@ -25,7 +25,6 @@ export class GeralComponent implements OnInit {
   @Output() atividadeClick = new EventEmitter<void>();
 
   @Input() link: number = 0;
-  @Input() linkEbookTopico!: string;
   @Input() voltar!: string;
   @Input() proximo!: string;
   @Input() liberado: boolean = false;
@@ -49,9 +48,5 @@ export class GeralComponent implements OnInit {
   clicarVideos() {
     console.log(this.videos.length);
     this.ltiService.mensagem("Assista todos os videos para poder fazer a atividade! ");
-  }
-
-  clickDownloadEbookTopico(){
-    window.location.href = this.linkEbookTopico
   }
 }

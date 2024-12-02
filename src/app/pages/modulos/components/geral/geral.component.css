@@ -12,7 +12,7 @@
 .container-main-conteudo {
   display: flex;
   justify-content: space-evenly;
-  border-bottom: 3px solid #5a3d86;
+  border-bottom: 2px solid #222222;
   padding-bottom: 20px;
   height: 90%;
   align-items: center;
@@ -25,7 +25,7 @@
   height: 100%;
 }
 .titulo-topico {
-  width: 75%;
+  width: 100%;
 }
 .titulo-topico ul li {
   list-style: none;
@@ -44,8 +44,8 @@
 }
 
 .titulo-topico hr {
-  width: 80%;
-  height: 3px;
+  width: 87%;
+  height: 2px;
   margin: auto;
   margin-bottom: 10px;
   border-radius: 10px;
@@ -69,10 +69,12 @@
   text-align: center;
   text-shadow: -5px 5px 5px rgba(0, 0, 0, 0.25);
   font-family: Arial;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #9665df;
 }
 
 .section-texto {
@@ -119,11 +121,11 @@
   height: 15px;
 }
 .concluido {
-  position: absolute; /* Posiciona o ícone em relação ao li */
-  top: -5px; /* Ajuste para mover para cima */
-  right: -1px; /* Ajuste para mover para a direita */
-  font-size: 27px; /* Ajuste o tamanho do ícone, se necessário */
-  color: #58db43;
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  font-size: 27px;
+  color: #58DB43;
 }
 .buttons-final {
   display: flex;
@@ -175,18 +177,21 @@ button.atividade-botao {
   width: 95%;
   height: 40px;
   cursor: pointer;
+
 }
 .active {
   background: var(--2, #793cd4);
 }
 .disabled {
-  background: #50288d;
+  box-shadow: -5.574px 5.574px 5.574px 0px rgba(0, 0, 0, 0.25);
+  opacity: 0.5;
+  background: var(--2, #793CD4);
 }
 .active-incorreto {
   background-color: #de3535;
 }
 .active-correto {
-  background-color: #44a834;
+  background-color: #58DB43;
 }
 
 .container-main-conteudo-link {

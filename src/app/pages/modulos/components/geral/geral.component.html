@@ -158,20 +158,24 @@
         </button>
 
         <!-- Botão para download do e-book do tópico -->
-        <button
-          class="ebook-botao center-2"
-          (click)="clickDownloadEbookTopico()"
+        <a
+          href="{{
+            this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.ebookUrlGeral
+          }}"
+          target="_blank"
         >
-          <a download="E-book Teste.PDF"
-            >E-book Tópico {{ this.moduloService.controll_topico + 1 }}</a
-          >
-          <img
-            src="assets/icons/download.svg"
-            alt="Icone para download do ebook"
-            width="22px"
-            height="24px"
-          />
-        </button>
+          <button class="ebook-botao center-2">
+            <a download="E-book Teste.PDF"
+              >E-book Tópico {{ this.moduloService.controll_topico + 1 }}</a
+            >
+            <img
+              src="assets/icons/download.svg"
+              alt="Icone para download do ebook"
+              width="22px"
+              height="24px"
+            />
+          </button>
+        </a>
       </section>
     </div>
   </div>

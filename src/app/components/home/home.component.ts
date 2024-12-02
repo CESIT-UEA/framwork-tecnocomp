@@ -111,5 +111,6 @@ export class HomeComponent {
     }else{
       this.appService.currentVideoIndex = 0
     }
+    this.appService.recreatePlayer()
   }
 }

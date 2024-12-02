@@ -90,8 +90,26 @@
   color: white;
   height: 10vh;
   padding-top: calc(2% - 5px);
+  position: relative;
 }
-
+.button {
+  border-radius: 8px;
+  background: linear-gradient(
+      90deg,
+      rgba(92, 51, 153, 0.75) 0%,
+      rgba(71, 42, 125, 0.61) 14.78%,
+      rgba(57, 36, 107, 0.53) 24.39%,
+      rgba(29, 38, 92, 0.45) 57.95%,
+      rgba(40, 53, 122, 0.6) 85.46%,
+      rgba(51, 68, 153, 0.75) 100%
+    ),
+    #0f0f0f;
+  padding: 6px 15px;
+  margin: 0 auto;
+  cursor: pointer;
+  position: absolute;
+  left: 40%;
+}
 .link-proximo {
   display: inline-grid;
   grid-template-columns: auto auto;
