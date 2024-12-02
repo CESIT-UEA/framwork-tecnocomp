@@ -14,23 +14,37 @@
         <nav>
           <div class="links">
             <span
-              (click)="clickHeader()"
               class="btn-ficha"
+              (click)="clickHeader(0)"
+              [ngClass]="{
+                'active-topico-container': this.appService.controllerSwitchHome == 0
+              }"
+              >
+              Home
+            </span>
+            <span
+              (click)="clickHeader(1)"
+              class="btn-ficha"
+              [ngClass]="{
+                'active-topico-container': this.appService.controllerSwitchHome == 1
+              }"
             >
               Ficha Técnica
+            </span>
+            <span
+              class="btn-ficha"
+              (click)="clickHeader(2)"
+              [ngClass]="{
+                'active-topico-container': this.appService.controllerSwitchHome == 2
+              }"
+              >
+              Sobre nós
             </span>
           </div>
           <div class="end-navbar">
             <mat-icon
-              style="color: #fff"
-              (click)="clickHeader()"
-              *ngIf="appService.controllerSwitchHome == 1"
-              >home</mat-icon
-            >
-            <mat-icon
               (click)="sidenav.open()"
               id="icon"
-              *ngIf="appService.controllerSwitchHome == 0"
               >menu</mat-icon
             >
           </div>
@@ -45,6 +59,9 @@
       >
         <section class="content-container-ficha-tecnica" *ngSwitchCase="'1'">
           <app-ficha-tecnica></app-ficha-tecnica>
+        </section>
+        <section *ngSwitchCase="'2'">
+          <app-sobre></app-sobre>
         </section>
 
         <!-- Section padrão da página incial HOME com video e botões -->

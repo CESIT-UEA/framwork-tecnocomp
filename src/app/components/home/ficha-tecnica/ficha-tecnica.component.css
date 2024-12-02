@@ -1,39 +1,144 @@
 .container{
-  height: 100%;
   background-color: black;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.section{
+  width: 100%;
+  /* height: 100%; */
+  padding: 0 12%;
+  background: #131313;
+  padding-bottom: 30px;
 }
 
 
-.titulo {
-  color: #FFFFFF;
+
+.titulos > h1 {
+  font-size: 35px;
+  font-weight: 700;
+  padding-top: 45px;
+  border-bottom: 2px solid #2D2C38;
+  padding-bottom: 30px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.titulo-teoria {
-  color: #FFFFFF;
-}
+.descricao-imagem {
+    display: flex;
+    column-gap: 10%;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 40px 0;
+    border-bottom: 2px solid #2D2C38;
+  }
 
-.duascaixa{
-  display: flex;
-  justify-content: space-between;
-}
-
-
-.itens {
-  color: #FFFFFF;
-  background-color: #232324;
-  list-style: none;
-  width: 500px;
-  height: 286px;
-  border-radius: 10px;
-  padding: 30px;
-}
-
-li{
-  margin-bottom: 20px;
-}
-
-img {
+.Imagem-modulo > img {
   width: 450px;
   height: 300px;
   border-radius: 10px;
 }
+
+.descricao-modulo{
+  background-color: #232324;
+  width: 450px;
+  height: 300px;
+  border-radius: 10px;
+}
+
+.descricao-elemento {
+  margin: 24px;
+
+}
+
+.descricao {
+  padding: 20px 0;
+  border-bottom: 2px solid #2D2C38;
+
+}
+
+.titulo-objetivos {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.descricao-objetivos  {
+  background-color: #232324;
+  width: 1120px;
+  border-radius: 10px;
+  padding: 25px;
+
+}
+
+.descricao-objetivos p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.titulo-conteudo {
+  font-size: 30px;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.topicos {
+  background-color: #232324;
+  width: 1120px;
+  border-radius: 15px;
+  padding: 25px;
+  border-bottom: 2px solid #2D2C38;
+}
+
+.topicos-elementos {
+  margin-left: 25px;
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-family: Arial;
+  font-weight: 400;
+}
+
+
+
+.section-instrutor {
+  background-color:#7E52BF;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.container-instrutor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image-instrutor {
+  text-align: center;
+}
+
+.image-instrutor img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.descricao-instrutor {
+  max-width: 400px;
+  text-align: left;
+}
+
+.descricao-instrutor h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.descricao-instrutor p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+

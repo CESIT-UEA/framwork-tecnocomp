@@ -1,0 +1,25 @@
+.container {
+  background-color: #1c1c1c;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.logo,
+.links {
+  padding: 30px;
+}
+
+.links {
+  line-height: 30px;
+}
+
+.circle,
+.redes-sociais {
+  text-align: center;
+}
+
+.circle-2 {
+  padding: 0 30px;
+}
