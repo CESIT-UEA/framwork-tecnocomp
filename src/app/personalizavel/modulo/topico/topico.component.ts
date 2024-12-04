@@ -192,7 +192,9 @@ export class TopicoComponent implements OnInit {
     }
     this.ltiService.recreatePlayer()
   }
-
+  resetaHome(){
+    this.ltiService.controllerSwitchHome = 0;
+  }
   verificaProximo() {
     let topicos: any[] = this.ltiService.dados_completos.topicos;
 
