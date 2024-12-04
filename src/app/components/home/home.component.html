@@ -10,7 +10,7 @@
 
     <mat-sidenav-content>
       <mat-toolbar class="header">
-        <img src="assets/Tecnocomp+.jpeg" alt="Tecnocom+ LOGO" />
+        <img src="assets/tecnocomp.png" alt="Tecnocom+ LOGO" (click)="this.appService.retornarLms()" />
         <nav>
           <div class="links">
             <span
@@ -42,6 +42,25 @@
             </span>
           </div>
           <div class="end-navbar">
+            <div
+                    *ngIf="this.appService.perfilUser == false"
+                    class="container-foto-header"
+                  >
+                    <div class="foto-header">
+                      {{ this.appService.dados_completos.user.nome[0] }}
+                    </div>
+                    <mat-icon
+                      style="color: white; cursor: pointer;"
+                      (click)="
+                        this.appService.abreMenuUser(); $event.stopPropagation()
+                      "
+                    >
+                      keyboard_arrow_down
+                    </mat-icon>
+                  </div>
+                  <app-perfil-user
+                    *ngIf="this.appService.perfilUser == true"
+                  ></app-perfil-user>
             <mat-icon
               (click)="sidenav.open()"
               id="icon"
@@ -53,7 +72,8 @@
       <div
         [ngClass]="{
           'content-container-condition':
-            this.appService.controllerSwitchHome == 1
+            this.appService.controllerSwitchHome == 1,
+          'container-pai':  this.appService.controllerSwitchHome == 0
         }"
         [ngSwitch]="appService.controllerSwitchHome"
       >
@@ -93,12 +113,6 @@
                 caminho_ebook="assets/E-book Teste.PDF"
                 urlInicio="topicos"
               ></app-botoes-section>
-            </div>
-          </div>
-
-          <div class="voltar-ava">
-            <div class="button" (click)="this.appService.retornarLms()">
-              <p>Voltar ao AVA</p>
             </div>
           </div>
         </section>

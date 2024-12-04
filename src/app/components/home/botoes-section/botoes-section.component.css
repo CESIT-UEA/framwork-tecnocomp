@@ -54,10 +54,10 @@
   cursor: pointer;
 }
 
-.button-section .button-group .download-button a {
-  text-decoration: none;
+.button-section .button-group .download-button p {
   color: #fff;
 }
+
 
 .button-section .button-group .download-button:hover {
   background-position: left bottom;
@@ -78,6 +78,9 @@
   font-weight: bold;
   line-height: normal;
   cursor: pointer;
+}
+.link{
+  text-decoration: none;
 }
 @media (max-width: 899px) {
   .button-section::before {

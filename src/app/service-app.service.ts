@@ -440,7 +440,7 @@ export class ServiceAppService {
   }
 
   proximo(): void {
-    console.log('ola mundo');
+    console.log(this.currentVideoIndex);
     if (
       this.currentVideoIndex <
       this.dados_completos.topicos?.[this.moduloService.controll_topico]
@@ -459,7 +459,8 @@ export class ServiceAppService {
 
   voltar(): void {
     if (this.currentVideoIndex - 1 >= 0) {
-      this.currentVideoIndex--;
+      console.log(this.currentVideoIndex)
+      this.currentVideoIndex = this.currentVideoIndex - 1;
       this.recreatePlayer();
     }
 

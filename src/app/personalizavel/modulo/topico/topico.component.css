@@ -63,12 +63,13 @@
   align-items: center;
   background-color: black;
   justify-content: space-between;
+  padding: 5px 0;
 }
 .header .logo {
   max-height: 80px;
   margin-left: 1rem;
-  padding: 15px 0;
   cursor: pointer;
+  padding: 5px 0;
 }
 #icon {
   color: #fff;

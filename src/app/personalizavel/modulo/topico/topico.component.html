@@ -54,10 +54,10 @@
           <mat-sidenav-content class="bg-container">
             <mat-toolbar class="header">
               <img
-                src="assets/Tecnocomp+.jpeg"
+                src="assets/tecnocomp.png"
                 alt="Tecnocom+ LOGO"
-                routerLink="../"
                 class="logo"
+                (click)="this.ltiService.retornarLms()"
               />
               <nav>
                 <div class="end-navbar">
@@ -88,8 +88,9 @@
                   <app-perfil-user
                     *ngIf="this.ltiService.perfilUser == true"
                   ></app-perfil-user>
-
-                  <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
+                  <div class="caixa-perfil-menu">
+                    <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
+                  </div>
                 </div>
               </nav>
             </mat-toolbar>

@@ -1,4 +1,10 @@
-import { Component, Input, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
 import { ModuloService } from 'src/app/personalizavel/modulo.service';
 import { ServiceAppService } from 'src/app/service-app.service';
 
@@ -8,8 +14,8 @@ import { ServiceAppService } from 'src/app/service-app.service';
   styleUrls: ['./slide-unidade.component.css'],
 })
 export class SlideUnidadeComponent implements OnInit, AfterViewInit, OnDestroy {
-  isLoading = false; // Indica se está carregando
-  @Input({ required: true }) videos!: any[]; // Array de vídeos
+  @Input({ required: true }) videos!: any[];
+  isLoading = false;
 
   constructor(
     public ltiService: ServiceAppService,
@@ -17,39 +23,44 @@ export class SlideUnidadeComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // Inicializa o estado inicial do vídeo
+    if (
+      this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico]
+        .UsuarioTopicos[0].indice_video != null
+    ) {
+      this.ltiService.currentVideoIndex =
+        this.ltiService.dados_completos.userTopico[
+          this.moduloService.controll_topico
+        ].UsuarioTopicos[0].indice_video;
+    }
     this.ltiService.loadYouTubeAPI();
   }
 
   ngAfterViewInit(): void {
-    // Recria o player ao montar o componente
     this.ltiService.recreatePlayer();
   }
 
   ngOnDestroy(): void {
-    // Destroi o player ao desmontar o componente
     if (this.ltiService.player) {
       this.ltiService.player.destroy();
       this.ltiService.player = null;
     }
   }
 
+  // Retorna os vídeos visíveis na página atual
+  get arrayVisivel() {
+    return this.videos;
+  }
+
   selectVideo(index: number): void {
     this.startLoading();
-    this.ltiService.currentVideoIndex = index; // Atualiza o índice do vídeo
-
-    // Atualiza o progresso do vídeo
+    this.ltiService.currentVideoIndex = index;
     this.ltiService.salvarProgressoVideos().subscribe((response) => {
-      console.log('Progresso salvo:', response);
-      this.ltiService.removeDadosCompletos()
-      this.ltiService.setDadosCompletos(response)
+      this.ltiService.removeDadosCompletos();
+      this.ltiService.setDadosCompletos(response);
     });
-
-    // Recria o player para o novo vídeo
     this.ltiService.recreatePlayer();
     this.stopLoading();
   }
-
 
   startLoading(): void {
     this.isLoading = true;
@@ -62,4 +73,5 @@ export class SlideUnidadeComponent implements OnInit, AfterViewInit, OnDestroy {
   getVerificaVideosAssistidos(): number {
     return this.videos.filter((video) => video.UsuarioVideos[0].completo).length;
   }
+
 }
