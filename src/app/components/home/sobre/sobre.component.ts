@@ -30,72 +30,85 @@ export class SobreComponent {
    */
   cardEquipes = [
     {
-      equipe: 'COORDENAÇÃO GERAL',
+      equipe: 'Liderança e Gestão',
       membros: [
         {
-          cargo: 'Coordenador',
+          cargo: 'Coordenador Geral',
           nome: 'João da Mata',
+                    image: 'https://tecnocomp.uea.edu.br/fotos/prof-joao.jpg'
         },
       ],
     },
     {
-      equipe: 'CONTEUDISTAS',
+      equipe: 'Design e Experiência',
       membros: [
         {
-          cargo: 'Conteudista',
-          nome: 'Elisângela Oliveira',
+          cargo: 'Designer Gráfico',
+          nome: 'Adriene Chaves',
+          image: 'https://tecnocomp.uea.edu.br/fotos/adriene.jpg'
         },
         {
-          cargo: 'Conteudista',
-          nome: 'Genarde Macedo',
+          cargo: 'Designer UI/UX',
+          nome: 'Lívia Monteiro',
+        },
+        {
+          cargo: 'Designer Instrucional',
+          nome: 'Jorge Coutinho',
+                              image: 'https://tecnocomp.uea.edu.br/fotos/mikael.jpg'
         },
       ],
     },
     {
-      equipe: 'EQUIPE DESENVOLVEDOR',
+      equipe: 'Produção de Conteúdo e Ensino',
       membros: [
         {
-          cargo: 'Desenvolvedor',
+          cargo: 'Instrutor(a)',
+          nome: 'Yasmim Moraes',
+                                        image: 'https://tecnocomp.uea.edu.br/fotos/yasmin.jpg'
+        },
+        {
+          cargo: 'Videomaker',
+          nome: 'Jorge Coutinho',
+                                        image: 'https://tecnocomp.uea.edu.br/fotos/mikael.jpg'
+        },
+      ],
+    },
+    {
+      equipe: 'Desenvolvimento e Tecnologia',
+      membros: [
+        {
+          cargo: 'Desenvolvedor Frontend (1)',
+          nome: 'Kauê Olímpio',
+                                        image: 'https://tecnocomp.uea.edu.br/fotos/kaue.jpg'
+        },
+        {
+          cargo: 'Desenvolvedor Frontend (2)',
+          nome: 'Andriw Santos',
+        },
+        {
+          cargo: 'Desenvolvedor Full Stack',
           nome: 'Henrique Galvim',
-        },
-        {
-          cargo: 'Desenvolvedor',
-          nome: 'Kaue Wallace',
+                                        image: 'https://tecnocomp.uea.edu.br/fotos/galvim.jpg'
         },
       ],
     },
     {
-      equipe: 'DESIGNS',
+      equipe: 'Qualidade e Suporte',
       membros: [
         {
-          cargo: 'Design Instrucional',
-          nome: 'Jorge Mikael',
-        },
-        {
-          cargo: 'UX/UI Design',
-          nome: 'Livia Monteiro',
-        },
-        {
-          cargo: 'Design Gráfico',
-          nome: 'Ryan Pereira',
+          cargo: 'Analista de testes',
+          nome: 'Jhonathan Maia',
+                                        image: 'https://tecnocomp.uea.edu.br/fotos/jonatan.jpg'
         },
       ],
     },
     {
-      equipe: 'VIDEOMAKER',
+      equipe: 'Comunicação e Marketing',
       membros: [
         {
-          cargo: 'videomaker',
-          nome: 'Ronaldo Ewerton',
-        },
-      ],
-    },
-    {
-      equipe: 'ESPECIALISTA H5P',
-      membros: [
-        {
-          cargo: 'Especialista H5P',
-          nome: 'Marcos Gabriel',
+          cargo: 'Social Media',
+          nome: 'Adriene Chaves',
+                                        image: 'https://tecnocomp.uea.edu.br/fotos/adriene.jpg'
         },
       ],
     },
@@ -154,5 +167,5 @@ export class SobreComponent {
   selectVideo(index: number) {
     this.currentVideoIndex = index;
   }
-    
+
 }

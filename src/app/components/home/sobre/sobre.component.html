@@ -1,31 +1,43 @@
 <div class="container">
+  <div class="sobre-nos">
     <section class="section">
-        <div class="titulos">
-            <h2>Sobre</h2>
-            <h1 class="titulo">TECNOCOMP+: Conectando Saberes Digitais para o futuro</h1>
+      <div class="titulos">
+        <h2>Sobre</h2>
+        <h1 class="titulo">
+          TECNOCOMP+: Conectando Saberes Digitais para o futuro
+        </h1>
+      </div>
+      <section class="descricao">
+        <h3 class="descricao-titulo">Descrição</h3>
+        <div class="descricao-imagem">
+          <p>
+            “Tecnocomp+: Conectando Saberes Digitais para o Futuro” é uma
+            iniciativa do Curso de Licenciatura em Computação que visa conectar
+            estudantes e a sociedade por meio de atividade de extensão. Oferece
+            cursos online para a comunidade de Itacoatiarense sobre tecnologias
+            digitais, promovendo o aprofundamento de conhecimentos.
+          </p>
+          <img src="../../../../assets/img/logo_tec.png" class="logo" alt="" />
         </div>
-        <section class="descricao">
-            <h3 class="descricao-titulo">Descrição</h3>
-            <div class="descricao-imagem">
-                <p>“Tecnocomp+: Conectando Saberes Digitais para o Futuro” é uma iniciativa do Curso de Licenciatura em Computação que visa conectar estudantes e a sociedade por meio de atividade de extensão. Oferece cursos online para a comunidade de Itacoatiarense sobre tecnologias digitais, promovendo o aprofundamento de conhecimentos.</p>
-                <img src="../../../../assets/img/logo_tec.png" class="logo" alt="">
-            </div>
-        </section>
+      </section>
     </section>
-    <!-- card da equipe do projeto -->
-    <section class="content-container-ficha-tecnica-equipe">
+  </div>
+
+  <!-- card da equipe do projeto -->
+  <section class="content-container-ficha-tecnica-equipe">
     <div class="content-container-ficha-tecnica-equipe-caixa"></div>
 
     <div class="content-container-ficha-tecnica-equipe-caixa-teste">
       <!-- Nome de uma equipe é exibida de acordo com o valor da variável currentVideoIndex -->
       <h1>{{ cardEquipes[currentVideoIndex].equipe | uppercase }}</h1>
 
-       <!-- Simbolo de voltar para o anterior que quando clicado muda a equipe exibida -->
+      <!-- Simbolo de voltar para o anterior que quando clicado muda a equipe exibida -->
       <div class="ficha-tecnica-container">
         <img
           src="../../../../assets/icons/previous2.svg"
           alt="simbolo de ir para o proximo"
           (click)="prevVideo()"
+          style="cursor: pointer;"
         />
         <!-- Estilo aplicado de acordo com o valor retornado do método elementMembros() -->
         <div
@@ -36,14 +48,17 @@
           }"
           class="container-membros"
         >
-        <!-- Percorre o vetor de objetos cardEquipes para exibir o cargo e nome dos membros -->
+          <!-- Percorre o vetor de objetos cardEquipes para exibir o cargo e nome dos membros -->
           <div
             class="ficha-tecnica-container-card"
             *ngFor="let membro of cardEquipes[currentVideoIndex].membros"
           >
             <p class="cargo-membro">{{ membro.cargo }}</p>
             <div class="ficha-tecnica-container-card-conteudo">
-              <div class="img-membro"></div>
+              <div
+              [ngStyle]="{'background-image': 'url(' + membro.image + ')'}"
+                class="img-membro"
+              ></div>
               <p class="nome-membro">{{ membro.nome }}</p>
             </div>
           </div>
@@ -51,6 +66,7 @@
         <!-- Simbolo de ir para o próximo que quando clicado muda a equipe exibida -->
         <img
           (click)="nextVideo()"
+          style="cursor: pointer;"
           src="../../../../assets/icons/next2.svg"
           alt="simbolo de ir para o proximo"
         />
@@ -66,12 +82,12 @@
             }"
             (click)="selectVideo(i)"
           >
-          <!-- o índice + 1 para representar o número dos botões -->
+            <!-- o índice + 1 para representar o número dos botões -->
             {{ i + 1 }}
           </li>
         </ul>
       </div>
     </div>
   </section>
-<app-footer-ficha></app-footer-ficha>
+  <app-footer-ficha></app-footer-ficha>
 </div>

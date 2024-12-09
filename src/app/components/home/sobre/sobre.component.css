@@ -4,12 +4,15 @@
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+.sobre-nos{
+  width: 100%;
+  background: linear-gradient(#3D2266B2, #2219486C, #1013353E, #0B14455E, #222D66B2);
+}
 .section{
-    width: 100%;
+    width: 90%;
     height: 100%;
-    padding: 0 12%;
-    background: linear-gradient(#3D2266B2, #2219486C, #1013353E, #0B14455E, #222D66B2);
+    margin: 0 auto;
+
 }
 
 .logo {
@@ -18,7 +21,7 @@
 }
 
 .titulo{
-  border-top: 2px solid #2D2C38;;
+  border-top: 2px solid #ffffff;
 }
 
 .titulos > h2 {
@@ -107,7 +110,7 @@
 .content-container-ficha-tecnica {
     height: 100vh;
   }
-  
+
   .content-container-ficha-tecnica-inicio {
     height: 100%;
     width: 100%;
@@ -117,19 +120,19 @@
     background-size: cover;
     justify-content: center;
   }
-  
+
   .sobre-imagem {
     text-align: center;
     width: fit-content;
     margin: 0 auto;
   }
-  
+
   .content-container-ficha-tecnica-inicio .sobre .sobre-imagem img {
     width: 80%;
     height: 60%;
     padding: 30px;
   }
-  
+
   .content-container-ficha-tecnica-inicio .sobre .sobre-conteudo p {
     border: 1px solid #9A9A9A;
     padding: 20px;
@@ -145,7 +148,7 @@
   .content-container-ficha-tecnica-inicio .sobre .sobre-conteudo p  strong{
     color: #ffffff;
   }
-  
+
   .content-container-ficha-tecnica-equipe {
     height: 90%;
     width: 100%;
@@ -153,7 +156,7 @@
     background: linear-gradient(180deg, rgba(101,49,176,1) 4%, rgba(108,54,188,1) 8%);
     display: flex;
   }
-  
+
   .content-container-ficha-tecnica-equipe .content-container-ficha-tecnica-equipe-caixa {
     width: 200px;
     background-image: url('../../../../assets/img/nossa-equipe.jpeg');
@@ -249,7 +252,7 @@
     margin: 0 auto;
     margin-top: 10px;
   }
-  
+
   .navigation-button ul li {
     border: 2px solid #FFF;
     border-radius: 100%;
@@ -263,16 +266,16 @@
     padding: 4px;
     text-align: center;
   }
-  
+
   .teste {
     color: #FFF;
   }
-  
+
   .active {
     background: #FFF;
     color: #000;
   }
-  
+
   .content-container-ficha-tecnica-footer {
     height: 60%;
     display: flex;
@@ -280,21 +283,21 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   @media(max-width:500px) {
     .content-container-ficha-tecnica-inicio .sobre .sobre-conteudo p {
       font-size: 18px;
     }
   }
-  
+
   @media(max-width:410px) {
     .content-container-ficha-tecnica-equipe .content-container-ficha-tecnica-equipe-caixa {
       background-size: cover;
     }
   }
-  
+
   @media(max-width:700px) {
-  
+
     footer img {
       width: 100%;
       padding: 20px;
