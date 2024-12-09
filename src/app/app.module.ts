@@ -57,6 +57,7 @@ import { PerfilUserComponent } from './components/perfil-user/perfil-user.compon
 import { SobreComponent } from './components/home/sobre/sobre.component';
 import { FooterFichaComponent } from './components/home/footer-ficha/footer-ficha.component';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
+import { BotaoVoltarAvaComponent } from './components/botao-voltar-ava/botao-voltar-ava.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
     SobreComponent,
     FooterFichaComponent,
     YoutubePlayerComponent,
+    BotaoVoltarAvaComponent,
   ],
   imports: [
     BrowserModule,

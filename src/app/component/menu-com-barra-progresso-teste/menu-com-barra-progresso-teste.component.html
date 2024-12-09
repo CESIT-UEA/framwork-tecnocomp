@@ -33,7 +33,7 @@
       [ngClass]="{
         'active-topico-container': i == this.moduloService.controll_topico,
         'disabled-link': verificarConcluido(i) == false,
-        'hover': verificarConcluido(i) == true
+        hover: verificarConcluido(i) == true
       }"
       (click)="ola(i)"
     >
@@ -78,14 +78,14 @@
   />
   <h3>Links Úteis</h3>
   <div class="moodle" (click)="this.ltiService.retornarLms()">
-    <a [href]="this.ltiService.dados_completos.userModulo.url_retorno"
-      >Voltar ao AVA</a
-    >
     <img
       src="../../../assets/icons/voltarMoodle.svg"
       alt="Icone para download do ebook"
       width="22px"
       height="24px"
     />
+    <a [href]="this.ltiService.dados_completos.userModulo.url_retorno"
+      >Voltar ao AVA</a
+    >
   </div>
 </div>

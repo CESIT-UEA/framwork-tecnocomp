@@ -17,10 +17,11 @@
     #000;
   position: fixed;
   right: 8%;
-  top: 3%;
+  top: 2%;
   width: 277px;
-  height: 290px;
+  padding-bottom: 20px;
   z-index: 2;
+  cursor: pointer;
 }
 .nome p {
   color: white;
@@ -45,7 +46,8 @@
   gap: 15px;
   color: white;
   border-radius: 8px;
-  background: var(--3, #6c36bc);
+border: 1px solid var(--Primaria, #9665DF);
+margin: 10px 15px;
 }
 .mat-mdc-progress-spinner {
   background-color: #281446;
