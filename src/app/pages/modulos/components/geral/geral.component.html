@@ -90,7 +90,7 @@
               this.moduloService.controll_topico
             ].UsuarioTopicos[0].encerrado != true
           "
-          class="atividade-botao center-2 active"
+          class="atividade-botao active"
           (click)="atividadeClick.emit()"
         >
           <img
@@ -112,7 +112,7 @@
               this.moduloService.controll_topico
             ].UsuarioTopicos[0].encerrado == false
           "
-          class="atividade-botao center-2 active-incorreto"
+          class="atividade-botao active-incorreto"
           (click)="atividadeClick.emit()"
         >
           <img
@@ -131,7 +131,7 @@
               this.moduloService.controll_topico
             ].UsuarioTopicos[0].encerrado == true
           "
-          class="atividade-botao center-2 active-correto"
+          class="atividade-botao active-correto"
           (click)="atividadeClick.emit()"
         >
           <img
@@ -144,7 +144,7 @@
         </button>
 
         <button
-          class="atividade-botao center-2 disabled"
+          class="atividade-botao disabled"
           *ngIf="!this.ltiService.verificarTodosVideosCompletos(this.videos)"
           (click)="clicarVideos()"
         >
@@ -164,7 +164,7 @@
           }}"
           target="_blank"
         >
-          <button class="ebook-botao center-2">
+          <button class="ebook-botao">
             <a download="E-book Teste.PDF"
               >E-book Tópico {{ this.moduloService.controll_topico + 1 }}</a
             >
