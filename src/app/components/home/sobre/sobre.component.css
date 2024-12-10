@@ -12,6 +12,8 @@
     width: 90%;
     height: 100%;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
 
 }
 
@@ -23,14 +25,17 @@
 .titulo{
   border-top: 2px solid #ffffff;
 }
-
+.titulos{
+  width: 90%;
+  margin: 0 auto;
+}
 .titulos > h2 {
     font-size: 35px;
     font-weight: 700;
     padding-top: 45px;
 }
 
-.titulos > h1 {
+.titulo {
     background-image: linear-gradient(#9580FF, #FFFFFF);
     background-clip: text;
     font-size: 30px;
@@ -45,10 +50,11 @@
     column-gap: 10%;
     font-size: 20px;
     line-height: 30px;
-    padding: 40px 0;
-    border-bottom: 2px solid #2D2C38;
+    padding: 10px 0 40px 0;
 }
-
+.descricao{
+  padding-bottom: 20px;
+}
 .descricao-titulo {
   font-size: 25px;
 }
