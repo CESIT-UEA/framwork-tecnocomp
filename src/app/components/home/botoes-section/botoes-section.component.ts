@@ -32,5 +32,14 @@ export class BotoesSectionComponent {
    */
   constructor(private router: Router,public ltiService: ServiceAppService) {}
 
+  getVerificaCompleto() {
+    for (let userTopico of this.ltiService.dados_completos.userTopico) {
+      if (!userTopico.UsuarioTopicos[0]?.encerrado) {
+        return false; // Retorna falso assim que encontrar um "encerrado" diferente de true
+      }
+    }
+    return true; // Retorna verdadeiro se todos os itens passarem na verificação
+  }
+
 
 }

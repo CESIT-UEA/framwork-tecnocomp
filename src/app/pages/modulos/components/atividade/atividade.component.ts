@@ -173,6 +173,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
 
     this.resposta = null;
     this.respostaEnviada = false;
+    this.respostaEscolhida = null;
   }
 
   getExplicacao(resposta: string) {
