@@ -212,7 +212,6 @@ export class AtividadeComponent implements OnInit, OnChanges {
     }
 
     this.enviarNota();
-    this.liberarProximoTopico();
     this.resposta = resposta;
     this.respostaEnviada = true;
   }
@@ -240,6 +239,7 @@ export class AtividadeComponent implements OnInit, OnChanges {
         this.ltiService.mensagem(
           'Resposta Correta! Sua nota já foi retornada para o LMS'
         );
+        this.liberarProximoTopico();
       },
       (error) => {
         console.log(error);
