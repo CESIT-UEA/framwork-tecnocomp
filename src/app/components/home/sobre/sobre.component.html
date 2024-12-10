@@ -3,19 +3,20 @@
     <section class="section">
       <div class="titulos">
         <h2>Sobre</h2>
-        <h1 class="titulo">
-          TECNOCOMP+: Conectando Saberes Digitais para o futuro
-        </h1>
+        <h1 class="titulo">TECNOCOMP+: Saberes Digitais</h1>
       </div>
       <section class="descricao">
         <h3 class="descricao-titulo">Descrição</h3>
         <div class="descricao-imagem">
           <p>
-            “Tecnocomp+: Conectando Saberes Digitais para o Futuro” é uma
-            iniciativa do Curso de Licenciatura em Computação que visa conectar
-            estudantes e a sociedade por meio de atividade de extensão. Oferece
-            cursos online para a comunidade de Itacoatiarense sobre tecnologias
-            digitais, promovendo o aprofundamento de conhecimentos.
+            “Tecnocomp+: Saberes Digitais” é uma iniciativa do Curso de
+            Licenciatura em Computação que visa conectar estudantes e a
+            sociedade por meio de atividade de extensão. Oferece cursos online
+            sobre tecnologias digitais, promovendo o aprofundamento de
+            conhecimentos.
+            <br>
+            <br>
+            Versão da Plataforma: 1.0.0
           </p>
           <img src="../../../../assets/img/logo_tec.png" class="logo" alt="" />
         </div>
@@ -37,7 +38,7 @@
           src="../../../../assets/icons/previous2.svg"
           alt="simbolo de ir para o proximo"
           (click)="prevVideo()"
-          style="cursor: pointer;"
+          style="cursor: pointer"
         />
         <!-- Estilo aplicado de acordo com o valor retornado do método elementMembros() -->
         <div
@@ -56,7 +57,7 @@
             <p class="cargo-membro">{{ membro.cargo }}</p>
             <div class="ficha-tecnica-container-card-conteudo">
               <div
-              [ngStyle]="{'background-image': 'url(' + membro.image + ')'}"
+                [ngStyle]="{ 'background-image': 'url(' + membro.image + ')' }"
                 class="img-membro"
               ></div>
               <p class="nome-membro">{{ membro.nome }}</p>
@@ -66,7 +67,7 @@
         <!-- Simbolo de ir para o próximo que quando clicado muda a equipe exibida -->
         <img
           (click)="nextVideo()"
-          style="cursor: pointer;"
+          style="cursor: pointer"
           src="../../../../assets/icons/next2.svg"
           alt="simbolo de ir para o proximo"
         />
