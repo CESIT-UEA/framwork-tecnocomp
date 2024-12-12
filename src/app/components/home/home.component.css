@@ -126,6 +126,11 @@ app-video-section iframe {
   height: 10vh;
   padding: 5px 0;
 }
+.header-fixed{
+  position: fixed;
+  background-color: black;
+  margin-bottom: 40px;
+}
 .header img {
   max-height: 80px;
   padding: 5px 0;

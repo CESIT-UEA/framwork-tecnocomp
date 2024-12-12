@@ -44,6 +44,7 @@
   margin-bottom: 20px;
   color: white;
   align-items: center;
+  cursor: pointer;
 }
 .active-alternativa{
   border: 4px solid #9665df;

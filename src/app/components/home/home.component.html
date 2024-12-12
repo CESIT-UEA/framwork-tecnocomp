@@ -9,7 +9,12 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <mat-toolbar class="header">
+      <mat-toolbar
+        class="header"
+        [ngClass]="{
+          'header-fixed': this.appService.controllerSwitchHome != 0
+        }"
+      >
         <img
           src="assets/tecnocomp.png"
           alt="Tecnocom+ LOGO"

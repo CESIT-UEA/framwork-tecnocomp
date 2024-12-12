@@ -44,7 +44,7 @@ export class SobreComponent {
         {
           cargo: 'Coordenador Geral',
           nome: 'João da Mata',
-          image: 'https://tecnocomp.uea.edu.br/fotos/prof-joao.jpg',
+          image: '../../../../assets/img/equipe/prof-joao.jpg',
         },
       ],
     },
@@ -54,17 +54,17 @@ export class SobreComponent {
         {
           cargo: 'Designer Gráfico',
           nome: 'Adriene Chaves',
-          image: 'https://tecnocomp.uea.edu.br/fotos/adriene.jpg',
+          image: '../../../../assets/img/equipe/adriene.jpg',
         },
         {
           cargo: 'Designer UI/UX',
           nome: 'Lívia Monteiro',
-          image: 'https://tecnocomp.uea.edu.br/fotos/livia.jpg',
+          image: '../../../../assets/img/equipe/livia.jpg',
         },
         {
           cargo: 'Designer Instrucional',
           nome: 'Jorge Coutinho',
-          image: 'https://tecnocomp.uea.edu.br/fotos/mikael.jpg',
+          image: '../../../../assets/img/equipe/mikael.jpg',
         },
       ],
     },
@@ -74,12 +74,12 @@ export class SobreComponent {
         {
           cargo: 'Instrutor(a)',
           nome: 'Yasmim Moraes',
-          image: 'https://tecnocomp.uea.edu.br/fotos/yasmin.jpg',
+          image: '../../../../assets/img/equipe/yasmin.jpg',
         },
         {
           cargo: 'Videomaker',
           nome: 'Jorge Coutinho',
-          image: 'https://tecnocomp.uea.edu.br/fotos/mikael.jpg',
+          image: '../../../../assets/img/equipe/mikael.jpg',
         },
       ],
     },
@@ -89,17 +89,17 @@ export class SobreComponent {
         {
           cargo: 'Desenvolvedor Frontend (1)',
           nome: 'Kauê Olímpio',
-          image: 'https://tecnocomp.uea.edu.br/fotos/kaue.jpg',
+          image: '../../../../assets/img/equipe/kaue.jpg',
         },
         {
           cargo: 'Desenvolvedor Frontend (2)',
           nome: 'Andriw Santos',
-          image: 'https://tecnocomp.uea.edu.br/fotos/andriw.jpg',
+          image: '../../../../assets/img/equipe/andriw.jpg',
         },
         {
           cargo: 'Desenvolvedor Full Stack',
           nome: 'Henrique Galvim',
-          image: 'https://tecnocomp.uea.edu.br/fotos/galvim.jpg',
+          image: '../../../../assets/img/equipe/galvim.jpg',
         },
       ],
     },
@@ -108,8 +108,8 @@ export class SobreComponent {
       membros: [
         {
           cargo: 'Analista de testes',
-          nome: 'Harleison Jhonathan Maia de Souza',
-          image: 'https://tecnocomp.uea.edu.br/fotos/jonatan.jpg',
+          nome: 'Jhonathan Maia',
+          image: '../../../../assets/img/equipe/jonatan.jpg',
         },
       ],
     },
@@ -119,7 +119,7 @@ export class SobreComponent {
         {
           cargo: 'Social Media',
           nome: 'Adriene Chaves',
-          image: 'https://tecnocomp.uea.edu.br/fotos/adriene.jpg',
+          image: '../../../../assets/img/equipe/adriene.jpg',
         },
       ],
     },

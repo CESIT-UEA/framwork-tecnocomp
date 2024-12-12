@@ -220,8 +220,11 @@ export class AtividadeComponent implements OnInit, OnChanges {
     this.ltiService
       .liberar(this.ltiService.dados_completos.topicos?.[this.idTopico].id)
       .subscribe(
-        (response) =>
-          console.log('Proximo tópico liberado com sucesso', response),
+        (response) => {
+          console.log('Proximo tópico liberado com sucesso', response)
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response);
+        },
         (error) => console.error('Erro ao enviar a liberação', error)
       );
   }
