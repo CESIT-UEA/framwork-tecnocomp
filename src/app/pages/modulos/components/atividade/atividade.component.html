@@ -150,6 +150,7 @@
     </div>
     <div class="butoes">
       <button
+      style="cursor: pointer;"
         class="refazer"
         *ngIf="(this.respostaEnviada == true || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != null) && this.respondidoOficialmente == false"
         (click)="refazer()"
@@ -158,6 +159,7 @@
         Refazer
       </button>
       <button
+      style="cursor: pointer;"
         class="btn-submit active"
         *ngIf="this.respostaEscolhida != null && this.respostaEnviada != true && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null"
         (click)="!respostaEnviada && responder(this.respostaEscolhida)"
