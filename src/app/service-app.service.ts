@@ -470,4 +470,11 @@ export class ServiceAppService {
       this.setDadosCompletos(response)
     });
   }
+
+  fichaTecnica(){
+    this.controllerSwitchHome = 1;
+  }
+  sobre(){
+    this.controllerSwitchHome = 2;
+  }
 }

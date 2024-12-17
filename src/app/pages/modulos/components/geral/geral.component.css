@@ -288,10 +288,6 @@ button.atividade-botao {
 }
 
 @media (max-width: 800px) {
-  :host {
-    height: 100%;
-    display: block;
-  }
   .container-main-conteudo {
     flex-direction: column;
     row-gap: 20px;

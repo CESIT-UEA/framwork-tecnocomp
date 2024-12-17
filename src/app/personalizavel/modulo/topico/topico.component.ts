@@ -195,6 +195,7 @@ export class TopicoComponent implements OnInit {
   resetaHome(){
     this.ltiService.controllerSwitchHome = 0;
   }
+
   verificaProximo() {
     let topicos: any[] = this.ltiService.dados_completos.topicos;
 

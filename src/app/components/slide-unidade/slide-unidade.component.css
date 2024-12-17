@@ -148,10 +148,9 @@
     grid-template-columns: 1fr;
     margin: 0 auto;
   }
-  .box-navigate-left,
-  .box-navigate-right {
-    justify-content: center;
-  }
+.box-navigate-left{
+  display: none;
+}
   .proximo,
   .voltar {
     justify-self: center;

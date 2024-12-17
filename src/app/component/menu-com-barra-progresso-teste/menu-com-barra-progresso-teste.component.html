@@ -77,15 +77,32 @@
     "
   />
   <h3>Links Úteis</h3>
-  <div class="moodle" (click)="this.ltiService.retornarLms()">
+  <div class="moodle">
     <img
-      src="../../../assets/icons/voltarMoodle.svg"
+      src="../../../assets/icons/ficha.svg"
       alt="Icone para download do ebook"
       width="22px"
       height="24px"
     />
-    <a [href]="this.ltiService.dados_completos.userModulo.url_retorno"
-      >Voltar ao AVA</a
+    <a (click)="this.ltiService.fichaTecnica()" *ngIf="verificaMenuHome == false" routerLink="../"
+      >Ficha Técnica</a
+    >
+    <a (click)="this.ltiService.fichaTecnica()" *ngIf="verificaMenuHome == true"
+      >Ficha Técnica</a
+    >
+  </div>
+  <div class="moodle">
+    <img
+      src="../../../assets/icons/sobre.svg"
+      alt="Icone para download do ebook"
+      width="22px"
+      height="24px"
+    />
+    <a (click)="this.ltiService.sobre()" *ngIf="verificaMenuHome == false" routerLink="../"
+      >Sobre</a
+    >
+    <a (click)="this.ltiService.sobre()" *ngIf="verificaMenuHome == true"
+      >Sobre</a
     >
   </div>
 </div>
