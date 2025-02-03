@@ -35,7 +35,7 @@ jobs:
       env:
         DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        DEPLOY_PATH: ${{ secrets.DEPLOY_PATH_DEV }}
+        DEPLOY_PATH_DEV: ${{ secrets.DEPLOY_PATH_DEV }}
       run: |
         ssh $DEPLOY_USER@$DEPLOY_SERVER "rm -rf $DEPLOY_PATH_DEV/*"
         scp -r dist/app/* $DEPLOY_USER@$DEPLOY_SERVER:$DEPLOY_PATH_DEV
