@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatSidenavContainer } from '@angular/material/sidenav';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModuloService } from 'src/app/personalizavel/modulo.service';
 import { ServiceAppService } from 'src/app/service-app.service';
 
 /**
@@ -16,15 +18,19 @@ export class HomeComponent {
    * Variavel que guarda o nome
    */
   nome: string = '';
+  @ViewChild(MatSidenavContainer) sidenavContainer!: MatSidenavContainer;
 
+  @Input() urlVideoInicial: any;
   /**
    * @constructor
    * Um método feito para testar caso seja clicado
    */
   constructor(
     public appService: ServiceAppService,
+    public moduloService: ModuloService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private route: ActivatedRoute
   ) {}
 
   /**
@@ -32,67 +38,52 @@ export class HomeComponent {
    */
   tokenData: any;
 
-  ngOnInit() {
-    /**
-     * Variavel a qual é uma constante, que recebe a url atual
-     */
-    const urlParams = new URLSearchParams(window.location.search);
-    /**
-     * Variavel a qual é uma constante, que recebe e guarda o token lti recebido na url
-     */
-    const token = urlParams.get('ltik') || '';
-    const url_return = urlParams.get('url_retorno') || '';
-    console.log(url_return);
-
-    /**
-     * Condicional que verifica se a constante token é diferente de vazia, se for, ele armazena no armazenamento local
-     */
-    if (token != '') {
-      localStorage.setItem('token', token);
-    }
-
-    /**
-     * Variavel a qual recebe o token guardado no armazenamento local
-     */
-    let tokenStorage = localStorage.getItem('token');
-
-    this.http
-      .get(`http://localhost:3000/api/userInfo?ltik=${tokenStorage}`)
-      .subscribe(
+  ngOnInit(): void {
+    const ltik = this.route.snapshot.queryParamMap.get('ltik');
+    if (ltik) {
+      this.moduloService.getUserInfo(ltik).subscribe(
         (data) => {
           this.tokenData = data;
-          console.log(this.tokenData);
+          console.log(data);
 
-          this.appService.urlInicio =
-            this.tokenData.modulo.tituloModulo + 'Home';
-          localStorage.setItem(
+          this.moduloService.urlInicio =
+            this.tokenData.modulo.nome_modulo + 'Home';
+
+            localStorage.setItem(
             'bloqueio',
             JSON.stringify(this.tokenData.userTopico)
           );
-          console.log(this.tokenData.user.return_url);
+
+          this.appService.setDadosCompletos(data);
+
+
+          let teste2 = localStorage.getItem('token');
+          if (teste2) {
+            localStorage.removeItem('token')
+          }
+
+          localStorage.setItem('token', this.tokenData.user.ltik);
 
           localStorage.setItem('url_retorno', this.tokenData.user.return_url);
+          localStorage.setItem(
+            'topicos',
+            JSON.stringify(this.tokenData.topicos)
+          );
 
-          localStorage.setItem('topicos', JSON.stringify(this.tokenData.topicos));
           let bloqueio = localStorage.getItem('bloqueio');
-          this.appService.topicos = this.tokenData.topicos;
+          this.moduloService.topicos = this.tokenData.topicos;
 
-          this.appService.bloqueio = bloqueio
+          this.moduloService.bloqueio = bloqueio
             ? JSON.parse(bloqueio)
             : this.tokenData.userTopico;
-
-          console.log(this.appService.bloqueio);
-          console.log(bloqueio);
-
-          this.appService.informacoes = this.tokenData;
-          this.appService.quantidadeTopicos =
-            this.tokenData.modulo.quantidadeTopicos;
-          this.appService.notaTotal = this.tokenData.userModulo.notaAcumulada;
         },
         (error) => {
           console.error('Error:', error);
         }
       );
+    }
+
+    this.appService.getDadosCompletos();
   }
 
   /**
@@ -100,5 +91,26 @@ export class HomeComponent {
    */
   navigation() {
     this.router.navigate(['/teorias-da-aprendizagem']);
+  }
+
+  clickHeader(controller: number) {
+    return (this.appService.controllerSwitchHome = controller)
+  }
+
+  fecharMenuClick() {
+    this.sidenavContainer.close();
+  }
+
+  navegarModulo(topicoId:number){
+    console.log(topicoId)
+    this.moduloService.controll_topico = topicoId
+    this.sidenavContainer.close();
+    if (this.appService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video != null) {
+      this.appService.currentVideoIndex = this.appService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video
+      console.log("Video retornado salvo já")
+    }else{
+      this.appService.currentVideoIndex = 0
+    }
+    this.appService.recreatePlayer()
   }
 }

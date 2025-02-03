@@ -1,20 +1,41 @@
 @font-face {
   font-family: minhaFonte;
-  src: url('../../../assets/fonteProjeto.ttf');
+  src: url("../../../assets/fonteProjeto.ttf");
 }
-
-.button {
-  border: none;
+.mat-drawer-container {
   background-color: transparent;
-  color:#FFF;
-  text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  height: 100%;
 }
-.button:hover{
-  border-bottom: 3px solid #9665DF;
+mat-sidenav {
+  height: 90%;
+  background-color: #131313;
+  border-radius: 20px 0;
+}
+.btn-ficha {
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.header nav {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.end-navbar {
+  display: flex;
+  align-items: center;
+}
+.header {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  justify-content: space-between;
+}
+.header img {
+  max-height: 80px;
+  margin-left: 1rem;
+  height: 40px;
 }
 .menu-teste {
   display: flex;
@@ -27,10 +48,9 @@
   transition: transform 20s ease-in-out;
   transform: translate(-30%, 100%);
   width: 350px;
-  background-color: black;
   border-radius: 10px;
   display: none;
-  color: #FAF8E6;
+  color: #faf8e6;
 }
 
 .sidebar.open {
@@ -41,35 +61,17 @@
   /* 70% fica igual do ultimo video q mandei pro marcos */
 }
 
-.titulo-topico {
-  padding: 16px;
-  color: black;
-  background-color: #9665DF;
-  border-radius: 20px 0px 0px 0px;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  /* 30px */
-}
-
 .teste {
   position: relative;
   left: 200px;
 }
 
-#button {
-  color: #FFF;
-}
-
 #icon {
-  font-size: 2rem;
-  height: 2rem;
-  width: 2rem;
+  color: #fff;
 }
 
 .text {
-  color: #FAF8E6;
+  color: #faf8e6;
   text-align: center;
 }
 
@@ -81,26 +83,11 @@
 }
 
 .text-unidade {
-  color: #9665DF;
+  color: #9665df;
 }
 
-.img {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 0;
-}
-
-.img img {
-  max-height: 80px;
-  margin-left: 1rem;
-  height: 40px;
-
-}
-
-.position{
-  width:62%;
+.position {
+  width: 62%;
   padding: 30px 0;
 }
 

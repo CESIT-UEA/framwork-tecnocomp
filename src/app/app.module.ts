@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -49,6 +49,18 @@ import { ErrorComponent } from './components/error/error.component';
 import {ReactiveFormsModule } from '@angular/forms';
 import { ModuloComponent } from './personalizavel/modulo/modulo.component';
 import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
+import { PerfilUserComponent } from './components/perfil-user/perfil-user.component';
+import { SobreComponent } from './components/home/sobre/sobre.component';
+import { FooterFichaComponent } from './components/home/footer-ficha/footer-ficha.component';
+import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
+import { BotaoVoltarAvaComponent } from './components/botao-voltar-ava/botao-voltar-ava.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { ModuloConcluidoComponent } from './components/modulo-concluido/modulo-concluido.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +97,13 @@ import { TopicoComponent } from './personalizavel/modulo/topico/topico.component
     ErrorComponent,
     ModuloComponent,
     TopicoComponent,
+    PaginaInicialComponent,
+    PerfilUserComponent,
+    SobreComponent,
+    FooterFichaComponent,
+    YoutubePlayerComponent,
+    BotaoVoltarAvaComponent,
+    ModuloConcluidoComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +121,16 @@ import { TopicoComponent } from './personalizavel/modulo/topico/topico.component
     MatProgressBarModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatToolbarModule,
+    MatSnackBarModule,
+    MatExpansionModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

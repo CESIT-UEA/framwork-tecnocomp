@@ -1,11 +1,6 @@
 <div class="container-geral" [ngSwitch]="controllerSwitch">
   <div *ngSwitchCase="'1'">
-    <app-atividade
-      (atividadeClick)="atividadeClick()"
-      [questao]="minhaQuestao"
-      [bloqueio]="this.ltiService.bloqueio[1].encerrado"
-      [idTopico]="this.ltiService.bloqueio[1].idTopico"
-    ></app-atividade>
+
   </div>
 
   <div *ngSwitchCase="'2'">
@@ -23,7 +18,6 @@
   </div>
 
   <div *ngSwitchCase="'4'">
-    <app-slide nomeTopico="Construtivismo" [slide]="slide"></app-slide>
     <div class="center">
       <div class="voltarUnidade" (click)="textoApoioClick()">
         <img

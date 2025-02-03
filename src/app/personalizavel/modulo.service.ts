@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModuloService {
-  private baseUrl = 'http://localhost:3100'; // Altere para a URL do seu servidor JSON
-  private baseUrlLTI = 'http://localhost:3000'; // Altere para a URL do seu servidor JSON
+  private baseUrlLTI = environment.baseUrl;
   private nomeTopicoSource = new BehaviorSubject<string>('');
   nomeTopico$ = this.nomeTopicoSource.asObservable();
   id_modulo!:string
@@ -18,16 +18,16 @@ export class ModuloService {
   informacoes: any;
   quantidadeTopicos!: number;
   notaTotal!: number;
-
-
-  getUserInfo(ltik: string): Observable<any> {
-    return this.http.get(`${this.baseUrlLTI}/userInfo?ltik=${ltik}`);
-  }
+  controll_topico:number = 0;
 
   constructor(private http: HttpClient) {}
+  getUserInfo(ltik: string): Observable<any> {
+    console.log(`Requisição LTI sendo feita para: ${this.baseUrlLTI}/userInfo?ltik=${ltik}`)
+    return this.http.get<any>(`${this.baseUrlLTI}/userInfo?ltik=${ltik}`);
+  }
 
   getModuloPorNome(nomeModulo: string): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}/modulos?nome_modulo=${nomeModulo}`);
+    return this.http.get<any>(`${this.baseUrlLTI}/modulos?nome_modulo=${nomeModulo}`);
   }
 
   setNomeTopico(nomeTopico: string) {

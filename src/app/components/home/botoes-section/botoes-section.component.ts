@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiceAppService } from 'src/app/service-app.service';
 
 /**
  * Componente dos botões que ficam na pagina inicial do modulo
@@ -29,12 +30,16 @@ export class BotoesSectionComponent {
    * @method
    * Constructor do componente de Botões, que utiliza o Router
    */
-  constructor(private router: Router) {}
+  constructor(private router: Router,public ltiService: ServiceAppService) {}
 
-  /**
-   * @method
-   */
-  iniciarNavegacao() {
-    return this.router.navigate([this.urlInicio]);
+  getVerificaCompleto() {
+    for (let userTopico of this.ltiService.dados_completos.userTopico) {
+      if (!userTopico.UsuarioTopicos[0]?.encerrado) {
+        return false; // Retorna falso assim que encontrar um "encerrado" diferente de true
+      }
+    }
+    return true; // Retorna verdadeiro se todos os itens passarem na verificação
   }
+
+
 }

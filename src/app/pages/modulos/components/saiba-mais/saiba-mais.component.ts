@@ -14,7 +14,7 @@ export class SaibaMaisComponent {
   /**
    * Variavel que receberá os links que serão inseridos pelo usuário
    */
-  @Input() links!: string[];
+  @Input() links!: any[];
 
   /**
    * Variavel faz a interligação entre os eventos

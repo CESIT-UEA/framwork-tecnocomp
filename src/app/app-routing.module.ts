@@ -12,8 +12,10 @@ import { ComentariosComponent } from './components/forum/topico-forum/comentario
 import { ErrorComponent } from './components/error/error.component';
 import { ModuloComponent } from './personalizavel/modulo/modulo.component';
 import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
+import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
 
 const routes: Routes = [
+  {path: '', component: PaginaInicialComponent},
   { path: 'teorias-da-aprendizagemHome', component: HomeComponent },
   {
     path: 'teorias-da-aprendizagem',
@@ -38,7 +40,6 @@ const routes: Routes = [
 
   {path:'modulo/:nome_modulo', component:ModuloComponent},
   {path:'modulo/:nome_modulo/topicos', component:TopicoComponent},
-
   {path: '**', component:ErrorComponent},
 
 ];

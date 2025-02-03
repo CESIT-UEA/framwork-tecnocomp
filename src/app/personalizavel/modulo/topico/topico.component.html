@@ -1,7 +1,163 @@
-<p style="color: aliceblue;">Topico</p>
-<div style="color: aliceblue;" class="" *ngIf="teste">
-  <h1>{{this.teste.topicos[controll_topico].nome_topico}}</h1>
+<div *ngIf="this.ltiService?.dados_completos" style="height: 100%">
+  <div
+    class="container-geral"
+    [ngSwitch]="controllerSwitch"
+    style="height: 100%"
+  >
+    <div *ngSwitchCase="'1'" style="height: 100%">
+      <app-atividade
+        (atividadeClick)="atividadeClick()"
+        [idTopico]="this.moduloService.controll_topico"
+      ></app-atividade>
+    </div>
 
-  <button (click)="proximo()">Proximo</button>
-  <button (click)="voltar()">Voltar</button>
+    <div *ngSwitchCase="'3'" style="height: 100%">
+      <app-referencias
+        [referencias]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.Referencias"
+        (referenciasClick)="referenciasClick()"
+      ></app-referencias>
+    </div>
+
+    <div *ngSwitchCase="'2'" style="height: 100%">
+      <app-saiba-mais
+        [links]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.SaibaMais"
+        (linksClick)="linksClick()"
+      ></app-saiba-mais>
+    </div>
+
+    <div *ngSwitchCase="'4'" style="height: 100%">
+      <app-slide
+        (textoApoioClick)="textoApoioClick()"
+        [caminhoSlide]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.textoApoio"
+      ></app-slide>
+    </div>
+
+    <div class="container" *ngSwitchDefault>
+      <div
+        *ngIf="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.nome_topico && this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.SaibaMais && this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.VideoUrls"
+      >
+        <mat-sidenav-container>
+          <mat-sidenav
+            class="menu"
+            #sidenav
+            mode="over"
+            fixedInViewport="Fixed"
+            position="end"
+            style="border-radius: 20px 0 20px 0 !important"
+          >
+            <app-menu-com-barra-progresso-teste
+              (fecharMenu)="fecharMenuClick()"
+              (navegarModulo)="navegarModulo($event)"
+            ></app-menu-com-barra-progresso-teste>
+          </mat-sidenav>
+
+          <mat-sidenav-content class="bg-container">
+            <mat-toolbar class="header">
+              <img
+                src="assets/tecnocomp.png"
+                alt="Tecnocom+ LOGO"
+                class="logo"
+                routerLink="../"
+                (click)="resetaHome()"
+              />
+              <nav>
+                <div class="end-navbar">
+                  <img
+                    routerLink="../"
+                    (click)="resetaHome()"
+                    src="../../../../assets/icons/home.svg"
+                    alt="Icone para download do ebook"
+                    width="22px"
+                    height="24px"
+                    class="icon-home"
+                  />
+                  <div
+                    *ngIf="this.ltiService.perfilUser == false"
+                    class="container-foto-header"
+                  >
+                    <div class="foto-header">
+                      {{ this.ltiService.dados_completos.user.nome[0] }}
+                    </div>
+                    <mat-icon
+                      style="color: white; cursor: pointer;"
+                      (click)="
+                        this.ltiService.abreMenuUser(); $event.stopPropagation()
+                      "
+                    >
+                      keyboard_arrow_down
+                    </mat-icon>
+                  </div>
+                  <app-perfil-user
+                    *ngIf="this.ltiService.perfilUser == true"
+                  ></app-perfil-user>
+                  <div class="caixa-perfil-menu">
+                    <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
+                  </div>
+                </div>
+              </nav>
+            </mat-toolbar>
+            <app-geral
+              [nome]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.nome_topico"
+              [videos]="this.ltiService.dados_completos.topicos?.[this.moduloService.controll_topico]?.VideoUrls"
+              (referenciasClick)="referenciasClick()"
+              (linksClick)="linksClick()"
+              (textoApoioClick)="textoApoioClick()"
+              (atividadeClick)="atividadeClick()"
+              [liberado]="this.moduloService.bloqueio?.[this.moduloService.controll_topico]?.encerrado"
+            ></app-geral>
+
+            <div
+              class="container-main-conteudo-links-voltar"
+              [ngClass]="{
+                'container-links':
+                  this.verificaVoltar() && this.verificaProximo()
+              }"
+            >
+              <div
+                *ngIf="this.verificaVoltar()"
+                class="link-voltar"
+                (click)="voltar()"
+                [ngClass]="{
+                  sozinho:
+                    this.verificaVoltar() == true &&
+                    this.verificaProximo() == false
+                }"
+              >
+                <img
+                  *ngIf="this.moduloService.controll_topico != 0"
+                  src="../../../../assets/icons//voltarUnidadeCorreto.svg"
+                  alt="Icone para voltar unidade"
+                  width="30px"
+                  height="30px"
+                />
+                Tópico Anterior
+              </div>
+              <div
+                *ngIf="verificaProximo()"
+                class="link-proximo"
+                (click)="proximo()"
+                [ngClass]="{
+                  'sozinho-proximo':
+                    this.verificaVoltar() == false &&
+                    this.verificaProximo() == true,
+                  'opactiy-active':
+                    this.ltiService.dados_completos.userTopico[
+                      this.moduloService.controll_topico
+                    ].UsuarioTopicos[0].encerrado == false
+                }"
+              >
+                Próximo Tópico
+                <img
+                  src="a../../../../../../assets/icons/avancarUnidade.svg"
+                  alt="Icone para avançar unidade"
+                  width="30px"
+                  height="30px"
+                />
+              </div>
+            </div>
+          </mat-sidenav-content>
+        </mat-sidenav-container>
+      </div>
+    </div>
+  </div>
 </div>

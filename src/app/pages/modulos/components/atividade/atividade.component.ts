@@ -1,7 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Questao } from './questao';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ServiceAppService } from 'src/app/service-app.service';
+import { ModuloService } from 'src/app/personalizavel/modulo.service';
 
 /**
  * Componente reutilizavel de atividade
@@ -11,211 +20,170 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './atividade.component.html',
   styleUrls: ['./atividade.component.css'],
 })
-export class AtividadeComponent {
-  /**
-   * Variavel que guarda o caminho das imagens das alternativas
-   */
-  caminhoImagem: string = '../../../../../assets/img/Letra ';
-
-  /**
-   * Variavel booleana para guardar se a resposta foi enviada ou não. Por padrão começa com não
-   */
-  respostaEnviada: boolean = false;
-
-  /**
-   * Variavel booleana para guardar se a resposta correta foi enviada ou não. Por padrão começa com não
-   */
-  respostaCorretaEnviada: boolean = false;
-
-  /**
-   * Variavel que guarda o valor da nota, por padrão começa com 0
-   */
-  nota: number = 0;
-
-  /**
-   * Variavel responsavel por guardar o evento que será utilizado, especificado ao instanciar o componente
-   */
-  @Output() atividadeClick = new EventEmitter<void>();
-
-  /**
-   * Variavel do tipo Questão ou null, responsavel por guardar a questão, por padrão ela começa sendo null caso não seja enviado as questões como parametro ao instanciar o componente
-   */
-  @Input() questao: Questao | null = null;
-
-  /**
-   * Variavel do tipo Questão ou null, responsavel por guardar apenas a questão atual
-   */
-  questaoAtual: Questao | null = null;
-
-  /**
-   * Variavel do tipo Questão ou null, responsavel por guardar apenas a resposta
-   */
-  resposta: string | null = null;
-
-  /**
-   * Variavel do tipo booleano, para informar se é gradeIn ou não
-   */
+export class AtividadeComponent implements OnInit, OnChanges {
+  teste: any;
   @Input() gradeIn = true;
-
-  /**
-   * Variavel do tipo boolean, responsavel por guardar se esta bloqueado ou não
-   */
-  @Input() bloqueio: boolean = false;
-
-  /**
-   * Variavel do tipo number, responsavel por guardar o idTopico
-   */
+  @Input() bloqueio: any = false;
   @Input() idTopico!: number;
-  /**
-   * Variavel responsavel por guardar o token a qual foi armazenado no localStorage
-   */
-  tokenStorage = localStorage.getItem('token');
-
-  /**
-   * Variavel por guardar as informações vindas da API, apenas para teste e vizualização
-   */
+  @Output() atividadeClick = new EventEmitter<void>();
+  vetorLetras: string[] = ['A', 'B', 'C', 'D'];
+  abre: boolean | null = null;
+  respondidoOficialmente: boolean = false;
+  caminhoImagem: string = '../../../../../assets/img/Letra ';
+  respostaEnviada: boolean = false;
+  respostaCorretaEnviada: boolean = false;
+  nota: number = 0;
+  resposta: string | null = null;
+  tokenStorage: any;
   tokenData: any;
+  questao: any | null = null;
+  quantidadeTopicos: any = [];
+  respostaEscolhida: any = null;
 
-  /**
-   * @constructor
-   */
   constructor(
     private http: HttpClient,
-    private ltiService: ServiceAppService
+    public ltiService: ServiceAppService,
+    public moduloService: ModuloService,
+    private cd: ChangeDetectorRef
   ) {}
 
-  /**
-   * @method
-   */
   ngOnInit() {
-    this.questaoAtual = this.questao;
-    if (this.questaoAtual) {
-      this.questaoAtual.alternativas = this.embaralharAlternativas(
-        this.questaoAtual.alternativas
-      );
-      let respostaCorreta = this.questaoAtual.alternativas.find(
-        (a) => a.correta
-      );
-      if (respostaCorreta) {
-        this.questaoAtual.respostaCorreta = respostaCorreta.descricao;
-      }
+    if (this.ltiService.dados_completos) {
+      this.quantidadeTopicos = this.ltiService.dados_completos.topicos;
+      this.ltiService.quantidadeTopicos = this.quantidadeTopicos.length;
+      this.tokenStorage = this.ltiService.dados_completos.user.ltik;
+      console.log(this.respondidoOficialmente);
+    }
+    if (this.idTopico === this.quantidadeTopicos.length - 1) {
+      this.gradeIn = false;
+    }
+
+      this.atualizarQuestao();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['idTopico']) {
+      this.atualizarQuestao();
     }
   }
 
-  /**
-   * @method
-   * Metódo responsavel pela resposta da atividade
-   */
-  responder(resposta: string) {
-    if (this.respostaEnviada || this.respostaCorretaEnviada) {
-      return;
-    }
+  atualizarQuestao() {
+    this.questao =
+      this.ltiService.dados_completos.topicos?.[this.idTopico]?.Exercicios?.[0];
 
-    if (this.questaoAtual!.respostaCorreta == resposta) {
-      this.respostaCorretaEnviada = true;
-      console.log('Resposta certa');
-      console.log(this.questaoAtual?.respostaCorreta);
-      console.log( this.ltiService.quantidadeTopicos)
-      this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
-
-      if (this.ltiService.notaTotal == 0) {
-        this.ltiService.notaTotal = this.nota;
-      } else {
-        this.ltiService.notaTotal = this.ltiService.notaTotal + this.nota;
-      }
-
-      this.ltiService.liberar(this.idTopico).subscribe(
-        (response) => {
-          console.log('Proximo tópico liberado com sucesso', response);
-        },
-        (error) => {
-          console.error('Erro ao enviar a liberação', error);
-        }
+    if (this.questao && Array.isArray(this.questao.Alternativas) && (this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null )) {
+      this.questao.Alternativas = this.embaralharAlternativas(
+        this.questao.Alternativas
       );
-
-      this.http
-        .get(`http://localhost:3000/api/userInfo?ltik=${this.tokenStorage}`)
-        .subscribe(
-          (data) => {
-            console.log('Log do data da atividade');
-            this.tokenData = data;
-            this.ltiService.bloqueio = this.tokenData.userTopico;
-            this.ltiService.informacoes = this.tokenData;
-            console.log(this.tokenData);
-          },
-          (error) => {
-            console.error('Error:', error);
-          }
-        );
-
-      if (this.gradeIn) {
-        console.log('Nota grade IN:', this.ltiService.notaTotal);
-        this.ltiService.sendGradeIn(this.ltiService.notaTotal).subscribe(
-          (response) => {
-            console.log('Nota enviada com sucesso!', response);
-            alert('Nota enviada!');
-          },
-          (error) => {
-            alert('Erro ao enviar a nota!');
-            console.error('Erro ao enviar nota', error);
-          }
-        );
-      } else {
-        this.ltiService.sendGrade(this.ltiService.notaTotal).subscribe(
-          (response) => {
-            console.log('Nota enviada com sucesso!', response);
-            alert('Nota enviada!');
-          },
-          (error) => {
-            alert('Erro ao enviar a nota!');
-            console.error('Erro ao enviar nota', error);
-          }
-        );
-      }
-      this.resposta = resposta;
-      this.respostaEnviada = true;
-    } else {
-      alert('Resposta errada, clique em refazer para tentar novamente');
-    }
-    console.log('ola mundo', this.ltiService.notaTotal);
-  }
-
-  /**
-   * @method
-   * Metodo responsavel pelo funcionamento do clique em refazer
-   */
-  refazer() {
-    if (this.questao) {
-      this.questao.alternativas = this.embaralharAlternativas(
-        this.questao.alternativas
+      const respostaCorreta = this.questao.Alternativas.find(
+        (a: any) => a.correta
       );
-      let respostaCorreta = this.questao.alternativas.find((a) => a.correta);
       if (respostaCorreta) {
         this.questao.respostaCorreta = respostaCorreta.descricao;
       }
     }
-    this.resposta = null;
-    this.respostaEnviada = false;
+    this.cd.detectChanges();
   }
 
-  /**
-   * @method
-   * Metodo responsavel por puxar a explicação que fica na questão
-   */
+  responder(resposta: string) {
+    if (
+      this.bloqueio[this.idTopico]?.encerrado == true ||
+      this.respostaCorretaEnviada
+    ) {
+      return;
+    } else if (this.questao && this.questao.respostaCorreta === resposta) {
+      this.respondidoOficialmente = true;
+      console.log(this.respondidoOficialmente);
+      this.tratarRespostaCorreta(resposta);
+    } else {
+      this.resposta = resposta;
+      this.respostaEnviada = true;
+      this.ltiService
+        .enviarRespostaIncorreta(
+          this.ltiService.dados_completos.topicos?.[this.idTopico].id,
+          this.ltiService.dados_completos.user.ltik,
+          resposta
+        )
+        .subscribe(
+          (response) => {
+            console.log('Resposta apos enviar a resposta incorreta', response);
+            this.ltiService.removeDadosCompletos();
+            this.ltiService.setDadosCompletos(response);
+          },
+          (error) => {
+            console.log(error);
+            this.ltiService.mensagem(
+              'Houve um problema ao enviar a resposta incorreta'
+            );
+          }
+        );
+      this.ltiService.mensagem(
+        'Resposta Errada! Clique em refazer para fazer novamente'
+      );
+    }
+    this.cd.detectChanges();
+  }
+
+  responderAlternativo(resposta: string) {
+    this.resposta = resposta;
+    this.respostaEnviada = true;
+    if (this.abre == null) {
+      this.abre = true;
+    }
+  }
+
+  refazer() {
+    if (this.respostaCorretaEnviada) {
+      return;
+    }
+
+    if (this.questao && Array.isArray(this.questao.Alternativas)) {
+      this.questao.Alternativas = this.embaralharAlternativas(
+        this.questao.Alternativas
+      );
+      const respostaCorreta = this.questao.Alternativas.find(
+        (a: any) => a.correta
+      );
+      if (respostaCorreta) {
+        this.questao.respostaCorreta = respostaCorreta.descricao;
+      }
+    }
+
+    this.ltiService
+      .enviarResetarRespostaIncorreta(
+        this.ltiService.dados_completos.topicos?.[this.idTopico].id,
+        this.ltiService.dados_completos.user.ltik
+      )
+      .subscribe(
+        (response) => {
+          console.log(
+            'Resposta apos tentar resetar a resposta incorreta',
+            response
+          );
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response);
+        },
+        (error) => {
+          console.log(error);
+          this.ltiService.mensagem(
+            'Houve um problema ao tentar resetar resposta incorreta'
+          );
+        }
+      );
+
+    this.resposta = null;
+    this.respostaEnviada = false;
+    this.respostaEscolhida = null;
+  }
+
   getExplicacao(resposta: string) {
-    const alternativa = this.questaoAtual?.alternativas.find(
-      (a) => a.descricao === resposta
+    const alternativa = this.questao?.Alternativas.find(
+      (a: any) => a.descricao === resposta
     );
     return alternativa?.explicacao;
   }
 
-  /**
-   * @method
-   * Metódo responsavel pelo embaralhamento das alternativas
-   */
-  embaralharAlternativas(
-    alternativas: { descricao: string; explicacao: string; correta: boolean }[]
-  ) {
+  embaralharAlternativas(alternativas: any[]) {
     let alternativasEmbaralhadas = [...alternativas];
     for (let i = alternativasEmbaralhadas.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -225,5 +193,84 @@ export class AtividadeComponent {
       ];
     }
     return alternativasEmbaralhadas;
+  }
+
+  private tratarRespostaCorreta(resposta: string) {
+    this.nota = Math.ceil(100 / this.ltiService.quantidadeTopicos);
+    console.log(this.nota);
+    console.log(this.ltiService.notaTotal);
+    console.log(this.nota + this.ltiService.notaTotal);
+
+    if (this.ltiService.notaTotal == 0) {
+      this.ltiService.notaTotal = this.nota;
+    } else {
+      this.ltiService.notaTotal = this.ltiService.notaTotal + this.nota;
+    }
+
+    if (this.ltiService.notaTotal > 100) {
+      this.ltiService.notaTotal = 100;
+    }
+
+    this.enviarNota();
+    this.liberarProximoTopico()
+    this.resposta = resposta;
+    this.respostaEnviada = true;
+  }
+
+  private liberarProximoTopico() {
+    this.ltiService
+      .liberar(this.ltiService.dados_completos.topicos?.[this.idTopico].id)
+      .subscribe(
+        (response) => {
+          console.log('Proximo tópico liberado com sucesso', response)
+          this.ltiService.removeDadosCompletos();
+          this.ltiService.setDadosCompletos(response);
+        },
+        (error) => console.error('Erro ao enviar a liberação', error)
+      );
+  }
+
+  public enviarNota(): void {
+    const enviarNota = this.gradeIn
+      ? this.ltiService.sendGradeIn
+      : this.ltiService.sendGrade;
+    enviarNota.call(this.ltiService, this.ltiService.notaTotal).subscribe(
+      (response) => {
+        console.log('Resposta apos enviar a nota pro moodle:', response);
+        this.ltiService.removeDadosCompletos();
+        this.ltiService.setDadosCompletos(response);
+
+        this.ltiService.mensagem(
+          'Resposta Correta! Sua nota já foi retornada para o LMS'
+        );
+      },
+      (error) => {
+        console.log(error);
+        this.ltiService.mensagem(
+          'Houve um problema ao enviar a nota para seu LMS'
+        );
+      }
+    );
+  }
+
+  public SetRespostaEscolhida(respostaEscolhida: string): void {
+    this.respostaEscolhida = respostaEscolhida;
+  }
+
+  public RemoveRespostaEscolhida() {
+    this.respostaEscolhida = null;
+  }
+
+  clickOlho() {
+    if (this.respondidoOficialmente == true) {
+      this.respondidoOficialmente = false;
+    }
+    if (this.abre == false) {
+      this.abre = true;
+      return true;
+    } else {
+      this.abre = false;
+      return false;
+    }
   }
 }

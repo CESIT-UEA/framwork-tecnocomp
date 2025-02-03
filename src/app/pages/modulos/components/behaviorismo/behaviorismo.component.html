@@ -1,12 +1,6 @@
 <div class="container-geral" [ngSwitch]="controllerSwitch">
   <div *ngSwitchCase="'1'">
-    <!--     <app-atividade titulo_pergunta="Behaviorismo" (atividadeClick)="atividadeClick()"></app-atividade> -->
-    <app-atividade
-      (atividadeClick)="atividadeClick()"
-      [questao]="minhaQuestao" 
-      [bloqueio]="this.ltiService.bloqueio[0].encerrado"
-      [idTopico]="this.ltiService.bloqueio[0].idTopico"
-    ></app-atividade>
+
   </div>
 
   <div *ngSwitchCase="'2'">
@@ -24,7 +18,6 @@
   </div>
 
   <div *ngSwitchCase="'4'">
-    <app-slide></app-slide>
     <div class="center">
       <div class="voltarUnidade" (click)="textoApoioClick()">
         <img

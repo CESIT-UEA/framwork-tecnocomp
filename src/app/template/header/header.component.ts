@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServiceAppService } from 'src/app/service-app.service';
 
 /**
@@ -9,12 +9,22 @@ import { ServiceAppService } from 'src/app/service-app.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
+  @Input() nome!:string;
+
   /**
    * @method
    * Constructor do componente Header, ele importa o ServiceAppService para utiliza-lo
    */
   constructor(public appService: ServiceAppService) {}
+  ngOnInit(): void {
+    if (this.nome) {
+      let words = this.nome.split('-');
+      let capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+      let result = capitalizedWords.join(' ');
+      this.nome = result
+    }
+  }
 
   /**
    * @method

@@ -1,70 +1,41 @@
-<section>
-  <div class="img">
-    <img src="assets/Tecnocomp+.png" alt="Tecnocom+ LOGO" />
-    <div class="menu-teste">
-      <!-- Menu da página inicial que quando clicado vai para a ficha técnica -->
-      <p
-        (click)="clickHeader()"
-        *ngIf="appService.controllerSwitchHome == 0"
-        style="color: white"
-      >
-        Ficha Técnica
-      </p>
-      <!-- Menu da página ficha técnica que quando clicado volta para a página inicial HOME -->
-      <span
-        *ngIf="appService.controllerSwitchHome == 1"
-        (click)="clickHeader()"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="31"
-          height="31"
-          viewBox="0 0 31 31"
-          fill="none"
-        >
-          <path
-            d="M3.86108 11.3613L15.1111 2.61133L26.3611 11.3613V25.1113C26.3611 25.7744 26.0977 26.4103 25.6289 26.8791C25.16 27.3479 24.5241 27.6113 23.8611 27.6113H6.36108C5.69804 27.6113 5.06216 27.3479 4.59332 26.8791C4.12448 26.4103 3.86108 25.7744 3.86108 25.1113V11.3613Z"
-            stroke="#FFF"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M11.3611 27.6113V15.1113H18.8611V27.6113"
-            stroke="#FFF"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </span>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over" fixedInViewport="Fixed" position="end">
+    <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
+  </mat-sidenav>
 
-      <!-- Menu que quando clicado exibe a barra de progresso e os tópicos na página inicial HOME -->
-      <button
-        *ngIf="appService.controllerSwitchHome == 0"
-        id="button"
-        mat-button
-        (click)="menuClick()"
-        (click)="toggleSidebar()"
-      >
-        <mat-icon id="icon">{{ menuHeader }}</mat-icon>
-      </button>
-      <aside class="sidebar" [ngClass]="{ open: isOpen }">
-        <h2 class="titulo-topico center">Tópicos</h2>
-        <!-- chamada do componente da barra de progresso na página inicial HOME -->
-        <app-menu-com-barra-progresso-teste></app-menu-com-barra-progresso-teste>
-
-      </aside>
-    </div>
-  </div>
-</section>
+  <mat-sidenav-content>
+    <mat-toolbar class="header">
+      <img src="assets/Tecnocomp+.jpeg" alt="Tecnocom+ LOGO" />
+      <nav>
+        <div class="links">
+          <span
+            (click)="clickHeader()"
+            *ngIf="appService.controllerSwitchHome == 0"
+            class="btn-ficha"
+          >
+            Ficha Tecnica
+          </span>
+        </div>
+        <div class="end-navbar">
+            <mat-icon
+              style="color: #fff;"
+              (click)="clickHeader()"
+              *ngIf="appService.controllerSwitchHome == 1"
+              >home</mat-icon
+            >
+          <mat-icon (click)="sidenav.open()" id="icon" *ngIf="appService.controllerSwitchHome == 0">menu</mat-icon>
+        </div>
+      </nav>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
 <section>
   <div class="position" *ngIf="appService.controllerSwitchHome == 0">
     <div class="text">
       <!-- Título da página inicial HOME -->
       <p>
-         <span class="text-unidade">TEORIAS DA APRENDIZAGEM</span>
+        <span class="text-unidade">{{ nome }}</span>
       </p>
     </div>
   </div>

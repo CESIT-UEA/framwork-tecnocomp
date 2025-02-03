@@ -1,25 +1,108 @@
-<div class="container-topicos">
+<div class="parte-cima">
+  <div class="header-menu">
+    <mat-icon class="close" (click)="fecharMenu.emit()">close</mat-icon>
+  </div>
+  <p class="titulo-topico center">
+    {{ this.ltiService.dados_completos.modulo.nome_modulo }}
+  </p>
   <div class="progresso center">
-    <p class="texto-progresso">Progresso</p>
+    <p class="texto-progresso">Progresso:</p>
     <mat-progress-bar
       class="barra-progresso"
       mode="determinate"
       color="warn"
-      [value]="this.ltiService.notaTotal"
+      this.teste
+      [value]="this.ltiService.dados_completos?.userModulo?.nota"
     ></mat-progress-bar>
-    <p *ngIf="this.ltiService.notaTotal <= 100">{{ this.ltiService.notaTotal }}%</p>
-
-    <p *ngIf="this.ltiService.notaTotal > 100">100%</p>
+    <p>{{ this.ltiService.dados_completos?.userModulo?.nota }}%</p>
   </div>
+  <p class="p-progresso">
+    {{ getQuantidadeVideosConcluidos() }} /
+    {{ this.ltiService.dados_completos.topicos.length }} Tópicos Concluídos
+  </p>
+</div>
+
+<div class="container-topicos">
   <div class="container-topico">
-    <div class="topico-container" *ngFor="let topic of aprendizagemInformatica.topics; index as i">
-      <input
-        type="checkbox"
-        disabled="true"
-      />
-      <label>{{ i + 1 }}. {{ topic.name }}</label>
+    <div
+      class="topico-container"
+      *ngFor="
+        let topico of this.ltiService.dados_completos?.topicos;
+        index as i
+      "
+      [ngClass]="{
+        'active-topico-container': i == this.moduloService.controll_topico,
+        'disabled-link': verificarConcluido(i) == false,
+        hover: verificarConcluido(i) == true
+      }"
+      (click)="ola(i)"
+    >
+      <p *ngIf="verificarConcluido(i) == false">
+        {{ i + 1 }}. {{ topico.nome_topico }}
+      </p>
+      <p
+        *ngIf="verificarConcluido(i) == true && verificaMenuHome == false"
+        (click)="navegarModulo.emit(i)"
+      >
+        {{ i + 1 }}. {{ topico.nome_topico }}
+      </p>
+      <p
+        *ngIf="verificarConcluido(i) == true && verificaMenuHome == true"
+        (click)="navegarModulo.emit(i)"
+        routerLink="topicos"
+      >
+        {{ i + 1 }}. {{ topico.nome_topico }}
+      </p>
+      <div class="caixa">
+        <mat-icon
+          *ngIf="
+            this.ltiService.dados_completos?.userTopico[i]?.UsuarioTopicos[0]
+              .encerrado
+          "
+          >check</mat-icon
+        >
+      </div>
     </div>
-    <button class="btn-forum" routerLink="/forum">Fórum</button>
-    <a href="http://200.133.160.212/">Retornar ao Moodle</a>
+  </div>
+</div>
+
+<div class="outros-links">
+  <hr
+    style="
+      width: 90%;
+      background-color: #232324;
+      margin: 0 auto;
+      height: 2px;
+      border: none;
+    "
+  />
+  <h3>Links Úteis</h3>
+  <div class="moodle">
+    <img
+      src="../../../assets/icons/ficha.svg"
+      alt="Icone para download do ebook"
+      width="22px"
+      height="24px"
+    />
+    <a (click)="this.ltiService.fichaTecnica()" *ngIf="verificaMenuHome == false" routerLink="../"
+      >Ficha Técnica</a
+    >
+    <a (click)="this.ltiService.fichaTecnica()" *ngIf="verificaMenuHome == true"
+      >Ficha Técnica</a
+    >
+  </div>
+  <div class="moodle">
+    <img
+      src="../../../assets/icons/sobre.svg"
+      alt="Icone para download do ebook"
+      width="22px"
+      height="24px"
+    />
+    <a (click)="this.ltiService.sobre()" *ngIf="verificaMenuHome == false" routerLink="../"
+      >Sobre</a
+    >
+    <a (click)="this.ltiService.sobre()" *ngIf="verificaMenuHome == true"
+      >Sobre</a
+    >
   </div>
 </div>
