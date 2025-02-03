@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -58,6 +58,8 @@ import { SobreComponent } from './components/home/sobre/sobre.component';
 import { FooterFichaComponent } from './components/home/footer-ficha/footer-ficha.component';
 import { YoutubePlayerComponent } from './components/youtube-player/youtube-player.component';
 import { BotaoVoltarAvaComponent } from './components/botao-voltar-ava/botao-voltar-ava.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { ModuloConcluidoComponent } from './components/modulo-concluido/modulo-concluido.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +103,7 @@ import { BotaoVoltarAvaComponent } from './components/botao-voltar-ava/botao-vol
     FooterFichaComponent,
     YoutubePlayerComponent,
     BotaoVoltarAvaComponent,
+    ModuloConcluidoComponent,
   ],
   imports: [
     BrowserModule,
@@ -121,7 +124,13 @@ import { BotaoVoltarAvaComponent } from './components/botao-voltar-ava/botao-vol
     ReactiveFormsModule,
     MatToolbarModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
