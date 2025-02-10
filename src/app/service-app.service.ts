@@ -15,7 +15,7 @@ import { ModuloService } from './personalizavel/modulo.service';
   providedIn: 'root',
 })
 export class ServiceAppService {
-  player: any; // Armazena o player do YouTube
+  player: any; // Armazena o player do youTube
   controlAtividade: number = 1;
   /**
    * url da API

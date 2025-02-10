@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 /**
- * Componente da secção do video que fica localizada na home
+ * Componente da seção do video que fica localizada na home
  */
 @Component({
   selector: 'app-video-section',

@@ -81,14 +81,14 @@ app-video-section iframe {
   gap: 40px;
 }
 
-.btn-ficha {
+.btn-ficha, .btn-home, .btn-sobre {
   color: #fff;
   font-size: 16px;
   font-weight: normal;
   cursor: pointer;
   display: inline-block;
 }
-.btn-ficha:hover {
+.btn-ficha:hover, .btn-home:hover, .btn-sobre:hover {
   border-bottom: 3px solid #793cd4;
   padding-bottom: 3px;
   width: fit-content;
@@ -227,7 +227,6 @@ app-video-section iframe {
   }
 
   .imagem-acima {
-    width: 80%;
     margin-bottom: 50px;
   }
 }
@@ -244,6 +243,7 @@ app-video-section iframe {
 
   .container-esquerdo h1 {
     font-size: 24px;
+    padding: 10px;
   }
 
   .imagem-acima {

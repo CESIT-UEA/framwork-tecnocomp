@@ -80,4 +80,11 @@
     display: grid;
     grid-template-columns: repeat(1,1fr);
   }
+  .bloco{
+    height: 140px;
+    padding: 10px;
+  }
+  .texto p {
+    margin-bottom: 5px;
+  }
 }
