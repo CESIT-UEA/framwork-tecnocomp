@@ -1,37 +1,73 @@
+<header class="header">
+    <img src="assets/tecnocomp.png" alt="Logo tecnocomp">
+</header>
 <main class="main">
-    <section class="main__section section__one">
-        <p style="color: white; font-size: 23px;">Adicione seu ava a lista de avas</p>
-        <form class="main__section__form" [formGroup]="formAva">
-            <input type="text" formControlName="name" placeholder="Nome do AVA">
-            <input type="text" formControlName="url" placeholder="URL do AVA">
-            <button class="button" (click)="adicionarAva()">Adicionar</button>
-        </form>
-    </section>
-    <section class="main__section section__two">
-        <div class="main__section__container" >
-            <h1 class="main__section__container__titulo">Lista de AVAS</h1>
-            <button 
-                (click)="limparListaAva()" 
-                *ngIf="this.lista_avas.length !==0; else vazio"
-                style="margin: 0 auto; display: block; 
-                margin-bottom: 5px; padding: 5px;"
-            >
-                Limpar lista
-            </button>
-            <ul *ngFor="let avas of this.lista_avas; index as i" class="main__section__container__lista" >
-                <li class="main__section__lista__item">
-                    <a style="color: white; text-align: center; text-decoration: none;" 
-                    [href]="avas.url">{{ avas.name }}</a>
-                    <div class="main__section__lista__buttons">
-                        <button>Editar</button>
-                        <button (click)="excluirAva(i)">Excluir</button>
+    <section class="main-section">
+        <div>
+            <div class="bloco-um">
+                <h1>Adicione e gerencie seus AVAs com facilidade!</h1>
+                <form class="main-section-form"> 
+                    <input 
+                        type="text" 
+                        placeholder="Lista de AVAs" 
+                        style="font-size: 25px; color: white;" 
+                        [formControl]="nomeAva"
+                    >
+                </form>
+            </div>
+            <h3 style="color: white;" *ngIf="this.nomeAva.value.length === 0 && this.listaAvas.length > 0">
+                {{ this.listaAvas.length }} AVAs adicionado(s)
+            </h3>
+            <section class="cards" *ngIf="this.nomeAva.value.length > 0 && this.filterListaAvas.length > 0" >
+                <div *ngFor="let ava of this.filterListaAvas; let i = index">
+                    <div class="cards-card">
+                        <p>{{ ava.nome }}</p>
+                        <section class="cards-card-body">
+                            <div class="cards-card-edicoes">
+                                <a (click)="openDialog(i)">
+                                    <img src="../../../assets/icons/remover-ava.png" alt="Ícone para deletar o ava">
+                                </a>
+                                <a routerLink="/ava/editar/{{i + 1}}">
+                                    <img src="../../../assets/icons/editar-ava.png" alt="Ícone para editar o ava">
+                                </a>
+                            </div>
+                            <div class="cards-card-link">
+                                <a [href]="ava.url">Entrar</a>
+                            </div>
+                        </section>
                     </div>
-                </li>
-            </ul>
+                </div>
+            </section>
+            <section class="cards" *ngIf="this.nomeAva.value.length === 0">
+                <div *ngFor="let ava of this.listaAvas; let i = index">
+                    <div class="cards-card">
+                        <p>{{ ava.nome }}</p>
+                        <section class="cards-card-body">
+                            <div class="cards-card-edicoes">
+                                <a (click)="openDialog(i)">
+                                    <img src="../../../assets/icons/remover-ava.png" alt="Ícone para deletar o ava">
+                                </a>
+                                <a routerLink="/ava/editar/{{i + 1}}">
+                                    <img src="../../../assets/icons/editar-ava.png" alt="Ícone para editar o ava">
+                                </a>
+                            </div>
+                            <div class="cards-card-link">
+                                <a [href]="ava.url">Entrar</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
         </div>
-        <ng-template #vazio>
-            <div style="text-align: center; width: 100%; color: white; padding-bottom: 10px;"><p>Lista vazia</p></div>
-        </ng-template>
+        <section *ngIf="this.nomeAva.value.length > 0 && this.filterListaAvas.length === 0 && this.listaAvas.length > 0" class="mensagem-ava">
+            <h3>Nenhum ava Encontrado</h3>
+        </section>
+        <section *ngIf="listaAvas.length === 0" class="mensagem-ava">
+            <h3>Nenhum AVA adicionado!</h3>
+        </section>
+        <div class="bloco-dois">
+            <a routerLink="/ava/adicionar"><span>+</span>Adicionar</a>
+        </div>    
     </section>
 </main>
 

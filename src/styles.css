@@ -9,7 +9,7 @@
 html,
 body {
   height: 100vh;
-  background-color: black;
+  background-color: #000000;
 }
 
 body {
@@ -35,3 +35,33 @@ body {
 .testando{
   --mat-snack-bar-button-color: #C3A1F5;
 }
+
+
+.mat-mdc-snack-bar-container .mdc-snackbar__action {
+  --mdc-snackbar-container-color: #2E2E2E;
+    border-radius: 5px;
+    color: #793CD4 !important;
+}
+
+.mat-mdc-dialog__title{
+  margin-top: 10px;
+}
+
+
+
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: #2E2E2E;
+  padding: 10px;
+  --mdc-dialog-container-shape: 8px !important;
+  --mdc-dialog-container-elevation: -4px 4px 10px 0px rgba(0, 0, 0, 0.50) !important;
+}
+
+.mat-mdc-dialog-actions, .mdc-dialog__title  {
+  justify-content: center !important;
+  margin-bottom: 10px !important;
+  color: white !important;
+}
+
+
+
+

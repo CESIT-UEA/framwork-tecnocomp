@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule, isDevMode, APP_INITIALIZER  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {CommonModule} from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
@@ -60,6 +60,9 @@ import { YoutubePlayerComponent } from './components/youtube-player/youtube-play
 import { BotaoVoltarAvaComponent } from './components/botao-voltar-ava/botao-voltar-ava.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ModuloConcluidoComponent } from './components/modulo-concluido/modulo-concluido.component';
+import { CadastroAvaComponent } from './components/cadastro-ava/cadastro-ava.component';
+import { DialogAvaComponent } from './components/dialog-ava/dialog-ava.component';
+
 
 @NgModule({
   declarations: [
@@ -104,6 +107,8 @@ import { ModuloConcluidoComponent } from './components/modulo-concluido/modulo-c
     YoutubePlayerComponent,
     BotaoVoltarAvaComponent,
     ModuloConcluidoComponent,
+    CadastroAvaComponent,
+    DialogAvaComponent,
   ],
   imports: [
     BrowserModule,
@@ -136,3 +141,4 @@ import { ModuloConcluidoComponent } from './components/modulo-concluido/modulo-c
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

@@ -1,86 +1,154 @@
-.main, .main__section {
-    display: flex;
-    height: 100%;
-}
+.header {
+    min-height: 10vh;
+    background-color: #000000;
+ }
 
-.section__one {
-    background-color: blueviolet;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.5rem;
-}
+.header img {
+    min-height: 10vh;
+    max-height: 10vh; 
+    margin-left: 1rem;
+ }
 
-.main__section{
-    width: 50%;
-}
-
-.section__two {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.main__section__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.main__section__form, .main__section > p {
+ .main {
+    min-height: 90vh;
     width: 100%;
-    text-align: center;
-}
+    background-color: #1c1c1c;
+ }
 
-.main__section__form > input[type=text], .button {
-    width: 50%;
-}
-
-
-.main__section__form > input[type=text], .button {
-    height: 40px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: -5px 4px 10px black;
-    padding: 1rem;
-}
-
-.main__section__container {
-    background-color: rgb(51, 47, 47);
-    border-radius: 5px;
-    width: 50%;
-    box-shadow: 0.5px 2px 5px blueviolet;
-}
-
-.main__section__container__lista, .main__section__container__titulo {
-    height: 40px;
-    padding: 0 10px;
-    border-bottom: 1px solid rgb(66, 59, 59);
-    align-content: center;
-    list-style-type: none;
-}
-
-.main__section__container__titulo {
-    color: blueviolet;
-    text-align: center;
-}
-
-.main__section__container__lista:hover {
-    background-color: blueviolet;
-}
-
-.main__section__lista__item {
+.main-section {
     display: flex;
+    margin: 0 auto;
+    width: 90%;
+    min-height: 88vh;
+    flex-direction: column;
     justify-content: space-between;
 }
 
-.main__section__lista__buttons > button {
-    padding: 5px;
-    margin-left: 2px;
+ .main-section h1 {
+    background: linear-gradient(90deg, #9580FF 0%, #FFF 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Arial;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+ }
+
+ .main-section-form input {
+    background-color: #1c1c1c;
+    border: none;
+    border-bottom: 2px solid #808080;
+    width: 100%;
+    height: 40px;
+    background-image: url('../../../assets/icons/search.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+ }
+
+ .main-section-form input::-webkit-input-placeholder { 
+    color: white;
+ }
+
+ .main-section-form input:focus{
+    outline: none;
+ }
+
+ .bloco-um {
+   padding: 20px 0;
+ }
+
+ .cards{
+   display: grid;
+   grid-template-columns: repeat(4, 23%);
+   gap: 20px;
+ }
+ .cards-card{
+   background-color: #2E2E2E;
+   padding: 20px;
+   border-radius: 8px;
+ }
+
+ .cards-card p {
+   font-family: Arial, Helvetica, sans-serif;
+   font-weight: 700;
+   font-size: 20px;
+   color: white;
+   padding: 10px 0;
+ }
+
+ .cards-card-body{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+ }
+
+ .cards-card-edicoes img {
+   padding: 15px 15px 0 0;
+   cursor: pointer;
+ }
+
+.cards-card-link a{
+   background-color: #9256ED;
+   text-decoration: none;
+   color: white;
+   padding: 10px 35px;
+   border-radius: 8px;
+   font-weight: 700;
 }
 
-button:hover {
-    background-color: rgb(192, 187, 187);
+ .bloco-dois {
+    align-self: flex-end;
+    padding: 30px 0 20px 0;
+ }
+
+ .bloco-dois a {
+   display: flex;
+   font-size: 16px;
+   background-color: #333338;
+   color: white;
+   border: none;
+   border-radius: 8px;
+   padding: 14px 10px;
+   column-gap: 10px;
+   box-shadow: -5px 5px 8px 0px rgba(0, 0, 0, 0.35);
+   cursor: pointer;
+   text-decoration: none;
+ }
+
+ .bloco-dois a:hover {
+   background-color: #28282b;
+ }
+
+ .bloco-dois a>span:first-child{
+   font-size: 40px;
+   color: #C3A1F5;
 }
 
 
+.mensagem-ava h3 {
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+
+@media(max-width: 1024px){
+    .cards{
+      grid-template-columns: repeat(3, 33%);
+    }
+}
+
+@media(max-width: 819px) {
+  .cards{
+    grid-template-columns: repeat(2, 49%);
+  }
+}
+
+@media(max-width: 470px) {
+  .cards{
+    grid-template-columns: repeat(1, 99%);
+  }
+}

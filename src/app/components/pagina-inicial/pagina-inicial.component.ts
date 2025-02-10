@@ -1,57 +1,54 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Ava } from 'src/app/interfaces/ava';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAvaComponent } from '../dialog-ava/dialog-ava.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-pagina-inicial',
   templateUrl: './pagina-inicial.component.html',
   styleUrls: ['./pagina-inicial.component.css']
 })
-export class PaginaInicialComponent implements OnInit{
-    formAva = new FormGroup({
-        name: new FormControl(''),
-        url: new FormControl('')
-    });
+export class PaginaInicialComponent implements OnInit {
+    nomeAva: FormControl = new FormControl('')
+    listaAvas: Ava[] = [];
+    filterListaAvas: Ava[] = []
 
-    url_ava!: string;  
-    lista_avas: any = []
+    constructor(public dialog: MatDialog, private snackBar: MatSnackBar){
+        this.nomeAva.valueChanges.subscribe(()=>{
+            this.filterAvas(this.nomeAva.value)
+            console.log(this.filterListaAvas)
+        })
+    }
+
     ngOnInit(): void {
-        this.url_ava = localStorage.getItem('url_ava')!
-        this.getListaAva()
+      let jsonAva: string = localStorage.getItem('avas')!
+        if (jsonAva){
+          let avas: Ava[] = JSON.parse(jsonAva)
+          this.listaAvas = avas
+        }
     }
 
-    getListaAva(){
-        if(this.url_ava){
-            this.lista_avas = JSON.parse(this.url_ava)
-        } 
+    filterAvas(valor: string){
+        valor = valor.toLowerCase()
+        this.filterListaAvas = this.listaAvas.filter((ava)=> ava.nome.toLowerCase().includes(valor)) 
     }
 
-
-    adicionarAva(){
-        let name: string = this.formAva.value.name!
-        let url: string = this.formAva.value.url!
-        this.lista_avas.push({name, url})
-        this.formAva.reset()
-        this.atualizarListaAva()
+    openDialog(id: number){
+        const ava = JSON.parse(localStorage.getItem('avas')!)[id]
+        const dialogRef = this.dialog.open(DialogAvaComponent, { data: ava})
+        dialogRef.afterClosed().subscribe(resposta => {
+            if (resposta){
+                this.listaAvas.splice(id, 1)
+                localStorage.clear()
+                localStorage.setItem('avas', JSON.stringify(this.listaAvas))
+                this.openSnackBar("AVA excluído com sucesso!")
+            }
+        })
     }
 
-    excluirAva(index: number){
-        console.log(index + " index do elemento clicado")
-        this.lista_avas.splice(index, 1)
-        this.atualizarListaAva()
-    }
-
-    atualizarListaAva(){
-        this.url_ava = JSON.stringify(this.lista_avas)
-        localStorage.removeItem('url_ava')
-        localStorage.setItem('url_ava', this.url_ava)
-        this.getListaAva()
-    }
-
-    limparListaAva(){
-      localStorage.clear()
-      this.lista_avas = []
-    }
-    
+    openSnackBar(mensagem: string) {
+      this.snackBar.open(mensagem, "OK", { duration: 3000 })
+ }
   }

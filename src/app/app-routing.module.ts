@@ -13,9 +13,12 @@ import { ErrorComponent } from './components/error/error.component';
 import { ModuloComponent } from './personalizavel/modulo/modulo.component';
 import { TopicoComponent } from './personalizavel/modulo/topico/topico.component';
 import { PaginaInicialComponent } from './components/pagina-inicial/pagina-inicial.component';
+import { CadastroAvaComponent } from './components/cadastro-ava/cadastro-ava.component';
 
 const routes: Routes = [
   {path: '', component: PaginaInicialComponent},
+  {path: 'ava/editar/:id', component: CadastroAvaComponent},
+  {path: 'ava/adicionar', component: CadastroAvaComponent},
   { path: 'teorias-da-aprendizagemHome', component: HomeComponent },
   {
     path: 'teorias-da-aprendizagem',
