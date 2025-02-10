@@ -273,7 +273,7 @@ export class ServiceAppService {
       config.panelClass = classePersonalizada;
     }
     config.duration = tempo;
-    this._snackBar.open(texto, 'ok', config);
+    this._snackBar.open(texto, 'X', config);
   }
 
   enviarRespostaIncorreta(
