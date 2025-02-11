@@ -39,3 +39,9 @@ i {
 @media(max-width: 899px){
 
 }
+
+@media(max-width: 489px){
+    .video-container{
+      width: 100%;
+    }
+}

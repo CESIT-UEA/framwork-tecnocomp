@@ -104,3 +104,11 @@
   display: flex;
   justify-content: space-between;
 }
+
+
+@media(max-width: 692px){
+  .container-links-text-lista {
+    background-image: none;
+    grid-template-columns: 1fr;
+  }
+}

@@ -62,6 +62,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { ModuloConcluidoComponent } from './components/modulo-concluido/modulo-concluido.component';
 import { CadastroAvaComponent } from './components/cadastro-ava/cadastro-ava.component';
 import { DialogAvaComponent } from './components/dialog-ava/dialog-ava.component';
+import { BotaoDownloadPwaComponent } from './components/botao-download-pwa/botao-download-pwa.component';
 
 
 @NgModule({
@@ -109,6 +110,7 @@ import { DialogAvaComponent } from './components/dialog-ava/dialog-ava.component
     ModuloConcluidoComponent,
     CadastroAvaComponent,
     DialogAvaComponent,
+    BotaoDownloadPwaComponent,
   ],
   imports: [
     BrowserModule,
