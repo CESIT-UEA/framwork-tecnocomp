@@ -117,4 +117,13 @@
   .button-section .button-group {
     width: 100%;
   }
+
+  .link{
+    display: block;
+    width: 100%;
+  }
+  .button-section .button-group .start-button, .button-section .button-group .download-button{
+    width: 80%;
+  }
 }
+
