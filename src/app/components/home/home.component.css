@@ -266,9 +266,17 @@ app-video-section iframe {
     height: 70px;
   }
 
+  .container-esquerdo{
+    row-gap: 2rem;
+  }
+
   .container-esquerdo h1 {
     font-size: 20px;
     padding: 10px;
+  }
+
+  .text-unidade{
+    font-size: 28px;
   }
 
   .imagem-acima {
