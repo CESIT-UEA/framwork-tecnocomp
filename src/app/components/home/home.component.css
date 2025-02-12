@@ -276,13 +276,10 @@ app-video-section iframe {
   }
 
   .text-unidade{
-    font-size: 20px;
+    font-size: 1.5rem;
   }
 
   .imagem-acima {
     display: none;
-  }
-  .download-button{
-    width: 100%;
   }
 }

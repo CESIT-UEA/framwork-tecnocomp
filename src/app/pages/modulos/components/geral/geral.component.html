@@ -58,22 +58,24 @@
         </button>
         <!-- Botão que quando clicado vai para o componente referências -->
       </div>
-      <button class="referencias" (click)="referenciasClick.emit()">
-        <img
-          src="../../../../../assets/icons/referencias.svg"
-          alt="Icone para download do ebook"
-        />
-        Referências
-        <mat-icon
-          class="concluido"
-          *ngIf="
-            this.ltiService.dados_completos.userTopico[
-              this.moduloService.controll_topico
-            ].UsuarioTopicos[0].isReferencias == true
-          "
-          >check</mat-icon
-        >
-      </button>
+      <div>
+        <button class="referencias" (click)="referenciasClick.emit()">
+          <img
+            src="../../../../../assets/icons/referencias.svg"
+            alt="Icone para download do ebook"
+          />
+          Referências
+          <mat-icon
+            class="concluido"
+            *ngIf="
+              this.ltiService.dados_completos.userTopico[
+                this.moduloService.controll_topico
+              ].UsuarioTopicos[0].isReferencias == true
+            "
+            >check</mat-icon
+          >
+        </button>
+      </div>
       <!-- Botão que quando clicado vai para o componente texto de apoio -->
     </section>
 

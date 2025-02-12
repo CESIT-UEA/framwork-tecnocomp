@@ -202,3 +202,15 @@
     width: auto;
   }
 }
+
+@media (max-width: 600px){
+  .container-foto-header{
+    margin: 0  0 0 1rem;
+  }
+  #icon{
+    margin-right: 1rem;
+  }
+  .container-main-conteudo-links-voltar{
+    padding-top: calc(4% - 5px);
+  }
+}

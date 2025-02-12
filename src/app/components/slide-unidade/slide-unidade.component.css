@@ -156,3 +156,10 @@
     justify-self: center;
   }
 }
+
+
+@media(max-width: 489px){
+  .navigation-button, .box-navigate-right{
+    padding: 1.2rem;
+  }
+}

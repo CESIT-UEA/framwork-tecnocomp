@@ -304,3 +304,26 @@ button.atividade-botao {
     margin: 0 auto;
   }
 }
+
+
+@media(max-width: 489px){
+  .container-main-conteudo {
+    width: 100%;
+  }
+  .div-slide{
+    width: 90%;
+  }
+
+  .botoes{
+    max-width: none;
+    width: 90%;
+    padding: 1.2rem 1rem;
+  }
+  .section-texto{
+      flex-direction: row;
+      gap: 0;
+  }
+  .saibaMais{
+    margin: 0 1.2rem;
+  }
+}
