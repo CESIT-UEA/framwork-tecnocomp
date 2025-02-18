@@ -3,7 +3,7 @@ name: Deploy Angular App LTI
 on:
   push:
     branches:
-      - main
+      - homologacao
 
 jobs:
   build:
@@ -35,7 +35,7 @@ jobs:
       env:
         DEPLOY_SERVER: ${{ secrets.DEPLOY_SERVER }}
         DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
-        DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        DEPLOY_PATH: ${{ secrets.DEPLOY_PATH_HOMOLOGACAO }}
       run: |
         ssh $DEPLOY_USER@$DEPLOY_SERVER "rm -rf $DEPLOY_PATH/*"
         scp -r dist/app/* $DEPLOY_USER@$DEPLOY_SERVER:$DEPLOY_PATH
