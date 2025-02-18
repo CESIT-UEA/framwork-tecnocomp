@@ -1,6 +1,11 @@
+:host{
+  height: 100%;
+  background-color: black;
+  display: block;
+}
 .header-atividade {
   display: grid;
-  height: 64px;
+  height: 10vh;
   grid-template-columns: 95% 5%;
   width: 100%;
   justify-content: center;
@@ -53,7 +58,6 @@
 .container-links-text-caixa{
   border: 1px solid #9665DF;
   width: 60%;
-  height: 125px;
   margin-top: 15px;
   border-radius: 10px;
 }
@@ -66,7 +70,7 @@
 }
 
 .container-links-text-caixa-descricao2{
-  padding: 10px 0 20px 0;
+  padding: 20px;
 }
 
 .container-links-text-caixa-descricao1{
@@ -79,7 +83,7 @@
   display: inline-block;
   background-color: #9665DF;
   padding: 5px 10px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   border-radius: 5px;
 }
 

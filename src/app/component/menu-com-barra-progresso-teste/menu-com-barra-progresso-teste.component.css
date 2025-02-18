@@ -1,38 +1,60 @@
+:host {
+  height: 100%;
+  display: block;
+}
+.header-menu {
+  color: white;
+  width: 100%;
+  text-align: end;
+}
+.parte-cima {
+  background-color: #232324;
+  border-radius: 20px 0 0 0;
+  height: 20vh;
+}
 .titulo-topico {
-  padding: 1rem;
-  color: black;
-  background-color: #9665DF;
-  border-radius: 20px 0px 0px 0px;
-  font-size: 20px;
+  font-size: 18px;
+  font-family: Arial;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 700;
   line-height: 150%;
-  /* 30px */
+  width: 80%;
+  color: #b4a1e5;
+  margin-left: 20px;
 }
-
-.container-topicos {
-  margin-top: 0;
-  border-radius: 20px 0px 0px 20px;
-  background-color: #181818;
+.close {
+  font-size: 30px;
+  justify-self: end;
+  margin-right: 15px;
+  margin-top: 5px;
 }
-
 .progresso {
-  border-radius: 0px 0px 15px 15px;
-  background: #212121;
   box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-  border-radius: 0px 0px 15px 15px;
+  color: #cdcdcd;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 25px;
+  padding-bottom: 0;
+  gap: 5px;
 }
-
-input {
-  width: 16px;
-  height: 16px;
+.p-progresso {
+  background-color: #232324;
+  color: #b4a1e5;
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: Arial;
+}
+input[type="checkbox"] {
   background-color: transparent;
   border: 1px solid white;
-  margin: 20px;
+  margin: 15px;
 }
 
 .barra-progresso {
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   padding: 4px 0;
 }
@@ -42,69 +64,128 @@ input {
 }
 
 .container-topico {
-  height: 260px;
+  height: 50vh;
   overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-
+.container-topicos {
+  background-color: #171719;
+}
+.container-topico::-webkit-scrollbar-track {
+  background-color: #171719;
+}
+.container-topico::-webkit-scrollbar {
+  width: 8px;
+  background: #6a6a6a;
+}
+.container-topico::-webkit-scrollbar-thumb {
+  background: #6a6a6a;
+  border-radius: 35px;
+}
 .topico-container {
   border-radius: 8px;
-  border: 2px solid #FFF;
-  width: 291px;
-  height: 61px;
-
-  color: #FFF;
-
-  margin: 20px auto;
-
+  width: 95%;
+  max-width: 300px;
+  height: 70px;
+  color: #fff;
+  margin: 15px auto;
+  padding: 16px 10px;
   font-family: Arial;
-  font-size: 18px;
+  gap: 10px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 700;
-  line-height: 150%;
+  font-weight: normal;
   display: flex;
   align-items: center;
-
+  outline: none;
+  background-color: #232324;
+  cursor: auto;
 }
 
-.btn-forum{
+.hover:hover{
+  background-color: #19191A;
+  cursor: pointer;
+}
+.active-topico-container {
+  border: 2px solid var(--Primaria, #9665df);
+  background: #232324;
+  box-shadow: -3px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  font-weight: bold;
+}
+.caixa {
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  border: 1px solid white;
+  position: relative;
+}
+.caixa mat-icon {
+  font-size: 22px;
+  color: #58db43;
+  position: absolute;
+  top: -35%;
+}
+.topico-container p {
+  outline: none;
+  width: 93%;
+  padding: 20px 5px;
+  font-size: 15px;
+}
+.btn-forum {
   background-color: #262626;
-  color: #9665DF;
+  color: #9665df;
   width: 80%;
   border-radius: 5px;
   padding: 10px;
   outline: none;
   border: none;
   margin-bottom: 20px;
-  font-family: 'Arial' 16px ;
+  font-family: "Arial" 16px;
 }
-.container-topico a{
+.container-topico a,
+.moodle a {
   text-decoration: none;
-  color: white
+  color: white;
 }
 
-.container-topico a:hover{
+.container-topico a:hover {
   cursor: pointer;
   text-decoration: underline;
 }
-.titulo-topico {
-  padding: 16px;
-  color: white;
-  background-color: #9665DF;
-  border-radius: 20px 0px 0px 0px;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  /* 30px */
+.outros-links {
+  padding: 15px 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+  background-color: #171719;
+  height: 30vh;
 }
-.moodle{
+.outros-links h3 {
+  padding-top: 5px;
+  width: 90%;
+  margin: 0 auto;
+}
+.moodle {
   display: flex;
+  height: 34px;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 5px;
+  background: #232324;
+  box-shadow: -3px 3px 3px 0px rgba(0, 0, 0, 0.25);
+  padding: 0 20px;
+  width: 90%;
+  margin: 0 auto;
+  cursor: pointer;
+  margin-bottom: 15px;
 }
-.moodle a{
+.moodle a {
+  color: #c3a1f5;
   margin-left: 5px;
+  outline: none;
+}
+
+.disabled-link {
+  opacity: 0.6;
 }

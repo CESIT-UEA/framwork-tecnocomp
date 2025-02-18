@@ -1,95 +1,128 @@
-<div class="content-container-ficha-tecnica">
-  <section class="content-container-ficha-tecnica-inicio">
-    <div class="sobre">
-      <div class="sobre-imagem">
-        <img
-          src="../../../../assets/img/ficha-tecnica/uea-paic.png"
-          alt="Foto de cima da uea e texto com o titulo de Ficha Tecnica"
-        />
+<div class="container">
+  <div class="container-conteudo">
+    <div class="container-cima">
+      <h1>Ficha Técnica</h1>
+      <hr style="background-color: white" />
+      <div class="bloco">
+        <h2>Nome do Módulo:</h2>
+        <p>Pensamento Computacional</p>
       </div>
-      <div class="sobre-conteudo">
+      <hr />
+      <div class="bloco">
+        <h2>Versão do Módulo:</h2>
+        <p>1.0.0</p>
+      </div>
+      <hr />
+      <div class="bloco">
+        <h2>Coordenação Geral:</h2>
+        <p>Prof. Dr. João da Mata Libório Filho</p>
+      </div>
+      <hr />
+    </div>
+    <div class="equipe">
+      <h2>Equipe de Produção Educacional:</h2>
+
+      <div class="bloco">
+        <h2>Instrutor(a)</h2>
+        <p>Yasmim Bianca Moraes Barreto</p>
+      </div>
+
+      <div class="bloco">
+        <h2>Designer Instrucional</h2>
+        <p>Jorge Mikael Coutinho</p>
+      </div>
+
+      <div class="bloco">
+        <h2>Designer Gráfico</h2>
+        <p>Adriene Chaves dos Santos</p>
+      </div>
+
+      <div class="bloco">
+        <h2>VideoMaker</h2>
+        <p>Jorge Mikael Coutinho</p>
+      </div>
+      <div class="bloco">
+        <h2>Social Media</h2>
+        <p>Adriene Chaves dos Santos</p>
+      </div>
+      <hr />
+    </div>
+    <div class="equipe">
+      <h2>Equipe de Desenvolvimento:</h2>
+
+      <div class="bloco">
+        <h2>Designer UX/UI:</h2>
+        <p>Livia Ferreira Monteiro</p>
+      </div>
+
+      <div class="bloco">
+        <h2>Desenvolvedor Frontend:</h2>
+        <p>Andriw Santos de Souza</p>
+      </div>
+      <div class="bloco">
+        <h2>Desenvolvedor Full Stack:</h2>
+        <p>Henrique dos Santos Galvim</p>
+      </div>
+      <div class="bloco">
+        <h2>Desenvolvedor Frontend:</h2>
+        <p>Kauê Wallace Coelho Olimpio</p>
+      </div>
+
+      <div class="bloco">
+        <h2>Analista de Teste:</h2>
+        <p>Harleison Jhonathan Maia de Souza</p>
+      </div>
+      <hr />
+    </div>
+    <div class="laboratorios">
+      <div class="bloco">
+        <h2>Laboratorios envolvidos:</h2>
+        <p>Laboratorio de Design</p>
+        <p>Laboratorio de Midia</p>
+        <hr />
+      </div>
+
+      <div class="bloco">
+        <h2>Lançamento:</h2>
+        <p>Itacoatiara, dezembro de 2024</p>
+        <hr />
+      </div>
+      <div class="bloco">
+        <h2>Financiamento:</h2>
+        <h2>
+          Este projeto foi realizado com recursos oriundos dos seguintes
+          editais:
+        </h2>
         <p>
-          <strong
-            >2024. Ministério da Educação. Centro de Estudos Superiores de
-            Itacoatiara. Universidade Estadual do Amazonas.</strong
-          >
-          <br />
-          Alguns direitos reservados. É permitida a reprodução, disseminação e
-          utilizção dessa obra, em parte ou em sua totalidade, nos termos da
-          licança para usuário final do Acervo de Recursos Educacionais em ****
-          (***). Deve ser citada a fonte e é vedada sua utilização comercial.
+          Edital 073/2023-GR/UEA - Programa de Apoio ao Desenvolvimento da
+          Extensão Universitária (PADEX)
+        </p>
+        <p>
+          Edital 024/2023-GR/UEA - Programa de Apoio à Iniciação Científica
+          (PAIC/FAPEAM)
+        </p>
+        <p>
+          Edital 053/2024-GR/UEA - Programa de Tutoria em Laboratórios de
+          Pesquisa e Ensino da UEA (PROTLAB/UEA)
         </p>
       </div>
-    </div>
-  </section>
-  <!-- card da equipe do projeto -->
-  <section class="content-container-ficha-tecnica-equipe">
-    <div class="content-container-ficha-tecnica-equipe-caixa"></div>
-
-    <div class="content-container-ficha-tecnica-equipe-caixa-teste">
-      <!-- Nome de uma equipe é exibida de acordo com o valor da variável currentVideoIndex -->
-      <h1>{{ cardEquipes[currentVideoIndex].equipe | uppercase }}</h1>
-
-       <!-- Simbolo de voltar para o anterior que quando clicado muda a equipe exibida -->
-      <div class="ficha-tecnica-container">
-        <img
-          src="../../../../assets/icons/previous2.svg"
-          alt="simbolo de ir para o proximo"
-          (click)="prevVideo()"
-        />
-        <!-- Estilo aplicado de acordo com o valor retornado do método elementMembros() -->
-        <div
-          [ngClass]="{
-          'container-membros1': elementMembros() == 1,
-          'container-membros2': elementMembros() == 2,
-          'container-membros3': elementMembros() == 3,
-          }"
-          class="container-membros"
-        >
-        <!-- Percorre o vetor de objetos cardEquipes para exibir o cargo e nome dos membros -->
-          <div
-            class="ficha-tecnica-container-card"
-            *ngFor="let membro of cardEquipes[currentVideoIndex].membros"
-          >
-            <p class="cargo-membro">{{ membro.cargo }}</p>
-            <div class="ficha-tecnica-container-card-conteudo">
-              <div class="img-membro"></div>
-              <p class="nome-membro">{{ membro.nome }}</p>
-            </div>
-          </div>
-        </div>
-        <!-- Simbolo de ir para o próximo que quando clicado muda a equipe exibida -->
-        <img
-          (click)="nextVideo()"
-          src="../../../../assets/icons/next2.svg"
-          alt="simbolo de ir para o proximo"
-        />
+      <div class="bloco">
+        <h2>
+          Universidade do Estado do Amazonas(UEA), Centro de Estudos Superiores
+          de Itacoatiara(CESIT).
+        </h2>
+        <p>
+          Av. Mário Andreazza, 2960 - Jardim Florestal - 69100-000 - Itacoatiara - AM
+        </p>
+        <hr />
       </div>
-      <!-- botões de navegação para trocar a equipe exibida -->
-      <div class="navigation-button">
-        <ul>
-          <li
-            *ngFor="let video of cardEquipes; index as i"
-            [ngClass]="{
-              active: i === currentVideoIndex,
-              teste: i !== currentVideoIndex
-            }"
-            (click)="selectVideo(i)"
-          >
-          <!-- o índice + 1 para representar o número dos botões -->
-            {{ i + 1 }}
-          </li>
-        </ul>
+      <div class="bloco">
+        <h2>Licença:</h2>
+        <p>Este módulo está licenciado sobre:</p>
+        <p>Creative Commons 4.0</p>
+        <img src="../../../../assets/icons/ficha-tecnica-icon.svg" alt="licença" />
       </div>
     </div>
-  </section>
-
-  <footer class="content-container-ficha-tecnica-footer">
-    <img
-      src="../../../assets/img/Tecnocomp+_LOGO_Branco.png"
-      alt="Logo do Tecnocomp+"
-      width="650"
-      height="200"
-    />
-  </footer>
+  </div>
 </div>
+<app-footer-ficha></app-footer-ficha>

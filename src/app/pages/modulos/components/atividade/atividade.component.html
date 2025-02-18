@@ -1,52 +1,305 @@
 <div class="header-atividade">
-  <span class="title">Atividade</span>
+  <div class="container-links">
+    <div class="header-links">
+      <!-- Imagem do ícone de download do ebook -->
+      <img
+        src="assets/icons/clipboard.svg"
+        alt="Icone para download do ebook"
+        width="28px"
+        height="28px"
+      />
+      <p>Atividade</p>
+    </div>
+  </div>
+  <!-- ícone que quando clicado volta para a página geral da unidade -->
   <img
     (click)="atividadeClick.emit()"
     src="assets/icons/close.svg"
     alt="Icone para ir para a atividade da unidade"
     width="30px"
     height="30px"
+    style="cursor: pointer;"
   />
 </div>
 
-<div class="container-atividade" *ngIf="bloqueio[idTopico]?.encerrado == false; else elseAtividade">
+<div
+  class="container-atividade"
+  *ngIf="this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].encerrado == false; else elseAtividade"
+>
   <div *ngIf="questao">
     <h3>{{ questao.questao }}</h3>
+
     <div *ngFor="let alternativa of questao.Alternativas; let i = index">
       <div
         class="alternativas"
-        [ngClass]="{'resposta-errada': resposta === alternativa.descricao && questao['respostaCorreta'] != resposta}"
-        (click)="!respostaEnviada && responder(alternativa.descricao)"
+        (click)="SetRespostaEscolhida(alternativa.descricao)"
       >
-        <img [src]="caminhoImagem + i + '.png'" alt="Alternativa da questão" />
-        <div class="container-alternativa">
-          {{ alternativa.descricao }}
-          <div class="respostaCerta" *ngIf="resposta === alternativa.descricao">
-            Explicação: {{ resposta ? getExplicacao(resposta) : '' }}
+        <div
+          class="container-prefix"
+          style="cursor: pointer;"
+          [ngStyle]="{
+            'background-color':
+              (resposta === alternativa.descricao &&
+                alternativa.correta == true) ||
+              alternativa.correta == true
+                ? '#58DB43'
+                : (resposta === alternativa.descricao &&
+                  alternativa.correta == false) || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != null
+                ? 'red'
+                : null,
+            border:
+              resposta === alternativa.descricao && alternativa.correta == false
+                ? 'none'
+                : null
+          }"
+        >
+          <p
+            *ngIf="
+              resposta != alternativa.descricao && this.respostaEnviada == false && (this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != alternativa.descricao || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null)
+            "
+            class="options"
+          >
+            {{ vetorLetras[i] }}
+          </p>
+          <p
+            *ngIf="
+              resposta != alternativa.descricao && this.respostaEnviada == true
+            "
+            class="options"
+          >
+            {{ vetorLetras[i] }}
+          </p>
+
+          <img
+            class="img img-correta"
+            *ngIf="
+              resposta == alternativa.descricao && this.respostaEnviada == true && alternativa.correta == true
+            "
+            src="../../../../../assets/img/checkAtividade.png"
+            alt=""
+          />
+          <img
+            class="img img-errada"
+            *ngIf="
+              (resposta === alternativa.descricao && this.respostaEnviada == true && alternativa.correta == false) || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao && alternativa.correta == false
+            "
+            src="../../../../../assets/img/erradoAtividade.png"
+            alt=""
+          />
+        </div>
+        <div
+          class="container-textos"
+          [ngClass]="{
+            'active-alternativa':
+              this.respostaEscolhida == alternativa.descricao &&
+              this.respostaEnviada == false &&
+              this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null
+          }"
+        >
+          <div class="texto-cima">
+            <p>{{ alternativa.descricao }}</p>
+            <mat-icon
+              *ngIf="
+                (resposta === alternativa.descricao &&
+                alternativa.correta == false) || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao
+              "
+              (click)="clickOlho()"
+              [ngStyle]="{
+                color:
+                  (resposta === alternativa.descricao && this.abre == true) || (this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao && this.abre == true || this.abre == null)
+                    ? '#A174E2'
+                    : this.abre == false
+                    ? 'white'
+                    : null
+              }"
+              >remove_red_eye</mat-icon
+            >
+          </div>
+          <div
+            class="texto-baixo"
+            *ngIf="
+              resposta === alternativa.descricao &&
+              (this.abre == true || this.abre == null) && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao == null
+            "
+            [ngClass]="{
+              respostaErrada: this.questao.respostaCorreta != resposta
+            }"
+          >
+            <p>{{ resposta ? getExplicacao(resposta) : "" }}</p>
+          </div>
+
+          <div
+            class="texto-baixo"
+            *ngIf="
+            (
+            (this.abre == true || this.abre == null) ) && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao
+          "
+              [ngClass]="{
+                'respostaErrada': alternativa.correta == false,
+                'respostaCorreta': alternativa.correta == true
+              }"
+          >
+            <p
+              *ngIf="this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == alternativa.descricao != null"
+            >
+              {{ getExplicacao(this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada)}}
+            </p>
           </div>
         </div>
       </div>
     </div>
+    <div class="butoes">
+      <button
+      style="cursor: pointer;"
+        class="refazer"
+        *ngIf="(this.respostaEnviada == true || this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada != null) && this.respondidoOficialmente == false"
+        (click)="refazer()"
+        [disabled]="respostaCorretaEnviada"
+      >
+        Refazer
+      </button>
+      <button
+      style="cursor: pointer;"
+        class="btn-submit active"
+        *ngIf="this.respostaEscolhida != null && this.respostaEnviada != true && this.ltiService.dados_completos?.userTopico?.[this.idTopico]?.UsuarioTopicos[0].resposta_errada == null"
+        (click)="!respostaEnviada && responder(this.respostaEscolhida)"
+      >
+        Enviar
+      </button>
+    </div>
   </div>
-  <button (click)="refazer()">Refazer</button>
 </div>
 
 <ng-template #elseAtividade>
-  <div class="container-atividade" >
+  <div class="container-atividade">
     <div *ngIf="questao">
       <h3>{{ questao.questao }}</h3>
-      <div *ngFor="let alternativa of questao.Alternativas; let i = index">
+      <div *ngFor="let alternativa of questao.Alternativas; let i = index" >
         <div
           class="alternativas"
-          [ngClass]="{'resposta-errada': resposta === alternativa.descricao && questao['respostaCorreta'] != resposta,
-          'resposta-correta': resposta === alternativa.descricao && questao['respostaCorreta'] == resposta}"
           (click)="responderAlternativo(alternativa.descricao)"
+          style="cursor: pointer;"
         >
-          <img [src]="caminhoImagem + i + '.png'" alt="Alternativa da questão" />
-          <div class="container-alternativa">
-            {{ alternativa.descricao }}
-            <div class="respostaCerta" *ngIf="resposta === alternativa.descricao">
-              Explicação: {{ resposta ? getExplicacao(resposta) : '' }}
+          <div
+            class="container-prefix"
+            [ngStyle]="{
+              'background-color':
+                (resposta === alternativa.descricao &&
+                  alternativa.correta == true) ||
+                (resposta === alternativa.descricao &&
+                  alternativa.correta == true) ||
+                alternativa.correta == true
+                  ? '#58DB43'
+                  : resposta === alternativa.descricao &&
+                    alternativa.correta == false
+                  ? 'red'
+                  : null
+            }"
+          >
+            <p
+              *ngIf="
+                resposta != alternativa.descricao &&
+                alternativa.correta != true &&
+                this.abre == null
+              "
+              class="options"
+              [ngClass]="{
+                respostaCorreta:
+                  resposta === alternativa.descricao && this.abre == false
+              }"
+            >
+              {{ vetorLetras[i] }}
+            </p>
+
+            <p
+              *ngIf="resposta != alternativa.descricao && this.abre != null"
+              class="options"
+            >
+              {{ vetorLetras[i] }}
+            </p>
+
+            <img
+              class="img img-correta"
+              *ngIf="
+                resposta === alternativa.descricao &&
+                alternativa.correta == true &&
+                this.respondidoOficialmente == false &&
+                this.abre != null
+              "
+              src="../../../../../assets/img/checkAtividade.png"
+              alt=""
+            />
+            <img
+              class="img img-correta"
+              *ngIf="
+                this.abre == null &&
+                alternativa.correta == true &&
+                this.respondidoOficialmente == false
+              "
+              src="../../../../../assets/img/checkAtividade.png"
+              alt=""
+            />
+            <img
+              class="img img-correta"
+              *ngIf="
+                this.abre == null &&
+                alternativa.correta == true &&
+                this.respondidoOficialmente == true
+              "
+              src="../../../../../assets/img/checkAtividade.png"
+              alt=""
+            />
+            <img
+              class="img img-errada"
+              *ngIf="
+                resposta === alternativa.descricao &&
+                alternativa.correta == false
+              "
+              src="../../../../../assets/img/erradoAtividade.png"
+              alt=""
+            />
+          </div>
+          <div class="container-textos">
+            <div class="texto-cima">
+              <p>{{ alternativa.descricao }}</p>
+              <mat-icon
+                (click)="clickOlho()"
+                [ngStyle]="{
+                  color:
+                    (resposta === alternativa.descricao && (this.abre == true || this.abre == null))
+                      ? '#A174E2'
+                      : this.abre == false
+                      ? 'white'
+                      : null
+                }"
+                >remove_red_eye</mat-icon
+              >
+            </div>
+            <div
+              class="texto-baixo"
+              *ngIf="resposta === alternativa.descricao && this.abre == true"
+              [ngClass]="{
+                'respostaErrada': alternativa.correta == false,
+                'respostaCorreta': alternativa.correta == true
+              }"
+            >
+              <p>{{ resposta ? getExplicacao(resposta) : "" }}</p>
+            </div>
+            <div
+              class="texto-baixo"
+              *ngIf="
+                alternativa.descricao != null &&
+                alternativa.correta == true &&
+                this.abre == null
+              "
+              [ngClass]="{
+                respostaCorreta:
+                  alternativa.descricao != null &&
+                  alternativa.correta == true &&
+                  this.abre == null
+              }"
+            >
+              <p>{{ alternativa.explicacao }}</p>
             </div>
           </div>
         </div>
@@ -54,4 +307,3 @@
     </div>
   </div>
 </ng-template>
-

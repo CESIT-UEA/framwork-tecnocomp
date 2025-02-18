@@ -1,58 +1,77 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  AfterViewInit,
+  OnDestroy,
+} from '@angular/core';
+import { ModuloService } from 'src/app/personalizavel/modulo.service';
 import { ServiceAppService } from 'src/app/service-app.service';
 
-/**
- * Classe responsavel pelo carregamento dos videos, mas seu funcinamento era ser um componente reutilizavel com o objetivo de ser o slide do texto de apoio
- */
 @Component({
   selector: 'app-slide-unidade',
   templateUrl: './slide-unidade.component.html',
   styleUrls: ['./slide-unidade.component.css'],
 })
-export class SlideUnidadeComponent implements OnInit {
-  constructor(private ltiService: ServiceAppService) {}
-  /**
-   * Array de links de videos, a qual é uma variavel que recebe um array string ao instanciar este componente, e ele é obrigatório
-   */
+export class SlideUnidadeComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input({ required: true }) videos!: any[];
-  videosString!: string[]
+  isLoading = false;
+
+  constructor(
+    public ltiService: ServiceAppService,
+    public moduloService: ModuloService
+  ) {}
 
   ngOnInit(): void {
-    console.log("Ola mundo")
-    for (const values of this.videos) {
-      console.log("Videos: ",values.url)
+    if (
+      this.ltiService.dados_completos.userTopico[this.moduloService.controll_topico]
+        .UsuarioTopicos[0].indice_video != null
+    ) {
+      this.ltiService.currentVideoIndex =
+        this.ltiService.dados_completos.userTopico[
+          this.moduloService.controll_topico
+        ].UsuarioTopicos[0].indice_video;
+    }
+    this.ltiService.loadYouTubeAPI();
+  }
+
+  ngAfterViewInit(): void {
+    this.ltiService.recreatePlayer();
+  }
+
+  ngOnDestroy(): void {
+    if (this.ltiService.player) {
+      this.ltiService.player.destroy();
+      this.ltiService.player = null;
     }
   }
 
-  /**
-   * Variavel responsavel por guardar o indice do video que será exibido, por padrão começa com 0, pelo link do video em primeiro do vetor acima
-   */
-  currentVideoIndex: number = 0;
+  // Retorna os vídeos visíveis na página atual
+  get arrayVisivel() {
+    return this.videos;
+  }
 
-  /**
-   * @method
-   * Metódo responsavel por poder selecionar na interface qual video será exibido
-   */
-  selectVideo(index: number) {
-    this.ltiService.controlAtividade = this.ltiService.controlAtividade + 1;
-    console.log(this.ltiService.controlAtividade);
+  selectVideo(index: number): void {
     this.startLoading();
-    this.currentVideoIndex = index;
+    this.ltiService.currentVideoIndex = index;
+    this.ltiService.salvarProgressoVideos().subscribe((response) => {
+      this.ltiService.removeDadosCompletos();
+      this.ltiService.setDadosCompletos(response);
+    });
+    this.ltiService.recreatePlayer();
+    this.stopLoading();
   }
 
-  /**
-   * Variavel responsavel por guardar se esta havendo carregamento
-   */
-  isLoading = false;
-
-  /**
-   * @method
-   * Metódo responsavel por dar um delay de 1s ao trocar para outro video
-   */
-  startLoading() {
+  startLoading(): void {
     this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
   }
+
+  stopLoading(): void {
+    this.isLoading = false;
+  }
+
+  getVerificaVideosAssistidos(): number {
+    return this.videos.filter((video) => video.UsuarioVideos[0].completo).length;
+  }
+
 }

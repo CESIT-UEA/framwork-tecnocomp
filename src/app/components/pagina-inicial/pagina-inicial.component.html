@@ -1,0 +1,37 @@
+<main class="main">
+    <section class="main__section section__one">
+        <p style="color: white; font-size: 23px;">Adicione seu ava a lista de avas</p>
+        <form class="main__section__form" [formGroup]="formAva">
+            <input type="text" formControlName="name" placeholder="Nome do AVA">
+            <input type="text" formControlName="url" placeholder="URL do AVA">
+            <button class="button" (click)="adicionarAva()">Adicionar</button>
+        </form>
+    </section>
+    <section class="main__section section__two">
+        <div class="main__section__container" >
+            <h1 class="main__section__container__titulo">Lista de AVAS</h1>
+            <button 
+                (click)="limparListaAva()" 
+                *ngIf="this.lista_avas.length !==0; else vazio"
+                style="margin: 0 auto; display: block; 
+                margin-bottom: 5px; padding: 5px;"
+            >
+                Limpar lista
+            </button>
+            <ul *ngFor="let avas of this.lista_avas; index as i" class="main__section__container__lista" >
+                <li class="main__section__lista__item">
+                    <a style="color: white; text-align: center; text-decoration: none;" 
+                    [href]="avas.url">{{ avas.name }}</a>
+                    <div class="main__section__lista__buttons">
+                        <button>Editar</button>
+                        <button (click)="excluirAva(i)">Excluir</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <ng-template #vazio>
+            <div style="text-align: center; width: 100%; color: white; padding-bottom: 10px;"><p>Lista vazia</p></div>
+        </ng-template>
+    </section>
+</main>
+

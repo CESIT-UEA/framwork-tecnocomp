@@ -17,7 +17,7 @@ export class BehaviorismoComponent implements OnInit {
     this.ltiService.bloqueio = bloqueio ? JSON.parse(bloqueio) : undefined;
   }
   ngOnInit(): void {
-    this.ltiService.controlAtividade = 1
+
   }
   teste = 1;
   nome = 'Behaviorismo';

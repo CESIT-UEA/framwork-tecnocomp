@@ -1,6 +1,28 @@
 <!-- iframe do slide do contéudo -->
- <div *ngIf="caminhoSlide">
-  <div [innerHTML]="teste"></div>
- </div>
+<div *ngIf="caminhoSlide">
+  <div class="header-atividade">
+    <div class="container-links">
+      <div class="header-links">
+        <!-- Imagem do ícone de download do ebook -->
+        <img
+          src="../../../assets/icons/texto-de-apoio.svg"
+          alt="Icone para download do ebook"
+          width="28px"
+          height="28px"
+        />
+        <p>Slide</p>
+      </div>
+    </div>
+    <!-- ícone que quando clicado volta para a página geral da unidade -->
+    <img
+      (click)="textoApoioClick.emit()"
+      src="assets/icons/close.svg"
+      alt="Icone para ir para a atividade da unidade"
+      width="30px"
+      height="30px"
+      style="cursor: pointer;"
+    />
+  </div>
 
-
+  <div class="teste" [innerHTML]="teste"></div>
+</div>

@@ -18,10 +18,12 @@ export class ModuloService {
   informacoes: any;
   quantidadeTopicos!: number;
   notaTotal!: number;
+  controll_topico:number = 0;
 
   constructor(private http: HttpClient) {}
   getUserInfo(ltik: string): Observable<any> {
-    return this.http.get(`${this.baseUrlLTI}/userInfo?ltik=${ltik}`);
+    console.log(`Requisição LTI sendo feita para: ${this.baseUrlLTI}/userInfo?ltik=${ltik}`)
+    return this.http.get<any>(`${this.baseUrlLTI}/userInfo?ltik=${ltik}`);
   }
 
   getModuloPorNome(nomeModulo: string): Observable<any> {

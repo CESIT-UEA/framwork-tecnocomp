@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { MatSidenavContainer } from '@angular/material/sidenav';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModuloService } from 'src/app/personalizavel/modulo.service';
 import { ServiceAppService } from 'src/app/service-app.service';
@@ -17,6 +18,8 @@ export class HomeComponent {
    * Variavel que guarda o nome
    */
   nome: string = '';
+  @ViewChild(MatSidenavContainer) sidenavContainer!: MatSidenavContainer;
+
   @Input() urlVideoInicial: any;
   /**
    * @constructor
@@ -36,31 +39,28 @@ export class HomeComponent {
   tokenData: any;
 
   ngOnInit(): void {
-    this.tokenData = localStorage.getItem('dados_completos_do_modulo');
-    if (this.tokenData) {
-      this.tokenData = JSON.parse(this?.tokenData);
-      this.appService.notaTotal = this?.tokenData?.userModulo.nota;
-      console.log('Nota: ', this?.tokenData?.userModulo?.nota);
-      console.log('Token data: ', this?.tokenData);
-    }
-
     const ltik = this.route.snapshot.queryParamMap.get('ltik');
     if (ltik) {
       this.moduloService.getUserInfo(ltik).subscribe(
         (data) => {
           this.tokenData = data;
+          console.log(data);
 
           this.moduloService.urlInicio =
             this.tokenData.modulo.nome_modulo + 'Home';
-          localStorage.setItem(
+
+            localStorage.setItem(
             'bloqueio',
             JSON.stringify(this.tokenData.userTopico)
           );
-          //!Importante
-          localStorage.setItem(
-            'dados_completos_do_modulo',
-            JSON.stringify(this.tokenData)
-          );
+
+          this.appService.setDadosCompletos(data);
+
+
+          let teste2 = localStorage.getItem('token');
+          if (teste2) {
+            localStorage.removeItem('token')
+          }
 
           localStorage.setItem('token', this.tokenData.user.ltik);
 
@@ -76,18 +76,14 @@ export class HomeComponent {
           this.moduloService.bloqueio = bloqueio
             ? JSON.parse(bloqueio)
             : this.tokenData.userTopico;
-
-          this.moduloService.informacoes = this.tokenData;
-          this.moduloService.quantidadeTopicos =
-            this.tokenData.modulo.quantidadeTopicos;
-          this.moduloService.notaTotal =
-            this.tokenData.userModulo.notaAcumulada;
         },
         (error) => {
           console.error('Error:', error);
         }
       );
     }
+
+    this.appService.getDadosCompletos();
   }
 
   /**
@@ -95,5 +91,26 @@ export class HomeComponent {
    */
   navigation() {
     this.router.navigate(['/teorias-da-aprendizagem']);
+  }
+
+  clickHeader(controller: number) {
+    return (this.appService.controllerSwitchHome = controller)
+  }
+
+  fecharMenuClick() {
+    this.sidenavContainer.close();
+  }
+
+  navegarModulo(topicoId:number){
+    console.log(topicoId)
+    this.moduloService.controll_topico = topicoId
+    this.sidenavContainer.close();
+    if (this.appService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video != null) {
+      this.appService.currentVideoIndex = this.appService.dados_completos.userTopico[this.moduloService.controll_topico].UsuarioTopicos[0].indice_video
+      console.log("Video retornado salvo já")
+    }else{
+      this.appService.currentVideoIndex = 0
+    }
+    this.appService.recreatePlayer()
   }
 }

@@ -1,6 +1,12 @@
 @font-face {
   font-family: minhaFonte;
-  src: url('../../../../assets/fonteProjeto.ttf');
+  src: url("../../../../assets/fonteProjeto.ttf");
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 .button-section {
   display: grid;
@@ -8,21 +14,14 @@
   height: 100%;
 }
 
-.button-section::before {
-  z-index: 8;
-  content: '';
-  background: url('../../../../assets/imagem-acima-botoes.png') no-repeat;
-  background-size: contain;
-  width: 300px;
-  height: 200px;
-  margin: 0 auto;
-  position: relative;
-  top: -40px;
+.imagem-acima {
+  align-self: center;
 }
 
-
 .button-section .button-group {
+  width: 80%;
   text-align: center;
+  margin: 0 auto;
 }
 
 .button-section .button-group button {
@@ -42,47 +41,79 @@
   border-radius: 6.95px;
   background: none;
   margin: 0 auto;
-  color: #FFF;
+  color: #fff;
   font-family: minhaFonte;
-  border: 1.738px solid #FFF;
+  border: 1.738px solid #fff;
   font-size: 0.8rem;
   font-style: normal;
   font-weight: 500;
-  background: linear-gradient(to right, #5E2FA5 50%, transparent 50%);
+  background: linear-gradient(to right, #5e2fa5 50%, transparent 50%);
   background-size: 200% 100%;
   background-position: right bottom;
   transition: all 0.5s ease-out;
+  cursor: pointer;
 }
 
-.button-section .button-group .download-button a {
-  text-decoration: none;
-  color: #FFF;
+.button-section .button-group .download-button p {
+  color: #fff;
 }
+
 
 .button-section .button-group .download-button:hover {
   background-position: left bottom;
   color: black;
   font-weight: 400;
   line-height: normal;
-  border: 1.738px solid #50288D;
+  border: 1.738px solid #50288d;
 }
 
 .button-section .button-group .start-button {
   border-radius: 0.49963rem;
-  background: #9665DF;
-  font-family: customFont;
-  color: var(--Terciaria, #FFF);
+  background: #793CD4;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--Terciaria, #fff);
   text-align: center;
-  font-size: 18px;
+  font-size: 15px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   line-height: normal;
+  cursor: pointer;
+}
+.concluido{
+  background: #44A834;
+  border-radius: 0.49963rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--Terciaria, #fff);
+  text-align: center;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 10px;
+
+}
+.link{
+  text-decoration: none;
 }
 @media (max-width: 899px) {
-  .button-section::before{
+  .button-section::before {
     display: none;
   }
-  .button-section{
+  .button-section {
     margin-top: 20px;
+  }
+
+  .imagem-acima {
+    display: none;
+  }
+}
+@media (max-width: 530px) {
+  .button-section .button-group {
+    width: 100%;
   }
 }

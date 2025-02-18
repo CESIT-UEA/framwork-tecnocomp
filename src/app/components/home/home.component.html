@@ -1,25 +1,131 @@
 <div class="main-container">
-  <!-- chamada do componente de cabeçalho--> <!-- Teste -->
-  <app-header [nome]="tokenData?.modulo?.nome_modulo"></app-header>
-  <div
-    [ngClass]="{'content-container-condition':this.appService.controllerSwitchHome == 1}"
-    [ngSwitch]="appService.controllerSwitchHome"
-  >
-    <section class="content-container-ficha-tecnica" *ngSwitchCase="'1'">
-      <!--
-        TO DO: Componente do referencial teorico, componentizar melhor ele após as alterações da designer
-      -->
-      <app-ficha-tecnica></app-ficha-tecnica>
-    </section>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" fixedInViewport="Fixed" position="end">
+      <app-menu-com-barra-progresso-teste
+        (navegarModulo)="navegarModulo($event)"
+        (fecharMenu)="fecharMenuClick()"
+        [verificaMenuHome]="true"
+      ></app-menu-com-barra-progresso-teste>
+    </mat-sidenav>
 
-    <!-- Section padrão da página incial HOME com video e botões -->
-    <section class="content-container" *ngSwitchDefault>
-      <div class="content-container-section">
-        <!-- chamada do componente de video da página home -->
-        <app-video-section [videoUrl]="urlVideoInicial"></app-video-section>
-        <!-- chamada do componente botão na página home -->
-        <app-botoes-section nome_ebook="Ebook de Teste" caminho_ebook="assets/E-book Teste.PDF" urlInicio="topicos"></app-botoes-section>
+    <mat-sidenav-content>
+      <mat-toolbar
+        class="header"
+        [ngClass]="{
+          'header-fixed': this.appService.controllerSwitchHome != 0
+        }"
+      >
+        <img
+          src="assets/tecnocomp.png"
+          alt="Tecnocom+ LOGO"
+          routerLink="./"
+          (click)="clickHeader(0)"
+        />
+        <nav>
+          <div class="links">
+            <span
+              class="btn-home"
+              (click)="clickHeader(0)"
+              [ngClass]="{
+                'active-topico-container':
+                  this.appService.controllerSwitchHome == 0
+              }"
+            >
+              Home
+            </span>
+            <span
+              (click)="clickHeader(1)"
+              class="btn-ficha"
+              [ngClass]="{
+                'active-topico-container':
+                  this.appService.controllerSwitchHome == 1
+              }"
+            >
+              Ficha Técnica
+            </span>
+            <span
+              class="btn-sobre"
+              (click)="clickHeader(2)"
+              [ngClass]="{
+                'active-topico-container':
+                  this.appService.controllerSwitchHome == 2
+              }"
+            >
+              Sobre
+            </span>
+          </div>
+          <div class="end-navbar">
+            <div
+              *ngIf="this.appService.perfilUser == false"
+              class="container-foto-header"
+            >
+              <div class="foto-header">
+                {{ this.appService.dados_completos.user.nome[0] }}
+              </div>
+              <mat-icon
+                style="color: white; cursor: pointer"
+                (click)="
+                  this.appService.abreMenuUser(); $event.stopPropagation()
+                "
+              >
+                keyboard_arrow_down
+              </mat-icon>
+            </div>
+            <app-perfil-user
+              *ngIf="this.appService.perfilUser == true"
+            ></app-perfil-user>
+            <mat-icon (click)="sidenav.open()" id="icon">menu</mat-icon>
+          </div>
+        </nav>
+      </mat-toolbar>
+      <div
+        [ngClass]="{
+          'content-container-condition':
+            this.appService.controllerSwitchHome == 1,
+          'container-pai': this.appService.controllerSwitchHome == 0
+        }"
+        [ngSwitch]="appService.controllerSwitchHome"
+      >
+        <section class="content-container-ficha-tecnica" *ngSwitchCase="'1'">
+          <app-ficha-tecnica></app-ficha-tecnica>
+        </section>
+        <section *ngSwitchCase="'2'">
+          <app-sobre></app-sobre>
+        </section>
+
+        <!-- Section padrão da página incial HOME com video e botões -->
+        <section class="container-section" *ngSwitchDefault>
+          <div class="content-container">
+            <div class="container-esquerdo">
+              <h1 class="title">
+                <span class="text-unidade">{{
+                  this.appService.dados_completos.modulo.nome_modulo
+                }}</span>
+              </h1>
+
+              <app-video-section
+                [videoUrl]="
+                  this.appService.dados_completos?.modulo?.video_inicial
+                "
+              ></app-video-section>
+            </div>
+            <div class="container-direito">
+              <img
+                class="imagem-acima"
+                src="../../../../assets/imagem-acima-botoes.png"
+                alt=""
+                width="300px"
+                height="220px"
+              />
+              <app-botoes-section
+                nome_ebook="Ebook de Teste"
+                caminho_ebook="assets/E-book Teste.PDF"
+                urlInicio="topicos"
+              ></app-botoes-section>
+            </div>
+          </div>
+        </section>
       </div>
-    </section>
-  </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

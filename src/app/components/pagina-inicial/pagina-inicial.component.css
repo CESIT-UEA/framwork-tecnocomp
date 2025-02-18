@@ -1,0 +1,86 @@
+.main, .main__section {
+    display: flex;
+    height: 100%;
+}
+
+.section__one {
+    background-color: blueviolet;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.main__section{
+    width: 50%;
+}
+
+.section__two {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__section__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.main__section__form, .main__section > p {
+    width: 100%;
+    text-align: center;
+}
+
+.main__section__form > input[type=text], .button {
+    width: 50%;
+}
+
+
+.main__section__form > input[type=text], .button {
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: -5px 4px 10px black;
+    padding: 1rem;
+}
+
+.main__section__container {
+    background-color: rgb(51, 47, 47);
+    border-radius: 5px;
+    width: 50%;
+    box-shadow: 0.5px 2px 5px blueviolet;
+}
+
+.main__section__container__lista, .main__section__container__titulo {
+    height: 40px;
+    padding: 0 10px;
+    border-bottom: 1px solid rgb(66, 59, 59);
+    align-content: center;
+    list-style-type: none;
+}
+
+.main__section__container__titulo {
+    color: blueviolet;
+    text-align: center;
+}
+
+.main__section__container__lista:hover {
+    background-color: blueviolet;
+}
+
+.main__section__lista__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main__section__lista__buttons > button {
+    padding: 5px;
+    margin-left: 2px;
+}
+
+button:hover {
+    background-color: rgb(192, 187, 187);
+}
+
+
